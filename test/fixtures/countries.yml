@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  m_id: MyString
+  name: MyString
+  can_signup: false
+  is_public: false
+  logo: MyString
+  trimmed_name: MyString
+
+two:
+  m_id: MyString
+  name: MyString
+  can_signup: false
+  is_public: false
+  logo: MyString
+  trimmed_name: MyString
