@@ -13,3 +13,22 @@
  *= require_tree .
  *= require_self
  */
+
+
+body {
+  background-color: #DDD;
+  color: #333;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.btn{
+  background: #222;
+  color: white;
+  border-radius: 0;
+}
+
+.btn:hover{
+  color: white;
+  background: #555;
+}
+
