@@ -32,7 +32,7 @@ namespace :makeworks do
         lng: row['Longitude'],
         location: row['Location'],
         medium_run: row['Medium_run'],
-        minimum_order: row['Minimum_Order'],
+        minimum_order: row['Minimium_Order_Cost'],
         name: row['Name'],
         number_of_staff: row['Number_of_Staff'],
         photo1: row['Photo1'],
