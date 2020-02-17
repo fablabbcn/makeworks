@@ -22,8 +22,6 @@ body {
 }
 
 .btn{
-  background: #222;
-  color: white;
   border-radius: 0;
 }
 
@@ -32,3 +30,16 @@ body {
   background: #555;
 }
 
+.btn-primary{
+  background: #222;
+  color: white;
+  border: 0px;
+}
+
+.btn-primary:active{
+  background:black !important;
+}
+
+.btn-primary:focus{
+  background:black;
+}
