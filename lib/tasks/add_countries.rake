@@ -49,7 +49,8 @@ namespace :makeworks do
         top_image: row['Top_Image'],
         video_link: row['Video_link'],
         website: row['Company_Website'],
-        year_founded: row['YearFounded'],
+        #WARNING two fields like this YearFounded and Year_Founded. Get the bigger one?
+        year_founded: [row['YearFounded'], row['Year_Founded']].max,
       )
     end
 
