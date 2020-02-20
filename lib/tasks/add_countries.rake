@@ -13,9 +13,11 @@ namespace :makeworks do
       )
     end
 
-    CSV.read("csv/companies.tsv", encoding:"utf-8", headers: true, col_sep: "\t").each do |row|
+    File.open("csv/companies.json").each do |r|
+      row = JSON.parse(r)
 
-      the_country = Country.find_by_m_id(row['Organisation'])
+      next unless row["Organisation"]
+      the_country = Country.find_by_m_id(row["Organisation"]["$oid"])
       if the_country.nil?
         puts "Cannot find Organization for: #{row}"
         next
@@ -50,7 +52,7 @@ namespace :makeworks do
         video_link: row['Video_link'],
         website: row['Company_Website'],
         #WARNING two fields like this YearFounded and Year_Founded. Get the bigger one?
-        year_founded: [row['YearFounded'], row['Year_Founded']].max,
+        year_founded: [row['YearFounded'], row['Year_Founded']].map(&:to_i).max,
       )
     end
 
