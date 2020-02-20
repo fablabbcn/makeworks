@@ -16,6 +16,26 @@ namespace :makeworks do
       )
     end
 
+
+    File.open("csv/user.json").each do |r|
+      row = JSON.parse(r)
+
+      all_orgs = []
+      row["organisations"].each do |o|
+        all_orgs << Country.find_by_m_id(o["$oid"])
+      end
+
+      User.create!(
+        m_id: row['_id']['$oid'],
+        countries: all_orgs,
+        email: row['email'],
+        first_name: row['first_name'],
+        last_name: row['last_name'],
+        is_admin: row['is_admin']
+      )
+    end
+
+
     File.open("csv/companies.json").each do |r|
       row = JSON.parse(r)
 
