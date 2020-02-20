@@ -1,15 +1,18 @@
 namespace :makeworks do
-  desc "Add from CSV"
+  desc "Add from .json files"
 
-  task add_country: [:environment] do
-    require 'csv'
+  task import_all: [:environment] do
 
-    csv = CSV.read("csv/organisation.csv", headers: true, col_sep: ",")
-    csv.each_with_index do |row|
+    File.open("csv/organisation.json").each do |r|
+      row = JSON.parse(r)
       Country.create!(
-        m_id: row['_id'].delete("()").gsub('ObjectId',""),
+        m_id: row['_id']['$oid'],
         name: row['organisation_name'],
-        can_signup: row['can_signup']
+        #short_name: row['short_name'],
+        trimmed_name: row['orgainisation_trimmed_name'],
+        logo: row['logo'],
+        can_signup: row['can_signup'],
+        is_public: row['is_public']
       )
     end
 
@@ -19,23 +22,23 @@ namespace :makeworks do
       next unless row["Organisation"]
       the_country = Country.find_by_m_id(row["Organisation"]["$oid"])
       if the_country.nil?
-        puts "Cannot find Organization for: #{row}"
+        puts "-- Cannot find Organization for: #{row}"
         next
       end
       Company.create!(
-        m_id: row['_id'],
+        m_id: row['_id']['$oid'],
         country: the_country,
         address: row['Company_Address'],
         background: row['Company_Background'],
         file_types: row['File_Types'],
         intro: row['Intro'],
-        large_run: row['Large_run'],
+        large_run: row['Large_run'].to_s.downcase == "true",
         lat: row['Latitude'],
         lng: row['Longitude'],
         location: row['Location'],
         medium_run: row['Medium_run'],
         minimum_order: row['Minimium_Order_Cost'],
-        name: row['Name'],
+        name: row['Company_Name'],
         number_of_staff: row['Number_of_Staff'],
         photo1: row['Photo1'],
         photo2: row['Photo2'],
