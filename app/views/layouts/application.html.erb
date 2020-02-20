@@ -27,19 +27,16 @@
 
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
-      <a class="navbar-brand" href="#">MakeWorks</a>
+      <a class="navbar-brand" href="/">MakeWorks</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto ml-5">
-          <li class="nav-item active">
-            <%= link_to "Regions", countries_url, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Companies", companies_url, class: "nav-link" %>
-          </li>
+          <li class="nav-item active"> <%= link_to "Regions", regions_url, class: "nav-link" %> </li>
+          <li class="nav-item"> <%= link_to "Companies", companies_url, class: "nav-link" %> </li>
+          <li class="nav-item"> <%= link_to "Users", users_url, class: "nav-link" %> </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

@@ -1,0 +1,18 @@
+
+<%= simple_form_for(@region) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :m_id %>
+    <%= f.input :name %>
+    <%= f.input :can_signup %>
+    <%= f.input :is_public %>
+    <%= f.input :logo %>
+    <%= f.input :trimmed_name %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

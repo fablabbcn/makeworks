@@ -1,6 +1,6 @@
-class CreateCountries < ActiveRecord::Migration[6.0]
+class CreateRegions < ActiveRecord::Migration[6.0]
   def change
-    create_table :countries do |t|
+    create_table :regions do |t|
       t.string :m_id
       t.string :name
       t.boolean :can_signup

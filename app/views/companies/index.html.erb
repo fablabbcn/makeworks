@@ -1,0 +1,89 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Companies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>M</th>
+      <th>Region</th>
+      <th>Country</th>
+      <th>Address</th>
+      <th>Background</th>
+      <th>File types</th>
+      <th>Intro</th>
+      <th>Large run</th>
+      <th>Lat</th>
+      <th>Lng</th>
+      <th>Location</th>
+      <th>Medium run</th>
+      <th>Minimum order</th>
+      <th>Name</th>
+      <th>Number of staff</th>
+      <th>Photo1</th>
+      <th>Photo2</th>
+      <th>Photo3</th>
+      <th>Photo4</th>
+      <th>Photo5</th>
+      <th>Photo6</th>
+      <th>Photo7</th>
+      <th>Photo8</th>
+      <th>Photo9</th>
+      <th>Portrait</th>
+      <th>Sample production</th>
+      <th>Short run</th>
+      <th>Soft delete</th>
+      <th>Top image</th>
+      <th>Video link</th>
+      <th>Website</th>
+      <th>Year founded</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @companies.each do |company| %>
+      <tr>
+        <td><%= company.m_id %></td>
+        <td><%= company.region_id %></td>
+        <td><%= company.country %></td>
+        <td><%= company.address %></td>
+        <td><%= company.background %></td>
+        <td><%= company.file_types %></td>
+        <td><%= company.intro %></td>
+        <td><%= company.large_run %></td>
+        <td><%= company.lat %></td>
+        <td><%= company.lng %></td>
+        <td><%= company.location %></td>
+        <td><%= company.medium_run %></td>
+        <td><%= company.minimum_order %></td>
+        <td><%= company.name %></td>
+        <td><%= company.number_of_staff %></td>
+        <td><%= company.photo1 %></td>
+        <td><%= company.photo2 %></td>
+        <td><%= company.photo3 %></td>
+        <td><%= company.photo4 %></td>
+        <td><%= company.photo5 %></td>
+        <td><%= company.photo6 %></td>
+        <td><%= company.photo7 %></td>
+        <td><%= company.photo8 %></td>
+        <td><%= company.photo9 %></td>
+        <td><%= company.portrait %></td>
+        <td><%= company.sample_production %></td>
+        <td><%= company.short_run %></td>
+        <td><%= company.soft_delete %></td>
+        <td><%= company.top_image %></td>
+        <td><%= company.video_link %></td>
+        <td><%= company.website %></td>
+        <td><%= company.year_founded %></td>
+        <td><%= link_to 'Show', company %></td>
+        <td><%= link_to 'Edit', edit_company_path(company) %></td>
+        <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Company', new_company_path %>

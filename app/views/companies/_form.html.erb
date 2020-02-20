@@ -1,0 +1,44 @@
+
+<%= simple_form_for(@company) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :m_id %>
+    <%= f.association :region %>
+    <%= f.input :country %>
+    <%= f.input :address %>
+    <%= f.input :background %>
+    <%= f.input :file_types %>
+    <%= f.input :intro %>
+    <%= f.input :large_run %>
+    <%= f.input :lat %>
+    <%= f.input :lng %>
+    <%= f.input :location %>
+    <%= f.input :medium_run %>
+    <%= f.input :minimum_order %>
+    <%= f.input :name %>
+    <%= f.input :number_of_staff %>
+    <%= f.input :photo1 %>
+    <%= f.input :photo2 %>
+    <%= f.input :photo3 %>
+    <%= f.input :photo4 %>
+    <%= f.input :photo5 %>
+    <%= f.input :photo6 %>
+    <%= f.input :photo7 %>
+    <%= f.input :photo8 %>
+    <%= f.input :photo9 %>
+    <%= f.input :portrait %>
+    <%= f.input :sample_production %>
+    <%= f.input :short_run %>
+    <%= f.input :soft_delete %>
+    <%= f.input :top_image %>
+    <%= f.input :video_link %>
+    <%= f.input :website %>
+    <%= f.input :year_founded %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
