@@ -53,7 +53,6 @@ namespace :makeworks do
       )
     end
 
-    exit
 
     File.open("csv/companies.json").each do |r|
       row = JSON.parse(r)
