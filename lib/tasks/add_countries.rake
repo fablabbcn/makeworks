@@ -5,7 +5,7 @@ namespace :makeworks do
 
     File.open("csv/organisation.json").each do |r|
       row = JSON.parse(r)
-      Region.create!(
+      Region.find_or_create_by(
         m_id: row['_id']['$oid'],
         name: row['organisation_name'],
         #short_name: row['short_name'],
@@ -20,12 +20,13 @@ namespace :makeworks do
     File.open("csv/user.json").each do |r|
       row = JSON.parse(r)
 
+      # find all orgs/region that user belongs to
       all_orgs = []
       row["organisations"].each do |o|
         all_orgs << Region.find_by_m_id(o["$oid"])
       end
 
-      User.create!(
+      User.find_or_create_by(
         m_id: row['_id']['$oid'],
         regions: all_orgs,
         email: row['email'],
@@ -45,7 +46,7 @@ namespace :makeworks do
         puts "-- Cannot find Organization for: #{row}"
         next
       end
-      Company.create!(
+      Company.find_or_create_by(
         m_id: row['_id']['$oid'],
         region: the_region,
         address: row['Company_Address'],
