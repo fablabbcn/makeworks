@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_20_223122) do
+ActiveRecord::Schema.define(version: 2020_02_22_161140) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,16 @@ ActiveRecord::Schema.define(version: 2020_02_20_223122) do
     t.string "trimmed_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "taxonomies", force: :cascade do |t|
+    t.string "m_id"
+    t.string "taxonomy"
+    t.string "name"
+    t.bigint "parent_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["parent_id"], name: "index_taxonomies_on_parent_id"
   end
 
   create_table "user_regions", force: :cascade do |t|

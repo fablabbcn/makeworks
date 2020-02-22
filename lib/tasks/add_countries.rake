@@ -37,6 +37,24 @@ namespace :makeworks do
     end
 
 
+    File.open("csv/taxonomy.json").each do |r|
+      row = JSON.parse(r)
+
+      if row['parent']
+        the_parent = Taxonomy.find_by_m_id(row['parent']['$oid'])
+      else
+        the_parent = nil
+      end
+      Taxonomy.find_or_create_by(
+        m_id: row['_id']['$oid'],
+        taxonomy: row['taxonomy'],
+        name: row['name'],
+        parent: the_parent
+      )
+    end
+
+    exit
+
     File.open("csv/companies.json").each do |r|
       row = JSON.parse(r)
 

@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  m_id: MyString
+  taxonomy: MyString
+  name: MyString
+  parent: one
+
+two:
+  m_id: MyString
+  taxonomy: MyString
+  name: MyString
+  parent: two
