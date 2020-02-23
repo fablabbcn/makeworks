@@ -163,6 +163,8 @@ namespace :makeworks do
         photo9: row['Photo9'],
         portrait: row['Portrait'],
         sample_production: row['Sample_production'],
+        short_run: row['Short_run'],
+        soft_delete: row['Soft_Delete'],
         top_image: row['Top_Image'],
         video_link: row['Video_link'],
         website: row['Company_Website'],

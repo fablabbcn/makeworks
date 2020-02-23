@@ -7,7 +7,6 @@
     <tr>
       <th>M</th>
       <th>Region</th>
-      <th>Country</th>
       <th>Address</th>
       <th>Background</th>
       <th>File types</th>
@@ -45,8 +44,7 @@
     <% @companies.each do |company| %>
       <tr>
         <td><%= company.m_id %></td>
-        <td><%= company.region_id %></td>
-        <td><%= company.country %></td>
+        <td><%= link_to company.region, company.region %></td>
         <td><%= company.address %></td>
         <td><%= company.background %></td>
         <td><%= company.file_types %></td>

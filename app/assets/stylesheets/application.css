@@ -43,3 +43,8 @@ body {
 .btn-primary:focus{
   background:black;
 }
+
+td{
+  max-width:255px;
+  overflow: auto;
+}
