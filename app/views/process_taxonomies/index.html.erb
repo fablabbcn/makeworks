@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Process Taxonomies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>M</th>
+      <th>Name</th>
+      <th>Parent</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @process_taxonomies.each do |process_taxonomy| %>
+      <tr>
+        <td><%= process_taxonomy.m_id %></td>
+        <td><%= process_taxonomy.name %></td>
+        <td><%= process_taxonomy.parent_id %></td>
+        <td><%= link_to 'Show', process_taxonomy %></td>
+        <td><%= link_to 'Edit', edit_process_taxonomy_path(process_taxonomy) %></td>
+        <td><%= link_to 'Destroy', process_taxonomy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Process Taxonomy', new_process_taxonomy_path %>

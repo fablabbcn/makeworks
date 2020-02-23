@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :process_taxonomies
   resources :finished_products_taxonomies
   resources :materials_taxonomies
   resources :machines_taxonomies

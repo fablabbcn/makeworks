@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_23_164944) do
+ActiveRecord::Schema.define(version: 2020_02_23_165451) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,15 @@ ActiveRecord::Schema.define(version: 2020_02_23_164944) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["parent_id"], name: "index_materials_taxonomies_on_parent_id"
+  end
+
+  create_table "process_taxonomies", force: :cascade do |t|
+    t.string "m_id"
+    t.string "name"
+    t.bigint "parent_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["parent_id"], name: "index_process_taxonomies_on_parent_id"
   end
 
   create_table "regions", force: :cascade do |t|

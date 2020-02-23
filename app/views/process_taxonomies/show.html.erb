@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>M:</strong>
+  <%= @process_taxonomy.m_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @process_taxonomy.name %>
+</p>
+
+<p>
+  <strong>Parent:</strong>
+  <%= @process_taxonomy.parent_id %>
+</p>
+
+<%= link_to 'Edit', edit_process_taxonomy_path(@process_taxonomy) %> |
+<%= link_to 'Back', process_taxonomies_path %>
