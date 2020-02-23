@@ -32,3 +32,12 @@
 
 <%= link_to 'Edit', edit_region_path(@region) %> |
 <%= link_to 'Back', regions_path %>
+
+<hr>
+<p>
+Companies in region: <%= @region.companies.count %>
+</p>
+
+<% @region.companies.each do |c| %>
+  <%= link_to c.name, c, class: 'btn btn-primary' %>
+<% end %>

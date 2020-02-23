@@ -1,28 +1,37 @@
 <h1>Find manufacturers</h1>
+
 <p>
 Use Make Works to source local fabricators, material suppliers & workshop facilities.
 </p>
 
-<%= link_to "Regions", regions_url %>
-<%= link_to "Companies", companies_url %>
-
+<% @all_regions.each do |region| %>
+  <%= link_to region.name, region, class: 'btn btn-primary m-1' %>
+<% end %>
 
 <hr>
 
-<h4 class="text-center">5 random companies</h4>
-<hr>
+<h4 class="text-center my-5">5 random companies</h4>
 <% @random_companies.each do |c|  %>
-  <%= image_tag(c.portrait) if c.portrait %>
-  <h4><%= c.name %></h4>
-  <%= image_tag(c.photo1) if c.photo1 %>
-  <%= image_tag(c.photo2) if c.photo2 %>
-  <%= image_tag(c.photo3) if c.photo3 %>
-  <%= image_tag(c.photo4) if c.photo4 %>
-  <%= image_tag(c.photo5) if c.photo5 %>
-  <%= image_tag(c.photo6) if c.photo6 %>
-  <%= image_tag(c.photo7) if c.photo7 %>
-  <%= image_tag(c.photo8) if c.photo8 %>
-  <%= image_tag(c.photo8) if c.photo8 %>
-  <%= image_tag(c.photo9) if c.photo9 %>
-  <hr>
+  <div class="row my-5 pt-3 border-top border-dark">
+    <div class="col-lg-3">
+      <h4><%= link_to c.name, c, class: 'btn btn-sm btn-secondary' %></h4>
+      <%= image_tag(c.portrait) if c.portrait %>
+      <address><%= c.address %></address>
+      <p>Number of staff: <%= c.number_of_staff %></p>
+      <p><%= c.background %></p>
+      <small>Updated at: <%= time_ago_in_words c.updated_at %></small>
+    </div>
+    <div class="col-lg-9">
+      <%= image_tag(c.photo1) if c.photo1 %>
+      <%= image_tag(c.photo2) if c.photo2 %>
+      <%= image_tag(c.photo3) if c.photo3 %>
+      <%= image_tag(c.photo4) if c.photo4 %>
+      <%= image_tag(c.photo5) if c.photo5 %>
+      <%= image_tag(c.photo6) if c.photo6 %>
+      <%= image_tag(c.photo7) if c.photo7 %>
+      <%= image_tag(c.photo8) if c.photo8 %>
+      <%= image_tag(c.photo8) if c.photo8 %>
+      <%= image_tag(c.photo9) if c.photo9 %>
+    </div>
+  </div>
 <% end %>
