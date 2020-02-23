@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :machines_taxonomies
   resources :taxonomies
   resources :users
   resources :companies

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>M:</strong>
+  <%= @machines_taxonomy.m_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @machines_taxonomy.name %>
+</p>
+
+<p>
+  <strong>Parent:</strong>
+  <%= @machines_taxonomy.parent_id %>
+</p>
+
+<%= link_to 'Edit', edit_machines_taxonomy_path(@machines_taxonomy) %> |
+<%= link_to 'Back', machines_taxonomies_path %>
