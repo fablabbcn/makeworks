@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>M:</strong>
+  <%= @finished_products_taxonomy.m_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @finished_products_taxonomy.name %>
+</p>
+
+<p>
+  <strong>Parent:</strong>
+  <%= @finished_products_taxonomy.parent_id %>
+</p>
+
+<%= link_to 'Edit', edit_finished_products_taxonomy_path(@finished_products_taxonomy) %> |
+<%= link_to 'Back', finished_products_taxonomies_path %>

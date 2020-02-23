@@ -1,0 +1,1 @@
+json.partial! "finished_products_taxonomies/finished_products_taxonomy", finished_products_taxonomy: @finished_products_taxonomy
