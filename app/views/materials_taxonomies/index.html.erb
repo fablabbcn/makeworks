@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Materials Taxonomies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>M</th>
+      <th>Name</th>
+      <th>Parent</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @materials_taxonomies.each do |materials_taxonomy| %>
+      <tr>
+        <td><%= materials_taxonomy.m_id %></td>
+        <td><%= materials_taxonomy.name %></td>
+        <td><%= materials_taxonomy.parent_id %></td>
+        <td><%= link_to 'Show', materials_taxonomy %></td>
+        <td><%= link_to 'Edit', edit_materials_taxonomy_path(materials_taxonomy) %></td>
+        <td><%= link_to 'Destroy', materials_taxonomy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Materials Taxonomy', new_materials_taxonomy_path %>
