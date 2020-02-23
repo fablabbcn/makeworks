@@ -19,7 +19,7 @@
     <% @regions.each do |region| %>
       <tr>
         <td><%= region.m_id %></td>
-        <td><%= region.name %></td>
+        <td><%= link_to region.name, region %></td>
         <td><%= region.can_signup %></td>
         <td><%= region.is_public %></td>
         <td><%= region.logo %></td>
