@@ -26,12 +26,15 @@ namespace :makeworks do
         all_orgs << Region.find_by_m_id(o["$oid"])
       end
 
-      User.find_or_create_by(
+      the_pass = rand(36**10).to_s(36)
+      p "#{the_pass} #{row['email']}"
+      User.create(
         m_id: row['_id']['$oid'],
         regions: all_orgs,
         email: row['email'],
         first_name: row['first_name'],
         last_name: row['last_name'],
+        password: the_pass,
         is_admin: row['is_admin']
       )
     end

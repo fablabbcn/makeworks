@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
+  resources :users
   resources :manufacturer_taxonomies
   resources :industry_taxonomies
   resources :process_taxonomies
@@ -6,7 +8,6 @@ Rails.application.routes.draw do
   resources :materials_taxonomies
   resources :machines_taxonomies
   resources :taxonomies
-  resources :users
   resources :companies
   resources :regions
   root 'welcome#index'
