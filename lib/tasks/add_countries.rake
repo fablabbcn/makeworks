@@ -3,6 +3,7 @@ namespace :makeworks do
 
   task import_all: [:environment] do
 
+    puts "Creating Regions..."
     File.open("csv/organisation.json").each do |r|
       row = JSON.parse(r)
       Region.find_or_create_by(
@@ -16,7 +17,7 @@ namespace :makeworks do
       )
     end
 
-
+    puts "Creating Users..."
     File.open("csv/user.json").each do |r|
       row = JSON.parse(r)
 
@@ -40,6 +41,7 @@ namespace :makeworks do
     end
 
 
+    puts "Creating Taxonomy..."
     File.open("csv/taxonomy.json").each do |r|
       row = JSON.parse(r)
 
@@ -56,6 +58,7 @@ namespace :makeworks do
       )
     end
 
+    puts "Creating Machine Taxonomy..."
     File.open("csv/machines_taxonomy.json").each do |r|
       row = JSON.parse(r)
 
@@ -71,6 +74,7 @@ namespace :makeworks do
       )
     end
 
+    puts "Creating Manufacturer Taxonomy..."
     File.open("csv/manufacturers_taxonomy.json").each do |r|
       row = JSON.parse(r)
 
@@ -131,6 +135,7 @@ namespace :makeworks do
       )
     end
 
+    puts "Creating ProcessTaxonomy..."
     File.open("csv/process_taxonomy.json").each do |r|
       row = JSON.parse(r)
 
@@ -146,6 +151,7 @@ namespace :makeworks do
       )
     end
 
+    puts "Creating Companies..."
     File.open("csv/companies.json").each do |r|
       row = JSON.parse(r)
 

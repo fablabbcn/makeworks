@@ -3,6 +3,7 @@ class CreateUserRegions < ActiveRecord::Migration[6.0]
     create_table :user_regions do |t|
       t.references :user, null: false, foreign_key: true
       t.references :region, null: false, foreign_key: true
+      t.boolean :is_champion
 
       t.timestamps
     end

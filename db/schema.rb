@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_29_123631) do
+ActiveRecord::Schema.define(version: 2020_02_29_165259) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -131,6 +131,7 @@ ActiveRecord::Schema.define(version: 2020_02_29_123631) do
   create_table "user_regions", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "region_id", null: false
+    t.boolean "is_champion"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["region_id"], name: "index_user_regions_on_region_id"

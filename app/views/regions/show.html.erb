@@ -34,10 +34,23 @@
 <%= link_to 'Back', regions_path %>
 
 <hr>
-<p>
-Companies in region: <%= @region.companies.count %>
-</p>
+<div class="row">
+  <div class="col-lg-6">
+    <h4> Companies in region: <%= @region.companies.count %> </h4>
 
-<% @region.companies.each do |c| %>
-  <%= link_to c.name, c, class: 'btn btn-primary' %>
-<% end %>
+    <% @region.companies.each do |c| %>
+      <%= link_to c.name, c, class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+
+  <div class="col-lg-6">
+    <h4>Users in region <%= @region.users.count %></h4>
+    <% @region.users.order(:created_at).each do |user| %>
+      <%= link_to user.name, user, class: '' %>
+      <%= user.email %> -
+      Admin:<%= user.is_admin? %> -
+      Champion:<%= user.is_champion_in_region(params[:id]) %>
+      <br>
+    <% end %>
+  </div>
+</div>

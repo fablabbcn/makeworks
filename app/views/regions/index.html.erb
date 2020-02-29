@@ -11,6 +11,7 @@
       <th>Is public</th>
       <th>Logo</th>
       <th>Trimmed name</th>
+      <th>User count</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -24,6 +25,7 @@
         <td><%= region.is_public %></td>
         <td><%= region.logo %></td>
         <td><%= region.trimmed_name %></td>
+        <td><%= region.users.count %></td>
         <td><%= link_to 'Show', region %></td>
         <td><%= link_to 'Edit', edit_region_path(region) %></td>
         <td><%= link_to 'Destroy', region, method: :delete, data: { confirm: 'Are you sure?' } %></td>

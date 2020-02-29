@@ -3,7 +3,9 @@
 one:
   user: one
   region: one
+  is_champion: false
 
 two:
   user: two
   region: two
+  is_champion: false

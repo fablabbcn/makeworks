@@ -27,3 +27,15 @@
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+
+<hr>
+<h4>Is in regions:</h4>
+
+<% @user.regions.each do |region| %>
+  <%= link_to  region, class: 'm-1 btn btn-primary' do %>
+    <%= region.name %>
+    <% if @user.is_champion_in_region(region.id) %>
+      (Champion)
+    <% end %>
+  <% end %>
+<% end %>
