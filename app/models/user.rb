@@ -11,7 +11,11 @@ class User < ApplicationRecord
   end
 
   def name
-    "#{first_name} #{last_name}"
+    if "#{first_name} #{last_name}".length > 1
+      "#{first_name} #{last_name}"
+    else
+      email
+    end
   end
 
   def is_champion_in_region(region_id)

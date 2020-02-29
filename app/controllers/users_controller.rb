@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /users
   # GET /users.json
@@ -19,6 +20,8 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    # You can only edit your self
+    @user = current_user
   end
 
   # POST /users
@@ -69,6 +72,7 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
+      # Devise has taken this over
       params.require(:user).permit(:m_id, :email, :first_name, :last_name, :is_admin)
     end
 end

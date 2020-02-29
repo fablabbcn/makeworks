@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :users
+  get "/users/:id", to: 'users#show', as: 'user'
+  get "/users/:id/edit", to: 'users#edit', as: 'edit_profile'
+  patch "/users/:id", to: 'users#update'
+
   resources :manufacturer_taxonomies
   resources :industry_taxonomies
   resources :process_taxonomies
