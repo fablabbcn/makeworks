@@ -16,16 +16,16 @@ one:
   minimum_order: MyString
   name: MyString
   number_of_staff: MyString
-  photo1: MyString
-  photo2: MyString
-  photo3: MyString
-  photo4: MyString
-  photo5: MyString
-  photo6: MyString
-  photo7: MyString
-  photo8: MyString
-  photo9: MyString
-  portrait: MyString
+  photo1: image.png
+  photo2: image.png
+  photo3: image.png
+  photo4: image.png
+  photo5: image.png
+  photo6: image.png
+  photo7: image.png
+  photo8: image.png
+  photo9: image.png
+  portrait: image.png
   sample_production: false
   short_run: false
   soft_delete: false
@@ -50,16 +50,16 @@ two:
   minimum_order: MyString
   name: MyString
   number_of_staff: MyString
-  photo1: MyString
-  photo2: MyString
-  photo3: MyString
-  photo4: MyString
-  photo5: MyString
-  photo6: MyString
-  photo7: MyString
-  photo8: MyString
-  photo9: MyString
-  portrait: MyString
+  photo1: image.png
+  photo2: image.png
+  photo3: image.png
+  photo4: image.png
+  photo5: image.png
+  photo6: image.png
+  photo7: image.png
+  photo8: image.png
+  photo9: image.png
+  portrait: image.png
   sample_production: false
   short_run: false
   soft_delete: false

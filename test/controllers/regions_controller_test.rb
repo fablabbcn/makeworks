@@ -39,6 +39,8 @@ class RegionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy region" do
+    skip
+    # Should we be able to destroy a region?
     assert_difference('Region.count', -1) do
       delete region_url(@region)
     end
