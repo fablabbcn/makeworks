@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   resources :blogs
-  resources :media
   get 'blog', to: 'blogs#index'
   get 'blog/:id', to: 'blogs#show'
   devise_for :users
@@ -13,6 +12,7 @@ Rails.application.routes.draw do
   resources :process_taxonomies
   resources :finished_products_taxonomies
   resources :materials_taxonomies
+  resources :media
   resources :machines_taxonomies
   resources :taxonomies
   resources :companies

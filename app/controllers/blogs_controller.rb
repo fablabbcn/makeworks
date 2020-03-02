@@ -4,7 +4,7 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.all
+    @blogs = Blog.where(dont_publish: false)
   end
 
   # GET /blogs/1

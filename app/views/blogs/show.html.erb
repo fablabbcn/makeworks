@@ -1,59 +1,19 @@
-<p id="notice"><%= notice %></p>
+<strong>Dont publish:</strong>
+<strong>Featured video:</strong>
+<%= @blog.featured_video %>
 
-<p>
-  <strong>M:</strong>
-  <%= @blog.m_id %>
-</p>
 
-<p>
-  <strong>Blurb:</strong>
-  <%= @blog.blurb %>
-</p>
+<strong>Medium:</strong>
+<%= @blog.medium_id %>
 
-<p>
-  <strong>Blog category:</strong>
-  <%= @blog.blog_category_id %>
-</p>
+<strong>Slug:</strong>
+<%= @blog.slug %>
 
-<p>
-  <strong>Content:</strong>
-  <%= @blog.content %>
-</p>
+<br>
+<%= link_to "Blog /", blogs_url %>
+<%= @blog.blog_category.name %>
+<h1> <%= @blog.title %> </h1>
+<p> <%= @blog.sub_title %> </p>
+<%= image_tag @blog.header_image %>
 
-<p>
-  <strong>Dont publish:</strong>
-  <%= @blog.dont_publish %>
-</p>
-
-<p>
-  <strong>Featured video:</strong>
-  <%= @blog.featured_video %>
-</p>
-
-<p>
-  <strong>Header image:</strong>
-  <%= @blog.header_image %>
-</p>
-
-<p>
-  <strong>Medium:</strong>
-  <%= @blog.medium_id %>
-</p>
-
-<p>
-  <strong>Slug:</strong>
-  <%= @blog.slug %>
-</p>
-
-<p>
-  <strong>Sub title:</strong>
-  <%= @blog.sub_title %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @blog.title %>
-</p>
-
-<%= link_to 'Edit', edit_blog_path(@blog) %> |
-<%= link_to 'Back', blogs_path %>
+<%= @blog.content.html_safe %>
