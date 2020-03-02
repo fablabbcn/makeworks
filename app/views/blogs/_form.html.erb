@@ -1,0 +1,23 @@
+
+<%= simple_form_for(@blog) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :m_id %>
+    <%= f.input :blurb %>
+    <%= f.association :blog_category %>
+    <%= f.input :content %>
+    <%= f.input :dont_publish %>
+    <%= f.input :featured_video %>
+    <%= f.input :header_image %>
+    <%= f.association :medium %>
+    <%= f.input :slug %>
+    <%= f.input :sub_title %>
+    <%= f.input :title %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

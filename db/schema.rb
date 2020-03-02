@@ -10,10 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_29_165259) do
+ActiveRecord::Schema.define(version: 2020_03_02_083548) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "blog_categories", force: :cascade do |t|
+    t.string "m_id"
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "blogs", force: :cascade do |t|
+    t.string "m_id"
+    t.string "blurb"
+    t.bigint "blog_category_id"
+    t.text "content"
+    t.boolean "dont_publish"
+    t.string "featured_video"
+    t.string "header_image"
+    t.bigint "medium_id"
+    t.string "slug"
+    t.string "sub_title"
+    t.string "title"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["blog_category_id"], name: "index_blogs_on_blog_category_id"
+    t.index ["medium_id"], name: "index_blogs_on_medium_id"
+  end
 
   create_table "companies", force: :cascade do |t|
     t.string "m_id"
@@ -98,6 +123,17 @@ ActiveRecord::Schema.define(version: 2020_02_29_165259) do
     t.index ["parent_id"], name: "index_materials_taxonomies_on_parent_id"
   end
 
+  create_table "media", force: :cascade do |t|
+    t.string "m_id"
+    t.bigint "company_id"
+    t.string "thumbnail_url"
+    t.string "web_url"
+    t.string "hi_res"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_media_on_company_id"
+  end
+
   create_table "process_taxonomies", force: :cascade do |t|
     t.string "m_id"
     t.string "name"
@@ -153,6 +189,8 @@ ActiveRecord::Schema.define(version: 2020_02_29_165259) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "blogs", "blog_categories"
+  add_foreign_key "blogs", "media"
   add_foreign_key "companies", "regions"
   add_foreign_key "user_regions", "regions"
   add_foreign_key "user_regions", "users"

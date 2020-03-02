@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :blogs
+  resources :media
+  get 'blog', to: 'blogs#index'
+  get 'blog/:id', to: 'blogs#show'
   devise_for :users
   get "/users/:id", to: 'users#show', as: 'user'
   get "/users/:id/edit", to: 'users#edit', as: 'edit_profile'

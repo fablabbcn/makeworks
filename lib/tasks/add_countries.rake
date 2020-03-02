@@ -151,6 +151,7 @@ namespace :makeworks do
       )
     end
 
+
     puts "Creating Companies..."
     File.open("csv/companies.json").each do |r|
       row = JSON.parse(r)
@@ -196,6 +197,64 @@ namespace :makeworks do
         year_founded: [row['YearFounded'], row['Year_Founded']].map(&:to_i).max,
       )
     end
+
+    puts "Creating Media..."
+    File.open("csv/media.json").each do |r|
+      row = JSON.parse(r)
+
+      next unless row["company"]
+      the_company = Company.find_by_m_id(row["company"]["$oid"])
+      if the_company.nil?
+        puts "-- Cannot find Organization for: #{row}"
+        next
+      end
+
+      Medium.find_or_create_by(
+        m_id: row['_id']['$oid'],
+        company: the_company,
+        thumbnail_url: row['thumbnail_url'],
+        web_url: row['web_url'],
+        hi_res: row['hi_res']
+      )
+    end
+
+    puts "Creating Blog Categories..."
+    File.open("csv/category.json").each do |r|
+      row = JSON.parse(r)
+      BlogCategory.find_or_create_by(
+        m_id: row['_id']['$oid'],
+        name: row['name'],
+      )
+    end
+
+    puts "Creating Blog..."
+    File.open("csv/post.json").each do |r|
+      row = JSON.parse(r)
+      the_category = nil
+      if BlogCategory.find_by_m_id(row['category']["$oid"])
+        the_category = BlogCategory.find_by_m_id(row['category']["$oid"])
+      end
+
+      the_medium = nil
+      if row['header_ref'] and row['header_ref']['$oid']
+        the_medium = Medium.find_by_m_id(row['header_ref']['$oid'])
+      end
+
+      puts $.
+      Blog.find_or_create_by(m_id: row['_id']['$oid']) do |blog|
+        blog.blurb = row['blurb']
+        blog.blog_category = the_category
+        blog.content = row['content']
+        blog.dont_publish = row['dont_publish']
+        blog.featured_video = row['featured_video']
+        blog.header_image = row['header_image']
+        blog.medium = the_medium
+        blog.slug = row['slug']
+        blog.sub_title = row['sub_title']
+        blog.title = row['title']
+      end
+    end
+
 
   end
 end

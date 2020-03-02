@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>M:</strong>
+  <%= @medium.m_id %>
+</p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @medium.company_id %>
+</p>
+
+<p>
+  <strong>Thumbnail url:</strong>
+  <%= @medium.thumbnail_url %>
+</p>
+
+<p>
+  <strong>Web url:</strong>
+  <%= @medium.web_url %>
+</p>
+
+<p>
+  <strong>Hi res:</strong>
+  <%= @medium.hi_res %>
+</p>
+
+<%= link_to 'Edit', edit_medium_path(@medium) %> |
+<%= link_to 'Back', media_path %>
