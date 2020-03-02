@@ -16,9 +16,12 @@
 
 
 body {
-  background-color: #DDD;
+  background-color: #F9F9F9;
   color: #333;
   font-family: 'IBM Plex Sans', sans-serif;
+}
+nav{
+  border-bottom: 1px solid #ccc;
 }
 
 .btn{
