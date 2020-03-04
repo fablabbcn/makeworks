@@ -2,11 +2,19 @@
 
 <h1>Companies</h1>
 
+<%= search_form_for @q do |f| %>
+  <%= f.label :name_cont %>
+  <%= f.search_field :name_cont %>
+
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>
+
 <%= paginate @companies %>
 <table>
   <thead>
     <tr>
       <th>Region</th>
+      <th>Name</th>
       <th>Address</th>
       <th>Background</th>
       <th>File types</th>
@@ -17,7 +25,6 @@
       <th>Location</th>
       <th>Medium run</th>
       <th>Minimum order</th>
-      <th>Name</th>
       <th>Number of staff</th>
       <th>Photo1</th>
       <th>Photo2</th>
@@ -44,6 +51,7 @@
     <% @companies.each do |company| %>
       <tr>
         <td><%= link_to company.region, company.region %></td>
+        <td><%= company.name %></td>
         <td><%= company.address %></td>
         <td><%= company.background %></td>
         <td><%= company.file_types %></td>
@@ -54,7 +62,6 @@
         <td><%= company.location %></td>
         <td><%= company.medium_run %></td>
         <td><%= company.minimum_order %></td>
-        <td><%= company.name %></td>
         <td><%= company.number_of_staff %></td>
         <td><%= company.photo1 %></td>
         <td><%= company.photo2 %></td>
