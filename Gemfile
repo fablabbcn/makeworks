@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.7'
 
+gem "activeadmin", "~> 2.6"
 gem 'simple_form'
 gem 'pg'
 

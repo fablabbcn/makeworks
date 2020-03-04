@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   resources :blogs
   get 'blog', to: 'blogs#index'
   get 'blog/:id', to: 'blogs#show'

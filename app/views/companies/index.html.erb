@@ -2,10 +2,10 @@
 
 <h1>Companies</h1>
 
+<%= paginate @companies %>
 <table>
   <thead>
     <tr>
-      <th>M</th>
       <th>Region</th>
       <th>Address</th>
       <th>Background</th>
@@ -43,7 +43,6 @@
   <tbody>
     <% @companies.each do |company| %>
       <tr>
-        <td><%= company.m_id %></td>
         <td><%= link_to company.region, company.region %></td>
         <td><%= company.address %></td>
         <td><%= company.background %></td>
@@ -83,5 +82,5 @@
 </table>
 
 <br>
-
+<%= paginate @companies %>
 <%= link_to 'New Company', new_company_path %>

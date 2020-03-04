@@ -5,8 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th>M</th>
-      <th>Name</th>
+      <th><%= sort_link(@q, :name) %></th>
       <th>Can signup</th>
       <th>Is public</th>
       <th>Logo</th>
@@ -19,7 +18,6 @@
   <tbody>
     <% @regions.each do |region| %>
       <tr>
-        <td><%= region.m_id %></td>
         <td><%= link_to region.name, region %></td>
         <td><%= region.can_signup %></td>
         <td><%= region.is_public %></td>
@@ -35,5 +33,7 @@
 </table>
 
 <br>
+
+<%= paginate @regions %>
 
 <%= link_to 'New Region', new_region_path %>
