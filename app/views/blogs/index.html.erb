@@ -1,8 +1,10 @@
-<h1>Blog <%= @blogs.count %></h1>
+<div class="container my-5">
 
-<%= link_to 'New Blog', new_blog_path %>
+  <h1>Blog <%= @blogs.count %></h1>
 
-<div class="row">
+  <%= link_to 'New Blog', new_blog_path %>
+
+  <div class="row">
     <% @blogs.each do |blog| %>
       <div class="col-6 border border-dark p-3 ">
         <p><%= link_to blog.title, blog %></p>
@@ -16,4 +18,6 @@
         <p><%= blog.sub_title %></p>
       </div>
     <% end %>
+  </div>
+
 </div>

@@ -1,17 +1,22 @@
-<strong>Featured video:</strong>
-<%= @blog.featured_video %>
+<div class="container my-5">
 
-<strong>Medium:</strong>
-<%= @blog.medium_id %>
+  <strong>Featured video:</strong>
+  <%= @blog.featured_video %>
 
-<strong>Slug:</strong>
-<%= @blog.slug %>
+  <strong>Medium:</strong>
+  <%= @blog.medium_id %>
 
-<br>
-<%= link_to "Blog /", blogs_url %>
-<%= @blog.blog_category.name %>
-<h1> <%= @blog.title %> </h1>
-<p> <%= @blog.sub_title %> </p>
-<%= image_tag @blog.header_image %>
+  <strong>Slug:</strong>
+  <%= @blog.slug %>
 
-<%= @blog.content.html_safe %>
+  <div class="my-4">
+    <%= link_to "Blog /", '/blog' %>
+    <%= @blog.blog_category.name %>
+    <h1> <%= @blog.title %> </h1>
+    <p> <%= @blog.sub_title %> </p>
+    <%= image_tag @blog.header_image %>
+
+    <%= @blog.content.html_safe %>
+  </div>
+
+</div>
