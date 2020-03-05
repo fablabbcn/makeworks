@@ -240,6 +240,11 @@ namespace :makeworks do
         the_medium = Medium.find_by_m_id(row['header_ref']['$oid'])
       end
 
+      the_date = nil
+      if row['date'] and row['date']["$date"]
+        the_date = row['date']["$date"]
+      end
+
       puts $.
       Blog.find_or_create_by(m_id: row['_id']['$oid']) do |blog|
         blog.blurb = row['blurb']
@@ -252,6 +257,7 @@ namespace :makeworks do
         blog.slug = row['slug']
         blog.sub_title = row['sub_title']
         blog.title = row['title']
+        blog.created_at = the_date
       end
     end
 
