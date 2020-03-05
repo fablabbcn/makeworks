@@ -8,6 +8,7 @@
     <% @blogs.each do |blog| %>
       <div class="col-6 border border-dark p-3 ">
         <p><%= link_to blog.title, blog %></p>
+        <small> <%= blog.created_at&.strftime("%B %d, %Y") %> </small>
         <h4><%= blog.blurb %></h4>
         <p><%# blog.blog_category_id %></p>
         <div><%# blog.content.html_safe %></div>
