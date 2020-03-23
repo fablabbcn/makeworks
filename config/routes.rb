@@ -1,14 +1,18 @@
 Rails.application.routes.draw do
   #devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  resources :blogs
+
+  devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
+
   get 'blog', to: 'blogs#index'
   get 'blog/:id', to: 'blogs#show'
-  devise_for :users
   get "/users/:id", to: 'users#show', as: 'user'
   get "/users/:id/edit", to: 'users#edit', as: 'edit_profile'
   patch "/users/:id", to: 'users#update'
 
+  match 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user
+
+  resources :blogs
   resources :manufacturer_taxonomies
   resources :industry_taxonomies
   resources :process_taxonomies
