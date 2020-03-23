@@ -261,8 +261,8 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   config.omniauth :fablabs,
-    'ad4322675a7112fe900db3f084399f36b1325a4838c1955550ae35eb2916692e',
-    'eb0768e9881ee030bb7e81c5533bb2cc52ff5faa010f6a5e3ed02fc3ef08ff79',
+    ENV['FABLABS_APP_ID'],
+    ENV['FABLABS_SECRET'],
     scope: 'user'
 
   # ==> Warden configuration
