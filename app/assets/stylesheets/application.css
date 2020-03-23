@@ -17,8 +17,26 @@ body {
   color: #333;
   font-family: 'IBM Plex Sans', sans-serif;
 }
+
 nav{
   border-bottom: 1px solid #ccc;
+}
+
+/* Tiles use bootstrap borders, but need to change when they collaps on md- sizes */
+.tile-first{
+  border-bottom: 1px solid black;
+}
+@media (min-width: 768px){
+  .tile-first{
+    border: none;
+    border-right: 1px solid black;
+  }
+}
+
+/* Apply the img-fluid class on all images, because many images are injected from the blog text */
+img{
+  max-width: 100%;
+  height: auto;
 }
 
 .btn{
