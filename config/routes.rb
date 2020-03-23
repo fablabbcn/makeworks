@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   get 'blog/:id', to: 'blogs#show'
   get "/users/:id", to: 'users#show', as: 'user'
   get "/users/:id/edit", to: 'users#edit', as: 'edit_profile'
+  get '/version', to: 'welcome#version'
   patch "/users/:id", to: 'users#update'
-
   match 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user
 
   resources :blogs
