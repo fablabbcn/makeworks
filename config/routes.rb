@@ -4,8 +4,6 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
 
-  get 'blog', to: 'blogs#index'
-  get 'blog/:id', to: 'blogs#show'
   get "/users/:id", to: 'users#show', as: 'user'
   get "/users/:id/edit", to: 'users#edit', as: 'edit_profile'
   get '/version', to: 'welcome#version'
@@ -13,6 +11,10 @@ Rails.application.routes.draw do
   match 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user
 
   resources :blogs
+  # The next 2 need to be after blogs resource
+  get 'blog', to: 'blogs#index'
+  get 'blog/:id', to: 'blogs#show'
+
   resources :manufacturer_taxonomies
   resources :industry_taxonomies
   resources :process_taxonomies
