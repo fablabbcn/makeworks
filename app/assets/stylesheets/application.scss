@@ -18,6 +18,10 @@ body {
   font-family: 'IBM Plex Sans', sans-serif;
 }
 
+// Fonts
+.roboto {
+  font-family: 'Roboto', serif;
+}
 
 /* Tiles use bootstrap borders, but need to change when they collaps on md- sizes */
 .tile-first{
@@ -104,3 +108,17 @@ td{
   }
 }
 
+.bubble{
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
+.bubble-yellow{
+  background: #FFBE02;
+}
+.bubble-red{
+  background: #FF3D2B;
+}
+.bubble-green{
+  background: #0D8055;
+}

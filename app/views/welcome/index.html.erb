@@ -45,38 +45,14 @@
     </div>
   <% end %>
 
-  <footer class="row border-top border-dark pt-4">
-    <div class="col-md-3">
-      <h5>Make Works Ltd</h5>
-      <ul class="list-unstyled">
-        <li>About</li>
-        <li>Team</li>
-        <li>Contact</li>
-        <li>Legal / Glossary</li>
-      </ul>
-    </div>
-    <div class="col-md-3">
-      <h5>How it works</h5>
-      <ul class="list-unstyled">
-        <li>Find a factory</li>
-        <li>Get listed</li>
-        <li>FAQ's</li>
-        <li>Suggest a factory</li>
-      </ul>
-    </div>
-    <div class="col-md-3">
-      <h5>Discover</h5>
-      <ul class="list-unstyled">
-        <li><%= link_to "Blog", blogs_url %></li>
-        <li>All factories</li>
-      </ul>
-    </div>
-    <div class="col-md-3">
-      <h5>Regions</h5>
-      <ul class="list-unstyled">
-        <li><%= link_to "Blog", blogs_url %></li>
-        <li>All factories</li>
-      </ul>
-    </div>
-  </footer>
+  <%= render 'map' %>
+
+  <%= render 'how_it_works' %>
+
+  <%= render 'about' %>
+
+  <%= render 'social' %>
+
+  <%= render 'footer' %>
+
 </div>
