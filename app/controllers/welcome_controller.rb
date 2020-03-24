@@ -1,6 +1,9 @@
 class WelcomeController < ApplicationController
   def index
     @all_regions = Region.all
+  end
+
+  def random
     @random_companies = Company.all.sample(5)
   end
 
