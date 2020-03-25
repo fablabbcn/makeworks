@@ -1,4 +1,4 @@
-<div class="container mt-5 border border-dark">
+<div class="container my-5 border border-dark">
   <div class="text-center mt-5">
     <h1>Find local manufacturers in your region</h1>
     <h4 class="my-5">
@@ -6,11 +6,13 @@
     </h4>
   </div>
 
-  <p>Search for process or material ...</p>
+  <input class="form-control" placeholder="Search for process or material ..." />
 
-  <% @all_regions.each do |region| %>
-    <%= link_to region.name, region, class: 'btn btn-outline-primary m-1' %>
-  <% end %>
+  <div class="mt-3 d-flex flex-wrap justify-content-between">
+    <% @all_regions.each do |region| %>
+      <%= link_to region.name, region, class: 'btn btn-outline-primary m-2 mx-auto', style: 'width: 260px' %>
+    <% end %>
+  </div>
 
   <div class="my-5 text-center">
     <h5 class="my-3">

@@ -1,11 +1,14 @@
-<h1>Editing User</h1>
+<div class="container bg-light border my-5 p-5">
+  <h1>Editing User</h1>
 
-<%= render 'form', user: @user %>
+  <%= render 'form', user: @user %>
 
-<hr>
+  <hr>
 
-<%= link_to "Delete my account!",
-  admin_destroy_user_path(current_user),
-  method: :delete,
-  data: { confirm: "You sure?" },
-  class: 'btn btn-danger' %>
+  <%= link_to "Delete my account!",
+    admin_destroy_user_path(current_user),
+    method: :delete,
+    data: { confirm: "You sure?" },
+    class: 'btn btn-danger' %>
+
+</div>
