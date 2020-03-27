@@ -30,4 +30,32 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      company:
+        address: Address
+    models:
+      company:
+        one: Company
+        other: Companies
+  simple_form:
+    labels:
+      company:
+        address: Address
+        lat: Latitude
+        lng: Longitude
+    hints:
+      company:
+        address: Address of the company
+        name: Name of the company
+        region: Select a region
+        number_of_staff: Enter a number
+        film_ready: Film
+        sample_production: Sample production
+        short_run: Short run
+        file_types: Indicate what types of files the company accepts
+    placeholders:
+      company:
+    include_blanks:
+      company:
+        region: prom
