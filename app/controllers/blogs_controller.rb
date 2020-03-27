@@ -6,6 +6,11 @@ class BlogsController < ApplicationController
   def index
     @q = Blog.where(dont_publish: false).ransack(params[:q])
     @blogs = @q.result(distinct: true).page(params[:page])
+
+    if params[:category]
+      @blogs = @blogs.where(blog_category: params[:category])
+      @category = BlogCategory.find(params[:category])
+    end
   end
 
   # GET /blogs/1

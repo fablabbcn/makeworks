@@ -1,19 +1,25 @@
 <div class="container my-5">
 
-  <h1>Blog <%= @blogs.count %></h1>
+  <h1>Blog</h1>
 
-<%= search_form_for @q do |f| %>
-  <div class="input-group mb-3">
+  <%= search_form_for @q do |f| %>
+    <div class="input-group mb-3">
       <%= f.search_field :title_and_content_cont, class: 'form-control', placeholder: 'Search for a blog' %>
 
-    <div class="input-group-append">
-      <%= f.submit class: 'btn btn-primary' %>
+      <div class="input-group-append">
+        <%= f.submit class: 'btn btn-primary' %>
+      </div>
     </div>
+  <% end %>
+
+  <% if params[:category] %>
+    <p>Category: <%= @category %> </p>
+  <% end %>
+
+  <div>
+    Showing <strong><%= @blogs.count %></strong> blogs 
+    <%= paginate @blogs %>
   </div>
-<% end %>
-
-<%= paginate @blogs %>
-
 
   <% if current_user&.is_admin? %>
     <%= link_to 'New Blog', new_blog_path, class: 'btn btn-primary my-3' %>
@@ -29,8 +35,7 @@
         <div><%# blog.content.html_safe %></div>
         <p><%= blog.featured_video %></p>
         <%= link_to image_tag(blog.header_image), blog %>
-        <p><%= blog.medium_id %></p>
-        <p><%= blog.slug %></p>
+        <%# blog.medium_id %>
         <p><%= blog.sub_title %></p>
       </div>
     <% end %>
