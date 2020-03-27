@@ -4,7 +4,8 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.where(dont_publish: false)
+    @q = Blog.where(dont_publish: false).ransack(params[:q])
+    @blogs = @q.result(distinct: true).page(params[:page])
   end
 
   # GET /blogs/1

@@ -1,29 +1,33 @@
-<p id="notice"><%= notice %></p>
+<div class="container border border-dark my-5">
+  <p>
+    <strong>M:</strong>
+    <%= @medium.m_id %>
+  </p>
 
-<p>
-  <strong>M:</strong>
-  <%= @medium.m_id %>
-</p>
+  <p>
+    <strong>Company:</strong>
+    <%= @medium.company %>
+  </p>
 
-<p>
-  <strong>Company:</strong>
-  <%= @medium.company_id %>
-</p>
+  <p>
+    <strong>Thumbnail url:</strong>
+    <%= @medium.thumbnail_url %>
+    <br>
+    <%= image_tag @medium.thumbnail_url %>
+  </p>
 
-<p>
-  <strong>Thumbnail url:</strong>
-  <%= @medium.thumbnail_url %>
-</p>
+  <p>
+    <strong>Web url:</strong>
+    <%= @medium.web_url %>
+    <br>
+    <%= image_tag @medium.web_url %>
+  </p>
 
-<p>
-  <strong>Web url:</strong>
-  <%= @medium.web_url %>
-</p>
+  <p>
+    <strong>Hi res:</strong>
+    <%= @medium.hi_res %>
+    <br>
+    <%= image_tag @medium.hi_res %>
+  </p>
 
-<p>
-  <strong>Hi res:</strong>
-  <%= @medium.hi_res %>
-</p>
-
-<%= link_to 'Edit', edit_medium_path(@medium) %> |
-<%= link_to 'Back', media_path %>
+</div>

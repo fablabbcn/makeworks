@@ -6,7 +6,9 @@
     <%= f.input :email %>
     <%= f.input :first_name %>
     <%= f.input :last_name %>
-    <%= f.input :is_admin %>
+    <% if current_user.is_admin? %>
+      <%= f.input :is_admin %>
+    <% end %>
   </div>
 
   <div class="form-actions">

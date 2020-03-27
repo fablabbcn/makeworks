@@ -1,16 +1,18 @@
-  
 <h1>Companies</h1>
 
 <%= search_form_for @q do |f| %>
-  <%= f.label :name_cont %>
-  <%= f.search_field :name_cont %>
+  <div class="input-group mb-4 w-75 mx-auto">
+    <%= f.search_field :name_cont, class: 'form-control' %>
 
-  <%= f.submit class: 'btn btn-primary' %>
+    <div class="input-group-append">
+      <%= f.submit class: 'btn btn-primary' %>
+    </div>
+  </div>
 <% end %>
 
 <%= paginate @companies %>
 
-<%= link_to 'New Company', new_company_path, class: 'btn btn-dark' %>
+<%= link_to 'New Company', new_company_path, class: 'btn btn-dark my-3' %>
 
 <table>
   <thead>

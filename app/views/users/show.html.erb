@@ -1,39 +1,28 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>M:</strong>
-  <%= @user.m_id %>
-</p>
-
-<p>
+<div class="container bg-light border my-5 p-5">
+  <p>
   <strong>Email:</strong>
   <%= @user.email %>
-</p>
+  </p>
 
-<p>
+  <p>
   <strong>First name:</strong>
   <%= @user.first_name %>
-</p>
+  </p>
 
-<p>
+  <p>
   <strong>Last name:</strong>
   <%= @user.last_name %>
-</p>
+  </p>
 
-<p>
-  <strong>Is admin:</strong>
-  <%= @user.is_admin %>
-</p>
+  <hr>
+  <h4>Is in regions:</h4>
 
-
-<hr>
-<h4>Is in regions:</h4>
-
-<% @user.regions.each do |region| %>
-  <%= link_to  region, class: 'm-1 btn btn-primary' do %>
-    <%= region.name %>
-    <% if @user.is_champion_in_region(region.id) %>
-      (Champion)
+  <% @user.regions.each do |region| %>
+    <%= link_to  region, class: 'm-1 btn btn-primary' do %>
+      <%= region.name %>
+      <% if @user.is_champion_in_region(region.id) %>
+        (Champion)
+      <% end %>
     <% end %>
   <% end %>
-<% end %>
+</div>
