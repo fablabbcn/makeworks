@@ -20,5 +20,7 @@ module Makeworks
       g.stylesheets false
       g.helper false
     end
+
+    config.app_generators.scaffold_controller = :scaffold_controller
   end
 end

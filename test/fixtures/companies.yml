@@ -3,11 +3,11 @@
 one:
   m_id: MyString
   region: one
-  country: MyString
+  name: MyString
   address: MyString
-  background: MyString
-  file_types: MyString
-  intro: MyString
+  background: MyText
+  description: MyText
+  intro: MyText
   large_run: false
   lat: 1.5
   lng: 1.5
@@ -15,7 +15,7 @@ one:
   medium_run: false
   minimum_order: MyString
   name: MyString
-  number_of_staff: MyString
+  number_of_staff: 1
   photo1: image.png
   photo2: image.png
   photo3: image.png
@@ -32,16 +32,17 @@ one:
   top_image: MyString
   video_link: MyString
   website: MyString
-  year_founded: MyString
+  year_founded: 1
+  film_ready: false
 
 two:
   m_id: MyString
   region: two
-  country: MyString
+  name: MyString
   address: MyString
-  background: MyString
-  file_types: MyString
-  intro: MyString
+  background: MyText
+  description: MyText
+  intro: MyText
   large_run: false
   lat: 1.5
   lng: 1.5
@@ -49,7 +50,7 @@ two:
   medium_run: false
   minimum_order: MyString
   name: MyString
-  number_of_staff: MyString
+  number_of_staff: 3
   photo1: image.png
   photo2: image.png
   photo3: image.png
@@ -66,4 +67,5 @@ two:
   top_image: MyString
   video_link: MyString
   website: MyString
-  year_founded: MyString
+  year_founded: 1
+  film_ready: false

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_19_095444) do
+ActiveRecord::Schema.define(version: 2020_03_27_105404) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,19 +57,19 @@ ActiveRecord::Schema.define(version: 2020_03_19_095444) do
   create_table "companies", force: :cascade do |t|
     t.string "m_id"
     t.bigint "region_id", null: false
-    t.string "country"
+    t.string "name"
     t.string "address"
-    t.string "background"
-    t.string "file_types"
-    t.string "intro"
+    t.text "background"
+    t.text "description"
+    t.text "intro"
     t.boolean "large_run"
     t.float "lat"
     t.float "lng"
     t.string "location"
     t.boolean "medium_run"
     t.string "minimum_order"
-    t.string "name"
-    t.string "number_of_staff"
+    t.integer "number_of_staff"
+    t.string "file_types"
     t.string "photo1"
     t.string "photo2"
     t.string "photo3"
@@ -86,7 +86,8 @@ ActiveRecord::Schema.define(version: 2020_03_19_095444) do
     t.string "top_image"
     t.string "video_link"
     t.string "website"
-    t.string "year_founded"
+    t.integer "year_founded"
+    t.boolean "film_ready"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["region_id"], name: "index_companies_on_region_id"

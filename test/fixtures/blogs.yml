@@ -7,7 +7,7 @@ one:
   content: MyText
   dont_publish: false
   featured_video: MyString
-  header_image: MyString
+  header_image: image.png
   medium: one
   slug: MyString
   sub_title: MyString
@@ -20,7 +20,7 @@ two:
   content: MyText
   dont_publish: false
   featured_video: MyString
-  header_image: MyString
+  header_image: image.png
   medium: two
   slug: MyString
   sub_title: MyString

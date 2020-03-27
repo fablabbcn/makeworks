@@ -16,8 +16,9 @@ class CompaniesTest < ApplicationSystemTestCase
 
     fill_in "Address", with: @company.address
     fill_in "Background", with: @company.background
-    fill_in "Country", with: @company.country
+    fill_in "Description", with: @company.description
     fill_in "File types", with: @company.file_types
+    check "Film ready" if @company.film_ready
     fill_in "Intro", with: @company.intro
     check "Large run" if @company.large_run
     fill_in "Lat", with: @company.lat
@@ -58,8 +59,9 @@ class CompaniesTest < ApplicationSystemTestCase
 
     fill_in "Address", with: @company.address
     fill_in "Background", with: @company.background
-    fill_in "Country", with: @company.country
+    fill_in "Description", with: @company.description
     fill_in "File types", with: @company.file_types
+    check "Film ready" if @company.film_ready
     fill_in "Intro", with: @company.intro
     check "Large run" if @company.large_run
     fill_in "Lat", with: @company.lat

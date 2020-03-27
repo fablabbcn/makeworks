@@ -5,18 +5,30 @@
 
   <div class="form-inputs">
     <%= f.association :region %>
+    <%= f.input :name %>
     <%= f.input :address %>
-    <%= f.input :background %>
-    <%= f.input :file_types %>
-    <%= f.input :intro %>
-    <%= f.input :large_run %>
+    <%= f.input :website %>
+    <hr>
     <%= f.input :lat %>
     <%= f.input :lng %>
     <%= f.input :location %>
+    <hr>
+    <%= f.input :year_founded %>
+    <%= f.input :background %>
+    <%= f.input :description %>
+    <%= f.input :intro %>
+    <hr>
+    <%= f.input :file_types %>
+    <%= f.input :large_run %>
     <%= f.input :medium_run %>
     <%= f.input :minimum_order %>
-    <%= f.input :name %>
     <%= f.input :number_of_staff %>
+    <hr>
+    <%= f.input :sample_production %>
+    <%= f.input :short_run %>
+    <%= f.input :soft_delete %>
+    <%= f.input :film_ready %>
+    <hr>
     <%= f.input :photo1 %>
     <%= f.input :photo2 %>
     <%= f.input :photo3 %>
@@ -27,13 +39,8 @@
     <%= f.input :photo8 %>
     <%= f.input :photo9 %>
     <%= f.input :portrait %>
-    <%= f.input :sample_production %>
-    <%= f.input :short_run %>
-    <%= f.input :soft_delete %>
     <%= f.input :top_image %>
     <%= f.input :video_link %>
-    <%= f.input :website %>
-    <%= f.input :year_founded %>
   </div>
 
   <div class="form-actions">
