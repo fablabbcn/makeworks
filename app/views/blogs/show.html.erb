@@ -2,17 +2,15 @@
 
   <div class="row border-bottom border-dark">
     <div class="col-md-4 tile-first">
-      <strong>
+      <% if @blog.medium %>
         Higher quality Medium:
         <%= link_to 'Medium', medium_url(@blog.medium_id) %>
-      </strong>
+      <% end %>
 
       <div class="my-4">
         <h4>
         <%= link_to "Blog", '/blog' %> /
         <%= @blog.blog_category.name %>
-        <br>
-        (slug:<%= @blog.slug %>)
         </h4>
         <small> <%= @blog.created_at&.strftime("%B %d, %Y") %> </small>
       </div>

@@ -7,6 +7,9 @@ class User < ApplicationRecord
   has_many :user_regions, dependent: :destroy
   has_many :regions, through: :user_regions
 
+  extend FriendlyId
+  friendly_id :first_name, use: :slugged
+
   def to_s
     name
   end

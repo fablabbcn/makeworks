@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :blogs
   # The next 2 need to be after blogs resource
+  # The old web was using /blog/ and not /blogs/ - We want to keep the links working.
   get 'blog', to: 'blogs#index'
   get 'blog/:id', to: 'blogs#show'
 
