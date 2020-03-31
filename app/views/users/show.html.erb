@@ -1,18 +1,25 @@
 <div class="container bg-light border my-5 p-5">
-  <p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-  </p>
+  <div class="justify-content-between d-flex">
+    <div class="">
+      <p>
+      <strong>Email:</strong>
+      <%= @user.email %>
+      </p>
 
-  <p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-  </p>
+      <p>
+      <strong>First name:</strong>
+      <%= @user.first_name %>
+      </p>
 
-  <p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-  </p>
+      <p>
+      <strong>Last name:</strong>
+      <%= @user.last_name %>
+      </p>
+    </div>
+    <div class="">
+      <%= image_tag @user.avatar, style: 'max-height:400px;' %>
+    </div>
+  </div>
 
   <hr>
   <h4>Is in regions:</h4>

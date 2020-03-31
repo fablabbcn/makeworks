@@ -9,6 +9,10 @@
     <% if current_user.is_admin? %>
       <%= f.input :is_admin %>
     <% end %>
+    <% if @user.avatar.attached? %>
+      <%= image_tag @user.avatar, style: 'max-height:400px;' %>
+    <% end %>
+    <%= f.input :avatar %>
   </div>
 
   <div class="form-actions">

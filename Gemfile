@@ -7,6 +7,7 @@ gem "activeadmin", "~> 2.6"
 gem 'simple_form'
 gem 'pg'
 
+gem "aws-sdk-s3", require: false
 gem "devise", "~> 4.7"
 gem 'friendly_id', '~> 5.2.4'
 gem 'mailgun-ruby'

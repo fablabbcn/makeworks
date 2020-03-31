@@ -10,6 +10,8 @@ class User < ApplicationRecord
   extend FriendlyId
   friendly_id :first_name, use: :slugged
 
+  has_one_attached :avatar
+
   def to_s
     name
   end

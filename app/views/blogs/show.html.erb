@@ -26,7 +26,12 @@
       <%= image_tag @blog.header_image, class: 'img-fluid' %>
     </div>
     <div class="col-md-8 p-5">
-      <%= @blog.content.html_safe %>
+
+      <% if current_user&.is_admin? %>
+        <%= link_to 'Edit', edit_blog_url, class: 'btn btn-primary' %>
+      <% end %>
+
+      <%= @blog.content_action %>
     </div>
   </div>
 </div>

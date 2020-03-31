@@ -3,4 +3,6 @@ class Blog < ApplicationRecord
   belongs_to :medium, optional: true
   extend FriendlyId
   friendly_id :title, use: :slugged
+
+  has_rich_text :content_action
 end
