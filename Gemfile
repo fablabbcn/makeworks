@@ -12,6 +12,7 @@ gem "devise", "~> 4.7"
 gem 'friendly_id', '~> 5.2.4'
 gem 'mailgun-ruby'
 gem 'omniauth-fablabs', github: 'academany/omniauth-fablabs'
+gem "sentry-raven"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.1'

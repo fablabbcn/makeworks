@@ -22,5 +22,11 @@ module Makeworks
     end
 
     config.app_generators.scaffold_controller = :scaffold_controller
+
+    if ENV['RAVEN_DSN_URL'].present?
+      Raven.configure do |config|
+        config.dsn = ENV['RAVEN_DSN_URL']
+      end
+    end
   end
 end
