@@ -1,0 +1,22 @@
+is:
+  activerecord:
+    attributes:
+      company:
+        address: Heimilisfang
+    models:
+      company:
+        one: Fyrirtæki
+        other: Fyrirtæki
+  simple_form:
+    labels:
+      company:
+        address: Heimilisfang
+        lat: Breiddargráða
+        lng: Lengdargráða
+    hints:
+      company:
+        address: Heimilisfang fyrirtækis
+        name: Nafn fyrirtækis
+        region: Veldu svæði
+        number_of_staff: Fjöldi starfsmanna
+
