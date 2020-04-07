@@ -5,7 +5,7 @@ ActiveAdmin.register UserRegion do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :user_id, :region_id, :is_champion
+  permit_params :user_id, :region_id, :is_champion
   #
   # or
   #

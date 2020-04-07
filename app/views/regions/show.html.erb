@@ -49,7 +49,7 @@
       <%= link_to user.name, user, class: '' %>
       <%= user.email %> -
       Admin:<%= user.is_admin? %> -
-      Champion:<%= user.is_champion_in_region(params[:id]) %>
+      Champion:<%= user.is_champion_in_region(Region.friendly.find(params[:id])) %>
       <br>
     <% end %>
   </div>
