@@ -4,7 +4,7 @@
   <div class="input-group mb-4 w-75 mx-auto">
     <%= f.search_field :name_cont, class: 'form-control' %>
 
-    <%= f.select :region_id_eq, Region.pluck(:name, :id), {}, class: 'form-control' %>
+    <%= f.select :region_id_eq, Region.pluck(:name, :id), {include_blank: 'All Regions'}, class: 'form-control' %>
 
     <div class="input-group-append">
       <%= f.submit class: 'btn btn-primary' %>
