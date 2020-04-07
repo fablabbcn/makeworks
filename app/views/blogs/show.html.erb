@@ -10,7 +10,9 @@
       <div class="my-4">
         <h4>
         <%= link_to "Blog", '/blog' %> /
-        <%= link_to @blog.blog_category.name, blogs_url(category: @blog.blog_category) %>
+        <% if @blog.blog_category %>
+          <%= link_to @blog.blog_category.name, blogs_url(category: @blog.blog_category) %>
+        <% end %>
         </h4>
         <small> <%= @blog.created_at&.strftime("%B %d, %Y") %> </small>
       </div>
