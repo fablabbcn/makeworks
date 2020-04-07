@@ -1,10 +1,12 @@
 class WelcomeController < ApplicationController
+  skip_before_action :authenticate_user!
+
   def index
     @all_regions = Region.all
   end
 
   def random
-    @random_companies = Company.all.sample(5)
+    @random_companies = Company.all.sample(1)
   end
 
   def version

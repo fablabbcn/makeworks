@@ -1,9 +1,8 @@
 <div class="container mt-5 border border-dark">
-  <h4 class="text-center my-5">5 random companies</h4>
   <% @random_companies.each do |c|  %>
+    <h4 class="text-center my-4"><%= link_to c.name, c, class: '' %></h4>
     <div class="row my-5 pt-3 border-top border-dark">
       <div class="col-lg-3">
-        <h4><%= link_to c.name, c, class: 'btn btn-sm btn-outline-primary' %></h4>
         <%= image_tag(c.portrait) if c.portrait %>
         <address><%= c.address %></address>
         <p>Number of staff: <%= c.number_of_staff %></p>
