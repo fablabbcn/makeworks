@@ -8,17 +8,41 @@ on:
 
 jobs:
   build:
-
+    name: Build and test
     runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:10
+        env:
+          POSTGRES_DB: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_USER: postgres
+        ports:
+          - 5432:5432
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Ruby 2.6
+
+    - name: Show available Ruby versions
+      run: |
+        ls $RUNNER_TOOL_CACHE/Ruby
+        uname -a
+        cat /etc/os-release
+
+    - name: Set up Ruby
       uses: actions/setup-ruby@v1
       with:
         ruby-version: 2.6.x
-    - name: Build and test with Rake
+    - name: Build
       run: |
         gem install bundler
         bundle install --jobs 4 --retry 3
+
+    - name: Run tests
+      run: |
         bundle exec rake
+      env:
+        TEST_DB_NAME: postgres
+        TEST_DB_PASSWORD: postgres
+        TEST_DB_USERNAME: postgres
