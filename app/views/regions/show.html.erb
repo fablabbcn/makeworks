@@ -1,58 +1,39 @@
-<div class="container my-5">
+<div class="container border border-dark my-5">
 
-<p>
-  <strong>M:</strong>
-  <%= @region.m_id %>
-</p>
+  <div class="row border-bottom border-dark">
+    <div class="col-md-4 tile-first p-5">
 
-<p>
-  <strong>Name:</strong>
-  <%= @region.name %>
-</p>
+      <p>
+      <%= @region.logo %>
+      </p>
 
-<p>
-  <strong>Can signup:</strong>
-  <%= @region.can_signup %>
-</p>
+    </div>
+    <div class="col-md-8 text-center p-5">
+      <h1>
+        <%= @region.name %>
+      </h1>
 
-<p>
-  <strong>Is public:</strong>
-  <%= @region.is_public %>
-</p>
-
-<p>
-  <strong>Logo:</strong>
-  <%= @region.logo %>
-</p>
-
-<p>
-  <strong>Trimmed name:</strong>
-  <%= @region.trimmed_name %>
-</p>
-
-<%= link_to 'Edit', edit_region_path(@region) %> |
-<%= link_to 'Back', regions_path %>
-
-<hr>
-
-<div class="row">
-  <div class="col-lg-6">
-    <h4> Companies in region: <%= @region.companies.count %> </h4>
-
-    <% @region.companies.each do |c| %>
-      <%= link_to c.name, c, class: '' %><br/>
-    <% end %>
+      <%= link_to 'Edit', edit_region_path(@region), class: 'btn btn-primary' %>
+    </div>
   </div>
+  <div class="row">
+    <div class="col-md-4 tile-first p-5">
+      <h4> Companies in region: <%= @region.companies.count %> </h4>
 
-  <div class="col-lg-6">
-    <h4>Users in region <%= @region.users.count %></h4>
-    <% @region.users.order(:created_at).each do |user| %>
-      <%= link_to user.name, user, class: '' %>
-      <%= user.email %> -
-      Admin:<%= user.is_admin? %> -
-      Champion:<%= user.is_champion_in_region(Region.friendly.find(params[:id])) %>
+      <% @region.companies.each do |c| %>
+        <%= link_to c.name, c, class: '' %><br/>
+      <% end %>
+    </div>
+
+    <div class="col-md-8 p-5">
+      <h4>Users in region <%= @region.users.count %></h4>
+      <% @region.users.order(:created_at).each do |user| %>
+        <%= link_to user.name, user, class: '' %>
+        <%= user.email %> -
+        Admin:<%= user.is_admin? %> -
+        Champion:<%= user.is_champion_in_region(Region.friendly.find(params[:id])) %>
       <br>
     <% end %>
+    </div>
   </div>
-</div>
 </div>
