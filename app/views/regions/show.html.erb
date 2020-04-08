@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<div class="container my-5">
 
 <p>
   <strong>M:</strong>
@@ -34,12 +34,13 @@
 <%= link_to 'Back', regions_path %>
 
 <hr>
+
 <div class="row">
   <div class="col-lg-6">
     <h4> Companies in region: <%= @region.companies.count %> </h4>
 
     <% @region.companies.each do |c| %>
-      <%= link_to c.name, c, class: 'btn btn-primary' %>
+      <%= link_to c.name, c, class: '' %><br/>
     <% end %>
   </div>
 
@@ -53,4 +54,5 @@
       <br>
     <% end %>
   </div>
+</div>
 </div>

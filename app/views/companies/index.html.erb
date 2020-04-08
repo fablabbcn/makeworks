@@ -59,7 +59,7 @@
     <% @companies.each do |company| %>
       <tr>
         <td><%= link_to company.region, company.region %></td>
-        <td><%= company.name %></td>
+        <td><%= link_to company.name, company %></td>
         <td><%= company.address %></td>
         <td><%= company.background %></td>
         <td><%= company.description %></td>
