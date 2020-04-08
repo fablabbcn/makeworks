@@ -3,13 +3,13 @@
 one:
   m_id: MyString
   company: one
-  thumbnail_url: MyString
-  web_url: MyString
-  hi_res: MyString
+  thumbnail_url: image.png
+  web_url: image.png
+  hi_res: image.png
 
 two:
   m_id: MyString
   company: two
-  thumbnail_url: MyString
-  web_url: MyString
-  hi_res: MyString
+  thumbnail_url: image.png
+  web_url: image.png
+  hi_res: image.png

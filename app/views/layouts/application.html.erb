@@ -42,9 +42,10 @@
           <% if current_user&.is_admin? %>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Tags
+                SuperAdmin
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <%= link_to "Media", media_url, class: "dropdown-item" %>
                 <%= link_to "Taxonomies", taxonomies_url, class: "dropdown-item" %>
                 <div class="dropdown-divider"></div>
                 <%= link_to "MachinesTaxonomies", machines_taxonomies_url, class: "dropdown-item" %>
