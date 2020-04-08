@@ -16,12 +16,21 @@ class CompaniesTest < ApplicationSystemTestCase
 
     fill_in "Address", with: @company.address
     fill_in "Background", with: @company.background
+    fill_in "Contact email", with: @company.contact_email
+    fill_in "Contact jobtitle", with: @company.contact_jobtitle
+    fill_in "Contact name", with: @company.contact_name
+    fill_in "Contact phone", with: @company.contact_phone
     fill_in "Description", with: @company.description
+    fill_in "Facebook", with: @company.facebook
     fill_in "File types", with: @company.file_types
     check "Film ready" if @company.film_ready
+    fill_in "Flickr", with: @company.flickr
+    fill_in "Image bucket", with: @company.image_bucket
+    fill_in "Instagram", with: @company.instagram
     fill_in "Intro", with: @company.intro
     check "Large run" if @company.large_run
     fill_in "Lat", with: @company.lat
+    fill_in "Linkedin", with: @company.linkedin
     fill_in "Lng", with: @company.lng
     fill_in "Location", with: @company.location
     fill_in "M", with: @company.m_id
@@ -38,15 +47,21 @@ class CompaniesTest < ApplicationSystemTestCase
     fill_in "Photo7", with: @company.photo7
     fill_in "Photo8", with: @company.photo8
     fill_in "Photo9", with: @company.photo9
+    fill_in "Pinterest", with: @company.pinterest
     fill_in "Portrait", with: @company.portrait
     fill_in "Region", with: @company.region_id
     check "Sample production" if @company.sample_production
     check "Short run" if @company.short_run
     check "Soft delete" if @company.soft_delete
+    fill_in "Title", with: @company.title
     fill_in "Top image", with: @company.top_image
+    fill_in "Trimmed name", with: @company.trimmed_name
+    fill_in "Turnaround time", with: @company.turnaround_time
+    fill_in "Twitter", with: @company.twitter
     fill_in "Video link", with: @company.video_link
     fill_in "Website", with: @company.website
     fill_in "Year founded", with: @company.year_founded
+    fill_in "Youtube", with: @company.youtube
     click_on "Create Company"
 
     assert_text "Company was successfully created"
@@ -59,12 +74,21 @@ class CompaniesTest < ApplicationSystemTestCase
 
     fill_in "Address", with: @company.address
     fill_in "Background", with: @company.background
+    fill_in "Contact email", with: @company.contact_email
+    fill_in "Contact jobtitle", with: @company.contact_jobtitle
+    fill_in "Contact name", with: @company.contact_name
+    fill_in "Contact phone", with: @company.contact_phone
     fill_in "Description", with: @company.description
+    fill_in "Facebook", with: @company.facebook
     fill_in "File types", with: @company.file_types
     check "Film ready" if @company.film_ready
+    fill_in "Flickr", with: @company.flickr
+    fill_in "Image bucket", with: @company.image_bucket
+    fill_in "Instagram", with: @company.instagram
     fill_in "Intro", with: @company.intro
     check "Large run" if @company.large_run
     fill_in "Lat", with: @company.lat
+    fill_in "Linkedin", with: @company.linkedin
     fill_in "Lng", with: @company.lng
     fill_in "Location", with: @company.location
     fill_in "M", with: @company.m_id
@@ -81,15 +105,21 @@ class CompaniesTest < ApplicationSystemTestCase
     fill_in "Photo7", with: @company.photo7
     fill_in "Photo8", with: @company.photo8
     fill_in "Photo9", with: @company.photo9
+    fill_in "Pinterest", with: @company.pinterest
     fill_in "Portrait", with: @company.portrait
     fill_in "Region", with: @company.region_id
     check "Sample production" if @company.sample_production
     check "Short run" if @company.short_run
     check "Soft delete" if @company.soft_delete
+    fill_in "Title", with: @company.title
     fill_in "Top image", with: @company.top_image
+    fill_in "Trimmed name", with: @company.trimmed_name
+    fill_in "Turnaround time", with: @company.turnaround_time
+    fill_in "Twitter", with: @company.twitter
     fill_in "Video link", with: @company.video_link
     fill_in "Website", with: @company.website
     fill_in "Year founded", with: @company.year_founded
+    fill_in "Youtube", with: @company.youtube
     click_on "Update Company"
 
     assert_text "Company was successfully updated"

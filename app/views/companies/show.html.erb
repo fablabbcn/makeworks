@@ -9,7 +9,12 @@
   <%= @company.region %>
   </p>
 
-  <p>
+<p>
+  <strong>Name:</strong>
+  <%= @company.name %>
+</p>
+
+<p>
   <strong>Address:</strong>
   <%= @company.address %>
   </p>
@@ -27,12 +32,47 @@
   <p>
   <strong>Intro:</strong>
   <%= @company.intro %>
-  </p>
+</p>
 
-  <p>
+<p>
+  <strong>Contact name:</strong>
+  <%= @company.contact_name %>
+</p>
+
+<p>
+  <strong>Contact email:</strong>
+  <%= @company.contact_email %>
+</p>
+
+<p>
+  <strong>Contact phone:</strong>
+  <%= @company.contact_phone %>
+</p>
+
+<p>
+  <strong>Contact jobtitle:</strong>
+  <%= @company.contact_jobtitle %>
+</p>
+
+<p>
+  <strong>Flickr:</strong>
+  <%= @company.flickr %>
+</p>
+
+<p>
+  <strong>Facebook:</strong>
+  <%= @company.facebook %>
+</p>
+
+<p>
+  <strong>Instagram:</strong>
+  <%= @company.instagram %>
+</p>
+
+<p>
   <strong>Large run:</strong>
   <%= @company.large_run %>
-  </p>
+</p>
 
   <p>
   <strong>Lat:</strong>
@@ -44,7 +84,12 @@
   <%= @company.lng %>
   </p>
 
-  <p>
+<p>
+  <strong>Linkedin:</strong>
+  <%= @company.linkedin %>
+</p>
+
+<p>
   <strong>Location:</strong>
   <%= @company.location %>
   </p>
@@ -114,7 +159,12 @@
   <%= @company.photo9 %>
   </p>
 
-  <p>
+<p>
+  <strong>Pinterest:</strong>
+  <%= @company.pinterest %>
+</p>
+
+<p>
   <strong>Portrait:</strong>
   <%= @company.portrait %>
   </p>
@@ -132,27 +182,57 @@
   <p>
   <strong>Soft delete:</strong>
   <%= @company.soft_delete %>
-  </p>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @company.title %>
+</p>
 
   <p>
   <strong>Top image:</strong>
   <%= @company.top_image %>
-  </p>
+</p>
 
-  <p>
+<p>
+  <strong>Trimmed name:</strong>
+  <%= @company.trimmed_name %>
+</p>
+
+<p>
+  <strong>Turnaround time:</strong>
+  <%= @company.turnaround_time %>
+</p>
+
+<p>
+  <strong>Twitter:</strong>
+  <%= @company.twitter %>
+</p>
+
+<p>
   <strong>Video link:</strong>
   <%= @company.video_link %>
-  </p>
+</p>
 
-  <p>
+<p>
   <strong>Website:</strong>
   <%= @company.website %>
   </p>
 
-  <p>
+<p>
+  <strong>Youtube:</strong>
+  <%= @company.youtube %>
+</p>
+
+<p>
   <strong>Year founded:</strong>
   <%= @company.year_founded %>
-  </p>
+</p>
+
+<p>
+  <strong>Film ready:</strong>
+  <%= @company.film_ready %>
+</p>
 
   <%= link_to 'Edit', edit_company_path(@company) %> |
   <%= link_to 'Back', companies_path %>

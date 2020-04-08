@@ -8,14 +8,23 @@ one:
   background: MyText
   description: MyText
   intro: MyText
+  contact_name: MyString
+  contact_email: MyString
+  contact_phone: MyString
+  contact_jobtitle: MyString
+  flickr: MyString
+  facebook: MyString
+  instagram: MyString
   large_run: false
   lat: 1.5
   lng: 1.5
+  linkedin: MyString
   location: MyString
   medium_run: false
   minimum_order: MyString
-  name: MyString
   number_of_staff: 1
+  file_types: MyString
+  image_bucket: MyString
   photo1: image.png
   photo2: image.png
   photo3: image.png
@@ -25,13 +34,19 @@ one:
   photo7: image.png
   photo8: image.png
   photo9: image.png
+  pinterest: MyString
   portrait: image.png
   sample_production: false
   short_run: false
   soft_delete: false
+  title: MyString
   top_image: MyString
+  trimmed_name: MyString
+  turnaround_time: MyString
+  twitter: MyString
   video_link: MyString
   website: MyString
+  youtube: MyString
   year_founded: 1
   film_ready: false
 
@@ -43,14 +58,23 @@ two:
   background: MyText
   description: MyText
   intro: MyText
+  contact_name: MyString
+  contact_email: MyString
+  contact_phone: MyString
+  contact_jobtitle: MyString
+  flickr: MyString
+  facebook: MyString
+  instagram: MyString
   large_run: false
   lat: 1.5
   lng: 1.5
+  linkedin: MyString
   location: MyString
   medium_run: false
   minimum_order: MyString
-  name: MyString
-  number_of_staff: 3
+  number_of_staff: 1
+  file_types: MyString
+  image_bucket: MyString
   photo1: image.png
   photo2: image.png
   photo3: image.png
@@ -60,12 +84,18 @@ two:
   photo7: image.png
   photo8: image.png
   photo9: image.png
+  pinterest: MyString
   portrait: image.png
   sample_production: false
   short_run: false
   soft_delete: false
+  title: MyString
   top_image: MyString
+  trimmed_name: MyString
+  turnaround_time: MyString
+  twitter: MyString
   video_link: MyString
   website: MyString
+  youtube: MyString
   year_founded: 1
   film_ready: false

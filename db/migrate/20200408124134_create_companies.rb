@@ -8,14 +8,23 @@ class CreateCompanies < ActiveRecord::Migration[6.0]
       t.text :background
       t.text :description
       t.text :intro
+      t.string :contact_name
+      t.string :contact_email
+      t.string :contact_phone
+      t.string :contact_jobtitle
+      t.string :flickr
+      t.string :facebook
+      t.string :instagram
       t.boolean :large_run
       t.float :lat
       t.float :lng
+      t.string :linkedin
       t.string :location
       t.boolean :medium_run
       t.string :minimum_order
       t.integer :number_of_staff
       t.string :file_types
+      t.string :image_bucket
       t.string :photo1
       t.string :photo2
       t.string :photo3
@@ -25,13 +34,19 @@ class CreateCompanies < ActiveRecord::Migration[6.0]
       t.string :photo7
       t.string :photo8
       t.string :photo9
+      t.string :pinterest
       t.string :portrait
       t.boolean :sample_production
       t.boolean :short_run
       t.boolean :soft_delete
+      t.string :title
       t.string :top_image
+      t.string :trimmed_name
+      t.string :turnaround_time
+      t.string :twitter
       t.string :video_link
       t.string :website
+      t.string :youtube
       t.integer :year_founded
       t.boolean :film_ready
 
