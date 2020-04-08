@@ -22,9 +22,6 @@
         <td><%= region.logo %></td>
         <td><%= region.trimmed_name %></td>
         <td><%= region.users.count %></td>
-        <td><%= link_to 'Show', region %></td>
-        <td><%= link_to 'Edit', edit_region_path(region) %></td>
-        <td><%= link_to 'Destroy', region, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -33,5 +30,3 @@
 <br>
 
 <%= paginate @regions %>
-
-<%= link_to 'New Region', new_region_path, class: 'btn btn-primary' %>
