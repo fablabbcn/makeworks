@@ -38,6 +38,8 @@ jobs:
       run: |
         gem install bundler
         bundle install --jobs 4 --retry 3
+        bundle exec rails db:create
+        bundle exec rails db:schema:load
 
     - name: Run tests
       run: |
