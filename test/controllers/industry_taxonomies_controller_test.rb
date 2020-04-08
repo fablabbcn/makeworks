@@ -3,6 +3,7 @@ require 'test_helper'
 class IndustryTaxonomiesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @industry_taxonomy = industry_taxonomies(:one)
+    sign_in users(:one)
   end
 
   test "should get index" do

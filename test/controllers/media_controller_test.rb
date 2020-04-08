@@ -3,6 +3,7 @@ require 'test_helper'
 class MediaControllerTest < ActionDispatch::IntegrationTest
   setup do
     @medium = media(:one)
+    sign_in users(:one)
   end
 
   test "should get index" do

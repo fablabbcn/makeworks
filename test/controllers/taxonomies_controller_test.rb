@@ -3,6 +3,7 @@ require 'test_helper'
 class TaxonomiesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @taxonomy = taxonomies(:one)
+    sign_in users(:one)
   end
 
   test "should get index" do

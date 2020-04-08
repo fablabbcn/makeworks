@@ -17,7 +17,9 @@
       </p>
     </div>
     <div class="">
-      <%= image_tag @user.avatar, style: 'max-height:400px;' %>
+      <% if @user.avatar.attached? %>
+        <%= image_tag @user.avatar, style: 'max-height:400px;' %>
+      <% end %>
     </div>
   </div>
 

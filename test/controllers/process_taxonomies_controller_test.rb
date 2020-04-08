@@ -3,6 +3,7 @@ require 'test_helper'
 class ProcessTaxonomiesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @process_taxonomy = process_taxonomies(:one)
+    sign_in users(:one)
   end
 
   test "should get index" do

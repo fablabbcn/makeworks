@@ -20,3 +20,9 @@ If it stops working, it might need to be re-created:
 Blog.content is the old content, from the old website.
 
 The new content uses Action Text and stores it under Blog.content_action
+
+
+## Development
+
+* Run tests with `rails test`
+* Automatic tests with `bundle exec guard`

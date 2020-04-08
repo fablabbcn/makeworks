@@ -3,6 +3,7 @@ require 'test_helper'
 class RegionsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @region = regions(:one)
+    sign_in users(:one)
   end
 
   test "should get index" do

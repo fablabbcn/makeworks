@@ -3,6 +3,7 @@ require 'test_helper'
 class MaterialsTaxonomiesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @materials_taxonomy = materials_taxonomies(:one)
+    sign_in users(:one)
   end
 
   test "should get index" do

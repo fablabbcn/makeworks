@@ -3,6 +3,7 @@ require 'test_helper'
 class BlogsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @blog = blogs(:one)
+    sign_in users(:one)
   end
 
   test "should get index" do
