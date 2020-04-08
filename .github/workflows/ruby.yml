@@ -43,6 +43,7 @@ jobs:
       run: |
         bundle exec rake
       env:
+        TEST_DB_HOST: localhost
         TEST_DB_NAME: postgres
         TEST_DB_PASSWORD: postgres
         TEST_DB_USERNAME: postgres

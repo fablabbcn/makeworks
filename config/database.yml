@@ -19,6 +19,7 @@ development:
 test:
   <<: *default
   database: makeworks_test
+  host: <%= ENV['TEST_DB_HOST'] %>
 
 production:
   <<: *default
