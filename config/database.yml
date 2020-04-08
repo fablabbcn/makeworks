@@ -18,7 +18,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: makeworks_test
+  database: <%= ENV['TEST_DB_NAME'] || 'makeworks_test' %>
   host: <%= ENV['TEST_DB_HOST'] %>
   username: <%= ENV['TEST_DB_USERNAME'] %>
   password: <%= ENV['TEST_DB_PASSWORD'] %>
