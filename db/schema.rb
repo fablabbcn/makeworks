@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_14_160257) do
+ActiveRecord::Schema.define(version: 2020_04_14_165003) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -139,6 +139,15 @@ ActiveRecord::Schema.define(version: 2020_04_14_160257) do
     t.index ["region_id"], name: "index_companies_on_region_id"
   end
 
+  create_table "company_processes", force: :cascade do |t|
+    t.bigint "company_id", null: false
+    t.bigint "process_taxonomy_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_company_processes_on_company_id"
+    t.index ["process_taxonomy_id"], name: "index_company_processes_on_process_taxonomy_id"
+  end
+
   create_table "finished_products", force: :cascade do |t|
     t.bigint "company_id", null: false
     t.bigint "finished_products_taxonomy_id", null: false
@@ -155,6 +164,15 @@ ActiveRecord::Schema.define(version: 2020_04_14_160257) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["parent_id"], name: "index_finished_products_taxonomies_on_parent_id"
+  end
+
+  create_table "industries", force: :cascade do |t|
+    t.bigint "company_id", null: false
+    t.bigint "industry_taxonomy_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_industries_on_company_id"
+    t.index ["industry_taxonomy_id"], name: "index_industries_on_industry_taxonomy_id"
   end
 
   create_table "industry_taxonomies", force: :cascade do |t|
@@ -268,8 +286,12 @@ ActiveRecord::Schema.define(version: 2020_04_14_160257) do
   add_foreign_key "blogs", "blog_categories"
   add_foreign_key "blogs", "media"
   add_foreign_key "companies", "regions"
+  add_foreign_key "company_processes", "companies"
+  add_foreign_key "company_processes", "process_taxonomies"
   add_foreign_key "finished_products", "companies"
   add_foreign_key "finished_products", "finished_products_taxonomies"
+  add_foreign_key "industries", "companies"
+  add_foreign_key "industries", "industry_taxonomies"
   add_foreign_key "user_regions", "regions"
   add_foreign_key "user_regions", "users"
 end

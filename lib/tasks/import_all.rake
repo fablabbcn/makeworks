@@ -236,6 +236,16 @@ namespace :makeworks do
         end
       end
 
+      if row["Industry"].present?
+        row["Industry"].each do |item|
+          indst = IndustryTaxonomy.find_by(m_id: item["$oid"])
+          Industry.create(
+            company: company,
+            industry_taxonomy: indst
+          )
+        end
+      end
+
 
     end
 

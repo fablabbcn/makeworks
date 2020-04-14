@@ -260,6 +260,16 @@
         <% end %>
       </ul>
 
+      <h5>Industries</h5>
+      <ul class="list-unstyled">
+        <% @company.industries.each do |x| %>
+          <li>
+            <%= x.industry_taxonomy.name %>
+          </li>
+        <% end %>
+      </ul>
+
+
     </div>
   </div>
 </div>

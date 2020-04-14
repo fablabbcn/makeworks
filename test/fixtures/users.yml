@@ -5,7 +5,7 @@ one:
   email: MyString
   first_name: MyString
   last_name: MyString
-  is_admin: false
+  is_admin: true
 
 two:
   m_id: MyString

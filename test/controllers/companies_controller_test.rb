@@ -29,9 +29,15 @@ class CompaniesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get edit" do
+  test "admin should get edit" do
     get edit_company_url(@company)
     assert_response :success
+  end
+
+  test "non admin should not get edit" do
+    sign_in users(:two)
+    get edit_company_url(@company)
+    assert_response :redirect
   end
 
   test "should update company" do
