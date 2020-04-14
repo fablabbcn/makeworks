@@ -226,6 +226,17 @@ namespace :makeworks do
         end
       end
 
+      if row["Processes"].present?
+        row["Processes"].each do |item|
+          pt = ProcessTaxonomy.find_by(m_id: item["$oid"])
+          CompanyProcess.create(
+            company: company,
+            process_taxonomy: pt
+          )
+        end
+      end
+
+
     end
 
     puts "Creating Media..."

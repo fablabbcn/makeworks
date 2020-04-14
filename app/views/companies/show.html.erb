@@ -250,6 +250,16 @@
           </li>
         <% end %>
       </ul>
+
+      <h5>Processes</h5>
+      <ul class="list-unstyled">
+        <% @company.company_processes.each do |x| %>
+          <li>
+            <%= x.process_taxonomy.name %>
+          </li>
+        <% end %>
+      </ul>
+
     </div>
   </div>
 </div>
