@@ -2,7 +2,6 @@ namespace :makeworks do
   desc "Add from .json files"
 
   task import_all: [:environment] do
-
     puts "Creating Regions..."
     File.open("csv/organisation.json").each do |r|
       row = JSON.parse(r)
@@ -24,7 +23,7 @@ namespace :makeworks do
       # find all orgs/region that user belongs to
       all_orgs = []
       row["organisations"].each do |o|
-        all_orgs << Region.find_by_m_id(o["$oid"])
+        all_orgs << Region.find_by(m_id: o["$oid"])
       end
 
       the_pass = rand(36**10).to_s(36)
@@ -46,7 +45,7 @@ namespace :makeworks do
       row = JSON.parse(r)
 
       if row['parent']
-        the_parent = Taxonomy.find_by_m_id(row['parent']['$oid'])
+        the_parent = Taxonomy.find_by(m_id: row['parent']['$oid'])
       else
         the_parent = nil
       end
@@ -63,7 +62,7 @@ namespace :makeworks do
       row = JSON.parse(r)
 
       if row['parent']
-        the_parent = MachinesTaxonomy.find_by_m_id(row['parent']['$oid'])
+        the_parent = MachinesTaxonomy.find_by(m_id: row['parent']['$oid'])
       else
         the_parent = nil
       end
@@ -79,7 +78,7 @@ namespace :makeworks do
       row = JSON.parse(r)
 
       if row['parent']
-        the_parent = ManufacturerTaxonomy.find_by_m_id(row['parent']['$oid'])
+        the_parent = ManufacturerTaxonomy.find_by(m_id: row['parent']['$oid'])
       else
         the_parent = nil
       end
@@ -94,7 +93,7 @@ namespace :makeworks do
       row = JSON.parse(r)
 
       if row['parent']
-        the_parent = MaterialsTaxonomy.find_by_m_id(row['parent']['$oid'])
+        the_parent = MaterialsTaxonomy.find_by(m_id: row['parent']['$oid'])
       else
         the_parent = nil
       end
@@ -109,7 +108,7 @@ namespace :makeworks do
       row = JSON.parse(r)
 
       if row['parent']
-        the_parent = FinishedProductsTaxonomy.find_by_m_id(row['parent']['$oid'])
+        the_parent = FinishedProductsTaxonomy.find_by(m_id: row['parent']['$oid'])
       else
         the_parent = nil
       end
@@ -124,7 +123,7 @@ namespace :makeworks do
       row = JSON.parse(r)
 
       if row['parent']
-        the_parent = IndustryTaxonomy.find_by_m_id(row['parent']['$oid'])
+        the_parent = IndustryTaxonomy.find_by(m_id: row['parent']['$oid'])
       else
         the_parent = nil
       end
@@ -140,7 +139,7 @@ namespace :makeworks do
       row = JSON.parse(r)
 
       if row['parent']
-        the_parent = ProcessTaxonomy.find_by_m_id(row['parent']['$oid'])
+        the_parent = ProcessTaxonomy.find_by(m_id: row['parent']['$oid'])
       else
         the_parent = nil
       end
@@ -157,12 +156,14 @@ namespace :makeworks do
       row = JSON.parse(r)
 
       next unless row["Organisation"]
-      the_region = Region.find_by_m_id(row["Organisation"]["$oid"])
+
+      the_region = Region.find_by(m_id: row["Organisation"]["$oid"])
       if the_region.nil?
         puts "-- Cannot find Organization for: #{row}"
         next
       end
-      Company.find_or_create_by(
+
+      company = Company.find_or_create_by(
         m_id: row['_id']['$oid'],
         region: the_region,
         address: row['Company_Address'],
@@ -211,8 +212,20 @@ namespace :makeworks do
         website: row['Company_Website'],
         youtube: row['YouTube'],
         #WARNING two fields like this YearFounded and Year_Founded. Get the bigger one?
-        year_founded: [row['YearFounded'], row['Year_Founded']].map(&:to_i).max,
+        year_founded: [row['YearFounded'], row['Year_Founded']].map(&:to_i).max
       )
+
+      # Create references to the company just created
+      if row["FinishedProducts"].present?
+        row["FinishedProducts"].each do |item|
+          fp = FinishedProductsTaxonomy.find_by(m_id: item["$oid"])
+          FinishedProduct.create(
+            company: company,
+            finished_products_taxonomy: fp
+          )
+        end
+      end
+
     end
 
     puts "Creating Media..."
@@ -220,7 +233,8 @@ namespace :makeworks do
       row = JSON.parse(r)
 
       next unless row["company"]
-      the_company = Company.find_by_m_id(row["company"]["$oid"])
+
+      the_company = Company.find_by(m_id: row["company"]["$oid"])
       if the_company.nil?
         puts "-- Cannot find Organization for: #{row}"
         next
@@ -240,7 +254,7 @@ namespace :makeworks do
       row = JSON.parse(r)
       BlogCategory.find_or_create_by(
         m_id: row['_id']['$oid'],
-        name: row['name'],
+        name: row['name']
       )
     end
 
@@ -248,13 +262,13 @@ namespace :makeworks do
     File.open("csv/post.json").each do |r|
       row = JSON.parse(r)
       the_category = nil
-      if BlogCategory.find_by_m_id(row['category']["$oid"])
-        the_category = BlogCategory.find_by_m_id(row['category']["$oid"])
+      if BlogCategory.find_by(m_id: row['category']["$oid"])
+        the_category = BlogCategory.find_by(m_id: row['category']["$oid"])
       end
 
       the_medium = nil
       if row['header_ref'] and row['header_ref']['$oid']
-        the_medium = Medium.find_by_m_id(row['header_ref']['$oid'])
+        the_medium = Medium.find_by(m_id: row['header_ref']['$oid'])
       end
 
       the_date = nil
@@ -277,7 +291,6 @@ namespace :makeworks do
         blog.created_at = the_date
       end
     end
-
 
   end
 end
