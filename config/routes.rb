@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   resources :media
   resources :machines_taxonomies
   resources :taxonomies
+  get 'taxtree', to: 'taxonomies#tree'
   resources :companies
   resources :regions
   root 'welcome#index'

@@ -7,6 +7,10 @@ class TaxonomiesController < ApplicationController
     @taxonomies = Taxonomy.all
   end
 
+  def tree
+    @taxonomies = Taxonomy.all
+  end
+
   # GET /taxonomies/1
   # GET /taxonomies/1.json
   def show

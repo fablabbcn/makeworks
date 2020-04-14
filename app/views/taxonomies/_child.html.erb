@@ -1,0 +1,12 @@
+<ul>
+  <% stuff.each do |item| %>
+    <li>
+      <% if item.children.present? %>
+        <%= item.children.count %> - <%= item.name %>
+        <%= render partial: 'child', object: item.children, as: :stuff %>
+      <% else %>
+        <%= item.name %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
