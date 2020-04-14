@@ -256,6 +256,18 @@ namespace :makeworks do
         end
       end
 
+      if row["ManufacurerType"].present?
+        row["ManufacurerType"].each do |item|
+          man = ManufacturerTaxonomy.find_by(m_id: item["$oid"])
+          Manufacturer.find_or_create_by(
+            company: company,
+            manufacturer_taxonomy: man
+          )
+        end
+      end
+
+
+
 
     end
 

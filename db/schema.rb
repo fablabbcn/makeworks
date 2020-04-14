@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_14_170258) do
+ActiveRecord::Schema.define(version: 2020_04_14_173600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -202,6 +202,15 @@ ActiveRecord::Schema.define(version: 2020_04_14_170258) do
     t.index ["parent_id"], name: "index_manufacturer_taxonomies_on_parent_id"
   end
 
+  create_table "manufacturers", force: :cascade do |t|
+    t.bigint "company_id", null: false
+    t.bigint "manufacturer_taxonomy_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_manufacturers_on_company_id"
+    t.index ["manufacturer_taxonomy_id"], name: "index_manufacturers_on_manufacturer_taxonomy_id"
+  end
+
   create_table "materials", force: :cascade do |t|
     t.bigint "company_id", null: false
     t.bigint "materials_taxonomy_id", null: false
@@ -301,6 +310,8 @@ ActiveRecord::Schema.define(version: 2020_04_14_170258) do
   add_foreign_key "finished_products", "finished_products_taxonomies"
   add_foreign_key "industries", "companies"
   add_foreign_key "industries", "industry_taxonomies"
+  add_foreign_key "manufacturers", "companies"
+  add_foreign_key "manufacturers", "manufacturer_taxonomies"
   add_foreign_key "materials", "companies"
   add_foreign_key "materials", "materials_taxonomies"
   add_foreign_key "user_regions", "regions"

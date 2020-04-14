@@ -278,6 +278,16 @@
         <% end %>
       </ul>
 
+      <h5>Manufacturer</h5>
+      <ul class="list-unstyled">
+        <% @company.manufacturers.each do |x| %>
+          <li>
+            <%= x.manufacturer_taxonomy.name %>
+          </li>
+        <% end %>
+      </ul>
+
+
 
 
     </div>
