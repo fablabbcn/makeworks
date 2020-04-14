@@ -5,6 +5,8 @@ class Region < ApplicationRecord
   extend FriendlyId
   friendly_id :name, use: :slugged, slug_column: :trimmed_name
 
+  has_rich_text :about_text
+
   def champions
     UserRegion.where(region: self, is_champion: true)
   end

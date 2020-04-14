@@ -5,20 +5,21 @@
       <h2>About / Region</h2>
       <ul class="list-unstyled">
         <li>
-          <%= link_to "About", "#" %>
+          <%= link_to "About", "#about" %>
         </li>
         <li>
-          <%= link_to "News", "#" %>
+          <%= link_to "News", "#news" %>
         </li>
         <li>
-          <%= link_to "Team", "#" %>
+          <%= link_to "Team", "#team" %>
         </li>
         <li>
-          <%= link_to "Partners", "#" %>
+          <%= link_to "Partners", "#partners" %>
         </li>
       </ul>
-
-
+      <% if current_user&.is_admin? || current_user&.is_champion_in_region(@region) %>
+        <%= link_to("Edit", edit_region_url(@region), class: 'btn btn-primary mt-3')%>
+      <% end %>
     </div>
     <div class="col-md-8 text-center p-5">
       <h1>
@@ -32,7 +33,7 @@
 
       <h4>Users in region: <%= @region.users.count %></h4>
 
-      <h4 class="mt-5">Team (champions):</h4>
+      <h4 class="mt-5" id="team">Team (champions):</h4>
       <% @region.champions.order(:created_at).each do |item| %>
         <%= link_to item.user.name, item.user, class: '' %>
         <%= item.user.email %> -
@@ -50,7 +51,8 @@
 
     <div class="col-md-8">
       <div class="p-5">
-        <h3>About Scotland</h3>
+        <h3 id="about">About <%= @region.name %></h3>
+        <%= @region.about_text %>
       </div>
 
       <div class="row border-top border-dark">
@@ -68,7 +70,7 @@
         </div>
         <div class="col-md-4 p-3">
           <div class="circle bg-white border border-dark d-flex flex-column justify-content-center mb-4 text-center">
-            <h4>News</h4>
+            <h4 id="news">News</h4>
           </div>
           <p>Maker Speed Dater is happening</p>
         </div>

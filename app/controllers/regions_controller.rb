@@ -1,6 +1,15 @@
 class RegionsController < ApplicationController
   before_action :set_region, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:show, :index]
+  before_action :who_can_edit!, only: [:edit, :destroy, :update]
+
+  def who_can_edit!
+    if current_user && (current_user.is_champion_in_region(@region.id) || current_user.is_admin?)
+    else
+      flash[:error] = 'Only champions and admins can edit'
+      redirect_to @region
+    end
+  end
 
   # GET /regions
   # GET /regions.json
@@ -64,13 +73,19 @@ class RegionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_region
-      @region = Region.friendly.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def region_params
-      params.require(:region).permit(:m_id, :name, :can_signup, :is_public, :logo, :trimmed_name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_region
+    @region = Region.friendly.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def region_params
+    params.require(:region).permit(:m_id, :name,
+                                   :can_signup,
+                                   :is_public,
+                                   :logo,
+                                   :trimmed_name,
+                                   :about_text)
+  end
 end

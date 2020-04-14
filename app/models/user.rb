@@ -50,7 +50,7 @@ class User < ApplicationRecord
   end
 
   def is_champion_in_region(region_id)
-    UserRegion.where(user: self, region: region_id).first.is_champion
+    UserRegion.where(user: self, region: region_id).first&.is_champion
   end
 
 end
