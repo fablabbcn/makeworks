@@ -2,6 +2,21 @@
 
   <div class="row border-bottom border-dark">
     <div class="col-md-4 tile-first p-5">
+      <h2>About / Region</h2>
+      <ul class="list-unstyled">
+        <li>
+          <%= link_to "About", "#" %>
+        </li>
+        <li>
+          <%= link_to "News", "#" %>
+        </li>
+        <li>
+          <%= link_to "Team", "#" %>
+        </li>
+        <li>
+          <%= link_to "Partners", "#" %>
+        </li>
+      </ul>
 
       <p>
       <%= @region.logo %>
@@ -34,4 +49,7 @@
     <% end %>
     </div>
   </div>
+
+  <%= render 'footer' %>
+
 </div>
