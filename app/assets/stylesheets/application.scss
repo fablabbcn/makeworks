@@ -14,9 +14,16 @@
 
 //= require 'actiontext'
 
+$black: #000;
+$black2: #222;
+$black3: #333;
+$grey: #555;
+$grey2: #ddd;
+$white: #fff;
+
 body {
   //background-color: #F9F9F9;
-  color: #333;
+  color: $black3;
   font-family: 'IBM Plex Sans', sans-serif;
 }
 
@@ -25,124 +32,134 @@ body {
   font-family: 'Roboto', serif;
 }
 
-/* Tiles use bootstrap borders, but need to change when they collaps on md- sizes */
-.tile-first{
-  border-bottom: 1px solid black;
+// Tiles use bootstrap borders, but need to change when they collaps on md- sizes
+.tile-first {
+  border-bottom: 1px solid $black;
 }
+
 @media (min-width: 768px){
-  .tile-first{
-    border: none;
-    border-right: 1px solid black;
+  .tile-first {
+    border: 0;
+    border-right: 1px solid $black;
   }
 }
 
-/* Apply the img-fluid class on all images, because many images are injected from the blog text */
-img{
-  max-width: 100%;
+// Apply the img-fluid class on all images, because many images are injected from the blog text
+img {
   height: auto;
+  max-width: 100%;
 }
 
-.btn{
+.btn {
   border-radius: 0;
   min-width: 160px;
 }
 
-.btn:hover{
-  color: white;
-  background: #555;
+.btn:hover {
+  background: $grey;
+  color: $white;
 }
 
-.btn-primary{
-  background: #222;
-  color: white;
-  border: 0px;
+.btn-primary {
+  background: $black2;
+  border: 0;
+  color: $white;
 }
 
-.btn-primary:active{
-  background:black !important;
+.btn-primary:active {
+  background: $black !important;
 }
 
-.btn-primary:focus{
-  background:black;
+.btn-primary:focus {
+  background: $black;
 }
 
-.btn-outline-primary{
-  color: #222;
-  background: white;
-  border: 1px solid #222;
+.btn-outline-primary {
+  background: $white;
+  border: 1px solid $black2;
   border-radius: 20px;
+  color: $black2;
 }
 
-.btn-outline-primary:hover{
-  background:black !important;
-  border: 1px solid #222;
+.btn-outline-primary:hover {
+  background: $black !important;
+  border: 1px solid $black2;
 }
 
-td{
-  max-width:255px;
+td {
+  max-width: 255px;
   overflow: auto;
 }
 
 .pagination a, .pagination span.current, .pagination span.gap {
-  float: left;
-  padding: 0 14px;
-  line-height: 38px;
-  text-decoration: none;
-  background-color: white;
-  border: 1px solid #DDD;
+  background-color: $white;
+  border: 1px solid $grey2;
   border-left-width: 0;
+  float: left;
+  line-height: 38px;
+  padding: 0 14px;
+  text-decoration: none;
 }
 
 .pagination {
-  margin: 5px 0px;
-  border-left: 1px solid #DDD;
-  .first{
-    padding : 0;
+  border-left: 1px solid $grey2;
+  margin: 5px 0;
+
+  .first {
+    border: 0;
     float: none;
-    border: none;
+    padding: 0;
   }
+
   .prev {
-    padding : 0;
+    border: 0;
     float: none;
-    border: none;
+    padding: 0;
   }
-  .page{
-    padding : 0;
+
+  .page {
+    border: 0;
     float: none;
-    border: none;
+    padding: 0;
   }
-  .next{
-    padding : 0;
+
+  .next {
+    border: 0;
     float: none;
-    border: none;
+    padding: 0;
   }
-  .last{
-    padding : 0;
+
+  .last {
+    border: 0;
     float: none;
-    border: none;
+    padding: 0;
   }
 }
 
-.circle{
+.circle {
+  border-radius: 50%;
   height: 90px;
   width: 90px;
-  border-radius: 50%;
 }
 
-.bubble{
+.bubble {
+  border-radius: 50%;
   height: 150px;
   width: 150px;
-  border-radius: 50%;
 }
-.bg-yellow{
+
+.bg-yellow {
   background: #FFBE02;
 }
-.bg-red{
+
+.bg-red {
   background: #FF3D2B;
 }
-.bg-green{
+
+.bg-green {
   background: #0D8055;
 }
-.bg-blue{
+
+.bg-blue {
   background: #002CBA;
 }
