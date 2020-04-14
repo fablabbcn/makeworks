@@ -287,7 +287,14 @@
         <% end %>
       </ul>
 
-
+      <h5>Machines</h5>
+      <ul class="list-unstyled">
+        <% @company.machines.each do |x| %>
+          <li>
+            <%= x.machines_taxonomy.name %>
+          </li>
+        <% end %>
+      </ul>
 
 
     </div>

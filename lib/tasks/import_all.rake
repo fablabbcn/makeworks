@@ -266,7 +266,15 @@ namespace :makeworks do
         end
       end
 
-
+      if row["Machines"].present?
+        row["Machines"].each do |item|
+          mac = MachinesTaxonomy.find_by(m_id: item["$oid"])
+          Machine.find_or_create_by(
+            company: company,
+            machines_taxonomy: mac
+          )
+        end
+      end
 
 
     end
