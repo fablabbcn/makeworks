@@ -18,36 +18,66 @@
         </li>
       </ul>
 
-      <p>
-      <%= @region.logo %>
-      </p>
 
     </div>
     <div class="col-md-8 text-center p-5">
       <h1>
         <%= @region.name %>
       </h1>
+
+      <h4> Companies in region: <%= @region.companies.count %> </h4>
+      <% @region.companies.each do |c| %>
+        <%# link_to c.name, c, class: '' %>
+      <% end %>
+
+      <h4>Users in region: <%= @region.users.count %></h4>
+
+      <h4 class="mt-5">Team (champions):</h4>
+      <% @region.champions.order(:created_at).each do |item| %>
+        <%= link_to item.user.name, item.user, class: '' %>
+        <%= item.user.email %> -
+        <br>
+      <% end %>
+
     </div>
   </div>
-  <div class="row">
+
+  <div class="row border-bottom border-dark">
     <div class="col-md-4 tile-first p-5">
-      <h4> Companies in region: <%= @region.companies.count %> </h4>
-
-      <% @region.companies.each do |c| %>
-        <%= link_to c.name, c, class: '' %><br/>
-      <% end %>
+      img <br>
+      <%= @region.logo %>
     </div>
 
-    <div class="col-md-8 p-5">
-      <h4>Users in region <%= @region.users.count %></h4>
-      <% @region.users.order(:created_at).each do |user| %>
-        <%= link_to user.name, user, class: '' %>
-        <%= user.email %> -
-        Admin:<%= user.is_admin? %> -
-        Champion:<%= user.is_champion_in_region(Region.friendly.find(params[:id])) %>
-      <br>
-    <% end %>
+    <div class="col-md-8">
+      <div class="p-5">
+        <h3>About Scotland</h3>
+      </div>
+
+      <div class="row border-top border-dark">
+        <div class="col-md-4 tile-first p-3">
+          <div class="circle bg-white border border-dark d-flex flex-column justify-content-center mb-4 text-center">
+            <h4> Event </h4>
+          </div>
+          <p>Maker Speed Dater is happening</p>
+        </div>
+        <div class="col-md-4 tile-first p-3">
+          <div class="circle bg-white border border-dark d-flex flex-column justify-content-center mb-4 text-center">
+            <h4> Listing </h4>
+          </div>
+          <p>Maker Speed Dater is happening</p>
+        </div>
+        <div class="col-md-4 p-3">
+          <div class="circle bg-white border border-dark d-flex flex-column justify-content-center mb-4 text-center">
+            <h4>News</h4>
+          </div>
+          <p>Maker Speed Dater is happening</p>
+        </div>
+      </div>
     </div>
+  </div>
+
+  <div class="my-5">
+    map
   </div>
 
   <%= render 'footer' %>
