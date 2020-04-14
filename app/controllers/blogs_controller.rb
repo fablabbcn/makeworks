@@ -1,6 +1,15 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:show, :index]
+  before_action :who_can_edit!, only: [:edit, :destroy, :update]
+
+  def who_can_edit!
+    if current_user.is_admin?
+    else
+      flash[:error] = 'Only admins can edit'
+      redirect_to @blog
+    end
+  end
 
   # GET /blogs
   # GET /blogs.json
