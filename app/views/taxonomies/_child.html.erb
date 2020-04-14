@@ -2,7 +2,7 @@
   <% stuff.each do |item| %>
     <li>
       <% if item.children.present? %>
-        <%= item.children.count %> - <%= item.name %>
+        <%= item.name %> (<%= item.children.count %>)
         <%= render partial: 'child', object: item.children, as: :stuff %>
       <% else %>
         <%= item.name %>

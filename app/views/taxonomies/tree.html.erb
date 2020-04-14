@@ -1,17 +1,17 @@
-<h1>Taxonomies tree</h1>
+<div class="container my-5">
 
-<div class="border">
+  <h1>Taxonomies tree</h1>
+
   <ul>
     <% @taxonomies.each do |t| %>
-        <li>
-          <% if t.children.present? %>
-            <%= t.children.count %> - <%= t.name %>
-            <%= render partial: 'child', object: t.children, as: :stuff %>
-          <% else %>
-            <%= t.name %>
-          <% end %>
-        </li>
+      <li>
+        <% if t.children.present? %>
+          <%= t.name %> (<%= t.children.count %>)
+          <%= render partial: 'child', object: t.children, as: :stuff %>
+        <% else %>
+          <%= t.name %>
+        <% end %>
+      </li>
     <% end %>
   </ul>
 </div>
-
