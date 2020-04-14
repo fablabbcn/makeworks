@@ -219,7 +219,7 @@ namespace :makeworks do
       if row["FinishedProducts"].present?
         row["FinishedProducts"].each do |item|
           fp = FinishedProductsTaxonomy.find_by(m_id: item["$oid"])
-          FinishedProduct.create(
+          FinishedProduct.find_or_create_by(
             company: company,
             finished_products_taxonomy: fp
           )
@@ -229,7 +229,7 @@ namespace :makeworks do
       if row["Processes"].present?
         row["Processes"].each do |item|
           pt = ProcessTaxonomy.find_by(m_id: item["$oid"])
-          CompanyProcess.create(
+          CompanyProcess.find_or_create_by(
             company: company,
             process_taxonomy: pt
           )
@@ -239,9 +239,19 @@ namespace :makeworks do
       if row["Industry"].present?
         row["Industry"].each do |item|
           indst = IndustryTaxonomy.find_by(m_id: item["$oid"])
-          Industry.create(
+          Industry.find_or_create_by(
             company: company,
             industry_taxonomy: indst
+          )
+        end
+      end
+
+      if row["Materials"].present?
+        row["Materials"].each do |item|
+          mat = MaterialsTaxonomy.find_by(m_id: item["$oid"])
+          Material.find_or_create_by(
+            company: company,
+            materials_taxonomy: mat
           )
         end
       end

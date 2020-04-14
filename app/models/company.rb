@@ -3,6 +3,7 @@ class Company < ApplicationRecord
   has_many :finished_products, dependent: :destroy
   has_many :company_processes, dependent: :destroy
   has_many :industries, dependent: :destroy
+  has_many :materials, dependent: :destroy
 
   extend FriendlyId
   friendly_id :name, use: :slugged, slug_column: :trimmed_name

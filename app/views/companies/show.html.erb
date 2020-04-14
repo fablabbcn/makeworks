@@ -269,6 +269,16 @@
         <% end %>
       </ul>
 
+      <h5>Materials</h5>
+      <ul class="list-unstyled">
+        <% @company.materials.each do |x| %>
+          <li>
+            <%= x.materials_taxonomy.name %>
+          </li>
+        <% end %>
+      </ul>
+
+
 
     </div>
   </div>
