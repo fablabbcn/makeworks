@@ -22,4 +22,9 @@ module ApplicationHelper
     nil
   end
 
+  def locale_name_pairs
+    I18n.available_locales.map do |locale|
+      [I18n.t('name', locale: locale), locale.to_s]
+    end
+  end
 end

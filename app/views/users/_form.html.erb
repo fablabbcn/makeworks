@@ -6,6 +6,9 @@
     <%= f.input :email %>
     <%= f.input :first_name %>
     <%= f.input :last_name %>
+    <div class="my-3">
+      <%= f.input :locale, collection: locale_name_pairs %>
+    </div>
     <% if current_user.is_admin? %>
       <%= f.input :is_admin %>
     <% end %>

@@ -23,6 +23,9 @@ module Makeworks
 
     config.app_generators.scaffold_controller = :scaffold_controller
 
+    config.i18n.available_locales = [:en, :is]
+    config.i18n.default_locale = :en
+
     if ENV['RAVEN_DSN_URL'].present?
       Raven.configure do |config|
         config.dsn = ENV['RAVEN_DSN_URL']

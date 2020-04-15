@@ -30,10 +30,13 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  name: English
   activerecord:
     attributes:
       company:
         address: Address
+      user:
+        locale: Language
     models:
       company:
         one: Company
@@ -54,13 +57,18 @@ en:
         sample_production: Sample production
         short_run: Short run
         file_types: Indicate what types of files the company accepts
+      user:
+        locale: Choose a language for the system. All tags and user data will still be in English.
     placeholders:
       company:
     include_blanks:
       company:
         region: prom
 
+  shared:
+    tagline: Find local manufacturers in your region
 is:
+  name: Icelandic
   activerecord:
     attributes:
       company:
@@ -71,6 +79,8 @@ is:
         other: Fyrirtæki
   simple_form:
     labels:
+      user:
+        locale: Language
       company:
         address: Heimilisfang
         lat: Breiddargráða
@@ -81,4 +91,7 @@ is:
         name: Nafn fyrirtækis
         region: Veldu svæði
         number_of_staff: Fjöldi starfsmanna
-
+      user:
+        locale: Veldu tungumál fyrir kerfið.
+  shared:
+    tagline: Finndu framleiðendur á þínu svæði

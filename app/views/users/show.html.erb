@@ -15,6 +15,10 @@
       <strong>Last name:</strong>
       <%= @user.last_name %>
       </p>
+      <p>
+      <strong>Locale:</strong>
+      <%= @user.locale %>
+      </p>
     </div>
     <div class="">
       <% if @user.avatar.attached? %>
@@ -23,6 +27,9 @@
     </div>
   </div>
 
+  <% if @user == current_user %>
+    <%= link_to "Edit", edit_profile_url(current_user), class: 'btn btn-primary' %>
+  <% end %>
   <hr>
   <h4>Is in regions:</h4>
 

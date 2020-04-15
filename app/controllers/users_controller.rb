@@ -73,7 +73,19 @@ class UsersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def user_params
-    # Devise has taken this over
-    params.require(:user).permit(:avatar, :email, :first_name, :last_name, :is_admin)
+    params_to_permit = [
+      :avatar,
+      :email,
+      :first_name,
+      :last_name,
+      :locale
+    ]
+
+    # Only admins can edit
+    if current_user.is_admin?
+      params_to_permit.push(:is_admin)
+    end
+
+    params.require(:user).permit(params_to_permit)
   end
 end
