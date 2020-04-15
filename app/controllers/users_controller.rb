@@ -65,14 +65,15 @@ class UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.friendly.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def user_params
-      # Devise has taken this over
-      params.require(:user).permit(:avatar, :email, :first_name, :last_name, :is_admin)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = User.friendly.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def user_params
+    # Devise has taken this over
+    params.require(:user).permit(:avatar, :email, :first_name, :last_name, :is_admin)
+  end
 end
