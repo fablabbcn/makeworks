@@ -1,15 +1,25 @@
 <h1>Companies</h1>
 
-<%= search_form_for @q do |f| %>
-  <div class="input-group mb-4 w-75 mx-auto">
-    <%= f.search_field :name_cont, class: 'form-control' %>
-
+<%= search_form_for @q, class: 'w-50 mx-auto' do |f| %>
+  <div class="my-2">
     <%= f.select :region_id_eq, Region.pluck(:name, :id), {include_blank: 'All Regions'}, class: 'form-control' %>
-
+  </div>
+  <div class="my-2">
+    <%= f.select :industry_taxonomies_id_eq, IndustryTaxonomy.pluck(:name, :id), {include_blank: 'All Industries'} %>
+  </div>
+  <div class="my-2">
+    <%= f.select :materials_taxonomies_id_eq, MaterialsTaxonomy.pluck(:name, :id), {include_blank: 'All Materials'} %>
+  </div>
+  <div class="my-2">
+    <%= f.select :machines_taxonomies_id_eq, MachinesTaxonomy.pluck(:name, :id), {include_blank: 'All Machines'} %>
+  </div>
+  <div class="input-group my-2">
+    <%= f.search_field :name_or_description_cont, class: 'form-control', placeholder: 'Company name or description contains..' %>
     <div class="input-group-append">
       <%= f.submit class: 'btn btn-primary' %>
     </div>
   </div>
+  Found: <%= @companies.count %>
 <% end %>
 
 <%= paginate @companies %>
@@ -131,5 +141,3 @@
 
 <br>
 <%= paginate @companies %>
-
-<%= link_to 'New Company', new_company_path, class: 'btn btn-dark' %>

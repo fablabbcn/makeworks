@@ -15,7 +15,11 @@ class CompaniesController < ApplicationController
   # GET /companies
   # GET /companies.json
   def index
-    @q = Company.ransack(params[:q])
+    @q = Company.joins(
+      :materials_taxonomies,
+      :machines_taxonomies,
+      :industry_taxonomies
+    ).ransack(params[:q])
     @companies = @q.result(distinct: true).page(params[:page])
   end
 
