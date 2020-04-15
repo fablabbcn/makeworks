@@ -31,6 +31,8 @@
 
 en:
   name: English
+  active_admin:
+    dashboard: Dashboard
   activerecord:
     attributes:
       company:
