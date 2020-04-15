@@ -2,10 +2,12 @@
 
   <h1>Blog</h1>
 
-  <%= search_form_for @q do |f| %>
+  <%= search_form_for @q, class: 'w-75 mx-auto' do |f| %>
+    <div class="my-2">
+      <%= f.select :blog_category_id_eq, BlogCategory.pluck(:name, :id), {include_blank: 'All Categories'}, class: 'form-control' %>
+    </div>
     <div class="input-group mb-3">
       <%= f.search_field :title_or_blurb_or_content_cont, class: 'form-control', placeholder: 'Search for a blog' %>
-      <%= f.select :blog_category_id_eq, BlogCategory.pluck(:name, :id), {include_blank: 'All Categories'}, class: 'form-control' %>
       <div class="input-group-append">
         <%= f.submit class: 'btn btn-primary' %>
       </div>
