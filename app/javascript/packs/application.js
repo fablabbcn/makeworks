@@ -18,3 +18,10 @@ require("channels")
 
 require("trix")
 require("@rails/actiontext")
+
+
+// JavaScript
+document.addEventListener("turbolinks:load", function () {
+  // Select2 is loaded via CDN
+  $("select").select2();
+});
