@@ -1,5 +1,6 @@
 class MachinesTaxonomiesController < ApplicationController
   before_action :set_machines_taxonomy, only: [:show, :edit, :update, :destroy]
+  before_action :check_if_admin
 
   # GET /machines_taxonomies
   # GET /machines_taxonomies.json

@@ -1,5 +1,6 @@
 class FinishedProductsTaxonomiesController < ApplicationController
   before_action :set_finished_products_taxonomy, only: [:show, :edit, :update, :destroy]
+  before_action :check_if_admin
 
   # GET /finished_products_taxonomies
   # GET /finished_products_taxonomies.json

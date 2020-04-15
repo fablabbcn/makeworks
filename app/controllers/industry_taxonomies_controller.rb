@@ -1,5 +1,6 @@
 class IndustryTaxonomiesController < ApplicationController
   before_action :set_industry_taxonomy, only: [:show, :edit, :update, :destroy]
+  before_action :check_if_admin
 
   # GET /industry_taxonomies
   # GET /industry_taxonomies.json

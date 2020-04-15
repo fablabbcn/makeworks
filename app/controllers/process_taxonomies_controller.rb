@@ -1,5 +1,6 @@
 class ProcessTaxonomiesController < ApplicationController
   before_action :set_process_taxonomy, only: [:show, :edit, :update, :destroy]
+  before_action :check_if_admin
 
   # GET /process_taxonomies
   # GET /process_taxonomies.json

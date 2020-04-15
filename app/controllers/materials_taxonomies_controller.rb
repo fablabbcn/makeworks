@@ -1,5 +1,6 @@
 class MaterialsTaxonomiesController < ApplicationController
   before_action :set_materials_taxonomy, only: [:show, :edit, :update, :destroy]
+  before_action :check_if_admin
 
   # GET /materials_taxonomies
   # GET /materials_taxonomies.json

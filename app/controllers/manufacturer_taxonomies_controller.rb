@@ -1,5 +1,6 @@
 class ManufacturerTaxonomiesController < ApplicationController
   before_action :set_manufacturer_taxonomy, only: [:show, :edit, :update, :destroy]
+  before_action :check_if_admin
 
   # GET /manufacturer_taxonomies
   # GET /manufacturer_taxonomies.json

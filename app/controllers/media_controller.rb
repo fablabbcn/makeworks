@@ -1,7 +1,6 @@
 class MediaController < ApplicationController
   before_action :set_medium, only: [:show, :edit, :update, :destroy]
-  # Only superadmins can edit media?
-  #before_action :my_admin_required!, except: :show
+  before_action :check_if_admin
 
   # GET /media
   # GET /media.json

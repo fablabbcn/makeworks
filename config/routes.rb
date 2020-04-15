@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get 'blog', to: 'blogs#index'
   get 'blog/:id', to: 'blogs#show'
 
+  # These are admin only
   resources :manufacturer_taxonomies
   resources :industry_taxonomies
   resources :process_taxonomies
@@ -27,6 +28,7 @@ Rails.application.routes.draw do
   resources :media
   resources :machines_taxonomies
   resources :taxonomies
+
   get 'taxtree', to: 'taxonomies#tree'
   resources :companies
   resources :regions
