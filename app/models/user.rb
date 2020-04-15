@@ -16,10 +16,6 @@ class User < ApplicationRecord
     name
   end
 
-  def default_locale
-    locale || I18n.default_locale
-  end
-
   def name
     if "#{first_name} #{last_name}".length > 1
       "#{first_name} #{last_name}"
