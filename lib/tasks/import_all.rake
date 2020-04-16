@@ -343,5 +343,20 @@ namespace :makeworks do
       end
     end
 
+    puts "Creating Region About..."
+    File.open("csv/region_about_page.json").each do |r|
+      row = JSON.parse(r)
+
+      region = Region.find_by(m_id: row['org']['$oid'])
+      next if region.blank?
+
+      region.update(
+        #about_header: row["about_header"],
+        about_text: row["about_text"]
+        #team_members: << # user
+        #projects:
+      )
+    end
+
   end
 end

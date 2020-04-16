@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th><%= sort_link(@q, :name) %></th>
+      <th>About</th>
       <th>Can signup</th>
       <th>Is public</th>
       <th>Logo</th>
@@ -17,6 +18,7 @@
     <% @regions.each do |region| %>
       <tr>
         <td><%= link_to region.name, region %></td>
+        <td><%= region.about_text %></td>
         <td><%= region.can_signup %></td>
         <td><%= region.is_public %></td>
         <td><%= region.logo %></td>
