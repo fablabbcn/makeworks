@@ -9,8 +9,16 @@ ActiveAdmin.register_page "Dashboard" do
       end
     end
 
-    # Here is an example of a simple dashboard with columns and panels.
     columns do
+      column do
+        panel "Last Companies" do
+          ul do
+            Company.last(20).map do |item|
+              li link_to(item.name, admin_company_path(item))
+            end
+          end
+        end
+      end
       column do
         panel "Last 10 Posts" do
           ul do
@@ -20,21 +28,13 @@ ActiveAdmin.register_page "Dashboard" do
           end
         end
       end
-
       column do
         panel "Last 10 Users" do
           ul do
-            User.last(10).map do |item|
+            User.last(20).map do |item|
               li link_to(item.email, admin_user_path(item))
             end
           end
-        end
-      end
-
-
-      column do
-        panel "Info" do
-          para "Welcome to ActiveAdmin."
         end
       end
     end
