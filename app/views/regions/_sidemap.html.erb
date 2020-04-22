@@ -1,0 +1,72 @@
+<div class="embed-responsive embed-responsive-4by3">
+  <div id="sidemap" class="embed-responsive-item"> </div>
+</div>
+Found: <%= @region.companies_with_lat_lng.count %>
+
+<script>
+  var map, infoWindow;
+  function initMap() {
+
+    infoWindow = new google.maps.InfoWindow;
+    var locations = <%= raw @region.companies_with_lat_lng.to_json %>
+    //console.log(locations)
+    var marker, i;
+
+    var image = {
+      scaledSize: new google.maps.Size(35, 35)
+    };
+
+    map = new google.maps.Map(document.getElementById('sidemap'), {
+      //center: {lat: 20, lng: -40},
+      center: {lat: parseFloat(locations[0].lat), lng: parseFloat(locations[0].lng)},
+      mapTypeId: "OSM",
+      mapTypeControl: false,
+      streetViewControl: false,
+      zoom: 7
+    });
+
+    // Define OSM map type pointing at the OpenStreetMap tile server
+    // https://wiki.openstreetmap.org/wiki/Google_Maps_Example
+    map.mapTypes.set("OSM", new google.maps.ImageMapType({
+      getTileUrl: function(coord, zoom) {
+        // "Wrap" x (longitude) at 180th meridian properly
+        // NB: Don't touch coord.x: because coord param is by reference, and changing its x property breaks something in Google's lib
+        var tilesPerGlobe = 1 << zoom;
+        var x = coord.x % tilesPerGlobe;
+        if (x < 0) {
+          x = tilesPerGlobe+x;
+        }
+        // Wrap y (latitude) in a like manner if you want to enable vertical infinite scrolling
+
+        return "https://tile.openstreetmap.org/" + zoom + "/" + x + "/" + coord.y + ".png";
+      },
+      tileSize: new google.maps.Size(256, 256),
+      name: "OpenStreetMap",
+      maxZoom: 18
+    }));
+
+    for(var i in locations){
+
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i].lat, locations[i].lng),
+        map: map
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infoWindow.setContent(
+            "<a href='/labs/" + locations[i].slug + "'>" + locations[i].name + "</a><br/>" +
+            "<b>Status: </b>" + locations[i].activity_status + "<br/>" +
+            "<b>Kind: </b>" + locations[i].kind + "<br/>" +
+            "<b>City: </b>" + locations[i].city + "<br/>"
+          );
+          infoWindow.open(map, marker);
+        }
+      })(marker, i));
+
+    }
+
+  }
+
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&callback=initMap"> </script>
