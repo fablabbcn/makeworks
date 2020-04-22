@@ -19,7 +19,10 @@ class CompaniesController < ApplicationController
       :materials_taxonomies,
       :machines_taxonomies,
       :industry_taxonomies
-    ).ransack(params[:q])
+    )
+      .includes(:region)
+      .ransack(params[:q])
+
     @companies = @q.result(distinct: true).page(params[:page])
   end
 
@@ -80,7 +83,14 @@ class CompaniesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_company
-      @company = Company.friendly.find(params[:id])
+      # use bullet gem
+      @company = Company.includes(
+        company_processes: [:process_taxonomy],
+        finished_products: [:finished_products_taxonomy],
+        machines: [:machines_taxonomy],
+        materials: [:materials_taxonomy],
+        industries: [:industry_taxonomy]
+      ).friendly.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

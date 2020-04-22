@@ -16,4 +16,9 @@ class Company < ApplicationRecord
 
   extend FriendlyId
   friendly_id :name, use: :slugged, slug_column: :trimmed_name
+
+
+  def self.companies_with_lat_lng
+    where.not(lat: nil).where.not(lng: nil)
+  end
 end

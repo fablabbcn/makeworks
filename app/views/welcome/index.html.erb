@@ -24,7 +24,9 @@
     </div>
   </div>
 
-  <%= render 'map' %>
+  <div class="row border-top border-dark">
+    <%= render partial: 'map', locals: { locations: Company.companies_with_lat_lng} %>
+  </div>
 
   <%= render 'how_it_works' %>
 

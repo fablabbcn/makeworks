@@ -82,8 +82,11 @@
   </div>
 
 
-  <div class="">
-    <%= render 'sidemap' %>
+  <div class="row">
+    <% if @region.companies_with_lat_lng.present? %>
+      <%= render partial: 'map', locals: { locations: @region.companies_with_lat_lng} %>
+      <p class="m-3"> Found: <%= @region.companies_with_lat_lng.count %> </p>
+    <% end %>
   </div>
 
   <%= render 'footer' %>
