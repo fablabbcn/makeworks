@@ -55,10 +55,9 @@ Found: <%= @region.companies_with_lat_lng.count %>
       google.maps.event.addListener(marker, 'click', (function(marker, i) {
         return function() {
           infoWindow.setContent(
-            "<a href='/labs/" + locations[i].slug + "'>" + locations[i].name + "</a><br/>" +
-            "<b>Status: </b>" + locations[i].activity_status + "<br/>" +
-            "<b>Kind: </b>" + locations[i].kind + "<br/>" +
-            "<b>City: </b>" + locations[i].city + "<br/>"
+            "<a href='/companies/" + locations[i].trimmed_name + "'>" + locations[i].name + "</a><br/>" +
+            "<b>Location: </b>" + locations[i].location + "<br/>" +
+            "<b>Address: </b>" + locations[i].address + "<br/>"
           );
           infoWindow.open(map, marker);
         }
