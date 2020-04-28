@@ -12,7 +12,7 @@
   <div class="my-2">
     <%= f.select :machines_taxonomies_id_eq, MachinesTaxonomy.pluck(:name, :id), {include_blank: 'All Machines'} %>
   </div>
-  <div class="input-group my-2 w-50">
+  <div class="input-group my-2" style="max-width:800px">
     <%= f.search_field :name_or_description_cont, class: 'form-control', placeholder: 'Company name or description contains..' %>
     <div class="input-group-append">
       <%= f.submit class: 'btn btn-primary' %>
