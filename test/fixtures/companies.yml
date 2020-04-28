@@ -40,7 +40,7 @@ one:
   short_run: false
   soft_delete: false
   title: MyString
-  top_image: MyString
+  top_image: image.png
   trimmed_name: MyString
   turnaround_time: MyString
   twitter: MyString
@@ -90,7 +90,7 @@ two:
   short_run: false
   soft_delete: false
   title: MyString
-  top_image: MyString
+  top_image: image.png
   trimmed_name: MyString
   turnaround_time: MyString
   twitter: MyString
