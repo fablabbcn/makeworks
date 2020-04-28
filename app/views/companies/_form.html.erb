@@ -8,29 +8,41 @@
 
   <div class="form-inputs">
     <%= f.input :name %>
+    <%= f.input :trimmed_name %>
+    <%= f.input :title %>
     <%= f.association :region %>
     <%= f.association :machines_taxonomies %>
     <%= f.input :address %>
     <%= f.input :background %>
     <%= f.input :description %>
     <%= f.input :intro %>
-    <%= f.input :contact_name %>
-    <%= f.input :contact_email %>
-    <%= f.input :contact_phone %>
-    <%= f.input :contact_jobtitle %>
-    <%= f.input :flickr %>
-    <%= f.input :facebook %>
-    <%= f.input :instagram %>
-    <%= f.input :large_run %>
     <%= f.input :lat %>
     <%= f.input :lng %>
-    <%= f.input :linkedin %>
     <%= f.input :location %>
+    <%= f.input :large_run %>
     <%= f.input :medium_run %>
     <%= f.input :minimum_order %>
     <%= f.input :number_of_staff %>
     <%= f.input :file_types %>
+    <%= f.input :sample_production %>
+    <%= f.input :short_run %>
+    <%= f.input :soft_delete %>
+    <%= f.input :turnaround_time %>
+    <%= f.input :website %>
+    <%= f.input :year_founded %>
+    <%= f.input :film_ready %>
+
+    <hr>
+    <h3>Contact info</h3>
+    <%= f.input :contact_name %>
+    <%= f.input :contact_email %>
+    <%= f.input :contact_phone %>
+    <%= f.input :contact_jobtitle %>
+
+    <hr>
+    <h3>Photos</h3>
     <%= f.input :image_bucket %>
+    <%= f.input :portrait %>
     <%= f.input :photo1 %>
     <%= f.input :photo2 %>
     <%= f.input :photo3 %>
@@ -40,21 +52,18 @@
     <%= f.input :photo7 %>
     <%= f.input :photo8 %>
     <%= f.input :photo9 %>
-    <%= f.input :pinterest %>
-    <%= f.input :portrait %>
-    <%= f.input :sample_production %>
-    <%= f.input :short_run %>
-    <%= f.input :soft_delete %>
-    <%= f.input :title %>
     <%= f.input :top_image %>
-    <%= f.input :trimmed_name %>
-    <%= f.input :turnaround_time %>
-    <%= f.input :twitter %>
     <%= f.input :video_link %>
-    <%= f.input :website %>
+
+    <hr>
+    <h3>Social</h3>
+    <%= f.input :facebook %>
+    <%= f.input :flickr %>
+    <%= f.input :instagram %>
+    <%= f.input :linkedin %>
+    <%= f.input :pinterest %>
+    <%= f.input :twitter %>
     <%= f.input :youtube %>
-    <%= f.input :year_founded %>
-    <%= f.input :film_ready %>
   </div>
 
   <div class="form-actions">
