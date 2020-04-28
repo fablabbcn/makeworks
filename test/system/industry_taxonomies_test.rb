@@ -3,6 +3,7 @@ require "application_system_test_case"
 class IndustryTaxonomiesTest < ApplicationSystemTestCase
   setup do
     @industry_taxonomy = industry_taxonomies(:one)
+    sign_in users(:one)
   end
 
   test "visiting the index" do
@@ -16,7 +17,7 @@ class IndustryTaxonomiesTest < ApplicationSystemTestCase
 
     fill_in "M", with: @industry_taxonomy.m_id
     fill_in "Name", with: @industry_taxonomy.name
-    fill_in "Parent", with: @industry_taxonomy.parent_id
+    #fill_in "Parent", with: @industry_taxonomy.parent_id
     click_on "Create Industry taxonomy"
 
     assert_text "Industry taxonomy was successfully created"
@@ -29,7 +30,7 @@ class IndustryTaxonomiesTest < ApplicationSystemTestCase
 
     fill_in "M", with: @industry_taxonomy.m_id
     fill_in "Name", with: @industry_taxonomy.name
-    fill_in "Parent", with: @industry_taxonomy.parent_id
+    #fill_in "Parent", with: @industry_taxonomy.parent_id
     click_on "Update Industry taxonomy"
 
     assert_text "Industry taxonomy was successfully updated"

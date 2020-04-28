@@ -2,16 +2,16 @@
 
 one:
   m_id: MyString
-  name: MyString
+  name: Region1
   can_signup: false
   is_public: false
   logo: MyString
-  trimmed_name: MyString
+  trimmed_name: reg1
 
 two:
   m_id: MyString
-  name: MyString
+  name: Region2
   can_signup: false
   is_public: false
   logo: MyString
-  trimmed_name: MyString
+  trimmed_name: reg2

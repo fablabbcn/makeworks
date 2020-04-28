@@ -3,6 +3,7 @@ require "application_system_test_case"
 class MaterialsTaxonomiesTest < ApplicationSystemTestCase
   setup do
     @materials_taxonomy = materials_taxonomies(:one)
+    sign_in users(:one)
   end
 
   test "visiting the index" do
@@ -16,7 +17,7 @@ class MaterialsTaxonomiesTest < ApplicationSystemTestCase
 
     fill_in "M", with: @materials_taxonomy.m_id
     fill_in "Name", with: @materials_taxonomy.name
-    fill_in "Parent", with: @materials_taxonomy.parent_id
+    #fill_in "Parent", with: @materials_taxonomy.parent_id
     click_on "Create Materials taxonomy"
 
     assert_text "Materials taxonomy was successfully created"
@@ -29,7 +30,7 @@ class MaterialsTaxonomiesTest < ApplicationSystemTestCase
 
     fill_in "M", with: @materials_taxonomy.m_id
     fill_in "Name", with: @materials_taxonomy.name
-    fill_in "Parent", with: @materials_taxonomy.parent_id
+    #fill_in "Parent", with: @materials_taxonomy.parent_id
     click_on "Update Materials taxonomy"
 
     assert_text "Materials taxonomy was successfully updated"

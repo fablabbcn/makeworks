@@ -2,26 +2,26 @@
 
 one:
   m_id: MyString
-  blurb: MyString
+  blurb: Blurb1
   blog_category: one
   content: MyText
   dont_publish: false
   featured_video: MyString
   header_image: image.png
   medium: one
-  slug: MyString
-  sub_title: MyString
-  title: MyString
+  slug: slug1
+  sub_title: Sub1
+  title: Title1
 
 two:
   m_id: MyString
-  blurb: MyString
+  blurb: Blurb2
   blog_category: two
   content: MyText
   dont_publish: false
   featured_video: MyString
   header_image: image.png
   medium: two
-  slug: MyString
-  sub_title: MyString
-  title: MyString
+  slug: slug2
+  sub_title: Sub2
+  title: Title2

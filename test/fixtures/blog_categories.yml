@@ -2,8 +2,8 @@
 
 one:
   m_id: MyString
-  name: MyString
+  name: Cat1
 
 two:
   m_id: MyString
-  name: MyString
+  name: Cat2

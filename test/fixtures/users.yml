@@ -2,14 +2,14 @@
 
 one:
   m_id: MyString
-  email: MyString
-  first_name: MyString
-  last_name: MyString
+  email: admin@admin.com
+  first_name: Admin
+  last_name: Adminson
   is_admin: true
 
 two:
   m_id: MyString
-  email: MyString
-  first_name: MyString
-  last_name: MyString
+  email: normal@normal.com
+  first_name: normal
+  last_name: normalson
   is_admin: false

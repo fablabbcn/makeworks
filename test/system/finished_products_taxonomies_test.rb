@@ -3,6 +3,7 @@ require "application_system_test_case"
 class FinishedProductsTaxonomiesTest < ApplicationSystemTestCase
   setup do
     @finished_products_taxonomy = finished_products_taxonomies(:one)
+    sign_in users(:one)
   end
 
   test "visiting the index" do
@@ -16,7 +17,8 @@ class FinishedProductsTaxonomiesTest < ApplicationSystemTestCase
 
     fill_in "M", with: @finished_products_taxonomy.m_id
     fill_in "Name", with: @finished_products_taxonomy.name
-    fill_in "Parent", with: @finished_products_taxonomy.parent_id
+    #fill_in "Parent", with: @finished_products_taxonomy.parent_id
+    select "Fin1", from: 'Parent'
     click_on "Create Finished products taxonomy"
 
     assert_text "Finished products taxonomy was successfully created"
@@ -29,7 +31,8 @@ class FinishedProductsTaxonomiesTest < ApplicationSystemTestCase
 
     fill_in "M", with: @finished_products_taxonomy.m_id
     fill_in "Name", with: @finished_products_taxonomy.name
-    fill_in "Parent", with: @finished_products_taxonomy.parent_id
+    #fill_in "Parent", with: @finished_products_taxonomy.parent_id
+    select "Fin2", from: 'Parent'
     click_on "Update Finished products taxonomy"
 
     assert_text "Finished products taxonomy was successfully updated"

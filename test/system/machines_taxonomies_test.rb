@@ -3,6 +3,7 @@ require "application_system_test_case"
 class MachinesTaxonomiesTest < ApplicationSystemTestCase
   setup do
     @machines_taxonomy = machines_taxonomies(:one)
+    sign_in users(:one)
   end
 
   test "visiting the index" do
@@ -16,7 +17,7 @@ class MachinesTaxonomiesTest < ApplicationSystemTestCase
 
     fill_in "M", with: @machines_taxonomy.m_id
     fill_in "Name", with: @machines_taxonomy.name
-    fill_in "Parent", with: @machines_taxonomy.parent_id
+    #fill_in "Parent", with: @machines_taxonomy.parent_id
     click_on "Create Machines taxonomy"
 
     assert_text "Machines taxonomy was successfully created"
@@ -29,7 +30,7 @@ class MachinesTaxonomiesTest < ApplicationSystemTestCase
 
     fill_in "M", with: @machines_taxonomy.m_id
     fill_in "Name", with: @machines_taxonomy.name
-    fill_in "Parent", with: @machines_taxonomy.parent_id
+    #fill_in "Parent", with: @machines_taxonomy.parent_id
     click_on "Update Machines taxonomy"
 
     assert_text "Machines taxonomy was successfully updated"

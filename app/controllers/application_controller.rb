@@ -11,6 +11,6 @@ class ApplicationController < ActionController::Base
   end
 
   def set_locale
-    I18n.locale = current_user&.locale || I18n.default_locale
+    I18n.locale = current_user&.locale.presence || I18n.default_locale
   end
 end

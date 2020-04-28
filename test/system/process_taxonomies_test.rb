@@ -3,6 +3,7 @@ require "application_system_test_case"
 class ProcessTaxonomiesTest < ApplicationSystemTestCase
   setup do
     @process_taxonomy = process_taxonomies(:one)
+    sign_in users(:one)
   end
 
   test "visiting the index" do
@@ -16,7 +17,7 @@ class ProcessTaxonomiesTest < ApplicationSystemTestCase
 
     fill_in "M", with: @process_taxonomy.m_id
     fill_in "Name", with: @process_taxonomy.name
-    fill_in "Parent", with: @process_taxonomy.parent_id
+    select "Process1", from: 'Parent'
     click_on "Create Process taxonomy"
 
     assert_text "Process taxonomy was successfully created"
@@ -29,7 +30,7 @@ class ProcessTaxonomiesTest < ApplicationSystemTestCase
 
     fill_in "M", with: @process_taxonomy.m_id
     fill_in "Name", with: @process_taxonomy.name
-    fill_in "Parent", with: @process_taxonomy.parent_id
+    select "Process2", from: 'Parent'
     click_on "Update Process taxonomy"
 
     assert_text "Process taxonomy was successfully updated"

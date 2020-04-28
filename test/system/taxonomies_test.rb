@@ -3,6 +3,7 @@ require "application_system_test_case"
 class TaxonomiesTest < ApplicationSystemTestCase
   setup do
     @taxonomy = taxonomies(:one)
+    sign_in users(:one)
   end
 
   test "visiting the index" do
@@ -14,9 +15,9 @@ class TaxonomiesTest < ApplicationSystemTestCase
     visit taxonomies_url
     click_on "New Taxonomy"
 
-    fill_in "M", with: @taxonomy.m_id
+    #fill_in "M", with: @taxonomy.m_id
     fill_in "Name", with: @taxonomy.name
-    fill_in "Parent", with: @taxonomy.parent_id
+    #fill_in "Parent", with: @taxonomy.parent_id
     fill_in "Taxonomy", with: @taxonomy.taxonomy
     click_on "Create Taxonomy"
 
@@ -28,9 +29,9 @@ class TaxonomiesTest < ApplicationSystemTestCase
     visit taxonomies_url
     click_on "Edit", match: :first
 
-    fill_in "M", with: @taxonomy.m_id
+    #fill_in "M", with: @taxonomy.m_id
     fill_in "Name", with: @taxonomy.name
-    fill_in "Parent", with: @taxonomy.parent_id
+    #fill_in "Parent", with: @taxonomy.parent_id
     fill_in "Taxonomy", with: @taxonomy.taxonomy
     click_on "Update Taxonomy"
 
