@@ -1,8 +1,7 @@
-<h1>Companies</h1>
-
-<%= search_form_for @q, class: 'w-50 mx-auto' do |f| %>
+<%= search_form_for @q, class: 'p-5 mx-auto' do |f| %>
+  <h1 class="mb-4"><%= t('shared.tagline') %></h1>
   <div class="my-2">
-    <%= f.select :region_id_eq, Region.pluck(:name, :id), {include_blank: 'All Regions'}, class: 'form-control' %>
+    <%= f.select :region_id_eq, Region.pluck(:name, :id), {include_blank: 'All Regions'}, class: '' %>
   </div>
   <div class="my-2">
     <%= f.select :industry_taxonomies_id_eq, IndustryTaxonomy.pluck(:name, :id), {include_blank: 'All Industries'} %>
@@ -13,7 +12,7 @@
   <div class="my-2">
     <%= f.select :machines_taxonomies_id_eq, MachinesTaxonomy.pluck(:name, :id), {include_blank: 'All Machines'} %>
   </div>
-  <div class="input-group my-2">
+  <div class="input-group my-2 w-50">
     <%= f.search_field :name_or_description_cont, class: 'form-control', placeholder: 'Company name or description contains..' %>
     <div class="input-group-append">
       <%= f.submit class: 'btn btn-primary' %>
