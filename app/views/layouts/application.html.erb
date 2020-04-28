@@ -61,6 +61,13 @@
           <% end %>
         </ul>
 
+        <form class="mx-auto" action="/companies">
+          <div class="input-group">
+          <input class="form-control " name="q[name_or_description_cont]" type="search" placeholder="Search companies.." aria-label="Search">
+          <button class="btn btn-dark input-group-append" type="submit">Search</button>
+          </div>
+        </form>
+
         <ul class="navbar-nav ml-auto ml-0 ml-lg-5">
           <% if current_user %>
             <li class="nav-item dropdown">
