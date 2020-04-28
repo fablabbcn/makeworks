@@ -30,9 +30,9 @@ class CompaniesTest < ApplicationSystemTestCase
     fill_in "Instagram", with: @company.instagram
     fill_in "Intro", with: @company.intro
     check "Large run" if @company.large_run
-    fill_in "Lat", with: @company.lat
+    fill_in "Latitude", with: @company.lat
     fill_in "Linkedin", with: @company.linkedin
-    fill_in "Lng", with: @company.lng
+    fill_in "Longitude", with: @company.lng
     fill_in "Location", with: @company.location
     fill_in "M", with: @company.m_id
     check "Medium run" if @company.medium_run
@@ -50,7 +50,8 @@ class CompaniesTest < ApplicationSystemTestCase
     fill_in "Photo9", with: @company.photo9
     fill_in "Pinterest", with: @company.pinterest
     fill_in "Portrait", with: @company.portrait
-    fill_in "Region", with: @company.region_id
+    select 'Region1', from: 'Region'
+    #fill_in "Region", with: @company.region_id
     check "Sample production" if @company.sample_production
     check "Short run" if @company.short_run
     check "Soft delete" if @company.soft_delete
@@ -63,10 +64,9 @@ class CompaniesTest < ApplicationSystemTestCase
     fill_in "Website", with: @company.website
     fill_in "Year founded", with: @company.year_founded
     fill_in "Youtube", with: @company.youtube
-    click_on "Create Company"
+    click_on "Create Company", match: :first
 
     assert_text "Company was successfully created"
-    click_on "Back"
   end
 
   test "updating a Company" do
@@ -88,9 +88,9 @@ class CompaniesTest < ApplicationSystemTestCase
     fill_in "Instagram", with: @company.instagram
     fill_in "Intro", with: @company.intro
     check "Large run" if @company.large_run
-    fill_in "Lat", with: @company.lat
+    fill_in "Latitude", with: @company.lat
     fill_in "Linkedin", with: @company.linkedin
-    fill_in "Lng", with: @company.lng
+    fill_in "Longitude", with: @company.lng
     fill_in "Location", with: @company.location
     fill_in "M", with: @company.m_id
     check "Medium run" if @company.medium_run
@@ -108,7 +108,8 @@ class CompaniesTest < ApplicationSystemTestCase
     fill_in "Photo9", with: @company.photo9
     fill_in "Pinterest", with: @company.pinterest
     fill_in "Portrait", with: @company.portrait
-    fill_in "Region", with: @company.region_id
+    #fill_in "Region", with: @company.region_id
+    select 'Region2', from: 'Region'
     check "Sample production" if @company.sample_production
     check "Short run" if @company.short_run
     check "Soft delete" if @company.soft_delete
@@ -121,10 +122,9 @@ class CompaniesTest < ApplicationSystemTestCase
     fill_in "Website", with: @company.website
     fill_in "Year founded", with: @company.year_founded
     fill_in "Youtube", with: @company.youtube
-    click_on "Update Company"
+    click_on "Update Company", match: :first
 
     assert_text "Company was successfully updated"
-    click_on "Back"
   end
 
   test "destroying a Company" do
