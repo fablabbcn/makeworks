@@ -1,142 +1,66 @@
-<%= search_form_for @q, class: 'p-5 mx-auto' do |f| %>
-  <h1 class="mb-4"><%= t('shared.tagline') %></h1>
-  <div class="my-2">
-    <%= f.select :region_id_eq, Region.pluck(:name, :id), {include_blank: 'All Regions'}, class: '' %>
-  </div>
-  <div class="my-2">
-    <%= f.select :industry_taxonomies_id_eq, IndustryTaxonomy.pluck(:name, :id), {include_blank: 'All Industries'} %>
-  </div>
-  <div class="my-2">
-    <%= f.select :materials_taxonomies_id_eq, MaterialsTaxonomy.pluck(:name, :id), {include_blank: 'All Materials'} %>
-  </div>
-  <div class="my-2">
-    <%= f.select :machines_taxonomies_id_eq, MachinesTaxonomy.pluck(:name, :id), {include_blank: 'All Machines'} %>
-  </div>
-  <div class="input-group my-2" style="max-width:800px">
-    <%= f.search_field :name_or_description_cont, class: 'form-control', placeholder: 'Company name or description contains..' %>
-    <div class="input-group-append">
-      <%= f.submit class: 'btn btn-primary' %>
+<div class="container-fluid">
+
+  <%= search_form_for @q, class: 'pt-3 mx-auto' do |f| %>
+    <h1 class="mb-4"><%= t('shared.tagline') %></h1>
+    <div class="my-2">
+      <%= f.select :region_id_eq, Region.pluck(:name, :id), {include_blank: 'All Regions'}, class: '' %>
     </div>
-  </div>
-  Found: <%= @companies.count %>
-<% end %>
+    <div class="my-2">
+      <%= f.select :industry_taxonomies_id_eq, IndustryTaxonomy.pluck(:name, :id), {include_blank: 'All Industries'} %>
+    </div>
+    <div class="my-2">
+      <%= f.select :materials_taxonomies_id_eq, MaterialsTaxonomy.pluck(:name, :id), {include_blank: 'All Materials'} %>
+    </div>
+    <div class="my-2">
+      <%= f.select :machines_taxonomies_id_eq, MachinesTaxonomy.pluck(:name, :id), {include_blank: 'All Machines'} %>
+    </div>
+    <div class="input-group my-2" style="max-width:800px">
+      <%= f.search_field :name_or_description_cont, class: 'form-control', placeholder: 'Company name or description contains..' %>
+      <div class="input-group-append">
+        <%= f.submit class: 'btn btn-primary' %>
+      </div>
+    </div>
+    <p class="text-muted">
+    Found: <%= @companies.count %>
+    </p>
+  <% end %>
 
-<%= paginate @companies %>
+  <%= paginate @companies %>
 
-<%= link_to 'New Company', new_company_path, class: 'btn btn-dark my-3' %>
+  <%= link_to 'New Company', new_company_path, class: 'btn btn-dark my-3' %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Region</th>
-      <th>Name</th>
-      <th>Address</th>
-      <th>Background</th>
-      <th>Description</th>
-      <th>Intro</th>
-      <th>Contact name</th>
-      <th>Contact email</th>
-      <th><%= sort_link(@q, :contact_phone)%></th>
-      <th>Contact jobtitle</th>
-      <th><%= sort_link(@q, :flickr)%></th>
-      <th>Facebook</th>
-      <th><%= sort_link(@q, :instagram) %></th>
-      <th>Large run</th>
-      <th>Lat</th>
-      <th>Lng</th>
-      <th><%= sort_link(@q, :linkedin)%></th>
-      <th>Location</th>
-      <th>Medium run</th>
-      <th>Minimum order</th>
-      <th>Number of staff</th>
-      <th>File types</th>
-      <th>Image bucket</th>
-      <th>Photo1</th>
-      <th>Photo2</th>
-      <th>Photo3</th>
-      <th>Photo4</th>
-      <th>Photo5</th>
-      <th>Photo6</th>
-      <th>Photo7</th>
-      <th>Photo8</th>
-      <th>Photo9</th>
-      <th>Pinterest</th>
-      <th>Portrait</th>
-      <th>Sample production</th>
-      <th>Short run</th>
-      <th>Soft delete</th>
-      <th>Title</th>
-      <th>Top image</th>
-      <th>Trimmed name</th>
-      <th>Turnaround time</th>
-      <th>Twitter</th>
-      <th><%= sort_link(@q, :video_link)%></th>
-      <th><%= sort_link(@q, :vimeo_link)%></th>
-      <th>Website</th>
-      <th><%= sort_link(@q, :youtube)%></th>
-      <th>Year founded</th>
-      <th>Film ready</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @companies.each do |company| %>
+  <table class="table table-sm table-bordered table-striped table-hover">
+    <thead>
       <tr>
-        <td><%= link_to company.region, company.region %></td>
-        <td><%= link_to company.name, company %></td>
-        <td><%= company.address %></td>
-        <td><%= company.background %></td>
-        <td><%= company.description %></td>
-        <td><%= company.intro %></td>
-        <td><%= company.contact_name %></td>
-        <td><%= company.contact_email %></td>
-        <td><%= company.contact_phone %></td>
-        <td><%= company.contact_jobtitle %></td>
-        <td><%= company.flickr %></td>
-        <td><%= company.facebook %></td>
-        <td><%= company.instagram %></td>
-        <td><%= company.large_run %></td>
-        <td><%= company.lat %></td>
-        <td><%= company.lng %></td>
-        <td><%= company.linkedin %></td>
-        <td><%= company.location %></td>
-        <td><%= company.medium_run %></td>
-        <td><%= company.minimum_order %></td>
-        <td><%= company.number_of_staff %></td>
-        <td><%= company.file_types %></td>
-        <td><%= company.image_bucket %></td>
-        <td><%= company.photo1 %></td>
-        <td><%= company.photo2 %></td>
-        <td><%= company.photo3 %></td>
-        <td><%= company.photo4 %></td>
-        <td><%= company.photo5 %></td>
-        <td><%= company.photo6 %></td>
-        <td><%= company.photo7 %></td>
-        <td><%= company.photo8 %></td>
-        <td><%= company.photo9 %></td>
-        <td><%= company.pinterest %></td>
-        <td><%= company.portrait %></td>
-        <td><%= company.sample_production %></td>
-        <td><%= company.short_run %></td>
-        <td><%= company.soft_delete %></td>
-        <td><%= company.title %></td>
-        <td><%= company.top_image %></td>
-        <td><%= company.trimmed_name %></td>
-        <td><%= company.turnaround_time %></td>
-        <td><%= company.twitter %></td>
-        <td><%= company.video_link %></td>
-        <td><%= company.website %></td>
-        <td><%= company.youtube %></td>
-        <td><%= company.year_founded %></td>
-        <td><%= company.film_ready %></td>
-        <td><%= link_to 'Show', company %></td>
-        <td><%= link_to 'Edit', edit_company_path(company) %></td>
-        <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th><%= sort_link(@q, :name)%></th>
+        <th><%= sort_link(@q, :region)%></th>
+        <th>Address</th>
+        <th>Background</th>
+        <th>Description</th>
+        <th>Intro</th>
+        <th><%= sort_link(@q, :minimum_order)%></th>
+        <th><%= sort_link(@q, :number_of_staff)%></th>
+        <th><%= sort_link(@q, :year_founded)%></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-<%= paginate @companies %>
+    <tbody>
+      <% @companies.each do |company| %>
+        <tr>
+          <td><%= link_to company.name, company %></td>
+          <td><%= link_to company.region, company.region %></td>
+          <td title="<%= company.address %>"><%= company.address&.truncate(30) %></td>
+          <td title="<%= company.background %>"><%= company.background&.truncate(30) %></td>
+          <td title="<%= company.description %>"><%= company.description&.truncate(30) %></td>
+          <td title="<%= company.intro %>"><%= company.intro&.truncate(30)  %></td>
+          <td><%= company.minimum_order %></td>
+          <td><%= company.number_of_staff %></td>
+          <td><%= company.year_founded %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+  <%= paginate @companies %>
+</div>

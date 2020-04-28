@@ -6,16 +6,17 @@
         <%= link_to 'Edit', edit_company_path(@company), class: 'btn btn-primary mb-2'  %>
       <% end %>
 
-      <h4>Properties</h4>
-
-      <p>
-      <strong>Region:</strong>
-      <%= @company.region %>
-      </p>
+      <br>
+      <%= image_tag @company.top_image %>
 
       <p>
       <strong>Name:</strong>
       <%= @company.name %>
+      </p>
+
+      <p>
+      <strong>Region:</strong>
+      <%= @company.region %>
       </p>
 
       <p>
@@ -39,41 +40,6 @@
       </p>
 
       <p>
-      <strong>Contact name:</strong>
-      <%= @company.contact_name %>
-      </p>
-
-      <p>
-      <strong>Contact email:</strong>
-      <%= @company.contact_email %>
-      </p>
-
-      <p>
-      <strong>Contact phone:</strong>
-      <%= @company.contact_phone %>
-      </p>
-
-      <p>
-      <strong>Contact jobtitle:</strong>
-      <%= @company.contact_jobtitle %>
-      </p>
-
-      <p>
-      <strong>Flickr:</strong>
-      <%= @company.flickr %>
-      </p>
-
-      <p>
-      <strong>Facebook:</strong>
-      <%= @company.facebook %>
-      </p>
-
-      <p>
-      <strong>Instagram:</strong>
-      <%= @company.instagram %>
-      </p>
-
-      <p>
       <strong>Large run:</strong>
       <%= @company.large_run %>
       </p>
@@ -86,11 +52,6 @@
       <p>
       <strong>Lng:</strong>
       <%= @company.lng %>
-      </p>
-
-      <p>
-      <strong>Linkedin:</strong>
-      <%= @company.linkedin %>
       </p>
 
       <p>
@@ -109,70 +70,9 @@
       </p>
 
       <p>
-      <strong>Name:</strong>
-      <%= @company.name %>
-      </p>
-
-      <p>
       <strong>Number of staff:</strong>
       <%= @company.number_of_staff %>
       </p>
-
-      <p>
-      <strong>Photo1:</strong>
-      <%= @company.photo1 %>
-      </p>
-
-      <p>
-      <strong>Photo2:</strong>
-      <%= @company.photo2 %>
-      </p>
-
-      <p>
-      <strong>Photo3:</strong>
-      <%= @company.photo3 %>
-      </p>
-
-      <p>
-      <strong>Photo4:</strong>
-      <%= @company.photo4 %>
-      </p>
-
-      <p>
-      <strong>Photo5:</strong>
-      <%= @company.photo5 %>
-      </p>
-
-      <p>
-      <strong>Photo6:</strong>
-      <%= @company.photo6 %>
-      </p>
-
-      <p>
-      <strong>Photo7:</strong>
-      <%= @company.photo7 %>
-      </p>
-
-      <p>
-      <strong>Photo8:</strong>
-      <%= @company.photo8 %>
-      </p>
-
-      <p>
-      <strong>Photo9:</strong>
-      <%= @company.photo9 %>
-      </p>
-
-      <p>
-      <strong>Pinterest:</strong>
-      <%= @company.pinterest %>
-      </p>
-
-      <p>
-      <strong>Portrait:</strong>
-      <%= @company.portrait %>
-      </p>
-
       <p>
       <strong>Sample production:</strong>
       <%= @company.sample_production %>
@@ -194,11 +94,6 @@
       </p>
 
       <p>
-      <strong>Top image:</strong>
-      <%= @company.top_image %>
-      </p>
-
-      <p>
       <strong>Trimmed name:</strong>
       <%= @company.trimmed_name %>
       </p>
@@ -206,26 +101,6 @@
       <p>
       <strong>Turnaround time:</strong>
       <%= @company.turnaround_time %>
-      </p>
-
-      <p>
-      <strong>Twitter:</strong>
-      <%= @company.twitter %>
-      </p>
-
-      <p>
-      <strong>Video link:</strong>
-      <%= @company.video_link %>
-      </p>
-
-      <p>
-      <strong>Website:</strong>
-      <%= @company.website %>
-      </p>
-
-      <p>
-      <strong>Youtube:</strong>
-      <%= @company.youtube %>
       </p>
 
       <p>
@@ -238,63 +113,179 @@
       <%= @company.film_ready %>
       </p>
 
+      <h4 class="text-center">Pictures</h4>
+      <p>
+      <strong>Photo1:</strong>
+      <%= image_tag @company.photo1 %>
+      </p>
+
+      <p>
+      <strong>Photo2:</strong>
+      <%= image_tag @company.photo2 %>
+      </p>
+
+      <p>
+      <strong>Photo3:</strong>
+      <%= image_tag @company.photo3 %>
+      </p>
+
+      <p>
+      <strong>Photo4:</strong>
+      <%= image_tag @company.photo4 %>
+      </p>
+
+      <p>
+      <strong>Photo5:</strong>
+      <%= image_tag @company.photo5 %>
+      </p>
+
+      <p>
+      <strong>Photo6:</strong>
+      <%= image_tag @company.photo6 %>
+      </p>
+
+      <p>
+      <strong>Photo7:</strong>
+      <%= image_tag @company.photo7 %>
+      </p>
+
+      <p>
+      <strong>Photo8:</strong>
+      <%= image_tag @company.photo8 %>
+      </p>
+
+      <p>
+      <strong>Photo9:</strong>
+      <%= image_tag @company.photo9 %>
+      </p>
+
+      <p>
+      <strong>Portrait:</strong>
+      <%= image_tag @company.portrait %>
+      </p>
+
     </div>
     <div class="col-md-6">
-      <h4>Taxonomies</h4>
+      <div class="border border-dark mb-4 p-4">
+        <h4 class="text-center">Contact info</h4>
+        <p>
+        <strong>Contact name:</strong>
+        <%= @company.contact_name %>
+        </p>
 
-      <h5>Finished products</h5>
-      <ul class="list-unstyled">
-        <% @company.finished_products.each do |x| %>
-          <li>
-            <%= x.finished_products_taxonomy.name %>
-          </li>
-        <% end %>
-      </ul>
+        <p>
+        <strong>Contact email:</strong>
+        <%= @company.contact_email %>
+        </p>
 
-      <h5>Processes</h5>
-      <ul class="list-unstyled">
-        <% @company.company_processes.each do |x| %>
-          <li>
-            <%= x.process_taxonomy.name %>
-          </li>
-        <% end %>
-      </ul>
+        <p>
+        <strong>Contact phone:</strong>
+        <%= @company.contact_phone %>
+        </p>
 
-      <h5>Industries</h5>
-      <ul class="list-unstyled">
-        <% @company.industries.each do |x| %>
-          <li>
-            <%= x.industry_taxonomy.name %>
-          </li>
-        <% end %>
-      </ul>
+        <p>
+        <strong>Contact jobtitle:</strong>
+        <%= @company.contact_jobtitle %>
+        </p>
+      </div>
 
-      <h5>Materials</h5>
-      <ul class="list-unstyled">
-        <% @company.materials.each do |x| %>
-          <li>
-            <%= x.materials_taxonomy.name %>
-          </li>
-        <% end %>
-      </ul>
+      <div class="border border-dark mb-4 p-4">
+        <h4 class="text-center">Social</h4>
 
-      <h5>Manufacturer</h5>
-      <ul class="list-unstyled">
-        <% @company.manufacturers.each do |x| %>
-          <li>
-            <%= x.manufacturer_taxonomy.name %>
-          </li>
-        <% end %>
-      </ul>
+        <strong>Linkedin:</strong>
+        <%= link_to(@company.linkedin, @company.linkedin, target: "_blank") %>
+        <br>
 
-      <h5>Machines</h5>
-      <ul class="list-unstyled">
-        <% @company.machines.each do |x| %>
-          <li>
-            <%= x.machines_taxonomy.name %>
-          </li>
-        <% end %>
-      </ul>
+        <strong>Flickr:</strong>
+        <%= link_to(@company.flickr, @company.flickr, target: "_blank") %>
+        <br>
+
+        <strong>Facebook:</strong>
+        <%= link_to(@company.facebook, @company.facebook, target: "_blank") %>
+        <br>
+
+        <strong>Instagram:</strong>
+        <%= link_to(@company.instagram, @company.instagram, target: "_blank") %>
+        <br>
+
+        <strong>Twitter:</strong>
+        <%= link_to(@company.twitter, @company.twitter, target: "_blank") %>
+        <br>
+
+        <strong>Pinterest:</strong>
+        <%= link_to(@company.pinterest, @company.pinterest, target: "_blank") %>
+        <br>
+
+        <strong>Youtube:</strong>
+        <%= link_to(@company.youtube, @company.youtube, target: "_blank") %>
+        <br>
+
+        <strong>Video link:</strong>
+        <%= link_to(@company.video_link, @company.video_link, target: "_blank") %>
+        <br>
+
+        <strong>Website:</strong>
+        <%= link_to(@company.website, @company.website, target: "_blank") %>
+        <br>
+      </div>
+
+      <div class="border border-dark mb-4 p-4">
+        <h4 class="text-center">Taxonomies</h4>
+
+        <h5>Finished products</h5>
+        <ul class="list-unstyled">
+          <% @company.finished_products.each do |x| %>
+            <li>
+              <%= x.finished_products_taxonomy.name %>
+            </li>
+          <% end %>
+        </ul>
+
+        <h5>Processes</h5>
+        <ul class="list-unstyled">
+          <% @company.company_processes.each do |x| %>
+            <li>
+              <%= x.process_taxonomy.name %>
+            </li>
+          <% end %>
+        </ul>
+
+        <h5>Industries</h5>
+        <ul class="list-unstyled">
+          <% @company.industries.each do |x| %>
+            <li>
+              <%= x.industry_taxonomy.name %>
+            </li>
+          <% end %>
+        </ul>
+
+        <h5>Materials</h5>
+        <ul class="list-unstyled">
+          <% @company.materials.each do |x| %>
+            <li>
+              <%= x.materials_taxonomy.name %>
+            </li>
+          <% end %>
+        </ul>
+
+        <h5>Manufacturer</h5>
+        <ul class="list-unstyled">
+          <% @company.manufacturers.each do |x| %>
+            <li>
+              <%= x.manufacturer_taxonomy.name %>
+            </li>
+          <% end %>
+        </ul>
+
+        <h5>Machines</h5>
+        <ul class="list-unstyled">
+          <% @company.machines.each do |x| %>
+            <li>
+              <%= x.machines_taxonomy.name %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
 
 
     </div>
