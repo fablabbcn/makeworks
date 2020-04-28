@@ -11,9 +11,9 @@ ActiveAdmin.register_page "Dashboard" do
 
     columns do
       column do
-        panel "Last Companies" do
+        panel "Last Companies created" do
           ul do
-            Company.last(20).map do |item|
+            Company.last(20).reverse.map do |item|
               li link_to(item.name, admin_company_path(item))
             end
           end
@@ -22,16 +22,16 @@ ActiveAdmin.register_page "Dashboard" do
       column do
         panel "Last 10 Posts" do
           ul do
-            Blog.last(10).map do |post|
+            Blog.last(10).reverse.map do |post|
               li link_to(post.title, admin_blog_path(post))
             end
           end
         end
       end
       column do
-        panel "Last 10 Users" do
+        panel "Last 20 Users" do
           ul do
-            User.last(20).map do |item|
+            User.last(20).reverse.map do |item|
               li link_to(item.email, admin_user_path(item))
             end
           end
