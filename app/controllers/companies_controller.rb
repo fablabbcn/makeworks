@@ -106,6 +106,6 @@ class CompaniesController < ApplicationController
                                       :image_bucket, :photo1, :photo2, :photo3, :photo4, :photo5, :photo6, :photo7, :photo8, :photo9, :pinterest, :portrait, :sample_production, :short_run, :soft_delete, :title, :top_image, :trimmed_name, :turnaround_time, :twitter,
                                       :video_link, :website, :youtube, :year_founded,
                                       :film_ready,
-                                      machine_ids: [])
+                                      machines_taxonomy_ids: [])
     end
 end
