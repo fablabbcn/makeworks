@@ -81,17 +81,19 @@ class CompaniesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_company
-      # use bullet gem
-      @company = Company.includes(
-        company_processes: [:process_taxonomy],
-        finished_products: [:finished_products_taxonomy],
-        machines: [:machines_taxonomy],
-        materials: [:materials_taxonomy],
-        industries: [:industry_taxonomy]
-      ).friendly.find(params[:id])
-    end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_company
+    # use bullet gem
+    @company = Company.includes(
+      company_processes: [:process_taxonomy],
+      finished_products: [:finished_products_taxonomy],
+      materials: [:materials_taxonomy],
+      industries: [:industry_taxonomy],
+      machines: [:machines_taxonomy]
+    )
+                      .friendly.find(params[:id])
+  end
 
     # Only allow a list of trusted parameters through.
     def company_params
