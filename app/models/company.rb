@@ -1,7 +1,11 @@
 class Company < ApplicationRecord
   belongs_to :region
+
   has_many :finished_products, dependent: :destroy
+  has_many :finished_products_taxonomies, through: :finished_products
+
   has_many :company_processes, dependent: :destroy
+  has_many :process_taxonomies, through: :company_processes
 
   has_many :industries, dependent: :destroy
   has_many :industry_taxonomies, through: :industries
@@ -10,6 +14,7 @@ class Company < ApplicationRecord
   has_many :materials_taxonomies, through: :materials
 
   has_many :manufacturers, dependent: :destroy
+  has_many :manufacturer_taxonomies, through: :manufacturers
 
   has_many :machines, dependent: :destroy
   has_many :machines_taxonomies, through: :machines

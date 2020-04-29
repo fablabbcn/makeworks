@@ -9,9 +9,9 @@
   <div class="form-inputs">
     <%= f.input :name %>
     <%= f.input :trimmed_name %>
-    <%= f.input :title %>
+    <%# f.input :title %>
     <%= f.association :region %>
-    <%= f.association :machines_taxonomies %>
+
     <%= f.input :address %>
     <%= f.input :background %>
     <%= f.input :description %>
@@ -20,12 +20,25 @@
     <%= f.input :lng %>
     <%= f.input :location %>
     <%= f.input :number_of_staff %>
-    <%= f.input :soft_delete %>
     <%= f.input :website %>
-
-    <%= f.input :been_visited %>
     <%= f.input :year_founded %>
-    <%= f.input :film_ready %>
+
+    <% if current_user.is_admin? %>
+      <hr>
+      <h4>Admin only</h4>
+      <%= f.input :been_visited %>
+      <%= f.input :film_ready %>
+      <%= f.input :soft_delete %>
+    <% end %>
+
+    <hr>
+    <h4>Tags</h4>
+    <%= f.association :machines_taxonomies %>
+    <%= f.association :materials_taxonomies %>
+    <%= f.association :industry_taxonomies %>
+    <%= f.association :process_taxonomies %>
+    <%= f.association :finished_products_taxonomies %>
+    <%= f.association :manufacturer_taxonomies %>
 
     <hr>
     <h4>Info</h4>
@@ -61,8 +74,11 @@
 
     <hr>
     <h3>Photos</h3>
-    <%= f.input :image_bucket %>
+    <%# f.input :image_bucket %>
+    <%= f.input :top_image %>
     <%= f.input :portrait %>
+    <%= f.input :video_link %>
+    <h4>Slider images (carousel)</h4>
     <%= f.input :photo1 %>
     <%= f.input :photo2 %>
     <%= f.input :photo3 %>
@@ -72,8 +88,6 @@
     <%= f.input :photo7 %>
     <%= f.input :photo8 %>
     <%= f.input :photo9 %>
-    <%= f.input :top_image %>
-    <%= f.input :video_link %>
 
     <hr>
     <h3>Social</h3>
