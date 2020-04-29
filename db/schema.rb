@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_14_174327) do
+ActiveRecord::Schema.define(version: 2020_04_29_095009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -136,6 +136,15 @@ ActiveRecord::Schema.define(version: 2020_04_14_174327) do
     t.boolean "film_ready"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "been_visited"
+    t.boolean "bespoke_one_offs"
+    t.boolean "works_with_general_public"
+    t.boolean "works_with_large_business"
+    t.boolean "works_with_professionals"
+    t.boolean "works_with_small_companies"
+    t.boolean "works_with_students"
+    t.boolean "batch_production"
+    t.string "production_access"
     t.index ["region_id"], name: "index_companies_on_region_id"
   end
 

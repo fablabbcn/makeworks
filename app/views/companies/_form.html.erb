@@ -19,18 +19,38 @@
     <%= f.input :lat %>
     <%= f.input :lng %>
     <%= f.input :location %>
-    <%= f.input :large_run %>
-    <%= f.input :medium_run %>
-    <%= f.input :minimum_order %>
     <%= f.input :number_of_staff %>
-    <%= f.input :file_types %>
-    <%= f.input :sample_production %>
-    <%= f.input :short_run %>
     <%= f.input :soft_delete %>
-    <%= f.input :turnaround_time %>
     <%= f.input :website %>
+
+    <%= f.input :been_visited %>
     <%= f.input :year_founded %>
     <%= f.input :film_ready %>
+
+    <hr>
+    <h4>Info</h4>
+    <%= f.input :turnaround_time %>
+    <%= f.input :minimum_order %>
+    <%= f.input :production_access %>
+    <%= f.input :file_types %>
+
+    <hr>
+    <h4>Capacity</h4>
+    <%= f.input :bespoke_one_offs %>
+    <%= f.input :sample_production %>
+    <%= f.input :batch_production %>
+    <%= f.input :short_run %>
+    <%= f.input :medium_run %>
+    <%= f.input :large_run %>
+
+
+    <hr>
+    <h4>Works with</h4>
+    <%= f.input :works_with_general_public %>
+    <%= f.input :works_with_large_business %>
+    <%= f.input :works_with_professionals %>
+    <%= f.input :works_with_small_companies %>
+    <%= f.input :works_with_students %>
 
     <hr>
     <h3>Contact info</h3>

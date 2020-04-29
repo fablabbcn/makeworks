@@ -108,6 +108,15 @@ class CompaniesController < ApplicationController
                                       :image_bucket, :photo1, :photo2, :photo3, :photo4, :photo5, :photo6, :photo7, :photo8, :photo9, :pinterest, :portrait, :sample_production, :short_run, :soft_delete, :title, :top_image, :trimmed_name, :turnaround_time, :twitter,
                                       :video_link, :website, :youtube, :year_founded,
                                       :film_ready,
+                                      :been_visited,
+                                      :bespoke_one_offs,
+                                      :works_with_general_public,
+                                      :works_with_large_business,
+                                      :works_with_professionals,
+                                      :works_with_small_companies,
+                                      :works_with_students,
+                                      :batch_production,
+                                      :production_access,
                                       machines_taxonomy_ids: [])
     end
 end
