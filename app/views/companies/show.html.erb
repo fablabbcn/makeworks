@@ -70,34 +70,8 @@
 
       <h4 class="text-center">Pictures</h4>
       <div id="carouselCompany" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner bg-dark" style='min-height:300px'>
-          <div class="carousel-item active">
-            <%= image_tag(@company.photo1, class: 'd-block w-100') %>
-          </div>
-          <div class="carousel-item">
-            <%= image_tag(@company.photo2, class: 'd-block w-100') %>
-          </div>
-          <div class="carousel-item">
-            <%= image_tag(@company.photo3, class: 'd-block w-100') %>
-          </div>
-          <div class="carousel-item">
-            <%= image_tag(@company.photo1, class: 'd-block w-100') %>
-          </div>
-          <div class="carousel-item">
-            <%= image_tag(@company.photo5, class: 'd-block w-100') %>
-          </div>
-          <div class="carousel-item">
-            <%= image_tag(@company.photo6, class: 'd-block w-100') %>
-          </div>
-          <div class="carousel-item">
-            <%= image_tag(@company.photo7, class: 'd-block w-100') %>
-          </div>
-          <div class="carousel-item">
-            <%= image_tag(@company.photo8, class: 'd-block w-100') %>
-          </div>
-          <div class="carousel-item">
-            <%= image_tag(@company.photo9, class: 'd-block w-100') %>
-          </div>
+        <div class="carousel-inner bg-dark">
+          <%= render partial: 'carousel_item', locals: { images: @company.all_photos } %>
         </div>
         <a class="carousel-control-prev" href="#carouselCompany" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>

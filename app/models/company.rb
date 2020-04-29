@@ -18,6 +18,16 @@ class Company < ApplicationRecord
   friendly_id :name, use: :slugged, slug_column: :trimmed_name
 
 
+  def all_photos
+    arr = []
+    attributes.each do |name,value|
+      if name =~ /photo\d/
+        arr << value if value.present?
+      end
+    end
+    arr
+  end
+
   def self.companies_with_lat_lng
     where.not(lat: nil).where.not(lng: nil)
   end
