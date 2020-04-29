@@ -5,4 +5,6 @@ class Blog < ApplicationRecord
   friendly_id :title, use: :slugged
 
   has_rich_text :content_action
+
+  paginates_per 20
 end
