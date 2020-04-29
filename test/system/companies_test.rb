@@ -26,7 +26,7 @@ class CompaniesTest < ApplicationSystemTestCase
     fill_in "File types", with: @company.file_types
     check "Film ready" if @company.film_ready
     fill_in "Flickr", with: @company.flickr
-    fill_in "Image bucket", with: @company.image_bucket
+    #fill_in "Image bucket", with: @company.image_bucket
     fill_in "Instagram", with: @company.instagram
     fill_in "Intro", with: @company.intro
     check "Large run" if @company.large_run
@@ -55,7 +55,7 @@ class CompaniesTest < ApplicationSystemTestCase
     check "Sample production" if @company.sample_production
     check "Short run" if @company.short_run
     check "Soft delete" if @company.soft_delete
-    fill_in "Title", with: @company.title
+    #fill_in "Title", with: @company.title
     fill_in "Top image", with: @company.top_image
     fill_in "Trimmed name", with: @company.trimmed_name
     fill_in "Turnaround time", with: @company.turnaround_time
@@ -85,7 +85,7 @@ class CompaniesTest < ApplicationSystemTestCase
     fill_in "File types", with: @company.file_types
     check "Film ready" if @company.film_ready
     fill_in "Flickr", with: @company.flickr
-    fill_in "Image bucket", with: @company.image_bucket
+    #fill_in "Image bucket", with: @company.image_bucket
     fill_in "Instagram", with: @company.instagram
     fill_in "Intro", with: @company.intro
     check "Large run" if @company.large_run
@@ -114,7 +114,7 @@ class CompaniesTest < ApplicationSystemTestCase
     check "Sample production" if @company.sample_production
     check "Short run" if @company.short_run
     check "Soft delete" if @company.soft_delete
-    fill_in "Title", with: @company.title
+    #fill_in "Title", with: @company.title
     fill_in "Top image", with: @company.top_image
     fill_in "Trimmed name", with: @company.trimmed_name
     fill_in "Turnaround time", with: @company.turnaround_time

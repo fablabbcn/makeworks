@@ -39,7 +39,7 @@
 
   <div class="row border-bottom border-dark">
     <div class="col-md-4 tile-first p-0">
-      <% if @region.logo.include? 'http' %>
+      <% if @region.logo&.include? 'http' %>
           <%= image_tag(@region.logo, style: 'width:100%') %>
         <% else %>
         <img src="https://static.make.works/logos/<%= @region.logo %>" style="height:60px; width: auto; "/>
