@@ -177,9 +177,14 @@
         <%= link_to(@company.website, @company.website, target: "_blank") %>
         <br>
       </div>
+    </div>
 
+    <div class="col-12 my-4">
+      <h4 class="text-center">Taxonomies</h4>
+    </div>
+
+    <div class="col-md-6 col-xl-4">
       <div class="border border-dark mb-4 p-4">
-        <h4 class="text-center">Taxonomies</h4>
 
         <h5>Finished products</h5>
         <ul class="list-unstyled">
@@ -189,7 +194,11 @@
             </li>
           <% end %>
         </ul>
+      </div>
+    </div>
 
+    <div class="col-md-6 col-xl-4">
+      <div class="border border-dark mb-4 p-4">
         <h5>Processes</h5>
         <ul class="list-unstyled">
           <% @company.company_processes.each do |x| %>
@@ -199,7 +208,12 @@
           <% end %>
         </ul>
 
-        <h5>Industries</h5>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-xl-4">
+      <div class="border border-dark mb-4 p-4">
+         <h5>Industries</h5>
         <ul class="list-unstyled">
           <% @company.industries.each do |x| %>
             <li>
@@ -208,7 +222,12 @@
           <% end %>
         </ul>
 
-        <h5>Materials</h5>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-xl-4">
+      <div class="border border-dark mb-4 p-4">
+         <h5>Materials</h5>
         <ul class="list-unstyled">
           <% @company.materials.each do |x| %>
             <li>
@@ -217,7 +236,12 @@
           <% end %>
         </ul>
 
-        <h5>Manufacturer</h5>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-xl-4">
+      <div class="border border-dark mb-4 p-4">
+         <h5>Manufacturer</h5>
         <ul class="list-unstyled">
           <% @company.manufacturers.each do |x| %>
             <li>
@@ -226,6 +250,11 @@
           <% end %>
         </ul>
 
+      </div>
+    </div>
+
+    <div class="col-md-6 col-xl-4">
+      <div class="border border-dark mb-4 p-4">
         <h5>Machines</h5>
         <ul class="list-unstyled">
           <% @company.machines.each do |x| %>
@@ -235,8 +264,7 @@
           <% end %>
         </ul>
       </div>
-
-
     </div>
+
   </div>
 </div>
