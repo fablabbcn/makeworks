@@ -107,7 +107,7 @@
         </p>
 
         <div class="text-center">
-          <%= image_tag @company.portrait %>
+          <%= image_tag @company.portrait if @company.portrait %>
         </div>
 
         <p>
