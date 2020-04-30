@@ -182,89 +182,73 @@
     <div class="col-12 my-4">
       <h4 class="text-center">Taxonomies</h4>
     </div>
+  </div>
 
-    <div class="col-md-6 col-xl-4">
-      <div class="border border-dark mb-4 p-4">
-
-        <h5>Finished products</h5>
-        <ul class="list-unstyled">
-          <% @company.finished_products.each do |x| %>
-            <li>
-              <%= x.finished_products_taxonomy.name %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
+  <div class="card-columns">
+    <div class="card mb-4 p-4">
+      <h5>Finished products</h5>
+      <ul class="list-unstyled">
+        <% @company.finished_products.each do |x| %>
+          <li>
+            <%= x.finished_products_taxonomy.name %>
+          </li>
+        <% end %>
+      </ul>
     </div>
 
-    <div class="col-md-6 col-xl-4">
-      <div class="border border-dark mb-4 p-4">
-        <h5>Processes</h5>
-        <ul class="list-unstyled">
-          <% @company.company_processes.each do |x| %>
-            <li>
-              <%= x.process_taxonomy.name %>
-            </li>
-          <% end %>
-        </ul>
-
-      </div>
+    <div class="card mb-4 p-4">
+      <h5>Processes</h5>
+      <ul class="list-unstyled">
+        <% @company.company_processes.each do |x| %>
+          <li>
+            <%= x.process_taxonomy.name %>
+          </li>
+        <% end %>
+      </ul>
     </div>
 
-    <div class="col-md-6 col-xl-4">
-      <div class="border border-dark mb-4 p-4">
-         <h5>Industries</h5>
-        <ul class="list-unstyled">
-          <% @company.industries.each do |x| %>
-            <li>
-              <%= x.industry_taxonomy.name %>
-            </li>
-          <% end %>
-        </ul>
-
-      </div>
+    <div class="card mb-4 p-4">
+      <h5>Industries</h5>
+      <ul class="list-unstyled">
+        <% @company.industries.each do |x| %>
+          <li>
+            <%= x.industry_taxonomy.name %>
+          </li>
+        <% end %>
+      </ul>
     </div>
 
-    <div class="col-md-6 col-xl-4">
-      <div class="border border-dark mb-4 p-4">
-         <h5>Materials</h5>
-        <ul class="list-unstyled">
-          <% @company.materials.each do |x| %>
-            <li>
-              <%= x.materials_taxonomy.name %>
-            </li>
-          <% end %>
-        </ul>
-
-      </div>
+    <div class="card mb-4 p-4">
+      <h5>Materials</h5>
+      <ul class="list-unstyled">
+        <% @company.materials.each do |x| %>
+          <li>
+            <%= x.materials_taxonomy.name %>
+          </li>
+        <% end %>
+      </ul>
     </div>
 
-    <div class="col-md-6 col-xl-4">
-      <div class="border border-dark mb-4 p-4">
-         <h5>Manufacturer</h5>
-        <ul class="list-unstyled">
-          <% @company.manufacturers.each do |x| %>
-            <li>
-              <%= x.manufacturer_taxonomy.name %>
-            </li>
-          <% end %>
-        </ul>
-
-      </div>
+    <div class="card mb-4 p-4">
+      <h5>Manufacturer</h5>
+      <ul class="list-unstyled">
+        <% @company.manufacturers.each do |x| %>
+          <li>
+            <%= x.manufacturer_taxonomy.name %>
+          </li>
+        <% end %>
+      </ul>
     </div>
 
-    <div class="col-md-6 col-xl-4">
-      <div class="border border-dark mb-4 p-4">
-        <h5>Machines</h5>
-        <ul class="list-unstyled">
-          <% @company.machines.each do |x| %>
-            <li>
-              <%= x.machines_taxonomy.name %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
+    <div class="card mb-4 p-4">
+      <h5>Machines</h5>
+      <ul class="list-unstyled">
+        <% @company.machines.each do |x| %>
+          <li>
+            <%= x.machines_taxonomy.name %>
+          </li>
+        <% end %>
+      </ul>
     </div>
-
   </div>
 </div>

@@ -91,6 +91,19 @@ input{
   color: $white !important;
 }
 
+.card {
+  border: 1px solid #222;
+  border-radius: 0;
+}
+
+.card-columns { column-count: 1; }
+@media (min-width: 768px) {
+  .card-columns { column-count: 2; }
+}
+@media (min-width: 992px) {
+  .card-columns { column-count: 3; }
+}
+
 .select2-container .select2-selection--single{
   height: 40px;
 }
