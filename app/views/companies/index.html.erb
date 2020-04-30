@@ -3,17 +3,19 @@
 
   <%= search_form_for @q, class: 'pt-3 mx-auto' do |f| %>
     <h1 class="mb-4"><%= t('shared.tagline') %></h1>
-    <div class="my-2">
-      <%= f.select :region_id_eq, Region.pluck(:name, :id), {include_blank: 'All Regions'}, class: '' %>
-    </div>
-    <div class="my-2">
-      <%= f.select :industry_taxonomies_id_eq, IndustryTaxonomy.pluck(:name, :id), {include_blank: 'All Industries'} %>
-    </div>
-    <div class="my-2">
-      <%= f.select :materials_taxonomies_id_eq, MaterialsTaxonomy.pluck(:name, :id), {include_blank: 'All Materials'} %>
-    </div>
-    <div class="my-2">
-      <%= f.select :machines_taxonomies_id_eq, MachinesTaxonomy.pluck(:name, :id), {include_blank: 'All Machines'} %>
+    <div class="row">
+      <div class="my-2 col-md-6 col-xl-3">
+        <%= f.select :region_id_eq, Region.pluck(:name, :id), {include_blank: 'All Regions'}, class: 'form-control' %>
+      </div>
+      <div class="my-2 col-md-6 col-xl-3">
+        <%= f.select :industry_taxonomies_id_eq, IndustryTaxonomy.pluck(:name, :id), {include_blank: 'All Industries'}, class: 'form-control' %>
+      </div>
+      <div class="my-2 col-md-6 col-xl-3">
+        <%= f.select :materials_taxonomies_id_eq, MaterialsTaxonomy.pluck(:name, :id), {include_blank: 'All Materials'}, class: 'form-control' %>
+      </div>
+      <div class="my-2 col-md-6 col-xl-3">
+        <%= f.select :machines_taxonomies_id_eq, MachinesTaxonomy.pluck(:name, :id), {include_blank: 'All Machines'}, class: 'form-control' %>
+      </div>
     </div>
     <div class="input-group my-2" style="max-width:800px">
       <%= f.search_field :name_or_description_cont, class: 'form-control', placeholder: 'Company name or description contains..' %>
