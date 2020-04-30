@@ -132,6 +132,12 @@
 
       </div>
 
+      <% if @company.lat.present? && @company.lng.present? %>
+        <div class="border border-dark mb-4">
+          <%= render partial: 'map', locals: { locations: [@company]} %>
+        </div>
+      <% end %>
+
       <div class="border border-dark mb-4 p-4">
         <h4 class="text-center">Social</h4>
 
