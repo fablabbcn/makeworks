@@ -190,7 +190,7 @@
       <ul class="list-unstyled">
         <% @company.finished_products.each do |x| %>
           <li>
-            <%= x.finished_products_taxonomy.name %>
+            <%= link_to x.finished_products_taxonomy.name, finished_products_taxonomy_url(x) %>
           </li>
         <% end %>
       </ul>
@@ -201,7 +201,7 @@
       <ul class="list-unstyled">
         <% @company.company_processes.each do |x| %>
           <li>
-            <%= x.process_taxonomy.name %>
+            <%= link_to x.process_taxonomy.name, process_taxonomy_url(x) %>
           </li>
         <% end %>
       </ul>
@@ -212,7 +212,7 @@
       <ul class="list-unstyled">
         <% @company.industries.each do |x| %>
           <li>
-            <%= x.industry_taxonomy.name %>
+            <%= link_to x.industry_taxonomy.name, industry_taxonomy_url(x) %>
           </li>
         <% end %>
       </ul>
@@ -223,7 +223,7 @@
       <ul class="list-unstyled">
         <% @company.materials.each do |x| %>
           <li>
-            <%= x.materials_taxonomy.name %>
+            <%= link_to x.materials_taxonomy.name, materials_taxonomy_url(x) %>
           </li>
         <% end %>
       </ul>
@@ -234,7 +234,7 @@
       <ul class="list-unstyled">
         <% @company.manufacturers.each do |x| %>
           <li>
-            <%= x.manufacturer_taxonomy.name %>
+            <%= link_to x.manufacturer_taxonomy.name, manufacturer_taxonomy_url(x) %>
           </li>
         <% end %>
       </ul>
@@ -245,7 +245,7 @@
       <ul class="list-unstyled">
         <% @company.machines.each do |x| %>
           <li>
-            <%= x.machines_taxonomy.name %>
+            <%= link_to x.machines_taxonomy.name, machines_taxonomy_url(x) %>
           </li>
         <% end %>
       </ul>

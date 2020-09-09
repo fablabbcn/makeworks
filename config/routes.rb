@@ -26,10 +26,10 @@ Rails.application.routes.draw do
   resources :process_taxonomies, path: 'processes'
   resources :materials_taxonomies, path: 'materials'
   resources :industry_taxonomies, path: 'industries'
-  resources :finished_products_taxonomies
-  resources :manufacturer_taxonomies
+  resources :finished_products_taxonomies, path: 'finished_products'
+  resources :manufacturer_taxonomies, path: 'manufacturers'
+  resources :machines_taxonomies, path: 'machines'
   resources :media
-  resources :machines_taxonomies
   resources :taxonomies
 
   get 'taxtree', to: 'taxonomies#tree'

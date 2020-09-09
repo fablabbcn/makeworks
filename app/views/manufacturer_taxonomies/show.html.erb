@@ -17,3 +17,8 @@
 
 <%= link_to 'Edit', edit_manufacturer_taxonomy_path(@manufacturer_taxonomy) %> |
 <%= link_to 'Back', manufacturer_taxonomies_path %>
+
+<hr>
+<% @manufacturer_taxonomy.companies.each do |company| %>
+  <%= link_to company.name, company_url(company) %>
+<% end %>
