@@ -15,11 +15,7 @@ class CompaniesController < ApplicationController
   # GET /companies
   # GET /companies.json
   def index
-    @q = Company.joins(
-      :materials_taxonomies,
-      :machines_taxonomies,
-      :industry_taxonomies
-    )
+    @q = Company
       .includes(:region)
       .ransack(params[:q])
 

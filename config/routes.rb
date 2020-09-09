@@ -23,11 +23,11 @@ Rails.application.routes.draw do
   get 'blog/:id', to: 'blogs#show'
 
   # These are admin only
-  resources :manufacturer_taxonomies
-  resources :industry_taxonomies
-  resources :process_taxonomies
+  resources :process_taxonomies, path: 'processes'
+  resources :materials_taxonomies, path: 'materials'
+  resources :industry_taxonomies, path: 'industries'
   resources :finished_products_taxonomies
-  resources :materials_taxonomies
+  resources :manufacturer_taxonomies
   resources :media
   resources :machines_taxonomies
   resources :taxonomies

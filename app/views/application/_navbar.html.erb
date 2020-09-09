@@ -18,15 +18,16 @@
             SuperAdmin
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to "Processes", process_taxonomies_url, class: "dropdown-item" %>
+            <%= link_to "Materials", materials_taxonomies_url, class: "dropdown-item" %>
+            <%= link_to "Industry", industry_taxonomies_url, class: "dropdown-item" %>
+            <div class="dropdown-divider"></div>
             <%= link_to "Media", media_url, class: "dropdown-item" %>
             <%= link_to "Taxonomies", taxonomies_url, class: "dropdown-item" %>
             <div class="dropdown-divider"></div>
             <%= link_to "MachinesTaxonomies", machines_taxonomies_url, class: "dropdown-item" %>
             <%= link_to "ManufacturerTaxonomies", manufacturer_taxonomies_url, class: "dropdown-item" %>
-            <%= link_to "MaterialsTaxonomies", materials_taxonomies_url, class: "dropdown-item" %>
             <%= link_to "FinishedProductsTaxonomies", finished_products_taxonomies_url, class: "dropdown-item" %>
-            <%= link_to "ProcessTax", process_taxonomies_url, class: "dropdown-item" %>
-            <%= link_to "IndustryTax", industry_taxonomies_url, class: "dropdown-item" %>
           </div>
         </li>
       <% end %>
