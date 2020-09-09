@@ -6,6 +6,9 @@ Rails.application.routes.draw do
 
   get "/users/:id", to: 'users#show', as: 'user'
   get "/users/:id/edit", to: 'users#edit', as: 'edit_profile'
+  get '/about', to: 'welcome#about'
+  get '/contact', to: 'welcome#contact'
+  get '/legal', to: 'welcome#legal'
   get '/version', to: 'welcome#version'
   get '/styleguide', to: 'welcome#styleguide'
   get '/random', to: 'welcome#random'

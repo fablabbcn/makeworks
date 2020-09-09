@@ -1,5 +1,5 @@
 <% content_for(:title, t('shared.tagline')) %>
-<div class="container my-5 border border-dark">
+<div class="container my-5">
 
   <div class="p-4">
     <div class="text-center mt-5">
@@ -23,15 +23,15 @@
     </div>
   </div>
 
-  <div class="row border-top border-dark">
+  <div class="row">
     <%= render partial: 'map', locals: { locations: Company.companies_with_lat_lng} %>
   </div>
 
-  <%= render 'how_it_works' %>
+  <%# render 'how_it_works' %>
 
   <%= render 'one_blog' %>
 
-  <%= render 'about' %>
+  <%# render 'about' %>
 
   <%= render 'social' %>
 
