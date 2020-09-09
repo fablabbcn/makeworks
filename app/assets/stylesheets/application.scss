@@ -27,6 +27,12 @@ body {
   font-family: 'IBM Plex Sans', sans-serif;
 }
 
+a {
+  color: $black2;
+  &:hover {
+    color: $black2;
+  }
+}
 // Fonts
 .roboto {
   font-family: 'Roboto', serif;
