@@ -1,25 +1,16 @@
 <% content_for(:title, t('shared.tagline')) %>
 <div class="container my-5">
 
-  <div class="p-4">
-    <div class="text-center mt-5">
-      <h1><%= t('shared.tagline') %></h1>
-      <h4 class="my-5">
-        Use Make Works to source local fabricators, material suppliers & workshop facilities.
-      </h4>
+  <div>
+    <div class="text-center mb-5">
+      <h1 class="display-3 font-weight-bold">MAKE WORKS</h1>
+      <h4><%= t('shared.a_global_library') %></h4>
     </div>
 
     <div class="mt-3 d-flex flex-wrap justify-content-between">
       <% @all_regions.each do |region| %>
         <%= link_to region.name, region, class: 'btn btn-outline-primary mb-4 mx-auto mx-md-0', style: 'width: 260px' %>
       <% end %>
-    </div>
-
-    <div class="my-5 text-center">
-      <h5 class="my-3">
-        <strong>An open library for sourcing local manufacturing and materials</strong>
-      </h5>
-      <h4>Make Works started because we want to make fabrication more accessible for artists, designers and makers.</h4>
     </div>
   </div>
 

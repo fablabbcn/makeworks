@@ -69,6 +69,7 @@ en:
 
   shared:
     tagline: Find local manufacturers in your region
+    a_global_library: a global library for local manufacturing
 is:
   name: Icelandic
   activerecord:
