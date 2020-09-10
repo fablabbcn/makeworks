@@ -8,7 +8,7 @@ class IndustryTaxonomiesTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit industry_taxonomies_url
-    assert_selector "h1", text: "Industry Taxonomies"
+    assert_selector "h1", text: "Industries"
   end
 
   test "creating a Industry taxonomy" do
