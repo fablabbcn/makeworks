@@ -8,6 +8,6 @@
     </div>
   </div>
   <div class="col-lg-6">
-    <%= image_tag(company&.top_image, alt: 'Company logo') if company.top_image.present? %>
+    <%= image_tag(company&.top_image, alt: 'Company logo', class: 'img-fluid border border-dark') if company.top_image.present? %>
   </div>
 </div>
