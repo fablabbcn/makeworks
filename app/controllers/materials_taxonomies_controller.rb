@@ -1,6 +1,7 @@
 class MaterialsTaxonomiesController < ApplicationController
   before_action :set_materials_taxonomy, only: [:show, :edit, :update, :destroy]
-  before_action :check_if_admin
+  before_action :check_if_admin, except: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:show, :index]
 
   # GET /materials_taxonomies
   # GET /materials_taxonomies.json
