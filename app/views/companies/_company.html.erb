@@ -1,0 +1,13 @@
+<div class="row my-4">
+  <div class="col-lg-6">
+    <div class="border border-dark p-4">
+      <h5><%= company.region %></h5>
+      <h3><%= company.name %></h3>
+      <p><%= company.description %></p>
+      <p><%= company.intro %></p>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <%= image_tag(company&.top_image, alt: 'Company logo') if company.top_image.present? %>
+  </div>
+</div>

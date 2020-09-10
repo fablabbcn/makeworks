@@ -1,29 +1,35 @@
-<h1>Processes</h1>
+<div class="container my-4">
 
-<table>
-  <thead>
-    <tr>
-      <th>M</th>
-      <th>Name</th>
-      <th>Parent</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <h1>Processes</h1>
 
-  <tbody>
-    <% @process_taxonomies.each do |process_taxonomy| %>
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= process_taxonomy.m_id %></td>
-        <td><%= process_taxonomy.name %></td>
-        <td><%= process_taxonomy.parent_id %></td>
-        <td><%= link_to 'Show', process_taxonomy %></td>
-        <td><%= link_to 'Edit', edit_process_taxonomy_path(process_taxonomy) %></td>
-        <td><%= link_to 'Destroy', process_taxonomy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>M</th>
+        <th>Name</th>
+        <th>Parent</th>
+        <th colspan="2"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @process_taxonomies.each do |process_taxonomy| %>
+        <tr>
+          <td><%= process_taxonomy.m_id %></td>
+          <td><%= link_to process_taxonomy.name, process_taxonomy_url(process_taxonomy) %></td>
+          <td>
+            <% if process_taxonomy.parent_id? %>
+              <%= link_to process_taxonomy.parent, process_taxonomy_url(process_taxonomy.parent_id) %>
+            <% end %>
+          </td>
+          <td><%= link_to 'Edit', edit_process_taxonomy_path(process_taxonomy) %></td>
+          <td><%= link_to 'Delete', process_taxonomy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Process Taxonomy', new_process_taxonomy_path %>
+  <br>
+
+  <%= link_to 'New Process Taxonomy', new_process_taxonomy_path %>
+</div>

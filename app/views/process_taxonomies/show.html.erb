@@ -1,24 +1,32 @@
-<p id="notice"><%= notice %></p>
+<div class="container my-4">
+  <div class="my-4">
+    <%= link_to "Processes", process_taxonomies_path %>
+  </div>
 
-<p>
-  <strong>M:</strong>
-  <%= @process_taxonomy.m_id %>
-</p>
+  <div class="border p-4 my-4">
+    <p>
+    <strong>M:</strong>
+    <%= @process_taxonomy.m_id %>
+    </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @process_taxonomy.name %>
-</p>
+    <p>
+    <strong>Name:</strong>
+    <%= @process_taxonomy.name %>
+    </p>
 
-<p>
-  <strong>Parent:</strong>
-  <%= @process_taxonomy.parent_id %>
-</p>
+    <p>
+    <strong>Parent:</strong>
+    <%= @process_taxonomy.parent_id %>
+    </p>
 
-<%= link_to 'Edit', edit_process_taxonomy_path(@process_taxonomy) %> |
-<%= link_to 'Back', process_taxonomies_path %>
+    <%= link_to 'Edit', edit_process_taxonomy_path(@process_taxonomy) %>
+  </div>
 
-<hr>
-<% @process_taxonomy.companies.each do |company| %>
-  <%= link_to company.name, company_url(company) %>
-<% end %>
+
+  <%= render @process_taxonomy.companies %>
+
+  <hr>
+  <% @process_taxonomy.companies.each do |company| %>
+    <%= link_to company.name, company_url(company) %>
+  <% end %>
+</div>
