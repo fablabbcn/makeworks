@@ -1,17 +1,19 @@
-<div class="row my-4">
-  <div class="col-lg-6">
-    <div class="border border-dark p-4">
-      <h5><%= company.region %></h5>
-      <h3><%= link_to company.name, company_url(company) %></h3>
-      <p><%= company.description %></p>
-      <p><%= company.intro %></p>
+<div class="border border-dark my-4">
+  <div class="row">
+    <div class="col-lg-6">
+      <div class=" p-4">
+        <h5><%= company.region %></h5>
+        <h3><%= link_to company.name, company_url(company) %></h3>
+        <p><%= company.description %></p>
+        <p><%= company.intro %></p>
+      </div>
     </div>
-  </div>
-  <div class="col-lg-6">
-    <% if company.top_image.present? %>
-      <%= link_to company_url(company) do %>
-        <%= image_tag(company&.top_image, alt: 'Company logo', class: 'img-fluid border border-dark') %>
+    <div class="col-lg-6 d-flex align-items-center justify-content-center">
+      <% if company.top_image.present? %>
+        <%= link_to company_url(company) do %>
+          <%= image_tag(company&.top_image, alt: 'Company logo', class: 'img-fluid ml-auto') %>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 </div>
