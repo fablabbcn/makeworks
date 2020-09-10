@@ -1,3 +1,5 @@
+<% content_for(:title, @process_taxonomy) %>
+
 <div class="container my-4">
   <div class="my-4">
     <%= link_to "Processes", process_taxonomies_path %>
@@ -25,8 +27,4 @@
 
   <%= render @process_taxonomy.companies %>
 
-  <hr>
-  <% @process_taxonomy.companies.each do |company| %>
-    <%= link_to company.name, company_url(company) %>
-  <% end %>
 </div>
