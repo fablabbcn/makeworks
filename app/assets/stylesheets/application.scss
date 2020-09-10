@@ -20,6 +20,8 @@ $black3: #333;
 $grey: #555;
 $grey2: #ddd;
 $white: #fff;
+$yellow: #FFEF61;
+$yellow2: #FFBE02;
 
 body {
   //background-color: #F9F9F9;
@@ -75,27 +77,42 @@ input{
   background: $black2;
   border: 0;
   color: $white;
+
+  &:active {
+    background: $black !important;
+  }
+
+  &:focus {
+    background: $black;
+  }
 }
 
-.btn-primary:active {
-  background: $black !important;
-}
-
-.btn-primary:focus {
-  background: $black;
-}
 
 .btn-outline-primary {
   background: $white;
   border: 1px solid $black2;
   border-radius: 20px;
   color: $black2;
+
+  &:hover {
+    background: $black !important;
+    border: 1px solid $black2;
+    color: $white !important;
+  }
 }
 
-.btn-outline-primary:hover {
-  background: $black !important;
-  border: 1px solid $black2;
-  color: $white !important;
+
+.btn-yellow {
+  background: $yellow;
+  border: 1px solid $yellow;
+  border-radius: 20px;
+  color: $black2;
+
+  &:hover {
+    background: $yellow;
+    color: $black2;
+    border: 1px solid $black2;
+  }
 }
 
 .card {
@@ -194,7 +211,7 @@ td {
 }
 
 .bg-yellow {
-  background: #FFBE02;
+  background: $yellow2;
 }
 
 .bg-red {
