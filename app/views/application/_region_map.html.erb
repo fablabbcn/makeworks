@@ -23,8 +23,7 @@
     L.marker([item.lat, item.lng]).addTo(map)
       .bindPopup(
         "<a href='/regions/" + item.id + "'>" + item.name + "</a><br/>" +
-        "<b>Location: </b>" + item.location + "<br/>" +
-        "<b>Address: </b>" + item.address + "<br/>"
+        "<b>Latitude: </b>" + item.lat + "<br/>"
       )
       .openPopup();
   });
