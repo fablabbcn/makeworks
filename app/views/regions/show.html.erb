@@ -3,7 +3,6 @@
 
   <div class="row border-bottom border-dark">
     <div class="col-md-4 tile-first p-3">
-      <h2>About / Region</h2>
       <ul class="list-unstyled">
         <li>
           <%= link_to "About", "#about" %>
@@ -24,6 +23,7 @@
     </div>
     <div class="col-md-8 text-center p-5">
       <h1>
+       <%= link_to "Regions", regions_url %> /
         <%= @region.name %>
       </h1>
 
@@ -87,9 +87,9 @@
 
 
   <div class="row">
-    <% if @region.companies_with_lat_lng.present? %>
-      <%= render partial: 'map', locals: { locations: @region.companies_with_lat_lng} %>
-      <p class="m-3"> Found: <%= @region.companies_with_lat_lng.count %> </p>
+    <% if @region.companies.with_lat_lng.present? %>
+      <%= render partial: 'map', locals: { locations: @region.companies.with_lat_lng} %>
+      <p class="m-3"> Found: <%= @region.companies.with_lat_lng.count %> </p>
     <% end %>
   </div>
 

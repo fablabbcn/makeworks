@@ -86,6 +86,8 @@ class RegionsController < ApplicationController
                                    :is_public,
                                    :logo,
                                    :trimmed_name,
+                                   :lat,
+                                   :lng,
                                    :about_text)
   end
 end

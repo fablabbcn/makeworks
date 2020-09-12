@@ -1,0 +1,32 @@
+<div class="embed-responsive embed-responsive-16by9">
+  <div id="leaflet" class="embed-responsive-item"> </div>
+</div>
+
+<script>
+
+  var locations = <%= raw locations.to_json %>;
+  //console.log(locations)
+  mycenter = new L.LatLng( locations[0].lat, locations[0].lng )
+  console.log(mycenter)
+
+  var map = new L.Map('leaflet', {
+    center: mycenter,
+    zoom: 7,
+    layers: [
+      new L.TileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        'attribution': 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
+      })
+    ]
+  });
+
+  locations.forEach(function(item) {
+    L.marker([item.lat, item.lng]).addTo(map)
+      .bindPopup(
+        "<a href='/regions/" + item.id + "'>" + item.name + "</a><br/>" +
+        "<b>Location: </b>" + item.location + "<br/>" +
+        "<b>Address: </b>" + item.address + "<br/>"
+      )
+      .openPopup();
+  });
+
+</script>

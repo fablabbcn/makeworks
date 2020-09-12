@@ -23,7 +23,7 @@
   <%= render 'one_blog' %>
 
   <div class="row">
-    <%= render partial: 'map', locals: { locations: Company.companies_with_lat_lng} %>
+    <%= render partial: 'region_map', locals: { locations: Region.with_lat_lng} %>
   </div>
 
 </div>

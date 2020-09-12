@@ -10,6 +10,8 @@
       <th>Logo</th>
       <th>Trimmed name</th>
       <th>User count</th>
+      <th>lat</th>
+      <th>lng</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -24,6 +26,8 @@
         <td><%= region.logo %></td>
         <td><%= region.trimmed_name %></td>
         <td><%= region.users.count %></td>
+        <td><%= region.lat %></td>
+        <td><%= region.lng %></td>
       </tr>
     <% end %>
   </tbody>

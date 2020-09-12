@@ -32,8 +32,4 @@ class Company < ApplicationRecord
     end
     arr
   end
-
-  def self.companies_with_lat_lng
-    where.not(lat: nil).where.not(lng: nil)
-  end
 end

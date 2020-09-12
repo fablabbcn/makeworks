@@ -10,8 +10,4 @@ class Region < ApplicationRecord
   def champions
     UserRegion.where(region: self, is_champion: true)
   end
-
-  def companies_with_lat_lng
-    companies.where.not(lat: nil).where.not(lng: nil)
-  end
 end
