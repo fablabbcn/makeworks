@@ -1,4 +1,3 @@
-
 <div class="container my-5">
 
   <div class="mb-3">
@@ -7,7 +6,7 @@
     <% end %>
   </div>
 
-  <%= title @company.name %>
+  <%= title @company.name, class: 'font-weight-bold' %>
   <div class="row my-4">
     <div class="col-md-7">
       <p><%= @company.intro %></p>
@@ -229,10 +228,10 @@
         <%= render partial: 'map', locals: { locations: [@company]} %>
       <% end %>
     </div>
-
   </div>
+
   <div class="row my-5">
-    <div class="mx-auto">
+    <div class="col-md-8 mx-auto">
       <div id="carouselCompany" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner bg-dark">
           <%= render partial: 'carousel_item', locals: { images: @company.all_photos } %>
