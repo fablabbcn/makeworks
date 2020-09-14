@@ -144,9 +144,8 @@
     </div>
   </div>
 
-  <div class="row my-4">
-    <div class="col-md-6">
-      <h4 class="text-center">Pictures</h4>
+  <div class="row border border-dark">
+    <div class="col-md-6 tile-first p-0">
       <div id="carouselCompany" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner bg-dark">
           <%= render partial: 'carousel_item', locals: { images: @company.all_photos } %>
@@ -162,8 +161,8 @@
       </div>
     </div>
 
-    <div class="col-md-6">
-      <div class="border border-dark mb-4 p-4">
+    <div class="col-md-6 border-bottom border-dark">
+      <div class="p-4">
         <h4 class="text-center">Contact info</h4>
         <p>
         <strong>Contact name:</strong>
@@ -198,8 +197,8 @@
       </div>
     </div>
 
-    <div class="col-md-6">
-      <div class="border border-dark mb-4 p-4">
+    <div class="col-md-6 tile-first">
+      <div class="p-4 ">
         <h4 class="text-center">Social</h4>
 
         <strong>Linkedin:</strong>
@@ -240,11 +239,9 @@
       </div>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-6 p-0">
       <% if @company.lat.present? && @company.lng.present? %>
-        <div class="border border-dark mb-4">
-          <%= render partial: 'map', locals: { locations: [@company]} %>
-        </div>
+        <%= render partial: 'map', locals: { locations: [@company]} %>
       <% end %>
     </div>
 
