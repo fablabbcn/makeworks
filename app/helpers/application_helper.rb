@@ -27,4 +27,9 @@ module ApplicationHelper
       [I18n.t('name', locale: locale), locale.to_s]
     end
   end
+
+  def title(page_title, options = {})
+    content_for(:title, page_title.to_s)
+    content_tag(:h1, page_title, options.merge(itemprop: 'name'))
+  end
 end
