@@ -2,6 +2,8 @@ class TaxonomiesController < ApplicationController
   before_action :set_taxonomy, only: [:show, :edit, :update, :destroy]
   before_action :check_if_admin
 
+  layout 'container'
+
   # GET /taxonomies
   # GET /taxonomies.json
   def index

@@ -1,7 +1,9 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white sticky-top" style="border-bottom: 2px solid #222;">
   <a class="navbar-brand" href="/">
     <%= image_tag 'favicon.png', style: 'max-height: 35px' %>
-    MAKE WORKS
+    <span class="font-weight-bold">
+      MAKE WORKS
+    </span>
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -9,20 +11,24 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto ml-0 ml-lg-5">
-      <li class="nav-item"> <%= link_to "Companies", companies_url, class: "nav-link" %> </li>
-      <li class="nav-item"> <%= link_to "Blog", blogs_url, class: "nav-link" %> </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Taxonomies
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to "Processes", process_taxonomies_url, class: "dropdown-item" %>
-            <%= link_to "Materials", materials_taxonomies_url, class: "dropdown-item" %>
-            <%= link_to "Industry", industry_taxonomies_url, class: "dropdown-item" %>
-            <%= link_to "Machines", machines_taxonomies_url, class: "dropdown-item" %>
-          </div>
-        </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Go to
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to "Blog", blogs_url, class: "dropdown-item" %>
+          <div class="dropdown-divider"></div>
+          <%= link_to "Companies index", companies_url, class: "dropdown-item" %>
+          <%= link_to "Regions index", regions_url, class: "dropdown-item" %>
+          <div class="dropdown-divider"></div>
+          <h6 class="dropdown-header">Taxonomies</h6>
+          <%= link_to "Processes", process_taxonomies_url, class: "dropdown-item" %>
+          <%= link_to "Materials", materials_taxonomies_url, class: "dropdown-item" %>
+          <%= link_to "Industry", industry_taxonomies_url, class: "dropdown-item" %>
+          <%= link_to "Machines", machines_taxonomies_url, class: "dropdown-item" %>
+        </div>
+      </li>
       <% if current_user&.is_admin? %>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

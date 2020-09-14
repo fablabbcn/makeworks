@@ -72,6 +72,11 @@
           <p>Maker Speed Dater is happening</p>
         </div>
       </div>
+      <div class="row">
+        <% if @region.has_lat_lng? %>
+          <%= render partial: 'region_map', locals: { locations: [@region]} %>
+        <% end %>
+      </div>
       <div class="row border-top border-dark">
         <div class="p-5">
           <h4 id="team">Team (champions):</h4>
@@ -89,10 +94,7 @@
   <div class="row">
     <% if @region.companies.with_lat_lng.present? %>
       <%= render partial: 'map', locals: { locations: @region.companies.with_lat_lng} %>
-      <p class="m-3"> Found: <%= @region.companies.with_lat_lng.count %> </p>
     <% end %>
   </div>
-
-  <%= render 'footer' %>
 
 </div>
