@@ -9,10 +9,10 @@
 
   <%= title @company.name %>
   <div class="row my-4">
-    <div class="col-md-6">
+    <div class="col-md-7">
       <p><%= @company.intro %></p>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-5">
       <table style='width: 100%'>
         <tbody>
           <tr>
@@ -57,10 +57,10 @@
   <h2 class="mt-5">Production details</h2>
 
   <div class="row my-4">
-    <div class="col-md-6">
+    <div class="col-md-7">
       <p><%= @company.background %></p>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-5">
       <div class="">
         <table style='width: 100%'>
           <tbody>
@@ -109,7 +109,7 @@
       </ul>
     </div>
 
-    <div class="col-md-2">
+    <div class="col-md-3">
       <h4>Machines</h4>
       <ul class="list-unstyled">
         <% @company.machines.each do |x| %>
@@ -120,7 +120,7 @@
       </ul>
     </div>
 
-    <div class="col-md-3">
+    <div class="col-md-2">
       <h4>Works With</h4>
       <ul class="list-unstyled">
         <li class="<%= 'font-weight-bold' if @company.works_with_large_business %>">Large business </li>
@@ -145,20 +145,8 @@
   </div>
 
   <div class="row border border-dark">
-    <div class="col-md-6 tile-first p-0">
-      <div id="carouselCompany" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner bg-dark">
-          <%= render partial: 'carousel_item', locals: { images: @company.all_photos } %>
-        </div>
-        <a class="carousel-control-prev" href="#carouselCompany" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselCompany" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
+    <div class="col-md-6 tile-first p-0 border-bottom border-dark">
+      <%= image_tag @company.portrait, alt: 'Portrait' %>
     </div>
 
     <div class="col-md-6 border-bottom border-dark">
@@ -186,9 +174,6 @@
 
         <p>Address: <%= @company.address %></p>
 
-        <div class="text-center">
-          <%= image_tag @company.portrait if @company.portrait %>
-        </div>
 
         <p>
         <strong>Location:</strong>
@@ -246,5 +231,21 @@
     </div>
 
   </div>
-
+  <div class="row my-5">
+    <div class="mx-auto">
+      <div id="carouselCompany" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner bg-dark">
+          <%= render partial: 'carousel_item', locals: { images: @company.all_photos } %>
+        </div>
+        <a class="carousel-control-prev" href="#carouselCompany" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselCompany" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+  </div>
 </div>

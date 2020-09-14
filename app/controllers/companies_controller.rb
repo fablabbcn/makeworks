@@ -83,9 +83,9 @@ class CompaniesController < ApplicationController
     # use bullet gem
     @company = Company.includes(
       company_processes: [:process_taxonomy],
-      finished_products: [:finished_products_taxonomy],
+      #finished_products: [:finished_products_taxonomy],
       materials: [:materials_taxonomy],
-      industries: [:industry_taxonomy],
+      #industries: [:industry_taxonomy],
       machines: [:machines_taxonomy]
     )
                       .friendly.find(params[:id])
