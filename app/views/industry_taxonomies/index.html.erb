@@ -1,29 +1,12 @@
-<h1>Industries</h1>
+<div class="container my-4">
 
-<table>
-  <thead>
-    <tr>
-      <th>M</th>
-      <th>Name</th>
-      <th>Parent</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <h1>Industries</h1>
 
-  <tbody>
-    <% @industry_taxonomies.each do |industry_taxonomy| %>
-      <tr>
-        <td><%= industry_taxonomy.m_id %></td>
-        <td><%= industry_taxonomy.name %></td>
-        <td><%= industry_taxonomy.parent_id %></td>
-        <td><%= link_to 'Show', industry_taxonomy %></td>
-        <td><%= link_to 'Edit', edit_industry_taxonomy_path(industry_taxonomy) %></td>
-        <td><%= link_to 'Destroy', industry_taxonomy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <% if @industry_taxonomies %>
+    <%= render partial: 'taxonomy_list', locals: {the_item: @industry_taxonomies} %>
+  <% end %>
 
-<br>
+  <br>
 
-<%= link_to 'New Industry Taxonomy', new_industry_taxonomy_path %>
+  <%= link_to 'New Industry Taxonomy', new_industry_taxonomy_path, class: 'btn btn-primary' %>
+</div>

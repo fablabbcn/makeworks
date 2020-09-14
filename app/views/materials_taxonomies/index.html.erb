@@ -1,29 +1,11 @@
-<h1>Materials</h1>
+<div class="container my-4">
+  <h1>Materials</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>M</th>
-      <th>Name</th>
-      <th>Parent</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <% if @materials_taxonomies %>
+    <%= render partial: 'taxonomy_list', locals: {the_item: @materials_taxonomies} %>
+  <% end %>
 
-  <tbody>
-    <% @materials_taxonomies.each do |materials_taxonomy| %>
-      <tr>
-        <td><%= materials_taxonomy.m_id %></td>
-        <td><%= materials_taxonomy.name %></td>
-        <td><%= materials_taxonomy.parent_id %></td>
-        <td><%= link_to 'Show', materials_taxonomy %></td>
-        <td><%= link_to 'Edit', edit_materials_taxonomy_path(materials_taxonomy) %></td>
-        <td><%= link_to 'Destroy', materials_taxonomy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Materials Taxonomy', new_materials_taxonomy_path %>
+  <% if current_user&.is_admin? %>
+    <%= link_to 'New Materials Taxonomy', new_materials_taxonomy_path, class: 'btn btn-primary' %>
+  <% end %>
+</div>

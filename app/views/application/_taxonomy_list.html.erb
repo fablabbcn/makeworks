@@ -1,0 +1,25 @@
+<div class="my-3">
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Parent</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% the_item.each do |item| %>
+        <tr>
+          <td><%= link_to item.name, polymorphic_url(item) %></td>
+          <td>
+            <% if item.parent_id? %>
+              <%= link_to item.parent, polymorphic_url(item.parent) %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>

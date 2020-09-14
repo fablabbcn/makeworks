@@ -70,6 +70,7 @@ en:
   shared:
     tagline: Find local manufacturers in your region
     a_global_library: a global library for local manufacturing
+    create_new: Create new
 is:
   name: Icelandic
   activerecord:
@@ -98,3 +99,4 @@ is:
         locale: Veldu tungumál fyrir kerfið.
   shared:
     tagline: Finndu framleiðendur á þínu svæði
+    create_new: Búa til nýtt

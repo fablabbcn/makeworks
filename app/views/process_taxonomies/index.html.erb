@@ -2,34 +2,11 @@
 
   <h1>Processes</h1>
 
-  <table class="table">
-    <thead>
-      <tr>
-        <th>M</th>
-        <th>Name</th>
-        <th>Parent</th>
-        <th colspan="2"></th>
-      </tr>
-    </thead>
+  <% if @process_taxonomies %>
+    <%= render partial: 'taxonomy_list', locals: {the_item: @process_taxonomies} %>
+  <% end %>
 
-    <tbody>
-      <% @process_taxonomies.each do |process_taxonomy| %>
-        <tr>
-          <td><%= process_taxonomy.m_id %></td>
-          <td><%= link_to process_taxonomy.name, process_taxonomy_url(process_taxonomy) %></td>
-          <td>
-            <% if process_taxonomy.parent_id? %>
-              <%= link_to process_taxonomy.parent, process_taxonomy_url(process_taxonomy.parent_id) %>
-            <% end %>
-          </td>
-          <td><%= link_to 'Edit', edit_process_taxonomy_path(process_taxonomy) %></td>
-          <td><%= link_to 'Delete', process_taxonomy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-  <br>
-
-  <%= link_to 'New Process Taxonomy', new_process_taxonomy_path %>
+  <% if current_user&.is_admin? %>
+    <%= link_to 'New Process Taxonomy', new_process_taxonomy_path, class: 'btn btn-primary' %>
+  <% end %>
 </div>

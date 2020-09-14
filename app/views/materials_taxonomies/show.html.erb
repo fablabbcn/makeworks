@@ -1,25 +1,24 @@
-<p id="notice"><%= notice %></p>
+<%= content_for(:title, @materials_taxonomy.name) %>
+<div class="container my-4">
+  <div class="my-4">
+    <%= link_to "Materials", materials_taxonomies_path %>
+  </div>
 
-<p>
-  <strong>M:</strong>
-  <%= @materials_taxonomy.m_id %>
-</p>
+  <div class="border p-4 my-4">
+    <p>
+    <strong>Name:</strong>
+    <%= @materials_taxonomy.name %>
+    </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @materials_taxonomy.name %>
-</p>
+    <p>
+    <strong>Parent:</strong>
+    <%= @materials_taxonomy.parent_id %>
+    </p>
 
-<p>
-  <strong>Parent:</strong>
-  <%= @materials_taxonomy.parent_id %>
-</p>
+    <%= link_to 'Edit', edit_materials_taxonomy_path(@materials_taxonomy), class: 'btn btn-primary' %>
 
-<%= link_to 'Edit', edit_materials_taxonomy_path(@materials_taxonomy) %> |
-<%= link_to 'Back', materials_taxonomies_path %>
+  </div>
 
+  <%= render @materials_taxonomy.companies %>
 
-<hr>
-<% @materials_taxonomy.companies.each do |company| %>
-  <%= link_to company.name, company_url(company) %>
-<% end %>
+</div>
