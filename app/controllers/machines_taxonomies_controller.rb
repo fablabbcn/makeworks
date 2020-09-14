@@ -1,6 +1,9 @@
 class MachinesTaxonomiesController < ApplicationController
   before_action :set_machines_taxonomy, only: [:show, :edit, :update, :destroy]
-  before_action :check_if_admin
+  before_action :check_if_admin, except: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:show, :index]
+
+  layout 'container'
 
   # GET /machines_taxonomies
   # GET /machines_taxonomies.json

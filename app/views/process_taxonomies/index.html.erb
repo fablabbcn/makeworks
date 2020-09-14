@@ -1,12 +1,9 @@
-<div class="container my-4">
+<%= title 'Processes' %>
 
-  <h1>Processes</h1>
+<% if @process_taxonomies %>
+  <%= render partial: 'taxonomy_list', locals: {the_item: @process_taxonomies} %>
+<% end %>
 
-  <% if @process_taxonomies %>
-    <%= render partial: 'taxonomy_list', locals: {the_item: @process_taxonomies} %>
-  <% end %>
-
-  <% if current_user&.is_admin? %>
-    <%= link_to 'New Process Taxonomy', new_process_taxonomy_path, class: 'btn btn-primary' %>
-  <% end %>
-</div>
+<% if current_user&.is_admin? %>
+  <%= link_to 'New Process Taxonomy', new_process_taxonomy_path, class: 'btn btn-primary' %>
+<% end %>

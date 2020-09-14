@@ -1,12 +1,9 @@
-<div class="container my-4">
+<%= title 'Industries' %>
 
-  <h1>Industries</h1>
+<% if @industry_taxonomies %>
+  <%= render partial: 'taxonomy_list', locals: {the_item: @industry_taxonomies} %>
+<% end %>
 
-  <% if @industry_taxonomies %>
-    <%= render partial: 'taxonomy_list', locals: {the_item: @industry_taxonomies} %>
-  <% end %>
-
-  <br>
-
+<% if current_user&.is_admin? %>
   <%= link_to 'New Industry Taxonomy', new_industry_taxonomy_path, class: 'btn btn-primary' %>
-</div>
+<% end %>

@@ -2,6 +2,7 @@ class IndustryTaxonomiesController < ApplicationController
   before_action :set_industry_taxonomy, only: [:show, :edit, :update, :destroy]
   before_action :check_if_admin, except: [:index, :show]
   skip_before_action :authenticate_user!, only: [:show, :index]
+  layout 'container'
 
   # GET /industry_taxonomies
   # GET /industry_taxonomies.json

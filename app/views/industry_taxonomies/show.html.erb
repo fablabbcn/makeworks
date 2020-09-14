@@ -1,20 +1,21 @@
-<% content_for(:title, @industry_taxonomy) %>
+<% title @industry_taxonomy %>
 
-<div class="container my-4">
+<%= link_to "Industries", industry_taxonomies_url %>
 
-  <div class="border p-4 my-4">
-    <p>
-    <strong>Name:</strong>
-    <%= @industry_taxonomy.name %>
-    </p>
+<div class="border p-4 my-4">
+  <p>
+  <strong>Name:</strong>
+  <%= @industry_taxonomy.name %>
+  </p>
 
-    <p>
-    <strong>Parent:</strong>
-    <%= @industry_taxonomy.parent_id %>
-    </p>
+  <p>
+  <strong>Parent:</strong>
+  <%= @industry_taxonomy.parent_id %>
+  </p>
 
-    <%= link_to 'Edit', edit_industry_taxonomy_path(@industry_taxonomy) %>
-  </div>
-
-  <%= render @industry_taxonomy.companies %>
+  <% if current_user&.is_admin? %>
+    <%= link_to 'Edit', edit_industry_taxonomy_path(@industry_taxonomy), class: 'btn btn-primary' %>
+  <% end %>
 </div>
+
+<%= render @industry_taxonomy.companies %>

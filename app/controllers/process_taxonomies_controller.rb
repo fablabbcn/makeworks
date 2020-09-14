@@ -2,6 +2,7 @@ class ProcessTaxonomiesController < ApplicationController
   before_action :set_process_taxonomy, only: [:show, :edit, :update, :destroy]
   before_action :check_if_admin, except: [:index, :show]
   skip_before_action :authenticate_user!, only: [:show, :index]
+  layout 'container'
 
   # GET /process_taxonomies
   # GET /process_taxonomies.json
