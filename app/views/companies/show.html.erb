@@ -1,73 +1,151 @@
-<% content_for(:title, @company.name) %>
 
-<div class="container bg-light border my-5 p-5">
+<div class="container my-5">
 
-  <div class="my-2">
-    <h2 class="text-center">Name: <%= @company.name %></h2>
+  <div class="mb-3">
     <% if current_user&.is_admin? %>
       <%= link_to 'Edit', edit_company_path(@company), class: 'btn btn-primary'  %>
     <% end %>
   </div>
 
-  <div class="row">
-    <div class="col-md-6">
-
-      <%= image_tag @company.top_image if @company.top_image.present? %>
-      <p>Region: <%= @company.region %></p>
-      <p>Address: <%= @company.address %></p>
+  <%= title @company.name %>
+  <div class="row my-4">
+    <div class="col-md-7">
       <p>Intro: <%= @company.intro %></p>
+    </div>
+    <div class="col-md-5">
+      <table style='width: 100%'>
+        <tbody>
+          <tr>
+            <th>Type</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th>Industry</th>
+            <td><%= @company.industry_taxonomies.count %></td>
+          </tr>
+          <tr>
+            <th>Employees</th>
+            <td><%= @company.number_of_staff %></td>
+          </tr>
+          <tr>
+            <th>Region</th>
+            <td><%= @company.region %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <%= image_tag @company.top_image if @company.top_image.present? %>
+
+  <% if current_user&.is_admin? %>
+    <div class="my-4">
+      <div class="border border-dark p-4">
+        <p>Admin info:</p>
+        <ul>
+          <%# @company.title %>
+          <li>Trimmed name: <%= @company.trimmed_name %></li>
+          <li>Soft delete: <%= @company.soft_delete %></li>
+          <li>Been visited: <%= @company.been_visited %> </li>
+          <li>Year founded: <%= @company.year_founded %></li>
+          <li>Film ready: <%= @company.film_ready %></li>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <h2>Production details</h2>
+
+  <div class="row my-4">
+    <div class="col-md-6">
       <p><%= @company.background %></p>
-
-      <% if current_user&.is_admin? %>
-        <div class="border border-dark mb-4 p-4">
-          <p>Admin info:</p>
-          <ul>
-            <%# @company.title %>
-            <li>Trimmed name: <%= @company.trimmed_name %></li>
-            <li>Soft delete: <%= @company.soft_delete %></li>
-            <li>Been visited: <%= @company.been_visited %> </li> 
-            <li>Year founded: <%= @company.year_founded %></li>
-            <li>Film ready: <%= @company.film_ready %></li>
-          </ul>
-        </div>
-      <% end %>
-
-      <div class="border border-dark mb-4 p-4">
-        <h4 class="text-center">Info</h4>
-        <ul>
-          <li>Turnaround time: <%= @company.turnaround_time %></li>
-          <li>Minimum order: <%= @company.minimum_order %></li>
-          <li>Production access: <%= @company.production_access %></li>
-          <li>File types: <%= @company.file_types %></li>
-        </ul>
+    </div>
+    <div class="col-md-6">
+      <div class="">
+        <table style='width: 100%'>
+          <tbody>
+            <tr>
+              <th>Turnaround time</th>
+              <td><%= @company.turnaround_time %></td>
+            </tr>
+            <tr>
+              <th>Minimum order</th>
+              <td><%= @company.minimum_order %></td>
+            </tr>
+            <tr>
+              <th>Production access</th>
+              <td><%= @company.production_access %></td>
+            </tr>
+            <tr>
+              <th>File types</th>
+              <td><%= @company.file_types %></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
+    </div>
+  </div>
 
+  <div class="row my-5">
+    <div class="col-md-2">
+      <h4>Materials</h4>
+      <ul class="list-unstyled">
+        <% @company.materials.each do |x| %>
+          <li>
+            <%= link_to x.materials_taxonomy.name, materials_taxonomy_url(x) %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
 
-      <div class="border border-dark mb-4 p-4">
-        <h4 class="text-center">Works With</h4>
+    <div class="col-md-3">
+      <h4>Processes</h4>
+      <ul class="list-unstyled">
+        <% @company.company_processes.each do |x| %>
+          <li>
+            <%= link_to x.process_taxonomy.name, process_taxonomy_url(x) %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
 
-        <ul>
-          <li>Large business: <%= @company.works_with_large_business %> </li>
-          <li>Small companies: <%= @company.works_with_small_companies %> </li>
-          <li>Professionals: <%= @company.works_with_professionals %> </li>
-          <li>General public: <%= @company.works_with_general_public %> </li>
-          <li>Students: <%= @company.works_with_students %> </li>
-        </ul>
-      </div>
+    <div class="col-md-2">
+      <h4>Machines</h4>
+      <ul class="list-unstyled">
+        <% @company.machines.each do |x| %>
+          <li>
+            <%= link_to x.machines_taxonomy.name, machines_taxonomy_url(x) %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
 
-      <div class="border border-dark mb-4 p-4">
-        <h4 class="text-center">Capacity</h4>
-        <ul>
-          <li>Bespoke 1-offs: <%= @company.bespoke_one_offs %> </li>
-          <li>Sample production: <%= @company.sample_production %> </li>
-          <li>Batch production / Prototypes: <%= @company.batch_production %> </li>
-          <li>Short run: <%= @company.short_run %> </li>
-          <li>Medium run: <%= @company.medium_run %> </li>
-          <li>Large run: <%= @company.large_run %> </li>
-        </ul>
+    <div class="col-md-3">
+      <h4>Works With</h4>
+      <ul class="list-unstyled">
+        <li class="<%= 'font-weight-bold' if @company.works_with_large_business %>">Large business </li>
+        <li class="<%= 'font-weight-bold' if @company.works_with_small_companies %>">Small companies</li>
+        <li class="<%= 'font-weight-bold' if @company.works_with_professionals %>">Professionals</li>
+        <li class="<%= 'font-weight-bold' if @company.works_with_general_public %>">General public</li>
+        <li class="<%= 'font-weight-bold' if @company.works_with_students %>">Students</li>
+      </ul>
+    </div>
 
-      </div>
+    <div class="col-md-2">
+      <h4>Capacity</h4>
+      <ul class="list-unstyled">
+        <li class=" <%= 'text-muted' unless @company.bespoke_one_offs %>">Bespoke 1-offs </li>
+        <li class=" <%= 'text-muted' unless @company.sample_production %>">Sample production </li>
+        <li class=" <%= 'text-muted' unless @company.batch_production %>">Batch production / Prototypes </li>
+        <li class=" <%= 'text-muted' unless @company.short_run %>">Short run </li>
+        <li class=" <%= 'text-muted' unless @company.medium_run %>">Medium run </li>
+        <li class=" <%= 'text-muted' unless @company.large_run %>">Large run </li>
+      </ul>
+    </div>
+  </div>
 
+  <div class="row my-4">
+    <div class="col-md-6">
       <h4 class="text-center">Pictures</h4>
       <div id="carouselCompany" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner bg-dark">
@@ -83,6 +161,7 @@
         </a>
       </div>
     </div>
+
     <div class="col-md-6">
       <div class="border border-dark mb-4 p-4">
         <h4 class="text-center">Contact info</h4>
@@ -105,6 +184,8 @@
         <strong>Contact jobtitle:</strong>
         <%= @company.contact_jobtitle %>
         </p>
+
+        <p>Address: <%= @company.address %></p>
 
         <div class="text-center">
           <%= image_tag @company.portrait if @company.portrait %>
@@ -129,15 +210,10 @@
         <strong>Location:</strong>
         <%= @company.location %>
         </p>
-
       </div>
+    </div>
 
-      <% if @company.lat.present? && @company.lng.present? %>
-        <div class="border border-dark mb-4">
-          <%= render partial: 'map', locals: { locations: [@company]} %>
-        </div>
-      <% end %>
-
+    <div class="col-md-6">
       <div class="border border-dark mb-4 p-4">
         <h4 class="text-center">Social</h4>
 
@@ -179,76 +255,14 @@
       </div>
     </div>
 
-    <div class="col-12 my-4">
-      <h4 class="text-center">Taxonomies</h4>
+    <div class="col-md-6">
+      <% if @company.lat.present? && @company.lng.present? %>
+        <div class="border border-dark mb-4">
+          <%= render partial: 'map', locals: { locations: [@company]} %>
+        </div>
+      <% end %>
     </div>
+
   </div>
 
-  <div class="card-columns">
-    <div class="card mb-4 p-4">
-      <h5>Finished products</h5>
-      <ul class="list-unstyled">
-        <% @company.finished_products.each do |x| %>
-          <li>
-            <%= link_to x.finished_products_taxonomy.name, finished_products_taxonomy_url(x) %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-
-    <div class="card mb-4 p-4">
-      <h5>Processes</h5>
-      <ul class="list-unstyled">
-        <% @company.company_processes.each do |x| %>
-          <li>
-            <%= link_to x.process_taxonomy.name, process_taxonomy_url(x) %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-
-    <div class="card mb-4 p-4">
-      <h5>Industries</h5>
-      <ul class="list-unstyled">
-        <% @company.industries.each do |x| %>
-          <li>
-            <%= link_to x.industry_taxonomy.name, industry_taxonomy_url(x) %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-
-    <div class="card mb-4 p-4">
-      <h5>Materials</h5>
-      <ul class="list-unstyled">
-        <% @company.materials.each do |x| %>
-          <li>
-            <%= link_to x.materials_taxonomy.name, materials_taxonomy_url(x) %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-
-    <div class="card mb-4 p-4">
-      <h5>Manufacturer</h5>
-      <ul class="list-unstyled">
-        <% @company.manufacturers.each do |x| %>
-          <li>
-            <%= link_to x.manufacturer_taxonomy.name, manufacturer_taxonomy_url(x) %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-
-    <div class="card mb-4 p-4">
-      <h5>Machines</h5>
-      <ul class="list-unstyled">
-        <% @company.machines.each do |x| %>
-          <li>
-            <%= link_to x.machines_taxonomy.name, machines_taxonomy_url(x) %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
 </div>
