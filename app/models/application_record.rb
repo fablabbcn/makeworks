@@ -7,4 +7,8 @@ class ApplicationRecord < ActiveRecord::Base
   def self.with_lat_lng
     where.not(lat: nil).where.not(lng: nil)
   end
+
+  def has_lat_lng?
+    lat.present? && lng.present?
+  end
 end

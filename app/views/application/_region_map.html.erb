@@ -1,5 +1,5 @@
 <div class="embed-responsive embed-responsive-16by9">
-  <div id="leaflet" class="embed-responsive-item"> </div>
+  <div id="leaflet_region" class="embed-responsive-item"> </div>
 </div>
 
 <script>
@@ -9,7 +9,7 @@
   mycenter = new L.LatLng( locations[0].lat, locations[0].lng )
   console.log(mycenter)
 
-  var map = new L.Map('leaflet', {
+  var map = new L.Map('leaflet_region', {
     center: mycenter,
     zoom: 7,
     layers: [
