@@ -63,10 +63,6 @@ input{
   border-radius: 0 !important;
 }
 
-.btn {
-  border-radius: 0;
-}
-
 .btn-primary {
   background: $black2;
   border-color: $black2;
@@ -85,8 +81,13 @@ input{
   &:focus {
     background: $black;
   }
-}
 
+  &.dropdown-toggle {
+    &:focus {
+      background: $grey !important;
+    }
+  }
+}
 
 .btn-outline-primary {
   background: $white;
