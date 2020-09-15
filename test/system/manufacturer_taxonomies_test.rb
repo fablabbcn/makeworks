@@ -15,7 +15,6 @@ class ManufacturerTaxonomiesTest < ApplicationSystemTestCase
     visit manufacturer_taxonomies_url
     click_on "New Manufacturer Taxonomy"
 
-    fill_in "M", with: @manufacturer_taxonomy.m_id
     fill_in "Name", with: @manufacturer_taxonomy.name
     #fill_in "Parent", with: @manufacturer_taxonomy.parent_id
     click_on "Create Manufacturer taxonomy"
@@ -26,9 +25,9 @@ class ManufacturerTaxonomiesTest < ApplicationSystemTestCase
 
   test "updating a Manufacturer taxonomy" do
     visit manufacturer_taxonomies_url
+    #click_on "MyString", match: :first
     click_on "Edit", match: :first
 
-    fill_in "M", with: @manufacturer_taxonomy.m_id
     fill_in "Name", with: @manufacturer_taxonomy.name
     #fill_in "Parent", with: @manufacturer_taxonomy.parent_id
     click_on "Update Manufacturer taxonomy"

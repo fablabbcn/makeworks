@@ -2,10 +2,10 @@
 
 one:
   m_id: MyString
-  name: MyString
+  name: MyString1
   parent: one
 
 two:
   m_id: MyString
-  name: MyString
+  name: MyString2
   parent: two

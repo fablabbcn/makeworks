@@ -50,7 +50,7 @@ class CompaniesTest < ApplicationSystemTestCase
     fill_in "Photo9", with: @company.photo9
     fill_in "Pinterest", with: @company.pinterest
     fill_in "Portrait", with: @company.portrait
-    select 'Region1', from: 'Region'
+    select2 'Region1', from: 'Region'
     #fill_in "Region", with: @company.region_id
     check "Sample production" if @company.sample_production
     check "Short run" if @company.short_run
@@ -110,7 +110,7 @@ class CompaniesTest < ApplicationSystemTestCase
     fill_in "Pinterest", with: @company.pinterest
     fill_in "Portrait", with: @company.portrait
     #fill_in "Region", with: @company.region_id
-    select 'Region2', from: 'Region'
+    select2 'Region2', from: 'Region'
     check "Sample production" if @company.sample_production
     check "Short run" if @company.short_run
     check "Soft delete" if @company.soft_delete

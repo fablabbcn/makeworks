@@ -15,10 +15,9 @@ class FinishedProductsTaxonomiesTest < ApplicationSystemTestCase
     visit finished_products_taxonomies_url
     click_on "New Finished Products Taxonomy"
 
-    fill_in "M", with: @finished_products_taxonomy.m_id
     fill_in "Name", with: @finished_products_taxonomy.name
     #fill_in "Parent", with: @finished_products_taxonomy.parent_id
-    select "Fin1", from: 'Parent'
+    select2 "Fin1", from: 'Parent'
     click_on "Create Finished products taxonomy"
 
     assert_text "Finished products taxonomy was successfully created"
@@ -27,12 +26,12 @@ class FinishedProductsTaxonomiesTest < ApplicationSystemTestCase
 
   test "updating a Finished products taxonomy" do
     visit finished_products_taxonomies_url
+    #click_on "MyString", match: :first
     click_on "Edit", match: :first
 
-    fill_in "M", with: @finished_products_taxonomy.m_id
     fill_in "Name", with: @finished_products_taxonomy.name
     #fill_in "Parent", with: @finished_products_taxonomy.parent_id
-    select "Fin2", from: 'Parent'
+    select2 "Fin2", from: 'Parent'
     click_on "Update Finished products taxonomy"
 
     assert_text "Finished products taxonomy was successfully updated"
@@ -40,6 +39,7 @@ class FinishedProductsTaxonomiesTest < ApplicationSystemTestCase
   end
 
   test "destroying a Finished products taxonomy" do
+    skip
     visit finished_products_taxonomies_url
     page.accept_confirm do
       click_on "Destroy", match: :first

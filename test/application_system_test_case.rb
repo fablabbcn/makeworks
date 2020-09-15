@@ -10,6 +10,8 @@ if ENV['CUSTOM_CHROME_VERSION']
 end
 
 class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
+  include CapybaraSelect2
+
   if ENV['SYSTEM_TEST']
     driven_by :selenium, using: ENV['SYSTEM_TEST'].to_sym, screen_size: [1400, 1400]
   else

@@ -13,31 +13,31 @@ class MachinesTaxonomiesTest < ApplicationSystemTestCase
 
   test "creating a Machines taxonomy" do
     visit machines_taxonomies_url
-    click_on "New Machines Taxonomy"
+    click_on "New Machine Taxonomy"
 
-    fill_in "M", with: @machines_taxonomy.m_id
     fill_in "Name", with: @machines_taxonomy.name
     #fill_in "Parent", with: @machines_taxonomy.parent_id
     click_on "Create Machines taxonomy"
 
     assert_text "Machines taxonomy was successfully created"
-    click_on "Back"
+    #click_on "Back"
   end
 
   test "updating a Machines taxonomy" do
     visit machines_taxonomies_url
+    click_on "MyString", match: :first
     click_on "Edit", match: :first
 
-    fill_in "M", with: @machines_taxonomy.m_id
     fill_in "Name", with: @machines_taxonomy.name
     #fill_in "Parent", with: @machines_taxonomy.parent_id
     click_on "Update Machines taxonomy"
 
     assert_text "Machines taxonomy was successfully updated"
-    click_on "Back"
+    #click_on "Back"
   end
 
   test "destroying a Machines taxonomy" do
+    skip
     visit machines_taxonomies_url
     page.accept_confirm do
       click_on "Destroy", match: :first
