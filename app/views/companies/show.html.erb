@@ -28,7 +28,11 @@
           </tr>
           <tr>
             <th>Region</th>
-            <td><%= @company.region %></td>
+            <td><%= link_to @company.region, region_url(@company.region) %></td>
+          </tr>
+          <tr>
+            <th>Location</th>
+            <td><%= @company.location %></td>
           </tr>
         </tbody>
       </table>
@@ -173,11 +177,6 @@
 
         <p>Address: <%= @company.address %></p>
 
-
-        <p>
-        <strong>Location:</strong>
-        <%= @company.location %>
-        </p>
       </div>
     </div>
 

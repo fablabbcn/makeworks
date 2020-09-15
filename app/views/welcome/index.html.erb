@@ -9,11 +9,11 @@
 
     <div class="text-center my-4">
       <div class="dropdown">
-        <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownRegions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Regions list
         </a>
 
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <div class="dropdown-menu" aria-labelledby="dropdownRegions">
           <% @all_regions.each do |region| %>
             <%= link_to region.name, region, class: 'dropdown-item' %>
           <% end %>
@@ -30,8 +30,30 @@
 
   <%= render 'one_blog' %>
 
-  <div class="row">
+  <div class="my-5">
+    <p>Make Works consists of <i>seven regions</i> each lead by a community champions in collaboration with local partners. We believe in distributed teams and collaborative governance. </p>
     <%= render partial: 'region_map', locals: { locations: Region.with_lat_lng} %>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <p>Make Works partners with individuals and organisations across the UK and beyond who want to run their own open-access directory of manufacturing for their local area.Our partners aren't just people using our platform - they are fellow manufacturing geeks who are passionate about local manufacturing.More recently, in 2019, Make Works has been transferred to the Institute for Advanced Architecture of Catalonia (IAAC), Fab City Research Lab Barcelona, and sits within Fab City’s Distributed Design platform, funded by Creative Europe.</p>
+    </div>
+    <div class="col-md-6">
+      <h4>You want to know more?</h4>
+      <p class="my-4">Check out our regions to find out about new listings, latest news, local partners and events.</p>
+      <div class="dropdown">
+        <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownRegions2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Regions list
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="dropdownRegions2">
+          <% @all_regions.each do |region| %>
+            <%= link_to region.name, region, class: 'dropdown-item' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 
 </div>
