@@ -1,8 +1,11 @@
-<li class="<%= 'font-weight-bold' if the_bool %>">
-  <% if the_bool  %>
+<% if the_bool  %>
+  <li class="font-weight-bold">
     <%= render partial: 'checkbox'%>
-  <% else %>
+    <%= the_text %>
+  </li>
+<% else %>
+  <li class="text-muted">
     <span style='padding:10px;'> </span>
-  <% end %>
-  <%= the_text %>
-</li>
+    <%= the_text %>
+  </li>
+<% end %>
