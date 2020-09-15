@@ -1,23 +1,3 @@
-<div class="my-4">
-  <%= link_to "Materials", materials_taxonomies_path %>
-  <%= title @materials_taxonomy %>
-</div>
-
-<div class="border p-4 my-4">
-  <p>
-  <strong>Name:</strong>
-  <%= @materials_taxonomy.name %>
-  </p>
-
-  <p>
-  <strong>Parent:</strong>
-  <%= @materials_taxonomy.parent_id %>
-  </p>
-
-  <% if current_user&.is_admin? %>
-    <%= link_to 'Edit', edit_materials_taxonomy_path(@materials_taxonomy), class: 'btn btn-primary' %>
-  <% end %>
-
-</div>
+<%= render partial: 'taxonomy_show', locals: { my_item: @materials_taxonomy } %>
 
 <%= render @materials_taxonomy.companies %>

@@ -1,0 +1,17 @@
+<div class="my-4">
+  <%= link_to my_item.class, polymorphic_url(my_item.class) %>
+  <% if my_item.parent_id? %>
+    /
+    <%= link_to my_item.parent, polymorphic_url(my_item.parent) %>
+    /
+  <% end %>
+
+  <%= title my_item %>
+
+</div>
+
+<% if admin? %>
+  <%= link_to 'Edit', edit_polymorphic_url(my_item), class: 'btn btn-primary' %>
+<% end %>
+
+

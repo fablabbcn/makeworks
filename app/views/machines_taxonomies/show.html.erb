@@ -1,21 +1,4 @@
-<div class="my-4">
-  <%= link_to "Machines", machines_taxonomies_path %>
-  <%= title @machines_taxonomy %>
-</div>
-
-<p>
-  <strong>Name:</strong>
-  <%= @machines_taxonomy.name %>
-</p>
-
-<p>
-  <strong>Parent:</strong>
-  <%= @machines_taxonomy.parent_id %>
-</p>
-
-<% if current_user&.is_admin? %>
-  <%= link_to 'Edit', edit_machines_taxonomy_path(@machines_taxonomy), class: 'btn btn-primary' %>
-<% end %>
+<%= render partial: 'taxonomy_show', locals: { my_item: @machines_taxonomy } %>
 
 <%= render @machines_taxonomy.companies %>
 
