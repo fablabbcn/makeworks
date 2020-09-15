@@ -46,6 +46,11 @@
       <% end %>
     </ul>
 
+    <%= link_to "Regions", regions_url, class: "nav-link mr-2 #{current_page?(regions_url) ? 'btn-primary' : 'btn-outline-primary'}" %>
+    <%= link_to "Companies", companies_url, class: "nav-link mr-2 #{current_page?(companies_url) ? 'btn-primary' : 'btn-outline-primary'}" %>
+    <%= link_to "Blog", blogs_url, class: "nav-link mr-2 #{current_page?(blogs_url) ? 'btn-primary' : 'btn-outline-primary'}" %>
+    <%= link_to "About", about_url, class: "nav-link mr-2 #{current_page?(about_url) ? 'btn-primary' : 'btn-outline-primary'}" %>
+
     <form class="mx-auto" action="/companies">
       <div class="input-group">
         <input class="form-control " name="q[name_or_description_cont]" type="search" placeholder="Search companies.." aria-label="Search">

@@ -65,23 +65,23 @@ input{
 
 .btn {
   border-radius: 0;
-  min-width: 160px;
-}
-
-.btn:hover {
-  background: $grey;
-  color: $white;
 }
 
 .btn-primary {
   background: $black2;
-  border: 0;
+  border-color: $black2;
+  border-radius: 20px;
   color: $white;
 
   &:active {
     background: $black !important;
+    border-color: $black2;
   }
-
+  &:hover {
+    border-color: $black2;
+    background: $grey;
+    color: $white;
+  }
   &:focus {
     background: $black;
   }
