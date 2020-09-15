@@ -154,7 +154,6 @@ td {
 }
 
 .pagination a, .pagination span.current, .pagination span.gap {
-  background-color: $white;
   border: 1px solid $grey2;
   border-left-width: 0;
   float: left;
@@ -183,6 +182,11 @@ td {
     border: 0;
     float: none;
     padding: 0;
+  }
+
+  .current {
+    background: $black;
+    color: $white;
   }
 
   .next {
