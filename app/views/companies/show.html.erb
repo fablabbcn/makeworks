@@ -90,7 +90,7 @@
   </div>
 
   <div class="row my-5">
-    <div class="col-md-2">
+    <div class="col-sm-4 col-lg-2">
       <h4>Materials</h4>
       <ul class="list-unstyled">
         <% @company.materials.each do |x| %>
@@ -101,7 +101,7 @@
       </ul>
     </div>
 
-    <div class="col-md-2">
+    <div class="col-sm-4 col-lg-2">
       <h4>Processes</h4>
       <ul class="list-unstyled">
         <% @company.company_processes.each do |x| %>
@@ -112,7 +112,7 @@
       </ul>
     </div>
 
-    <div class="col-md-3">
+    <div class="col-sm-4 col-lg-3 mb-4">
       <h4>Machines</h4>
       <ul class="list-unstyled">
         <% @company.machines.each do |x| %>
@@ -123,7 +123,7 @@
       </ul>
     </div>
 
-    <div class="col-md-2">
+    <div class="col-sm-6 col-lg-2">
       <h4>Works With</h4>
       <ul class="list-unstyled">
         <%= render 'list_item_checkbox', the_bool: @company.works_with_large_business, the_text: 'Large business' %>
@@ -134,7 +134,7 @@
       </ul>
     </div>
 
-    <div class="col-md-3">
+    <div class="col-sm-6 col-lg-3">
       <h4>Capacity</h4>
       <ul class="list-unstyled">
         <%= render 'list_item_checkbox', the_bool: @company.bespoke_one_offs, the_text: 'Bespoke 1-offs' %>
