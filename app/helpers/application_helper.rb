@@ -32,4 +32,8 @@ module ApplicationHelper
     content_for(:title, page_title.to_s)
     content_tag(:h1, page_title, options.merge(itemprop: 'name'))
   end
+
+  def admin?
+    current_user&.is_admin?
+  end
 end

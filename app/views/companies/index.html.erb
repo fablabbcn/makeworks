@@ -30,7 +30,9 @@
 
   <%= paginate @companies %>
 
-  <%= link_to 'New Company', new_company_path, class: 'btn btn-dark my-3' %>
+  <% if admin? %>
+    <%= link_to 'New Company', new_company_path, class: 'btn btn-dark my-3' %>
+  <% end %>
 
   <table class="table table-sm table-bordered table-striped table-hover">
     <thead>
