@@ -16,11 +16,11 @@
         <tbody>
           <tr>
             <th>Type</th>
-            <td></td>
+            <td> <%= @company.manufacturer_taxonomies.to_sentence %> </td>
           </tr>
           <tr>
             <th>Industry</th>
-            <td><%= @company.industry_taxonomies.count %></td>
+            <td><%= @company.industry_taxonomies.to_sentence %></td>
           </tr>
           <tr>
             <th>Employees</th>
