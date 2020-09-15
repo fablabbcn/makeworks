@@ -3,8 +3,6 @@ class MaterialsTaxonomiesController < ApplicationController
   before_action :check_if_admin, except: [:index, :show]
   skip_before_action :authenticate_user!, only: [:show, :index]
 
-  layout 'container'
-
   # GET /materials_taxonomies
   # GET /materials_taxonomies.json
   def index
