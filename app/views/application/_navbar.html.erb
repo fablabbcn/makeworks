@@ -40,10 +40,10 @@
       <% end %>
     </ul>
 
-    <%= link_to "Regions", regions_url, class: "nav-link mr-2 #{current_page?(regions_url) ? 'btn-primary' : 'btn-outline-primary'}" %>
-    <%= link_to "Companies", companies_url, class: "nav-link mr-2 #{current_page?(companies_url) ? 'btn-primary' : 'btn-outline-primary'}" %>
-    <%= link_to "Blog", blogs_url, class: "nav-link mr-2 #{current_page?(blogs_url) ? 'btn-primary' : 'btn-outline-primary'}" %>
-    <%= link_to "About", about_url, class: "nav-link mr-2 #{current_page?(about_url) ? 'btn-primary' : 'btn-outline-primary'}" %>
+    <%= link_to "Regions", regions_url,     class: "nav-link mb-3 mb-md-0 mr-2 #{current_page?(regions_url) ? 'btn-primary' : 'btn-outline-primary'}" %>
+    <%= link_to "Companies", companies_url, class: "nav-link mb-3 mb-md-0 mr-2 #{current_page?(companies_url) ? 'btn-primary' : 'btn-outline-primary'}" %>
+    <%= link_to "Blog", blogs_url,          class: "nav-link mb-3 mb-md-0 mr-2 #{current_page?(blogs_url) ? 'btn-primary' : 'btn-outline-primary'}" %>
+    <%= link_to "About", about_url,         class: "nav-link mb-3 mb-md-0 mr-2 #{current_page?(about_url) ? 'btn-primary' : 'btn-outline-primary'}" %>
 
     <!--
     <form class="mx-auto" action="/companies">
@@ -54,8 +54,8 @@
     </form>
     -->
 
-    <ul class="navbar-nav ml-auto ml-0 ml-lg-5">
-      <% if current_user %>
+    <% if current_user %>
+      <ul class="navbar-nav ml-auto ml-0 ml-lg-5">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarUser" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <%= current_user.name %>
@@ -69,15 +69,11 @@
             <%= link_to "Log out", destroy_user_session_url, class: "dropdown-item" %>
           </div>
         </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Sign up", new_user_registration_url, class: 'nav-link btn btn-outline-primary' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Sign in", new_user_session_url, class: 'nav-link' %>
-        </li>
-      <% end %>
     </ul>
+  <% else %>
+    <%= link_to "Sign up", new_user_registration_url, class: 'nav-link mb-md-0 mb-3 ml-auto mr-2 btn-outline-primary' %>
+    <%= link_to "Sign in", new_user_session_url, class: 'nav-link mr-2 btn-outline-primary' %>
+  <% end %>
 
   </div>
 </nav>
