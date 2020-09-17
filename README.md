@@ -26,3 +26,15 @@ The new content uses Action Text and stores it under Blog.content_action
 
 * Run tests with `rails test`
 * Automatic tests with `bundle exec guard`
+
+
+## Users
+
+What can each user do:
+- Admins: can access /admin
+- Champion: can edit everything in their Region
+    - Champion is a user but belongs_to Region with a `is_champion` flag
+- Normal user (logged in)
+    - Submit a new (unverified) company
+- Not logged in user can:
+    - Only view most items
