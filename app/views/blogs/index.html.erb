@@ -1,6 +1,4 @@
-<% content_for(:title, 'Blog') %>
-
-<h1>Blog</h1>
+<%= title 'Blog' %>
 
 <%= search_form_for @q, html: { style: 'max-width:700px;' } do |f| %>
   <div class="my-2">
@@ -18,7 +16,7 @@
   <p>Category: <%= @category %> </p>
 <% end %>
 
-<div>
+<div class="my-4">
   Showing <strong><%= @blogs.count %></strong> blogs 
   <%= paginate @blogs %>
 </div>
@@ -27,18 +25,24 @@
   <%= link_to 'New Blog', new_blog_path, class: 'btn btn-primary my-3' %>
 <% end %>
 
-<div class="row">
+<div class="border-top border-left border-right border-dark">
+
   <% @blogs.each do |blog| %>
-    <div class="col-6 border border-dark p-3 ">
-      <p><%= link_to blog.title, blog %></p>
-      <small> <%= blog.created_at&.strftime("%B %d, %Y") %> </small>
-      <h4><%= blog.blurb %></h4>
-      <p><%# blog.blog_category_id %></p>
-      <div><%# blog.content.html_safe %></div>
-      <p><%= blog.featured_video %></p>
-      <%= link_to image_tag(blog.header_image), blog %>
-      <%# blog.medium_id %>
-      <p><%= blog.sub_title %></p>
+    <div class="row no-gutters border-bottom border-dark ">
+      <div class="col-6 p-5">
+        <p><%= link_to blog.title, blog %></p>
+        <small> <%= blog.created_at&.strftime("%B %d, %Y") %> </small>
+        <h4><%= blog.blurb %></h4>
+        <p><%# blog.blog_category_id %></p>
+        <div><%# blog.content.html_safe %></div>
+        <p><%= blog.featured_video %></p>
+        <%# blog.medium_id %>
+        <p><%= blog.sub_title %></p>
+      </div>
+      <div class="col-6 text-center justify-content-center d-flex align-items-center <%= 'order-first' if blog.id % 2 == 0 %>">
+        <%= link_to image_tag(blog.header_image), blog %>
+      </div>
     </div>
   <% end %>
+
 </div>
