@@ -12,6 +12,7 @@
   var map = new L.Map('leaflet', {
     center: mycenter,
     zoom: 7,
+    scrollWheelZoom: false,
     layers: [
       new L.TileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         'attribution': 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
@@ -28,5 +29,7 @@
       )
       .openPopup();
   });
+
+  map.once('focus', function() { map.scrollWheelZoom.enable(); });
 
 </script>
