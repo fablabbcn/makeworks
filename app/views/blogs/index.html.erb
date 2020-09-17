@@ -1,47 +1,44 @@
 <% content_for(:title, 'Blog') %>
-<div class="container my-5">
 
-  <h1>Blog</h1>
+<h1>Blog</h1>
 
-  <%= search_form_for @q, html: { style: 'max-width:700px;' } do |f| %>
-    <div class="my-2">
-      <%= f.select :blog_category_id_eq, BlogCategory.pluck(:name, :id), {include_blank: 'All Categories'} %>
-    </div>
-    <div class="input-group mb-3">
-      <%= f.search_field :title_or_blurb_or_content_cont, class: 'form-control', placeholder: 'Search for a blog' %>
-      <div class="input-group-append">
-        <%= f.submit class: 'btn btn-primary' %>
-      </div>
-    </div>
-  <% end %>
-
-  <% if params[:category] %>
-    <p>Category: <%= @category %> </p>
-  <% end %>
-
-  <div>
-    Showing <strong><%= @blogs.count %></strong> blogs 
-    <%= paginate @blogs %>
+<%= search_form_for @q, html: { style: 'max-width:700px;' } do |f| %>
+  <div class="my-2">
+    <%= f.select :blog_category_id_eq, BlogCategory.pluck(:name, :id), {include_blank: 'All Categories'} %>
   </div>
-
-  <% if current_user&.is_admin? %>
-    <%= link_to 'New Blog', new_blog_path, class: 'btn btn-primary my-3' %>
-  <% end %>
-
-  <div class="row">
-    <% @blogs.each do |blog| %>
-      <div class="col-6 border border-dark p-3 ">
-        <p><%= link_to blog.title, blog %></p>
-        <small> <%= blog.created_at&.strftime("%B %d, %Y") %> </small>
-        <h4><%= blog.blurb %></h4>
-        <p><%# blog.blog_category_id %></p>
-        <div><%# blog.content.html_safe %></div>
-        <p><%= blog.featured_video %></p>
-        <%= link_to image_tag(blog.header_image), blog %>
-        <%# blog.medium_id %>
-        <p><%= blog.sub_title %></p>
-      </div>
-    <% end %>
+  <div class="input-group mb-3">
+    <%= f.search_field :title_or_blurb_or_content_cont, class: 'form-control', placeholder: 'Search for a blog' %>
+    <div class="input-group-append">
+      <%= f.submit class: 'btn btn-primary' %>
+    </div>
   </div>
+<% end %>
 
+<% if params[:category] %>
+  <p>Category: <%= @category %> </p>
+<% end %>
+
+<div>
+  Showing <strong><%= @blogs.count %></strong> blogs 
+  <%= paginate @blogs %>
+</div>
+
+<% if current_user&.is_admin? %>
+  <%= link_to 'New Blog', new_blog_path, class: 'btn btn-primary my-3' %>
+<% end %>
+
+<div class="row">
+  <% @blogs.each do |blog| %>
+    <div class="col-6 border border-dark p-3 ">
+      <p><%= link_to blog.title, blog %></p>
+      <small> <%= blog.created_at&.strftime("%B %d, %Y") %> </small>
+      <h4><%= blog.blurb %></h4>
+      <p><%# blog.blog_category_id %></p>
+      <div><%# blog.content.html_safe %></div>
+      <p><%= blog.featured_video %></p>
+      <%= link_to image_tag(blog.header_image), blog %>
+      <%# blog.medium_id %>
+      <p><%= blog.sub_title %></p>
+    </div>
+  <% end %>
 </div>
