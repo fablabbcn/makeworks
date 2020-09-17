@@ -1,4 +1,4 @@
-<% if @blog.medium %>
+<% if admin? && @blog.medium %>
   Higher quality Medium:
   <%= link_to 'Medium', medium_url(@blog.medium_id) %>
 <% end %>
@@ -21,7 +21,7 @@
 <% end %>
 
 
-<div class="my-5 text-center">
+<div class="my-2 text-center">
   <%= image_tag @blog.header_image, class: 'img-fluid' %>
 </div>
 
