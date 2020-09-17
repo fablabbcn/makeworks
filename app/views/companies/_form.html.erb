@@ -23,15 +23,16 @@
     <%= f.input :website %>
     <%= f.input :year_founded %>
 
+    <%= f.button :submit %>
+    <hr>
     <% if current_user.is_admin? %>
-      <hr>
       <h4>Admin only</h4>
       <%= f.input :been_visited %>
       <%= f.input :film_ready %>
       <%= f.input :soft_delete %>
+      <hr>
     <% end %>
 
-    <hr>
     <h4>Tags</h4>
     <%= f.association :machines_taxonomies %>
     <%= f.association :materials_taxonomies %>
@@ -47,6 +48,7 @@
     <%= f.input :production_access %>
     <%= f.input :file_types %>
 
+    <%= f.button :submit %>
     <hr>
     <h4>Capacity</h4>
     <%= f.input :bespoke_one_offs %>
@@ -72,7 +74,9 @@
     <%= f.input :contact_phone %>
     <%= f.input :contact_jobtitle %>
 
+    <%= f.button :submit %>
     <hr>
+
     <h3>Photos</h3>
     <%# f.input :image_bucket %>
     <%= f.input :top_image %>
