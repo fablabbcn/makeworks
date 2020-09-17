@@ -1,38 +1,20 @@
-<h1>Regions</h1>
+<%= title 'Regions' %>
 
-<table>
-  <thead>
-    <tr>
-      <th><%= sort_link(@q, :name) %></th>
-      <th>About</th>
-      <th>Can signup</th>
-      <th>Is public</th>
-      <th>Logo</th>
-      <th>Trimmed name</th>
-      <th>User count</th>
-      <th>lat</th>
-      <th>lng</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<% @regions.each do |region| %>
+  <div class="border border-dark mb-4 p-3">
+    <h2><%= link_to region.name, region %></h2>
+    <div class="row">
+      <div class="col-md-8">
+        <p><%= region.about_text %></p>
+        <p>Users:<%= region.users.count %></p>
+        <p>Companies:<%= region.companies.count %></p>
+      </div>
+      <div class="col-md-4">
 
-  <tbody>
-    <% @regions.each do |region| %>
-      <tr>
-        <td><%= link_to region.name, region %></td>
-        <td><%= region.about_text %></td>
-        <td><%= region.can_signup %></td>
-        <td><%= region.is_public %></td>
-        <td><%= region.logo %></td>
-        <td><%= region.trimmed_name %></td>
-        <td><%= region.users.count %></td>
-        <td><%= region.lat %></td>
-        <td><%= region.lng %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= paginate @regions %>
+        <% if region.logo.present? %>
+          <img src="<%= region.logo %>" alt="Logo for <%= region.name %>"/>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
