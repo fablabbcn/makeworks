@@ -14,6 +14,8 @@ gem 'image_processing'
 gem 'mailgun-ruby'
 gem 'mini_magick'
 gem 'omniauth-fablabs', github: 'academany/omniauth-fablabs'
+gem 'omniauth-linkedin-oauth2'
+
 gem "sentry-raven"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

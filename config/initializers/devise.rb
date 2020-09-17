@@ -273,9 +273,13 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   config.omniauth :fablabs,
-    ENV['FABLABS_APP_ID'],
-    ENV['FABLABS_SECRET'],
-    scope: 'user'
+                  ENV['FABLABS_APP_ID'],
+                  ENV['FABLABS_SECRET'],
+                  scope: 'user'
+
+  config.omniauth :linkedin,
+                  ENV['LINKEDIN_APP_ID'],
+                  ENV['LINKEDIN_SECRET']
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
