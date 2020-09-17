@@ -1,40 +1,29 @@
-<% content_for(:title, @blog.title) %>
-<div class="container border border-dark my-5">
+<% if @blog.medium %>
+  Higher quality Medium:
+  <%= link_to 'Medium', medium_url(@blog.medium_id) %>
+<% end %>
 
-  <div class="row border-bottom border-dark">
-    <div class="col-md-4 tile-first">
-      <% if @blog.medium %>
-        Higher quality Medium:
-        <%= link_to 'Medium', medium_url(@blog.medium_id) %>
-      <% end %>
+<h4>
+  <%= link_to "Blog", '/blog' %> /
+  <% if @blog.blog_category %>
+    <%= link_to @blog.blog_category.name, blogs_url(category: @blog.blog_category) %>
+  <% end %>
+</h4>
 
-      <div class="my-4">
-        <h4>
-        <%= link_to "Blog", '/blog' %> /
-        <% if @blog.blog_category %>
-          <%= link_to @blog.blog_category.name, blogs_url(category: @blog.blog_category) %>
-        <% end %>
-        </h4>
-        <small> <%= @blog.created_at&.strftime("%B %d, %Y") %> </small>
-        <% if current_user&.is_admin? %>
-          <br>
-          <%= link_to 'Edit', edit_blog_url, class: 'btn btn-primary mt-4' %>
-        <% end %>
-      </div>
-    </div>
+<%= title @blog.title %>
+<p> <%= @blog.sub_title %> </p>
 
-    <div class="col-md-8 text-center p-5">
-      <h1> <%= @blog.title %> </h1>
-      <p> <%= @blog.sub_title %> </p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-4 tile-first">
-      <%= image_tag @blog.header_image, class: 'img-fluid' %>
-    </div>
-    <div class="col-md-8 p-5">
 
-      <%= @blog.content_action %>
-    </div>
-  </div>
+<small> <%= @blog.created_at&.strftime("%B %d, %Y") %> </small>
+<% if current_user&.is_admin? %>
+  <br>
+  <%= link_to 'Edit', edit_blog_url, class: 'btn btn-primary mt-4' %>
+<% end %>
+
+
+<div class="my-5 text-center">
+  <%= image_tag @blog.header_image, class: 'img-fluid' %>
 </div>
+
+
+<%= @blog.content_action %>
