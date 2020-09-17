@@ -4,21 +4,16 @@
 <% end %>
 
 <div class="text-center p-4">
-  <h1>
-    <%= title @region.name %>
-  </h1>
-
+  <%= title @region.name %>
 </div>
 
 <div class="row">
   <div class="col-md-6">
-    <div class="">
-      <% if @region.logo&.include? 'http' %>
-        <%= image_tag(@region.logo, class:'img-fluid', alt: 'Region logo') %>
-      <% else %>
-        <img src="https://static.make.works/logos/<%= @region.logo %>" style="height:60px; width: auto; "/>
-      <% end %>
-    </div>
+    <% if @region.logo&.include? 'http' %>
+      <%= image_tag(@region.logo, class:'img-fluid', alt: 'Region logo') %>
+    <% else %>
+      <img src="https://static.make.works/logos/<%= @region.logo %>" style="height:160px; width: auto; "/>
+    <% end %>
 
     <div class="my-2">
       <h3 id="about">About <%= @region.name %></h3>
