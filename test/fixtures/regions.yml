@@ -5,7 +5,7 @@ one:
   name: Region1
   can_signup: false
   is_public: false
-  logo: MyString
+  #logo: MyString
   trimmed_name: reg1
 
 two:
@@ -13,5 +13,5 @@ two:
   name: Region2
   can_signup: false
   is_public: false
-  logo: MyString
+  #logo: MyString
   trimmed_name: reg2

@@ -12,20 +12,17 @@ class RegionsTest < ApplicationSystemTestCase
   end
 
   test "creating a Region" do
-    skip
-    visit regions_url
-    click_on "New Region"
+    visit new_region_url
 
     check "Can signup" if @region.can_signup
     check "Is public" if @region.is_public
     fill_in "Logo", with: @region.logo
-    fill_in "M", with: @region.m_id
+    #fill_in "M", with: @region.m_id
     fill_in "Name", with: @region.name
     fill_in "Trimmed name", with: @region.trimmed_name
     click_on "Create Region"
 
     assert_text "Region was successfully created"
-    click_on "Back"
   end
 
   test "updating a Region" do
