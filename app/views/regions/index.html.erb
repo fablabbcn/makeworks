@@ -5,9 +5,6 @@
     <div class="col-md-6 mb-4">
       <div class="border border-dark mb-4 p-3">
         <h2><%= link_to region.name, region %></h2>
-        <p><%= region.about_text %></p>
-        <p>Users: <%= region.users.count %></p>
-        <p>Companies: <%= region.companies.count %></p>
         <div class="text-center">
           <% if region&.logo&.include? 'http' %>
             <img src="<%= region.logo %>" alt="Logo for <%= region.name %>"/>
@@ -17,6 +14,9 @@
             <% end %>
           <% end %>
         </div>
+        <p><%= region.about_text %></p>
+        <p>Users: <%= region.users.count %></p>
+        <p>Companies: <%= region.companies.count %></p>
         <% if admin? %>
           <div class="border p-2 mt-2">
             <p>Admin information</p>
