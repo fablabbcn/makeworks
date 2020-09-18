@@ -8,9 +8,15 @@
         <p><%= region.about_text %></p>
         <p>Users: <%= region.users.count %></p>
         <p>Companies: <%= region.companies.count %></p>
-        <% if region&.logo&.include? 'http' %>
-          <img src="<%= region.logo %>" alt="Logo for <%= region.name %>"/>
-        <% end %>
+        <div class="text-center">
+          <% if region&.logo&.include? 'http' %>
+            <img src="<%= region.logo %>" alt="Logo for <%= region.name %>"/>
+          <% else %>
+            <% if region&.logo&.present? %>
+              <img src="https://static.make.works/logos/<%= region.logo %>" style="height:60px; width: auto; "/>
+            <% end %>
+          <% end %>
+        </div>
         <% if admin? %>
           <div class="border p-2 mt-2">
             <p>Admin information</p>
