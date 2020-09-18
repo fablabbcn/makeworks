@@ -14,7 +14,7 @@
         </a>
 
         <div class="dropdown-menu" aria-labelledby="dropdownRegions">
-          <% @all_regions.each do |region| %>
+          <% @public_regions.each do |region| %>
             <%= link_to region.name, region, class: 'dropdown-item' %>
           <% end %>
         </div>
@@ -48,7 +48,7 @@
         </a>
 
         <div class="dropdown-menu" aria-labelledby="dropdownRegions2">
-          <% @all_regions.each do |region| %>
+          <% @public_regions.each do |region| %>
             <%= link_to region.name, region, class: 'dropdown-item' %>
           <% end %>
         </div>

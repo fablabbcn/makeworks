@@ -2,7 +2,7 @@ class WelcomeController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
-    @all_regions = Region.all
+    @public_regions = Region.where(is_public: true)
   end
 
   def random
