@@ -6,12 +6,18 @@
     <div class="row">
       <div class="col-md-8">
         <p><%= region.about_text %></p>
-        <p>Users:<%= region.users.count %></p>
-        <p>Companies:<%= region.companies.count %></p>
+        <p>Users: <%= region.users.count %></p>
+        <p>Companies: <%= region.companies.count %></p>
       </div>
       <div class="col-md-4">
-
-        <% if region.logo.present? %>
+        <% if admin? %>
+          <div class="border border-dark p-2">
+            <p>Admin information</p>
+            <p>Public: <%= region.is_public %> </p>
+            <p>Can signup: <%= region.can_signup %> </p>
+          </div>
+        <% end %>
+        <% if @region&.logo&.include? 'http' %>
           <img src="<%= region.logo %>" alt="Logo for <%= region.name %>"/>
         <% end %>
       </div>

@@ -14,8 +14,14 @@ class RegionsController < ApplicationController
   # GET /regions
   # GET /regions.json
   def index
-    @q = Region.ransack(params[:q])
-    @regions = @q.result(distinct: true).page(params[:page])
+    #@q = Region.ransack(params[:q])
+    #@regions = @q.result(distinct: true).page(params[:page])
+
+    if current_user&.is_admin?
+      @regions = Region.all
+    else
+      @regions = Region.where.not(is_public: true)
+    end
   end
 
   # GET /regions/1
