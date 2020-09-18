@@ -1,20 +1,18 @@
 <%= title 'Regions' %>
 
-<% @regions.each do |region| %>
-  <div class="border border-dark mb-4 p-3">
-    <h2><%= link_to region.name, region %></h2>
-    <div class="row">
-      <div class="col-md-8">
+<div class="row">
+  <% @regions.each do |region| %>
+    <div class="col-md-6 mb-4">
+      <div class="border border-dark mb-4 p-3">
+        <h2><%= link_to region.name, region %></h2>
         <p><%= region.about_text %></p>
         <p>Users: <%= region.users.count %></p>
         <p>Companies: <%= region.companies.count %></p>
-      </div>
-      <div class="col-md-4">
         <% if region&.logo&.include? 'http' %>
           <img src="<%= region.logo %>" alt="Logo for <%= region.name %>"/>
         <% end %>
         <% if admin? %>
-          <div class="border border-dark p-2 mt-2">
+          <div class="border p-2 mt-2">
             <p>Admin information</p>
             <ul>
               <li>Is Public: <%= region.is_public %> </li>
@@ -24,5 +22,5 @@
         <% end %>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
