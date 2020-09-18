@@ -58,8 +58,8 @@
       <ul class="navbar-nav ml-auto ml-0 ml-lg-5">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarUser" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <% if @user.avatar.attached? %>
-              <%= image_tag @user.avatar, style: 'height:30px; width:30px; object-fit: cover; border-radius: 50%;' %>
+            <% if current_user.avatar.attached? %>
+              <%= image_tag current_user.avatar, style: 'height:30px; width:30px; object-fit: cover; border-radius: 50%;' %>
             <% end %>
             <%= current_user.name %>
           </a>
