@@ -5,7 +5,7 @@
     <h1 class="mb-4"><%= t('shared.tagline') %></h1>
     <div class="row">
       <div class="my-2 col-md-6 col-xl-3">
-        <%= f.select :region_id_eq, Region.pluck(:name, :id), {include_blank: 'All Regions'}, class: 'form-control' %>
+        <%= f.select :region_id_eq, Region.where(is_public: true).pluck(:name, :id), {include_blank: 'All Regions'}, class: 'form-control' %>
       </div>
       <div class="my-2 col-md-6 col-xl-3">
         <%= f.select :industry_taxonomies_id_eq, IndustryTaxonomy.pluck(:name, :id), {include_blank: 'All Industries'}, class: 'form-control' %>

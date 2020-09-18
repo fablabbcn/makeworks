@@ -16,8 +16,10 @@
         <% if admin? %>
           <div class="border border-dark p-2 mt-2">
             <p>Admin information</p>
-            <p>Public: <%= region.is_public %> </p>
-            <p>Can signup: <%= region.can_signup %> </p>
+            <ul>
+              <li>Is Public: <%= region.is_public %> </li>
+              <li>Can signup: <%= region.can_signup %> </li>
+            </ul>
           </div>
         <% end %>
       </div>

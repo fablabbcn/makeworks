@@ -17,6 +17,7 @@ class CompaniesController < ApplicationController
   def index
     @q = Company
       .includes(:region)
+      .where(:regions => {is_public: true})
       .ransack(params[:q])
 
     @companies = @q.result(distinct: true).page(params[:page])

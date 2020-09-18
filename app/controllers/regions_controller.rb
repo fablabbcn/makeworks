@@ -20,7 +20,8 @@ class RegionsController < ApplicationController
     if current_user&.is_admin?
       @regions = Region.all
     else
-      @regions = Region.where.not(is_public: true)
+      # Normal users only see public regions
+      @regions = Region.where(is_public: true)
     end
   end
 
