@@ -4,7 +4,7 @@ one:
   m_id: MyString
   name: Region1
   can_signup: false
-  is_public: false
+  is_public: true
   #logo: MyString
   trimmed_name: reg1
 
