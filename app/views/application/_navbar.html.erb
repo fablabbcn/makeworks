@@ -21,29 +21,23 @@
           <%= link_to "Materials", materials_taxonomies_url, class: "dropdown-item" %>
           <%= link_to "Industry", industry_taxonomies_url, class: "dropdown-item" %>
           <%= link_to "Machines", machines_taxonomies_url, class: "dropdown-item" %>
-        </div>
-      </li>
-      <% if current_user&.is_admin? %>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            (SuperAdmin only)
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to "Taxonomies", taxonomies_url, class: "dropdown-item" %>
+          <% if current_user&.is_admin? %>
             <div class="dropdown-divider"></div>
+            <div class="dropdown-header">
+              SuperAdmin only
+            </div>
+            <%= link_to "Taxonomies", taxonomies_url, class: "dropdown-item" %>
             <%= link_to "Manufacturers", manufacturer_taxonomies_url, class: "dropdown-item" %>
             <%= link_to "FinishedProducts", finished_products_taxonomies_url, class: "dropdown-item" %>
-            <div class="dropdown-divider"></div>
             <%= link_to "Media", media_url, class: "dropdown-item" %>
-          </div>
-        </li>
-      <% end %>
+          <% end %>
+        </div>
+      </li>
     </ul>
 
     <%= link_to "Regions", regions_url,     class: "nav-link mb-3 mb-md-0 mr-2 #{current_page?(regions_url) ? 'btn-primary' : 'btn-outline-primary'}" %>
     <%= link_to "Companies", companies_url, class: "nav-link mb-3 mb-md-0 mr-2 #{current_page?(companies_url) ? 'btn-primary' : 'btn-outline-primary'}" %>
     <%= link_to "Blog", blogs_url,          class: "nav-link mb-3 mb-md-0 mr-2 #{current_page?(blogs_url) ? 'btn-primary' : 'btn-outline-primary'}" %>
-    <%= link_to "About", about_url,         class: "nav-link mb-3 mb-md-0 mr-2 #{current_page?(about_url) ? 'btn-primary' : 'btn-outline-primary'}" %>
 
     <!--
     <form class="mx-auto" action="/companies">
