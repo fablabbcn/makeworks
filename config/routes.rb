@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "/users/:id/edit", to: 'users#edit', as: 'edit_profile'
   get '/about', to: 'welcome#about'
   get '/contact', to: 'welcome#contact'
+  get '/faq', to: 'welcome#faq'
   get '/legal', to: 'welcome#legal'
   get '/version', to: 'welcome#version'
   get '/styleguide', to: 'welcome#styleguide'
