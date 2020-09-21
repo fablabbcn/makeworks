@@ -10,4 +10,8 @@ class Region < ApplicationRecord
   def champions
     UserRegion.where(region: self, is_champion: true)
   end
+
+  def should_generate_new_friendly_id?
+    trimmed_name.blank? || name_changed?
+  end
 end

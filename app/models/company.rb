@@ -22,6 +22,9 @@ class Company < ApplicationRecord
   extend FriendlyId
   friendly_id :name, use: :slugged, slug_column: :trimmed_name
 
+  def should_generate_new_friendly_id?
+    trimmed_name.blank? || name_changed?
+  end
 
   def all_photos
     arr = []
