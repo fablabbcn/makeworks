@@ -9,7 +9,7 @@ gem 'pg'
 
 gem "aws-sdk-s3", require: false
 gem "devise", "~> 4.7"
-gem 'friendly_id', '~> 5.2.4'
+gem 'friendly_id'
 gem 'image_processing'
 gem 'mailgun-ruby'
 gem 'mini_magick'
