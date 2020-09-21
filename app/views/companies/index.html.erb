@@ -30,7 +30,7 @@
 
   <%= paginate @companies %>
 
-  <% if admin? %>
+  <% if current_user %>
     <%= link_to 'New Company', new_company_path, class: 'btn btn-dark my-3' %>
   <% end %>
 
