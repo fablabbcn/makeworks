@@ -27,6 +27,7 @@
     <hr>
     <% if current_user.is_admin? %>
       <h4>Admin only</h4>
+      <%= f.input :is_verified %>
       <%= f.input :been_visited %>
       <%= f.input :film_ready %>
       <%= f.input :soft_delete %>

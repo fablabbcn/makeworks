@@ -8,6 +8,7 @@
 
   <%= link_to "Companies", companies_url %> /
   <%= title @company.name, class: 'font-weight-bold' %>
+
   <div class="row my-4">
     <div class="col-md-7">
       <p><%= @company.intro %></p>
@@ -48,6 +49,7 @@
         <p>Admin info:</p>
         <ul>
           <%# @company.title %>
+          <li>Is verified: <%= @company.is_verified? %></li>
           <li>Trimmed name: <%= @company.trimmed_name %></li>
           <li>Soft delete: <%= @company.soft_delete %></li>
           <li>Been visited: <%= @company.been_visited %> </li>

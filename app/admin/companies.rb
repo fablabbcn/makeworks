@@ -8,7 +8,11 @@ ActiveAdmin.register Company do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :m_id, :region_id, :country, :address, :background, :file_types, :intro, :large_run, :lat, :lng, :location, :medium_run, :minimum_order, :name, :number_of_staff, :photo1, :photo2, :photo3, :photo4, :photo5, :photo6, :photo7, :photo8, :photo9, :portrait, :sample_production, :short_run, :soft_delete, :top_image, :video_link, :website, :year_founded
+  permit_params :m_id, :region_id, :country, :address, :background, :file_types, :intro,
+    :large_run, :lat, :lng, :location, :medium_run, :minimum_order, :name, :number_of_staff,
+    :is_verified,
+    :photo1, :photo2, :photo3, :photo4, :photo5, :photo6, :photo7, :photo8, :photo9, :portrait,
+    :sample_production, :short_run, :soft_delete, :top_image, :video_link, :website, :year_founded
   #
   # or
   #

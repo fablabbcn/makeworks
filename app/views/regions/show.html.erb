@@ -34,16 +34,20 @@
     <% if admin? %>
       <div class="border p-3">
         <p>Admin only information:</p>
-        <h4>Users in region: <%= @region.users.count %></h4>
-        <h4 id="team">Team (champions):</h4>
-        <% @region.champions.order(:created_at).each do |item| %>
-          <%= link_to item.user.name, item.user, class: '' %>
-          <%= item.user.email %> -
-          <br>
-        <% end %>
+        <ul class="list-unstyled">
+          <li>Users in region: <%= @region.users.count %></li>
+          <li id="team">Team (champions):</li>
+          <ol>
+            <% @region.champions.order(:created_at).each do |item| %>
+              <li>
+                <%= link_to item.user.name, item.user, class: '' %>
+                <%= item.user.email %> -
+              </li>
+            <% end %>
+          </ol>
+        </ul>
       </div>
     <% end %>
-
   </div>
 
   <div class="col-md-6">
@@ -67,6 +71,7 @@
 
 <div class="my-2">
   <p>Companies in region: <%= @region.companies.count %> </p>
+  <%= link_to "Submit a new company", new_company_url, class: 'btn btn-yellow my-3' %>
   <% if @region.companies.with_lat_lng.present? %>
     <%= render partial: 'map', locals: { locations: @region.companies.with_lat_lng} %>
   <% end %>

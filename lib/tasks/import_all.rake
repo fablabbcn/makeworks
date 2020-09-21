@@ -179,6 +179,7 @@ namespace :makeworks do
         film_ready: row['Film_ready'],
         image_bucket: row['Image_Bucket'],
         instagram: row['Instagram'],
+        is_verified: true,
         linkedin: row['LinkedIn'],
         intro: row['Intro'],
         large_run: row['Large_run'].to_s.downcase == "true",

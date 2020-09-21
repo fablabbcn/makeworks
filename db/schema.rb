@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_12_074541) do
+ActiveRecord::Schema.define(version: 2020_09_21_104234) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -145,6 +145,7 @@ ActiveRecord::Schema.define(version: 2020_09_12_074541) do
     t.boolean "works_with_students"
     t.boolean "batch_production"
     t.string "production_access"
+    t.boolean "is_verified"
     t.index ["region_id"], name: "index_companies_on_region_id"
   end
 

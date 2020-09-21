@@ -106,6 +106,7 @@ class CompaniesController < ApplicationController
                                       :video_link, :website, :youtube, :year_founded,
                                       :film_ready,
                                       :been_visited,
+                                      :is_verified,
                                       :bespoke_one_offs,
                                       :works_with_general_public,
                                       :works_with_large_business,
