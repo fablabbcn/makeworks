@@ -34,7 +34,12 @@ Rails.application.routes.draw do
 
   get 'taxtree', to: 'taxonomies#tree'
   resources :companies
-  resources :regions
+  resources :regions do
+    member do
+      get 'join'
+      get 'leave'
+    end
+  end
   root 'welcome#index'
   get 'welcome/index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

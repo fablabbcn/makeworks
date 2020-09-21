@@ -1,5 +1,5 @@
 class RegionsController < ApplicationController
-  before_action :set_region, only: [:show, :edit, :update, :destroy]
+  before_action :set_region, only: [:show, :edit, :update, :destroy, :leave, :join]
   skip_before_action :authenticate_user!, only: [:show, :index]
   before_action :who_can_edit!, only: [:edit, :destroy, :update]
 
@@ -37,6 +37,16 @@ class RegionsController < ApplicationController
 
   # GET /regions/1/edit
   def edit
+  end
+
+  def join
+    UserRegion.create!(region: @region, user: current_user)
+    redirect_to region_url(@region), notice: "You have joined the region #{@region.name}"
+  end
+
+  def leave
+    UserRegion.where(region: @region, user: current_user).first.destroy!
+    redirect_to region_url(@region), notice: "You have left the region #{@region.name}"
   end
 
   # POST /regions

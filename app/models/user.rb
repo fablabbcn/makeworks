@@ -49,8 +49,11 @@ class User < ApplicationRecord
     end
   end
 
+  def in_region(region_id)
+    UserRegion.where(user: self, region: region_id).present?
+  end
+
   def is_champion_in_region(region_id)
     UserRegion.where(user: self, region: region_id).first&.is_champion
   end
-
 end

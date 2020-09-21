@@ -44,7 +44,7 @@ class CompaniesController < ApplicationController
 
     respond_to do |format|
       if @company.save
-        format.html { redirect_to @company, notice: 'Company was successfully created.' }
+        format.html { redirect_to @company, notice: 'Company was successfully created. It needs to be verified by an administrator, before it will be visible on the website.' }
         format.json { render :show, status: :created, location: @company }
       else
         format.html { render :new }
