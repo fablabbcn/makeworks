@@ -18,6 +18,7 @@ class CompaniesController < ApplicationController
     @q = Company
       .includes(:region)
       .where(:regions => {is_public: true})
+      .where(is_verified: true)
       .ransack(params[:q])
 
     @companies = @q.result(distinct: true).page(params[:page])
