@@ -25,3 +25,7 @@ document.addEventListener("turbolinks:load", function () {
   // Select2 is loaded via CDN
   $("select").select2();
 });
+
+document.addEventListener("turbolinks:before-cache", function () {
+  $("select").select2('destroy');
+});
