@@ -17,12 +17,8 @@ class RegionsController < ApplicationController
     #@q = Region.ransack(params[:q])
     #@regions = @q.result(distinct: true).page(params[:page])
 
-    if current_user&.is_admin?
-      @regions = Region.all
-    else
-      # Normal users only see public regions
-      @regions = Region.where(is_public: true)
-    end
+    # Normal users only see public regions
+    @regions = Region.where(is_public: true).order(:created_at)
   end
 
   # GET /regions/1
