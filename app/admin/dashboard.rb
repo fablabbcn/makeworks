@@ -11,19 +11,19 @@ ActiveAdmin.register_page "Dashboard" do
 
     columns do
       column do
-        panel "Last Companies created" do
+        panel "Regions" do
           ul do
-            Company.last(20).reverse.map do |item|
-              li link_to(item.name, admin_company_path(item))
+            Region.last(20).reverse.map do |item|
+              li link_to(item.name, admin_region_path(item))
             end
           end
         end
       end
-      column do
-        panel "Last 10 Posts" do
+       column do
+        panel "Last 20 Companies created" do
           ul do
-            Blog.last(10).reverse.map do |post|
-              li link_to(post.title, admin_blog_path(post))
+            Company.last(20).reverse.map do |item|
+              li link_to(item.name, admin_company_path(item))
             end
           end
         end
@@ -33,6 +33,15 @@ ActiveAdmin.register_page "Dashboard" do
           ul do
             User.last(20).reverse.map do |item|
               li link_to(item.email, admin_user_path(item))
+            end
+          end
+        end
+      end
+      column do
+        panel "Last 20 Blog Posts" do
+          ul do
+            Blog.last(20).reverse.map do |post|
+              li link_to(post.title, admin_blog_path(post))
             end
           end
         end
