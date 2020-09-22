@@ -55,6 +55,10 @@ h2 {
   border-bottom: 1px solid $black;
 }
 
+.border-top-2 {
+  border-top: 2px solid $black;
+}
+
 @media (min-width: 768px){
   .tile-first {
     border: 0;
