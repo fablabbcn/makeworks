@@ -38,3 +38,6 @@ What can each user do:
     - Submit a new (unverified) company
 - Not logged in user can:
     - Only view most items
+
+
+To become a 'champion' an admin needs to make you one, via the https://new.make.works/admin/user_regions interface.
