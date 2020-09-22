@@ -8,6 +8,7 @@ one:
   background: MyText
   description: MyText
   intro: MyText
+  is_verified: true
   contact_name: MyString
   contact_email: MyString
   contact_phone: MyString
@@ -58,6 +59,7 @@ two:
   background: MyText
   description: MyText
   intro: MyText
+  is_verified: true
   contact_name: MyString
   contact_email: MyString
   contact_phone: MyString
