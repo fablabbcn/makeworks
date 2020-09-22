@@ -1,12 +1,13 @@
 <div class="container my-5">
 
   <div class="mb-3">
-    <% if current_user&.is_admin? %>
+    <% if current_user&.is_admin? || current_user&.is_champion_in_region(@company.region) %>
       <%= link_to 'Edit', edit_company_path(@company), class: 'btn btn-primary'  %>
     <% end %>
   </div>
 
   <%= link_to "Companies", companies_url %> /
+  <%= link_to @company.region, region_url(@company.region) %> /
   <%= title @company.name, class: 'font-weight-bold' %>
 
   <div class="row my-4">
@@ -96,9 +97,9 @@
     <div class="col-sm-4 col-lg-2">
       <h4>Materials</h4>
       <ul class="list-unstyled">
-        <% @company.materials.each do |x| %>
+        <% @company.materials_taxonomies.each do |x| %>
           <li>
-            <%= link_to x.materials_taxonomy.name, materials_taxonomy_url(x) %>
+            <%= link_to x, materials_taxonomy_url(x) %>
           </li>
         <% end %>
       </ul>
@@ -107,9 +108,9 @@
     <div class="col-sm-4 col-lg-2">
       <h4>Processes</h4>
       <ul class="list-unstyled">
-        <% @company.company_processes.each do |x| %>
+        <% @company.process_taxonomies.each do |x| %>
           <li>
-            <%= link_to x.process_taxonomy.name, process_taxonomy_url(x) %>
+            <%= link_to x, process_taxonomy_url(x) %>
           </li>
         <% end %>
       </ul>
@@ -118,9 +119,9 @@
     <div class="col-sm-4 col-lg-3 mb-4">
       <h4>Machines</h4>
       <ul class="list-unstyled">
-        <% @company.machines.each do |x| %>
+        <% @company.machines_taxonomies.each do |x| %>
           <li>
-            <%= link_to x.machines_taxonomy.name, machines_taxonomy_url(x) %>
+            <%= link_to x, machines_taxonomy_url(x) %>
           </li>
         <% end %>
       </ul>

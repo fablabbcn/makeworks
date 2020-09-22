@@ -31,7 +31,9 @@
   <%= paginate @companies %>
 
   <% if current_user %>
-    <%= link_to 'New Company', new_company_path, class: 'btn btn-dark my-3' %>
+    <div class="text-right">
+      <%= link_to 'New Company', new_company_path, class: 'btn btn-primary my-3' %>
+    </div>
   <% end %>
 
   <table class="table table-sm table-bordered table-striped table-hover">

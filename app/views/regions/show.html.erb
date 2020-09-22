@@ -73,6 +73,7 @@
 
 <div class="my-2">
   <p>Companies in region: <%= @region.companies.count %> </p>
+  <%= link_to "Show all companies in #{@region.name}", companies_url('q[region_id_eq]': @region.id), class: 'btn btn-primary mr-3' %>
   <% if @region.can_signup? %>
     <%= link_to "Submit a new company in this region", new_company_url(region_id: @region.id), class: 'btn btn-yellow my-3' %>
   <% end %>
