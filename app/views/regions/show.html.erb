@@ -71,7 +71,7 @@
 
 <div class="my-2">
   <p>Companies in region: <%= @region.companies.count %> </p>
-  <%= link_to "Submit a new company", new_company_url, class: 'btn btn-yellow my-3' %>
+  <%= link_to "Submit a new company in this region", new_company_url(region_id: @region.id), class: 'btn btn-yellow my-3' %>
   <% if @region.companies.with_lat_lng.present? %>
     <%= render partial: 'map', locals: { locations: @region.companies.with_lat_lng} %>
   <% end %>
