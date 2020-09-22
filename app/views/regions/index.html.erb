@@ -23,15 +23,19 @@
             <% end %>
           <% end %>
         </div>
+
         <p><%= region.about_text %></p>
-        <p>Users: <%= region.users.count %></p>
-        <p>Companies: <%= region.companies.count %></p>
+        <ul>
+          <li>Companies: <strong><%= region.companies.count %></strong></li>
+          <li>Users: <strong><%= region.users.count %></strong></li>
+        </ul>
+
         <% if admin? %>
           <div class="border p-2 mt-2">
             <p>Admin information</p>
             <ul>
-              <li>Is Public: <%= region.is_public %> </li>
-              <li>Can signup: <%= region.can_signup %> </li>
+              <li>Is Public: <strong><%= region.is_public %></strong></li>
+              <li>Can signup: <strong><%= region.can_signup %></strong></li>
               <li>Lat: <%= region.lat %></li>
               <li>Lng: <%= region.lng %></li>
             </ul>

@@ -28,6 +28,13 @@
   <div class="col-md-6">
     <div class="my-2">
       <h3 id="about">About <%= @region.name %></h3>
+      <ul class="list-unstyled">
+        <% @region.champions.order(:created_at).each do |item| %>
+          <li>
+            <%= link_to item.user.name, item.user, class: '' %>
+          </li>
+        <% end %>
+      </ul>
       <%= @region.about_text %>
     </div>
 
@@ -36,15 +43,10 @@
         <p>Admin only information:</p>
         <ul class="list-unstyled">
           <li>Users in region: <%= @region.users.count %></li>
-          <li id="team">Team (champions):</li>
-          <ol>
-            <% @region.champions.order(:created_at).each do |item| %>
-              <li>
-                <%= link_to item.user.name, item.user, class: '' %>
-                <%= item.user.email %> -
-              </li>
-            <% end %>
-          </ol>
+          <li>Is Public: <strong><%= @region.is_public %></strong></li>
+          <li>Can signup: <strong><%= @region.can_signup %></strong></li>
+          <li>Lat: <%= @region.lat %></li>
+          <li>Lng: <%= @region.lng %></li>
         </ul>
       </div>
     <% end %>
@@ -71,7 +73,9 @@
 
 <div class="my-2">
   <p>Companies in region: <%= @region.companies.count %> </p>
-  <%= link_to "Submit a new company in this region", new_company_url(region_id: @region.id), class: 'btn btn-yellow my-3' %>
+  <% if @region.can_signup? %>
+    <%= link_to "Submit a new company in this region", new_company_url(region_id: @region.id), class: 'btn btn-yellow my-3' %>
+  <% end %>
   <% if @region.companies.with_lat_lng.present? %>
     <%= render partial: 'map', locals: { locations: @region.companies.with_lat_lng} %>
   <% end %>
