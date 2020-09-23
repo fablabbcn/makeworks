@@ -38,18 +38,6 @@
       <%= @region.about_text %>
     </div>
 
-    <% if admin? %>
-      <div class="border p-3">
-        <p>Admin only information:</p>
-        <ul class="list-unstyled">
-          <li>Users in region: <%= @region.users.count %></li>
-          <li>Is Public: <strong><%= @region.is_public %></strong></li>
-          <li>Can signup: <strong><%= @region.can_signup %></strong></li>
-          <li>Lat: <%= @region.lat %></li>
-          <li>Lng: <%= @region.lng %></li>
-        </ul>
-      </div>
-    <% end %>
   </div>
 
   <div class="col-md-6">
@@ -64,10 +52,22 @@
     </div>
 
     <% if @region.has_lat_lng? %>
-      <%= render partial: 'region_map', locals: { locations: [@region]} %>
+      <%# render partial: 'region_map', locals: { locations: [@region]} %>
+    <% end %>
+
+    <% if admin? %>
+      <div class="border p-3">
+        <p>Admin only information:</p>
+        <ul class="list-unstyled">
+          <li>Users in region: <%= @region.users.count %></li>
+          <li>Is Public: <strong><%= @region.is_public %></strong></li>
+          <li>Can signup: <strong><%= @region.can_signup %></strong></li>
+          <li>Lat: <%= @region.lat %></li>
+          <li>Lng: <%= @region.lng %></li>
+        </ul>
+      </div>
     <% end %>
   </div>
-
 </div>
 
 
