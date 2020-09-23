@@ -13,18 +13,32 @@
 
     <%= f.association :region, prompt: 'Select your region', default: (params[:region_id] if params[:region_id]) %>
 
-    <%= f.input :address %>
     <%= f.input :background %>
     <%= f.input :description %>
     <%= f.input :intro %>
-    <%= f.input :lat %>
-    <%= f.input :lng %>
-    <%= f.input :location %>
+    <%= f.input :year_founded %>
     <%= f.input :number_of_staff %>
     <%= f.input :website %>
-    <%= f.input :year_founded %>
 
+    <hr>
+    <%= f.input :location %>
+    <%= f.input :address %>
+
+    <div class="row my-3">
+      <div class="col-md-8">
+        <% if @company.lat.present? && @company.lng.present? %>
+          <%= render partial: 'map', locals: { locations: [@company]} %>
+        <% end %>
+      </div>
+      <div class="col-md-4">
+        <%= f.input :lat, disabled: true %>
+        <%= f.input :lng, disabled: true %>
+      </div>
+    </div>
     <%= f.button :submit %>
+
+    <hr>
+
     <hr>
     <% if current_user.is_admin? %>
       <h4>Admin only</h4>

@@ -51,9 +51,10 @@ en:
         lng: Longitude
     hints:
       company:
-        address: Address of the company
+        address: Street address of the company
         file_types: Indicate what types of files the company accepts
         film_ready: Film
+        location: Name of the City
         name: Name of the company
         number_of_staff: Enter a number
         region: Select a region

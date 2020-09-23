@@ -42,6 +42,7 @@
         <th><%= sort_link(@q, :name)%></th>
         <th><%= sort_link(@q, :region)%></th>
         <th>Address</th>
+        <th>Location</th>
         <th>Background</th>
         <th>Description</th>
         <th>Intro</th>
@@ -57,6 +58,7 @@
           <td><%= link_to company.name, company %></td>
           <td><%= link_to company.region, company.region %></td>
           <td title="<%= company.address %>"><%= company.address&.truncate(30) %></td>
+          <td title="<%= company.location %>"><%= company.location&.truncate(30) %></td>
           <td title="<%= company.background %>"><%= company.background&.truncate(30) %></td>
           <td title="<%= company.description %>"><%= company.description&.truncate(30) %></td>
           <td title="<%= company.intro %>"><%= company.intro&.truncate(30)  %></td>

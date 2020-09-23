@@ -22,6 +22,17 @@ class Company < ApplicationRecord
   extend FriendlyId
   friendly_id :name, use: :slugged, slug_column: :trimmed_name
 
+  geocoded_by :full_address, latitude: :lat, longitude: :lng
+  after_validation :geocode, if: :the_address_changed?
+
+  def full_address
+    [location, address].compact.join(', ')
+  end
+
+  def the_address_changed?
+    address_changed? || location_changed?
+  end
+
   def should_generate_new_friendly_id?
     trimmed_name.blank?
   end
