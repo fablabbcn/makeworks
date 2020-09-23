@@ -9,16 +9,23 @@
     <div class="my-3">
       <%= f.input :locale, collection: locale_name_pairs, include_blank: false %>
     </div>
+    <%= f.input :time_zone %>
+    <p>
+    Time now in this zone: <%= Time.now.in_time_zone(current_user.time_zone) %>
+    </p>
+
+
     <% if current_user.is_admin? %>
       <%= f.input :is_admin %>
     <% end %>
+
     <% if @user.avatar.attached? %>
       <%= image_tag @user.avatar, style: 'max-height:400px;' %>
     <% end %>
     <%= f.input :avatar %>
   </div>
 
-  <div class="form-actions">
+  <div class="my-5">
     <%= f.button :submit %>
   </div>
 <% end %>

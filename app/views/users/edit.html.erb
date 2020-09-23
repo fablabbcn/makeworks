@@ -1,7 +1,11 @@
 <div class="container bg-light border my-5 p-5">
-  <h1>Editing User</h1>
+  <%= title 'Editing User' %>
 
   <%= render 'form', user: @user %>
+
+  <hr>
+
+  <%= render 'user_regions' %>
 
   <hr>
 
@@ -9,6 +13,6 @@
     admin_destroy_user_path(current_user),
     method: :delete,
     data: { confirm: "You sure?" },
-    class: 'btn btn-danger' %>
+    class: 'btn btn-danger float-right' %>
 
 </div>

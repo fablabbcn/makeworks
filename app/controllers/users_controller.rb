@@ -78,6 +78,7 @@ class UsersController < ApplicationController
       :email,
       :first_name,
       :last_name,
+      :time_zone,
       :locale
     ]
 
