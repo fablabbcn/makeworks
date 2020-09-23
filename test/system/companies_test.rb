@@ -30,9 +30,9 @@ class CompaniesTest < ApplicationSystemTestCase
     fill_in "Instagram", with: @company.instagram
     fill_in "Intro", with: @company.intro
     check "Large run" if @company.large_run
-    fill_in "Latitude", with: @company.lat
+    #fill_in "Latitude", with: @company.lat
     fill_in "Linkedin", with: @company.linkedin
-    fill_in "Longitude", with: @company.lng
+    #fill_in "Longitude", with: @company.lng
     fill_in "Location", with: @company.location
     fill_in "M", with: @company.m_id
     check "Medium run" if @company.medium_run
@@ -89,9 +89,9 @@ class CompaniesTest < ApplicationSystemTestCase
     fill_in "Instagram", with: @company.instagram
     fill_in "Intro", with: @company.intro
     check "Large run" if @company.large_run
-    fill_in "Latitude", with: @company.lat
+    #fill_in "Latitude", with: @company.lat
     fill_in "Linkedin", with: @company.linkedin
-    fill_in "Longitude", with: @company.lng
+    #fill_in "Longitude", with: @company.lng
     fill_in "Location", with: @company.location
     fill_in "M", with: @company.m_id
     check "Medium run" if @company.medium_run
