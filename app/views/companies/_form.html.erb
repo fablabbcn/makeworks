@@ -11,7 +11,11 @@
     <%= f.input :trimmed_name %>
     <%# f.input :title %>
 
-    <%= f.association :region, prompt: 'Select your region', default: (params[:region_id] if params[:region_id]) %>
+    <% if params[:region_id].present? %>
+      <%= f.association :region, selected: (params[:region_id]) %>
+    <% else %>
+      <%= f.association :region, prompt: 'Select a region' %>
+    <% end %>
 
     <hr>
     <%= f.input :location %>
