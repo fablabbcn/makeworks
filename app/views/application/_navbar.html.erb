@@ -10,18 +10,17 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto ml-0 ml-lg-5">
-
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Taxonomies
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%= link_to "Processes", process_taxonomies_url, class: "dropdown-item" %>
-          <%= link_to "Materials", materials_taxonomies_url, class: "dropdown-item" %>
-          <%= link_to "Industry", industry_taxonomies_url, class: "dropdown-item" %>
-          <%= link_to "Machines", machines_taxonomies_url, class: "dropdown-item" %>
-          <% if current_user&.is_admin? %>
+    <% if current_user&.is_admin? %>
+      <ul class="navbar-nav ml-0 ml-lg-5">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Browse by Tags
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to "Processes", process_taxonomies_url, class: "dropdown-item" %>
+            <%= link_to "Materials", materials_taxonomies_url, class: "dropdown-item" %>
+            <%= link_to "Industry", industry_taxonomies_url, class: "dropdown-item" %>
+            <%= link_to "Machines", machines_taxonomies_url, class: "dropdown-item" %>
             <div class="dropdown-divider"></div>
             <div class="dropdown-header">
               SuperAdmin only
@@ -30,12 +29,12 @@
             <%= link_to "Manufacturers", manufacturer_taxonomies_url, class: "dropdown-item" %>
             <%= link_to "FinishedProducts", finished_products_taxonomies_url, class: "dropdown-item" %>
             <%= link_to "Media", media_url, class: "dropdown-item" %>
-          <% end %>
-        </div>
-      </li>
-    </ul>
+          </div>
+        </li>
+      </ul>
+    <% end %>
 
-    <%= link_to "Regions", regions_url,     class: "nav-link mb-3 mb-md-0 mr-2 #{current_page?(regions_url) ? 'btn-primary' : 'btn-outline-primary'}" %>
+    <%= link_to "Regions", regions_url,     class: "nav-link mb-3 mb-md-0 mr-2 ml-auto #{current_page?(regions_url) ? 'btn-primary' : 'btn-outline-primary'}" %>
     <%= link_to "Companies", companies_url, class: "nav-link mb-3 mb-md-0 mr-2 #{current_page?(companies_url) ? 'btn-primary' : 'btn-outline-primary'}" %>
     <%= link_to "Blog", blogs_url,          class: "nav-link mb-3 mb-md-0 mr-2 #{current_page?(blogs_url) ? 'btn-primary' : 'btn-outline-primary'}" %>
 
@@ -49,7 +48,7 @@
     -->
 
     <% if current_user %>
-      <ul class="navbar-nav ml-auto ml-0 ml-lg-5">
+      <ul class="navbar-nav ml-0 ml-lg-5">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarUser" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <% if current_user.avatar.attached? %>
@@ -66,11 +65,21 @@
             <%= link_to "Log out", destroy_user_session_url, class: "dropdown-item" %>
           </div>
         </li>
-    </ul>
-  <% else %>
-    <%= link_to "Sign up", new_user_registration_url, class: 'nav-link mb-md-0 mb-3 ml-auto mr-2 btn-outline-primary' %>
-    <%= link_to "Sign in", new_user_session_url, class: 'nav-link mr-2 btn-outline-primary' %>
-  <% end %>
+      </ul>
+    <% else %>
+      <ul class="navbar-nav ml-0 ml-lg-5">
+        <li class="nav-item dropdown">
+          <a class="dropdown-toggle btn btn-primary" href="#" id="not-logged-in" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            My account
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="not-logged-in">
+            <%= link_to "Sign in", new_user_session_url, class: 'dropdown-item' %>
+            <%= link_to "Create an account", new_user_registration_url, class: 'dropdown-item' %>
+          </div>
+        </li>
+      </ul>
+
+    <% end %>
 
   </div>
 </nav>
