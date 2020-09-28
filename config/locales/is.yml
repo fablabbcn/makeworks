@@ -13,10 +13,19 @@ is:
         address: Heimilisfang
         lat: Breiddargráða
         lng: Lengdargráða
+      user:
+        locale: Language
     hints:
       company:
         address: Heimilisfang fyrirtækis
         name: Nafn fyrirtækis
         region: Veldu svæði
         number_of_staff: Fjöldi starfsmanna
-
+      user:
+        locale: Veldu tungumál fyrir kerfið.
+  name: Icelandic
+  shared:
+    log_in: Innskráning
+    sign_up: Búa til aðgang
+    tagline: Finndu framleiðendur á þínu svæði
+    create_new: Búa til nýtt

@@ -70,37 +70,9 @@ en:
     include_blanks:
       company:
         region: prom
-
   shared:
+    log_in: Log in
+    sign_up: Sign up
     tagline: Find local manufacturers in your region
     a_global_library: a global library for local manufacturing
     create_new: Create new
-is:
-  name: Icelandic
-  activerecord:
-    attributes:
-      company:
-        address: Heimilisfang
-    models:
-      company:
-        one: Fyrirtæki
-        other: Fyrirtæki
-  simple_form:
-    labels:
-      user:
-        locale: Language
-      company:
-        address: Heimilisfang
-        lat: Breiddargráða
-        lng: Lengdargráða
-    hints:
-      company:
-        address: Heimilisfang fyrirtækis
-        name: Nafn fyrirtækis
-        region: Veldu svæði
-        number_of_staff: Fjöldi starfsmanna
-      user:
-        locale: Veldu tungumál fyrir kerfið.
-  shared:
-    tagline: Finndu framleiðendur á þínu svæði
-    create_new: Búa til nýtt

@@ -31,7 +31,7 @@
         <% if current_user %>
           <li> <%# link_to "Create a region", new_user_registration_url, class: '' %> </li>
         <% else %>
-          <li> <%= link_to "Create an account", new_user_registration_url, class: '' %> </li>
+          <li> <%= link_to t("shared.sign_up"), new_user_registration_url, class: '' %> </li>
         <% end %>
       </ul>
     </div>
