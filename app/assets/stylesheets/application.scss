@@ -66,6 +66,11 @@ h2 {
   }
 }
 
+.mw-border-50 {
+  border: 1px solid $black;
+  border-radius: 50px;
+}
+
 // Apply the img-fluid class on all images, because many images are injected from the blog text
 img {
   height: auto;
@@ -123,6 +128,10 @@ img {
     color: $black2;
     border: 1px solid $black2;
   }
+}
+
+.btn-outline-dark {
+  border-radius: 20px;
 }
 
 .card {
