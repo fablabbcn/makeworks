@@ -3,30 +3,28 @@
 
   <div>
     <div class="text-center mb-5">
-      <h1 class="display-3 font-weight-bold">MAKE WORKS</h1>
+      <h1 class="display-1 font-weight-bold">MAKE WORKS</h1>
       <h4><%= t('shared.a_global_library') %></h4>
-    </div>
-
-    <div class="text-center my-4">
-      <div class="dropdown">
-        <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownRegions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Regions list
-        </a>
-
-        <div class="dropdown-menu" aria-labelledby="dropdownRegions">
-          <% @public_regions.each do |region| %>
-            <%= link_to region.name, region, class: 'dropdown-item' %>
-          <% end %>
-        </div>
-      </div>
     </div>
   </div>
 
   <div class="my-3 text-center">
-    <%= link_to "Processes", process_taxonomies_url, class: 'btn btn-yellow mr-2' %>
-    <%= link_to "Materials", materials_taxonomies_url, class: 'btn btn-yellow mr-2' %>
-    <%= link_to "Industries", industry_taxonomies_url, class: 'btn btn-yellow mr-2' %>
+    <%= link_to t("shared.processes"), process_taxonomies_url, class: 'btn btn-yellow mr-2' %>
+    <%= link_to t("shared.materials"), materials_taxonomies_url, class: 'btn btn-yellow mr-2' %>
+    <%= link_to t("shared.industries"), industry_taxonomies_url, class: 'btn btn-yellow mr-2' %>
+    <%= link_to t("shared.machines"), machines_taxonomies_url, class: 'btn btn-yellow mr-2' %>
   </div>
+
+  <h4 class="mt-5">
+    Make Works want’s to connect people wanting
+    to make with people who make. We aim for free and accessible fabrication for artists, designers and makers.
+  </h4>
+
+  <p>
+    Find out how Make Works was created and transformed
+    <u><%= link_to "here", about_url, class: 'text-decoration-underline' %></u>
+  </p>
+
 
   <%= render 'one_blog' %>
 

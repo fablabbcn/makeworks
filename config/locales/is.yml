@@ -1,3 +1,4 @@
+---
 is:
   activerecord:
     attributes:
@@ -7,7 +8,28 @@ is:
       company:
         one: Fyrirtæki
         other: Fyrirtæki
+  name: Icelandic
+  shared:
+    companies: Fyrirtæki
+    create_new: Búa til nýtt
+    edit_region: Breyta svæði
+    industries: Iðnaður
+    log_in: Innskráning
+    machines: Vélar
+    materials: Efni
+    processes: Ferlar
+    regions: Svæði
+    sign_up: Búa til aðgang
+    tagline: Finndu framleiðendur á þínu svæði
   simple_form:
+    hints:
+      company:
+        address: Heimilisfang fyrirtækis
+        name: Nafn fyrirtækis
+        number_of_staff: Fjöldi starfsmanna
+        region: Veldu svæði
+      user:
+        locale: Veldu tungumál fyrir kerfið.
     labels:
       company:
         address: Heimilisfang
@@ -15,18 +37,3 @@ is:
         lng: Lengdargráða
       user:
         locale: Language
-    hints:
-      company:
-        address: Heimilisfang fyrirtækis
-        name: Nafn fyrirtækis
-        region: Veldu svæði
-        number_of_staff: Fjöldi starfsmanna
-      user:
-        locale: Veldu tungumál fyrir kerfið.
-  name: Icelandic
-  shared:
-    create_new: Búa til nýtt
-    edit_region: Breyta svæði
-    log_in: Innskráning
-    sign_up: Búa til aðgang
-    tagline: Finndu framleiðendur á þínu svæði

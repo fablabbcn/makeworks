@@ -1,36 +1,5 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
+---
 en:
-  name: English
   active_admin:
     dashboard: Dashboard
   activerecord:
@@ -43,18 +12,28 @@ en:
       company:
         one: Company
         other: Companies
+  name: English
+  shared:
+    a_global_library: a global library for local manufacturing
+    companies: Companies
+    create_new: Create new
+    edit_region: Edit Region
+    industries: Industries
+    log_in: Log in
+    machines: Machines
+    materials: Materials
+    processes: Processes
+    regions: Regions
+    sign_up: Sign up
+    tagline: Find local manufacturers in your region
   simple_form:
-    labels:
-      company:
-        address: Address
-        lat: Latitude
-        lng: Longitude
     hints:
       company:
         address: Street address of the company
         file_types: Indicate what types of files the company accepts
         film_ready: Film
         location: Name of the City
+        machines_taxonomies: Select as many as you want
         name: Name of the company
         number_of_staff: Enter a number
         region: Select a region
@@ -62,18 +41,16 @@ en:
         short_run: Short run
         trimmed_name: The 'slug' that will be used in the URL to the company
         website: Does the company have a website?
-        machines_taxonomies: Select as many as you want
       user:
-        locale: Choose a language for the system. All tags and user data will still be in English.
-    placeholders:
-      company:
+        locale: Choose a language for the system. All tags and user data will still
+          be in English.
     include_blanks:
       company:
         region: prom
-  shared:
-    log_in: Log in
-    sign_up: Sign up
-    tagline: Find local manufacturers in your region
-    a_global_library: a global library for local manufacturing
-    create_new: Create new
-    edit_region: Edit Region
+    labels:
+      company:
+        address: Address
+        lat: Latitude
+        lng: Longitude
+    placeholders:
+      company: 
