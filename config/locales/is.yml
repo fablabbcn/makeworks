@@ -25,7 +25,8 @@ is:
         locale: Veldu tungumál fyrir kerfið.
   name: Icelandic
   shared:
+    create_new: Búa til nýtt
+    edit_region: Breyta svæði
     log_in: Innskráning
     sign_up: Búa til aðgang
     tagline: Finndu framleiðendur á þínu svæði
-    create_new: Búa til nýtt
