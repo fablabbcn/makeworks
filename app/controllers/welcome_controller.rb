@@ -6,7 +6,11 @@ class WelcomeController < ApplicationController
   end
 
   def random
-    @random_companies = Company.all.sample(1)
+    @random_companies = Company
+      .all
+      .where(is_verified: true)
+      .includes(:region)
+      .sample(3)
   end
 
   def version
