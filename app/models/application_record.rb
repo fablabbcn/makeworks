@@ -11,4 +11,5 @@ class ApplicationRecord < ActiveRecord::Base
   def has_lat_lng?
     lat.present? && lng.present?
   end
+
 end

@@ -6,7 +6,7 @@ class MachinesTaxonomiesController < ApplicationController
   # GET /machines_taxonomies
   # GET /machines_taxonomies.json
   def index
-    @machines_taxonomies = MachinesTaxonomy.all
+    @machines_taxonomies = MachinesTaxonomy.all.page(params[:page])
   end
 
   # GET /machines_taxonomies/1

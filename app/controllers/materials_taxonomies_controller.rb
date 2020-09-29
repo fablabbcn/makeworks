@@ -6,7 +6,7 @@ class MaterialsTaxonomiesController < ApplicationController
   # GET /materials_taxonomies
   # GET /materials_taxonomies.json
   def index
-    @materials_taxonomies = MaterialsTaxonomy.all
+    @materials_taxonomies = MaterialsTaxonomy.all.page(params[:page])
   end
 
   # GET /materials_taxonomies/1

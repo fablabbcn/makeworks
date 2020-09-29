@@ -6,7 +6,7 @@ class ManufacturerTaxonomiesController < ApplicationController
   # GET /manufacturer_taxonomies
   # GET /manufacturer_taxonomies.json
   def index
-    @manufacturer_taxonomies = ManufacturerTaxonomy.all
+    @manufacturer_taxonomies = ManufacturerTaxonomy.all.page(params[:page])
   end
 
   # GET /manufacturer_taxonomies/1
