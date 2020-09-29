@@ -1,29 +1,9 @@
-<h1>Manufacturers</h1>
+<%= title t('shared.manufacturers') %>
 
-<table>
-  <thead>
-    <tr>
-      <th>M</th>
-      <th>Name</th>
-      <th>Parent</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<% if @manufacturer_taxonomies %>
+  <%= render partial: 'taxonomy_list', locals: {the_item: @manufacturer_taxonomies} %>
+<% end %>
 
-  <tbody>
-    <% @manufacturer_taxonomies.each do |manufacturer_taxonomy| %>
-      <tr>
-        <td><%= manufacturer_taxonomy.m_id %></td>
-        <td><%= manufacturer_taxonomy.name %></td>
-        <td><%= manufacturer_taxonomy.parent_id %></td>
-        <td><%= link_to 'Show', manufacturer_taxonomy %></td>
-        <td><%= link_to 'Edit', edit_manufacturer_taxonomy_path(manufacturer_taxonomy) %></td>
-        <td><%= link_to 'Destroy', manufacturer_taxonomy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Manufacturer Taxonomy', new_manufacturer_taxonomy_path %>
+<% if current_user&.is_admin? %>
+  <%= link_to 'New Manufacturer Taxonomy', new_manufacturer_taxonomy_path, class: 'btn btn-primary' %>
+<% end %>

@@ -21,12 +21,11 @@ class FinishedProductsTaxonomiesTest < ApplicationSystemTestCase
     click_on "Create Finished products taxonomy"
 
     assert_text "Finished products taxonomy was successfully created"
-    click_on "Back"
   end
 
   test "updating a Finished products taxonomy" do
     visit finished_products_taxonomies_url
-    #click_on "MyString", match: :first
+    click_on "Fin1", match: :first
     click_on "Edit", match: :first
 
     fill_in "Name", with: @finished_products_taxonomy.name
@@ -35,7 +34,6 @@ class FinishedProductsTaxonomiesTest < ApplicationSystemTestCase
     click_on "Update Finished products taxonomy"
 
     assert_text "Finished products taxonomy was successfully updated"
-    click_on "Back"
   end
 
   test "destroying a Finished products taxonomy" do

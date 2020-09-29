@@ -1,29 +1,9 @@
-<h1>Finished Products</h1>
+<%= title t('shared.finished_products') %>
 
-<table>
-  <thead>
-    <tr>
-      <th>M</th>
-      <th>Name</th>
-      <th>Parent</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<% if @finished_products_taxonomies %>
+  <%= render partial: 'taxonomy_list', locals: {the_item: @finished_products_taxonomies} %>
+<% end %>
 
-  <tbody>
-    <% @finished_products_taxonomies.each do |finished_products_taxonomy| %>
-      <tr>
-        <td><%= finished_products_taxonomy.m_id %></td>
-        <td><%= finished_products_taxonomy.name %></td>
-        <td><%= finished_products_taxonomy.parent_id %></td>
-        <td><%= link_to 'Show', finished_products_taxonomy %></td>
-        <td><%= link_to 'Edit', edit_finished_products_taxonomy_path(finished_products_taxonomy) %></td>
-        <td><%= link_to 'Destroy', finished_products_taxonomy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Finished Products Taxonomy', new_finished_products_taxonomy_path %>
+<% if current_user&.is_admin? %>
+  <%= link_to 'New Finished Products Taxonomy', new_finished_products_taxonomy_path, class: 'btn btn-primary' %>
+<% end %>

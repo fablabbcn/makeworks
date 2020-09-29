@@ -13,9 +13,11 @@ is:
     companies: Fyrirtæki
     create_new: Búa til nýtt
     edit_region: Breyta svæði
+    finished_products: Tilbúnar vörur
     industries: Iðnaður
     log_in: Innskráning
     machines: Vélar
+    manufacturers: Framleiðendur
     materials: Efni
     processes: Ferlar
     regions: Svæði
