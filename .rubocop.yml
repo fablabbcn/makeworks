@@ -2,10 +2,17 @@ Metrics/LineLength:
   Enabled: false
   Exclude:
     - 'db/schema.rb'
+
 Style/FrozenStringLiteralComment:
   Enabled: false
 
-StringLiterals:
+Style/StringLiterals:
+  Enabled: false
+
+Style/StringLiteralsInInterpolation:
+ Enabled: false
+
+Style/EmptyMethod:
   Enabled: false
 
 Layout/LeadingCommentSpace:
@@ -22,5 +29,8 @@ Layout/EmptyLines:
   StyleGuide: '#two-or-more-empty-lines'
   Enabled: false
 
-Documentation:
+Style/Documentation:
   Enabled: false
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
