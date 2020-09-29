@@ -8,13 +8,15 @@
     </div>
   </div>
 
-  <div class="my-3 text-center">
-    <%= link_to t("shared.processes"), process_taxonomies_url, class: 'btn btn-yellow mr-2' %>
-    <%= link_to t("shared.materials"), materials_taxonomies_url, class: 'btn btn-yellow mr-2' %>
-    <%= link_to t("shared.industries"), industry_taxonomies_url, class: 'btn btn-yellow mr-2' %>
-    <%= link_to t("shared.machines"), machines_taxonomies_url, class: 'btn btn-yellow mr-2' %>
-    <%= link_to t("shared.manufacturers"), manufacturer_taxonomies_url, class: 'btn btn-yellow mr-2' %>
-    <%= link_to t("shared.finished_products"), finished_products_taxonomies_url, class: 'btn btn-yellow mr-2' %>
+  <div class="my-4 d-flex justify-content-between align-items-end">
+    <%= link_to t("shared.processes"), process_taxonomies_url,   class: 'btn btn-block btn-yellow mx-3' %>
+    <%= link_to t("shared.materials"), materials_taxonomies_url, class: 'btn btn-block btn-yellow mx-3' %>
+    <%= link_to t("shared.industries"), industry_taxonomies_url, class: 'btn btn-block btn-yellow mx-3' %>
+  </div>
+  <div class="mb-5 d-flex justify-content-between align-items-end">
+    <%= link_to t("shared.machines"), machines_taxonomies_url, class: 'btn btn-block btn-yellow mx-3' %>
+    <%= link_to t("shared.manufacturers"), manufacturer_taxonomies_url, class: 'btn btn-block btn-yellow mx-3' %>
+    <%= link_to t("shared.finished_products"), finished_products_taxonomies_url, class: 'btn btn-block btn-yellow mx-3' %>
   </div>
 
   <h4 class="mt-5">
