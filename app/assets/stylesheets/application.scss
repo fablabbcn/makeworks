@@ -22,6 +22,7 @@ $grey2: #ddd;
 $white: #fff;
 $yellow: #FFEF61;
 $yellow2: #FFBE02;
+$border-width: 1px;
 
 body {
   //background-color: #F9F9F9;
@@ -50,19 +51,31 @@ h2 {
   font-family: 'Roboto', serif;
 }
 
+.border-top-2 {
+  border-top: 2px solid $black;
+}
+
 // Tiles use bootstrap borders, but need to change when they collaps on md- sizes
 .tile-first {
   border-bottom: 1px solid $black;
 }
 
-.border-top-2 {
-  border-top: 2px solid $black;
+.tile-right {
+  border-left: $border-width solid $black;
+  border-right: $border-width solid $black;
+  border-bottom: $border-width solid $black;
 }
 
 @media (min-width: 768px){
   .tile-first {
     border: 0;
     border-right: 1px solid $black;
+  }
+  .tile-right {
+    border-left: unset;
+    border-top: $border-width solid $black;
+    border-right: $border-width solid $black;
+    border-bottom: $border-width solid $black;
   }
 }
 
