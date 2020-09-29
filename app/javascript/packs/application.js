@@ -24,6 +24,7 @@ require("@rails/actiontext")
 document.addEventListener("turbolinks:load", function () {
   // Select2 is loaded via CDN
   $("select").select2();
+  $(".toast").toast('show');
 });
 
 document.addEventListener("turbolinks:before-cache", function () {
