@@ -57,30 +57,31 @@ h2 {
 
 // Tiles use bootstrap borders, but need to change when they collaps on md- sizes
 .tile-first {
-  border-bottom: 1px solid $black;
-}
-
-.tile-right {
-  border-left: $border-width solid $black;
-  border-right: $border-width solid $black;
   border-bottom: $border-width solid $black;
 }
 
+.tile-right {
+  border-right: $border-width solid $black;
+  border-bottom: $border-width solid $black;
+  border-left: $border-width solid $black;
+}
+
+// Bigger than 768px
 @media (min-width: 768px){
   .tile-first {
     border: 0;
-    border-right: 1px solid $black;
+    border-right: $border-width solid $black;
   }
   .tile-right {
-    border-left: unset;
     border-top: $border-width solid $black;
     border-right: $border-width solid $black;
     border-bottom: $border-width solid $black;
+    border-left: unset;
   }
 }
 
 .mw-border-50 {
-  border: 1px solid $black;
+  border: $border-width solid $black;
   border-radius: 50px;
 }
 
@@ -118,13 +119,13 @@ img {
 
 .btn-outline-primary {
   background: $white;
-  border: 1px solid $black2;
+  border: $border-width solid $black2;
   border-radius: 20px;
   color: $black2;
 
   &:hover {
     background: $black !important;
-    border: 1px solid $black2;
+    border: $border-width solid $black2;
     color: $white !important;
   }
 }
@@ -132,14 +133,14 @@ img {
 
 .btn-yellow {
   background: $yellow;
-  border: 1px solid $yellow;
+  border: $border-width solid $yellow;
   border-radius: 20px;
   color: $black2;
 
   &:hover {
     background: $yellow;
     color: $black2;
-    border: 1px solid $black2;
+    border: $border-width solid $black2;
   }
 }
 
@@ -148,7 +149,7 @@ img {
 }
 
 .card {
-  border: 1px solid #222;
+  border: $border-width solid #222;
   border-radius: 0;
 }
 
@@ -186,7 +187,7 @@ td {
 }
 
 .pagination a, .pagination span.current, .pagination span.gap {
-  border: 1px solid $grey2;
+  border: $border-width solid $grey2;
   border-left-width: 0;
   float: left;
   line-height: 38px;
@@ -195,7 +196,7 @@ td {
 }
 
 .pagination {
-  border-left: 1px solid $grey2;
+  border-left: $border-width solid $grey2;
   margin: 5px 0;
 
   .first {
