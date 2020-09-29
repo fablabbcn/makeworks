@@ -8,7 +8,7 @@ ActiveAdmin.register Region do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :m_id, :name, :can_signup, :is_public, :logo, :trimmed_name
+  permit_params :m_id, :name, :can_signup, :is_public, :logo, :trimmed_name, :lat, :lng
   #
   # or
   #

@@ -34,7 +34,7 @@
 
   <div class="my-5">
     <p>Make Works consists of <i>seven regions</i> each lead by a community champions in collaboration with local partners. We believe in distributed teams and collaborative governance. </p>
-    <%= render partial: 'region_map', locals: { locations: Region.with_lat_lng} %>
+    <%= render partial: 'region_map', locals: { locations: Region.with_lat_lng } if Region.with_lat_lng.present? %>
   </div>
 
   <div class="row">
