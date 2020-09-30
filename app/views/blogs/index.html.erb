@@ -5,19 +5,15 @@
     <%= f.select :blog_category_id_eq, BlogCategory.pluck(:name, :id), {include_blank: 'All Categories'} %>
   </div>
   <div class="input-group mb-3">
-    <%= f.search_field :title_or_blurb_or_content_cont, class: 'form-control', placeholder: 'Search for a blog' %>
+    <%= f.search_field :title_or_blurb_or_content_cont, class: 'form-control', placeholder: 'Search for a blog title / content' %>
     <div class="input-group-append">
       <%= f.submit class: 'btn btn-primary' %>
     </div>
   </div>
 <% end %>
 
-<% if params[:category] %>
-  <p>Category: <%= @category %> </p>
-<% end %>
-
 <div class="my-4">
-  Showing <strong><%= @blogs.count %></strong> blogs 
+  Showing <strong><%= @blogs.count %></strong> blogs
   <%= paginate @blogs %>
 </div>
 
@@ -44,5 +40,9 @@
       </div>
     </div>
   <% end %>
+</div>
 
+<div class="my-4">
+  Showing <strong><%= @blogs.count %></strong> blogs
+  <%= paginate @blogs %>
 </div>

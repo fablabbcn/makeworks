@@ -6,7 +6,7 @@
 <h4>
   <%= link_to "Blog", '/blog' %> /
   <% if @blog.blog_category %>
-    <%= link_to @blog.blog_category.name, blogs_url(category: @blog.blog_category) %>
+    <%= link_to @blog.blog_category.name, blogs_url('q[blog_category_id_eq]': @blog.blog_category) %>
   <% end %>
 </h4>
 
