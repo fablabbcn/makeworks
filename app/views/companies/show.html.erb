@@ -42,7 +42,7 @@
     </div>
   </div>
 
-  <%= image_tag @company.top_image if @company.top_image.present? %>
+  <%= image_tag(get_1200px(@company.top_image), class: 'border border-dark') if @company.top_image.present? %>
 
   <% if current_user&.is_admin? %>
     <div class="my-4">
