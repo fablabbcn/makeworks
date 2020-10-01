@@ -43,12 +43,16 @@ module ApplicationHelper
   end
 
   def get_1200px(the_url)
+    # Don't try to change URLs without multiple slashes /
+    return the_url if the_url.count('/') < 2
+
     # The old website saved all images in MULTIPLE sizes
     # The original, and then in 3 different folders:
     # https://static.make.works/company/BroadWorkshop/191115_BroadWorkshop_4.jpg
     # https://static.make.works/company/BroadWorkshop/460px/191115_BroadWorkshop_4.jpg
     # https://static.make.works/company/BroadWorkshop/940px/191115_BroadWorkshop_4.jpg
     # https://static.make.works/company/BroadWorkshop/1200px/191115_BroadWorkshop_4.jpg
+
     comp_name = the_url.split('/')[-2]
     the_url.gsub(comp_name.to_s, "#{comp_name}/1200px")
   end
