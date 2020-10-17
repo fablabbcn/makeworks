@@ -12,8 +12,11 @@
   </div>
 <% end %>
 
-<div class="my-4">
-  Showing <strong><%= @blogs.count %></strong> blogs
+<div class="my-4 d-flex justify-content-between align-items-center">
+  <div>
+    Showing <strong><%= @blogs.count %></strong> blogs
+  </div>
+
   <%= paginate @blogs %>
 </div>
 
