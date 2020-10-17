@@ -247,6 +247,22 @@ td {
   width: 150px;
 }
 
+footer {
+  h5 {
+    border-bottom: 1px solid white;
+  }
+}
+
+.bg-black {
+  background: $black;
+}
+
+.link-white {
+  a {
+    color: white;
+  }
+}
+
 .bg-yellow {
   background: $yellow2;
 }
