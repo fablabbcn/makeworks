@@ -8,3 +8,19 @@ There are many ways to reach us! Please review our FAQs, we are a big community 
 <h5 class="mt-5">
 Make Works consists of eight regions. Each region will be able to give you local support. Here you will find your region specific contact person who can help you on your quest
 </h5>
+
+
+<div class="row mt-5">
+
+  <% @public_regions.each do |region| %>
+    <div class="col-md-6 mb-5">
+      <div class="border-top-2 border-dark pt-3">
+        <h2>
+          <%= link_to region.name, region_url(region) %>
+        </h2>
+
+      </div>
+    </div>
+  <% end %>
+
+</div>

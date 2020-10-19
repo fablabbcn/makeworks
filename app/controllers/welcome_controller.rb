@@ -5,6 +5,10 @@ class WelcomeController < ApplicationController
     @public_regions = Region.where(is_public: true)
   end
 
+  def contact
+    @public_regions = Region.where(is_public: true)
+  end
+
   def random
     @random_companies = Company
       .all
