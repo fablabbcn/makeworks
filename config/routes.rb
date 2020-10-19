@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/contact', to: 'welcome#contact'
   get '/faq', to: 'welcome#faq'
   get '/legal', to: 'welcome#legal'
+  get '/glossary', to: 'welcome#glossary'
   get '/version', to: 'welcome#version'
   get '/styleguide', to: 'welcome#styleguide'
   get '/random', to: 'welcome#random'
