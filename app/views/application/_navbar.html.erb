@@ -62,7 +62,7 @@
               <%= link_to "Admin", "/admin", target: '_blank', class: "dropdown-item" %>
             <% end %>
             <div class="dropdown-divider"></div>
-            <%= link_to "Log out", destroy_user_session_url, class: "dropdown-item" %>
+            <%= link_to t('shared.log_out'), destroy_user_session_url, class: "dropdown-item" %>
           </div>
         </li>
       </ul>
@@ -70,11 +70,11 @@
       <ul class="navbar-nav ml-0 ml-lg-5">
         <li class="nav-item dropdown">
           <a class="dropdown-toggle btn btn-primary px-4" href="#" id="not-logged-in" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Sign in
+            <%= t('shared.log_in') %>
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="not-logged-in">
-            <%= link_to "Sign in", new_user_session_url, class: 'dropdown-item' %>
-            <%= link_to "Create an account", new_user_registration_url, class: 'dropdown-item' %>
+            <%= link_to t('shared.log_in'), new_user_session_url, class: 'dropdown-item' %>
+            <%= link_to t('shared.create_an_account'), new_user_registration_url, class: 'dropdown-item' %>
           </div>
         </li>
       </ul>

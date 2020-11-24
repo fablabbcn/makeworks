@@ -17,10 +17,12 @@ en:
     a_global_library: a global library for local manufacturing
     companies: Companies
     create_new: Create new
+    create_an_account: Create an account
     edit_region: Edit Region
     finished_products: Finished products
     industries: Industries
     log_in: Log in
+    log_out: Log out
     machines: Machines
     manufacturers: Manufacturers
     materials: Materials
