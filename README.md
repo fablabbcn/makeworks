@@ -1,5 +1,3 @@
-# README
-
 Technology:
 
 - Web framework: Ruby on Rails
