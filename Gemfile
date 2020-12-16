@@ -19,7 +19,6 @@ gem 'omniauth-linkedin-oauth2'
 
 gem "sentry-ruby"
 gem "sentry-rails"
-gem "sentry-sidekiq"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.1'

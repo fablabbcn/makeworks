@@ -338,8 +338,6 @@ GEM
       sentry-ruby (>= 4.0.0)
     sentry-ruby (4.0.1)
       faraday (>= 1.0)
-    sentry-sidekiq (4.0.0)
-      sentry-ruby (>= 4.0.0)
     shellany (0.0.1)
     simple_form (5.0.2)
       actionpack (>= 5.0)
@@ -421,7 +419,6 @@ DEPENDENCIES
   selenium-webdriver
   sentry-rails
   sentry-ruby
-  sentry-sidekiq
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
