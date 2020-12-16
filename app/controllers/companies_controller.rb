@@ -90,37 +90,38 @@ class CompaniesController < ApplicationController
       #industries: [:industry_taxonomy],
       machines: [:machines_taxonomy]
     )
-                      .friendly.find(params[:id])
+      .friendly.find(params[:id])
   end
 
-    # Only allow a list of trusted parameters through.
-    def company_params
-      params.require(:company).permit(:m_id,
-                                      :region_id,
-                                      :name, :address,
-                                      :background,
-                                      :description, :intro, :contact_name, :contact_email,
-                                      :contact_phone, :contact_jobtitle, :flickr, :facebook, :instagram,
-                                      :large_run, :lat, :lng, :linkedin, :location,
-                                      :medium_run, :minimum_order, :number_of_staff, :file_types,
-                                      :image_bucket, :photo1, :photo2, :photo3, :photo4, :photo5, :photo6, :photo7, :photo8, :photo9, :pinterest, :portrait, :sample_production, :short_run, :soft_delete, :title, :top_image, :trimmed_name, :turnaround_time, :twitter,
-                                      :video_link, :website, :youtube, :year_founded,
-                                      :film_ready,
-                                      :been_visited,
-                                      :is_verified,
-                                      :bespoke_one_offs,
-                                      :works_with_general_public,
-                                      :works_with_large_business,
-                                      :works_with_professionals,
-                                      :works_with_small_companies,
-                                      :works_with_students,
-                                      :batch_production,
-                                      :production_access,
-                                      materials_taxonomy_ids: [],
-                                      industry_taxonomy_ids: [],
-                                      process_taxonomy_ids: [],
-                                      finished_products_taxonomy_ids: [],
-                                      manufacturer_taxonomy_ids: [],
-                                      machines_taxonomy_ids: [])
-    end
+  # Only allow a list of trusted parameters through.
+  def company_params
+    params.require(:company).permit(
+      :m_id,
+      :region_id,
+      :name, :address,
+      :background,
+      :description, :intro, :contact_name, :contact_email,
+      :contact_phone, :contact_jobtitle, :flickr, :facebook, :instagram,
+      :large_run, :lat, :lng, :linkedin, :location,
+      :medium_run, :minimum_order, :number_of_staff, :file_types,
+      :image_bucket, :photo1, :photo2, :photo3, :photo4, :photo5, :photo6, :photo7, :photo8, :photo9, :pinterest, :portrait, :sample_production, :short_run, :soft_delete, :title, :top_image, :trimmed_name, :turnaround_time, :twitter,
+      :video_link, :website, :youtube, :year_founded,
+      :film_ready,
+      :been_visited,
+      :is_verified,
+      :bespoke_one_offs,
+      :works_with_general_public,
+      :works_with_large_business,
+      :works_with_professionals,
+      :works_with_small_companies,
+      :works_with_students,
+      :batch_production,
+      :production_access,
+      materials_taxonomy_ids: [],
+      industry_taxonomy_ids: [],
+      process_taxonomy_ids: [],
+      finished_products_taxonomy_ids: [],
+      manufacturer_taxonomy_ids: [],
+      machines_taxonomy_ids: [])
+  end
 end
