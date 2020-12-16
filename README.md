@@ -1,5 +1,14 @@
 # README
 
+Technology:
+
+- Web framework: Ruby on Rails
+- Database: Postgresql
+- Hosting: Heroku
+- Assets hosting: AWS
+
+Staging web server: http://staging.make.works/
+
 ## Import data
 
 `rake makeworks:import_all`
