@@ -1,7 +1,7 @@
 <p>User is a part of these regions:</p>
 
 <% @user.regions.each do |region| %>
-  <%= link_to region, class: 'm-1 btn btn-primary' do %>
+  <%= link_to region, class: 'm-1 btn btn-outline-primary' do %>
     <%= region.name %>
     <% if @user.is_champion_in_region(region.id) %>
       (Champion)

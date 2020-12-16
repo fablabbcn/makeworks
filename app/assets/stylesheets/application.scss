@@ -91,10 +91,14 @@ img {
   max-width: 100%;
 }
 
+.btn {
+  border-radius: 20px;
+  padding: 6px 30px;
+}
+
 .btn-primary {
   background: $black2;
   border-color: $black2;
-  border-radius: 20px;
   color: $white;
 
   &:active {
@@ -120,7 +124,6 @@ img {
 .btn-outline-primary {
   background: $white;
   border: $border-width solid $black2;
-  border-radius: 20px;
   color: $black2;
 
   &:hover {
@@ -134,7 +137,6 @@ img {
 .btn-yellow {
   background: $yellow;
   border: $border-width solid $yellow;
-  border-radius: 20px;
   color: $black2;
 
   &:hover {
@@ -142,10 +144,6 @@ img {
     color: $black2;
     border: $border-width solid $black2;
   }
-}
-
-.btn-outline-dark {
-  border-radius: 20px;
 }
 
 .card {
@@ -162,11 +160,21 @@ img {
   .card-columns { column-count: 3; }
 }
 
+.form-control {
+  border-radius: 20px;
+}
+
 .select2-container .select2-selection--single{
   height: 40px;
   border-radius: 20px;
   padding-left: 10px;
 }
+
+.select2-container .select2-selection--multiple{
+  border-radius: 20px;
+  padding: 5px;
+}
+
 .select2-container--default .select2-selection--single .select2-selection__rendered {
   line-height: 37px;
 }

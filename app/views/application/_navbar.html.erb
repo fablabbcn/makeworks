@@ -14,7 +14,7 @@
       <ul class="navbar-nav ml-0 ml-lg-5">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Browse by Tags
+            Browse by Tags (Admin only)
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <%= link_to t("shared.processes"), process_taxonomies_url, class: "dropdown-item" %>
@@ -34,9 +34,9 @@
       </ul>
     <% end %>
 
-    <%= link_to t("shared.regions"), regions_url,     class: "nav-link mb-3 mb-md-0 mr-2 ml-auto #{current_page?(regions_url) ? 'btn-primary' : 'btn-outline-primary'}" %>
-    <%= link_to t("shared.companies"), companies_url, class: "nav-link mb-3 mb-md-0 mr-2 #{current_page?(companies_url) ? 'btn-primary' : 'btn-outline-primary'}" %>
-    <%= link_to "Blog", blogs_url,          class: "nav-link mb-3 mb-md-0 mr-2 #{current_page?(blogs_url) ? 'btn-primary' : 'btn-outline-primary'}" %>
+    <%= link_to t("shared.regions"), regions_url,     class: "nav-link mb-3 mb-md-0 mr-2 ml-auto btn #{current_page?(regions_url) ? 'btn-primary' : 'btn-outline-primary'}" %>
+    <%= link_to t("shared.companies"), companies_url, class: "nav-link mb-3 mb-md-0 mr-2 btn #{current_page?(companies_url) ? 'btn-primary' : 'btn-outline-primary'}" %>
+    <%= link_to "Blog", blogs_url,          class: "nav-link mb-3 mb-md-0 mr-2 btn #{current_page?(blogs_url) ? 'btn-primary' : 'btn-outline-primary'}" %>
 
     <!--
     <form class="mx-auto" action="/companies">
