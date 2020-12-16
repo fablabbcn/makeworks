@@ -153,7 +153,7 @@
 
   <div class="row border border-dark">
     <div class="col-md-6 tile-first p-0 border-bottom border-dark">
-      <%= image_tag @company.portrait, alt: 'Portrait' %>
+      <%= image_tag @company.portrait, alt: 'Portrait' if @image %>
     </div>
 
     <div class="col-md-6 border-bottom border-dark">

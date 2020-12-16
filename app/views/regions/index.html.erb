@@ -17,15 +17,13 @@
         </div>
 
         <p><%= region.about_text %></p>
-        <ul class="pl-4">
-          <li>Companies: <strong><%= region.companies.count %></strong></li>
-          <li>Users: <strong><%= region.users.count %></strong></li>
-        </ul>
 
         <% if admin? %>
           <div class="border p-2 mt-2">
             <p>Admin information</p>
             <ul>
+              <li>Companies: <strong><%= region.companies.count %></strong></li>
+              <li>Users in region: <strong><%= region.users.count %></strong></li>
               <li>Is Public: <strong><%= region.is_public %></strong></li>
               <li>Can signup: <strong><%= region.can_signup %></strong></li>
               <li>Lat: <%= region.lat %></li>
