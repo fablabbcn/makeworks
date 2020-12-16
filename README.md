@@ -25,6 +25,9 @@ If it stops working, it might need to be re-created:
 * Redirect URI: https://new.make.works/users/auth/fablabs/callback
 * Scopes: user
 
+### Login with linkedin
+
+- TODO: get the API key
 
 ## Blog content
 
