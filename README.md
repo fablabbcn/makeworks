@@ -7,7 +7,9 @@ Technology:
 - Hosting: Heroku
 - Assets hosting: AWS
 
-Staging web server: http://staging.make.works/
+Staging web server:
+- http://staging.make.works/
+- https://staging-makeworks.herokuapp.com/
 
 ## Import data
 
