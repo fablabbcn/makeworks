@@ -17,8 +17,10 @@ gem 'mini_magick'
 gem 'omniauth-fablabs', github: 'academany/omniauth-fablabs'
 gem 'omniauth-linkedin-oauth2'
 
-gem "sentry-ruby"
-gem "sentry-rails"
+gem "sentry-raven"
+# The gems below are the new way of using sentry, but they break. Test with `bundle exec rake -P` before committing
+#gem "sentry-ruby"
+#gem "sentry-rails"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.1'
