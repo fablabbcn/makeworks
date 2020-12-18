@@ -91,6 +91,13 @@ h2 {
   height: 100%;
 }
 
+.avatar-small {
+  max-height: 30px;
+  max-width: 30px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
 .btn {
   border-radius: 20px;
   padding: 6px 30px;

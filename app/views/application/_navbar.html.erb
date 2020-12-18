@@ -52,7 +52,7 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarUser" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <% if current_user.avatar.attached? %>
-              <%= image_tag current_user.avatar, style: 'height:30px; width:30px; object-fit: cover; border-radius: 50%;' %>
+              <%= image_tag current_user.avatar, class: 'avatar-small' %>
             <% end %>
             <%= current_user.name %>
           </a>
