@@ -16,8 +16,9 @@ en:
   shared:
     a_global_library: a global library for local manufacturing
     companies: Companies
-    create_new: Create new
+    contact_us: Contact us
     create_an_account: Create an account
+    create_new: Create new
     edit_region: Edit Region
     finished_products: Finished products
     industries: Industries
@@ -29,6 +30,8 @@ en:
     processes: Processes
     regions: Regions
     sign_up: Sign up
+    start_your_region: Start your region
+    submit_a_maker: Submit a maker
     tagline: Find local manufacturers in your region
   simple_form:
     hints:

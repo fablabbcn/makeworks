@@ -28,6 +28,7 @@ body {
   //background-color: #F9F9F9;
   color: $black3;
   //font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 18px;
   font-family: 'Inter', sans-serif;
 }
 
@@ -101,6 +102,13 @@ h2 {
 .btn {
   border-radius: 20px;
   padding: 6px 30px;
+}
+
+.btn-xl {
+  padding: 10px 30px;
+  font-size: 25px;
+  border-radius: 30px;
+  font-weight: 500;
 }
 
 .btn-primary {

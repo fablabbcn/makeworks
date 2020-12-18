@@ -3,8 +3,8 @@
 
   <div>
     <div class="text-center mb-5">
-      <h1 class="display-1 font-weight-bold">MAKE WORKS</h1>
-      <h4><%= t('shared.a_global_library') %></h4>
+      <h1 style="font-size: 100px; font-weight: 500;">MAKE WORKS</h1>
+      <h4 style="font-size: 33px; font-weight: 400;"><%= t('shared.a_global_library') %></h4>
     </div>
   </div>
 
@@ -20,6 +20,20 @@
     <%= link_to t("shared.finished_products"), finished_products_taxonomies_url, class: 'btn btn-block btn-yellow mx-3' %>
   </div>
   -->
+
+  <h3 style="font-size: 33px; font-weight: 400;">
+  You can’t find what you are searching for? 
+  </h3>
+
+  <h3 style="font-size: 33px; font-weight: 400;">
+  We are making Make Works, together. Join us!
+  </h3>
+
+  <div class="mb-5 d-lg-flex justify-content-between align-items-end mt-5">
+    <%= link_to t("shared.contact_us"), contact_url, class: 'btn btn-xl btn-block btn-outline-primary' %>
+    <%= link_to t("shared.submit_a_maker"), contact_url, class: 'btn btn-xl btn-block btn-outline-primary mx-lg-3' %>
+    <%= link_to t("shared.start_your_region"), contact_url, class: 'btn btn-xl btn-block btn-outline-primary' %>
+  </div>
 
   <h4 class="mt-5">
     Make Works want’s to connect people wanting
