@@ -1,266 +1,264 @@
-<div class="container my-5">
+<div class="mb-3">
+  <% if current_user&.is_admin? || current_user&.is_champion_in_region(@company.region) %>
+    <%= link_to 'Edit', edit_company_path(@company), class: 'btn btn-primary'  %>
+  <% end %>
+</div>
 
-  <div class="mb-3">
-    <% if current_user&.is_admin? || current_user&.is_champion_in_region(@company.region) %>
-      <%= link_to 'Edit', edit_company_path(@company), class: 'btn btn-primary'  %>
-    <% end %>
+<%= link_to "Companies", companies_url %> /
+<%= link_to @company.region, region_url(@company.region) %> /
+<%= title @company.name, class: 'font-weight-bold' %>
+
+<div class="row my-4">
+  <div class="col-md-7">
+    <p><%= @company.intro %></p>
   </div>
+  <div class="col-md-5">
+    <table style='width: 100%'>
+      <tbody>
+        <tr>
+          <th>Type</th>
+          <td> <%= @company.manufacturer_taxonomies.to_sentence %> </td>
+        </tr>
+        <tr>
+          <th>Industry</th>
+          <td><%= @company.industry_taxonomies.to_sentence %></td>
+        </tr>
+        <tr>
+          <th>Employees</th>
+          <td><%= @company.number_of_staff %></td>
+        </tr>
+        <tr>
+          <th>Region</th>
+          <td><%= link_to @company.region, region_url(@company.region) %></td>
+        </tr>
+        <tr>
+          <th>Location</th>
+          <td><%= @company.location %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 
-  <%= link_to "Companies", companies_url %> /
-  <%= link_to @company.region, region_url(@company.region) %> /
-  <%= title @company.name, class: 'font-weight-bold' %>
+<%= image_tag(get_1200px(@company.top_image), class: 'border border-dark') if @company.top_image.present? %>
 
-  <div class="row my-4">
-    <div class="col-md-7">
-      <p><%= @company.intro %></p>
+<% if current_user&.is_admin? %>
+  <div class="my-4">
+    <div class="border border-dark p-4">
+      <p>Admin info:</p>
+      <ul>
+        <%# @company.title %>
+        <li>Is verified: <%= @company.is_verified? %></li>
+        <li>Trimmed name: <%= @company.trimmed_name %></li>
+        <li>Soft delete: <%= @company.soft_delete %></li>
+        <li>Been visited: <%= @company.been_visited %> </li>
+        <li>Year founded: <%= @company.year_founded %></li>
+        <li>Film ready: <%= @company.film_ready %></li>
+      </ul>
     </div>
-    <div class="col-md-5">
+  </div>
+<% end %>
+
+<h2 class="mt-5">Production details</h2>
+
+<div class="row my-4">
+  <div class="col-md-7">
+    <p><%= @company.background %></p>
+  </div>
+  <div class="col-md-5">
+    <div class="">
       <table style='width: 100%'>
         <tbody>
           <tr>
-            <th>Type</th>
-            <td> <%= @company.manufacturer_taxonomies.to_sentence %> </td>
+            <th>Turnaround time</th>
+            <td><%= @company.turnaround_time %></td>
           </tr>
           <tr>
-            <th>Industry</th>
-            <td><%= @company.industry_taxonomies.to_sentence %></td>
+            <th>Minimum order</th>
+            <td><%= @company.minimum_order %></td>
           </tr>
           <tr>
-            <th>Employees</th>
-            <td><%= @company.number_of_staff %></td>
+            <th>Production access</th>
+            <td><%= @company.production_access %></td>
           </tr>
           <tr>
-            <th>Region</th>
-            <td><%= link_to @company.region, region_url(@company.region) %></td>
-          </tr>
-          <tr>
-            <th>Location</th>
-            <td><%= @company.location %></td>
+            <th>File types</th>
+            <td><%= @company.file_types %></td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
+</div>
 
-  <%= image_tag(get_1200px(@company.top_image), class: 'border border-dark') if @company.top_image.present? %>
-
-  <% if current_user&.is_admin? %>
-    <div class="my-4">
-      <div class="border border-dark p-4">
-        <p>Admin info:</p>
-        <ul>
-          <%# @company.title %>
-          <li>Is verified: <%= @company.is_verified? %></li>
-          <li>Trimmed name: <%= @company.trimmed_name %></li>
-          <li>Soft delete: <%= @company.soft_delete %></li>
-          <li>Been visited: <%= @company.been_visited %> </li>
-          <li>Year founded: <%= @company.year_founded %></li>
-          <li>Film ready: <%= @company.film_ready %></li>
-        </ul>
-      </div>
-    </div>
-  <% end %>
-
-  <h2 class="mt-5">Production details</h2>
-
-  <div class="row my-4">
-    <div class="col-md-7">
-      <p><%= @company.background %></p>
-    </div>
-    <div class="col-md-5">
-      <div class="">
-        <table style='width: 100%'>
-          <tbody>
-            <tr>
-              <th>Turnaround time</th>
-              <td><%= @company.turnaround_time %></td>
-            </tr>
-            <tr>
-              <th>Minimum order</th>
-              <td><%= @company.minimum_order %></td>
-            </tr>
-            <tr>
-              <th>Production access</th>
-              <td><%= @company.production_access %></td>
-            </tr>
-            <tr>
-              <th>File types</th>
-              <td><%= @company.file_types %></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <div class="row my-5">
-    <div class="col-md-4 col-xl-2">
-      <h4>Materials</h4>
-      <ul class="list-unstyled">
-        <% @company.materials_taxonomies.each do |x| %>
-          <li>
-            <%= link_to x, materials_taxonomy_url(x) %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-
-    <div class="col-md-4 col-xl-2">
-      <h4>Processes</h4>
-      <ul class="list-unstyled">
-        <% @company.process_taxonomies.each do |x| %>
-          <li>
-            <%= link_to x, process_taxonomy_url(x) %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-
-    <div class="col-md-4 col-xl-3 mb-4">
-      <h4>Machines</h4>
-      <ul class="list-unstyled">
-        <% @company.machines_taxonomies.each do |x| %>
-          <li>
-            <%= link_to x, machines_taxonomy_url(x) %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-
-    <div class="col-md-6 col-xl-2">
-      <h4>Works With</h4>
-      <ul class="list-unstyled">
-        <%= render 'list_item_checkbox', the_bool: @company.works_with_large_business, the_text: 'Large business' %>
-        <%= render 'list_item_checkbox', the_bool: @company.works_with_small_companies, the_text: 'Small companies' %>
-        <%= render 'list_item_checkbox', the_bool: @company.works_with_professionals, the_text: 'Professionals' %>
-        <%= render 'list_item_checkbox', the_bool: @company.works_with_general_public , the_text: 'General public' %>
-        <%= render 'list_item_checkbox', the_bool: @company.works_with_students, the_text: 'Students' %>
-      </ul>
-    </div>
-
-    <div class="col-md-6 col-xl-3">
-      <h4>Capacity</h4>
-      <ul class="list-unstyled">
-        <%= render 'list_item_checkbox', the_bool: @company.bespoke_one_offs, the_text: 'Bespoke 1-offs' %>
-        <%= render 'list_item_checkbox', the_bool: @company.sample_production, the_text: 'Sample production' %>
-        <%= render 'list_item_checkbox', the_bool: @company.batch_production, the_text: 'Batch production / Prototypes' %>
-        <%= render 'list_item_checkbox', the_bool: @company.short_run,  the_text: 'Short run' %>
-        <%= render 'list_item_checkbox', the_bool: @company.medium_run, the_text: 'Medium run' %>
-        <%= render 'list_item_checkbox', the_bool: @company.large_run, the_text: 'Large run' %>
-      </ul>
-    </div>
-  </div>
-
-  <div class="row border border-dark">
-    <div class="col-md-6 tile-first p-0 border-bottom border-dark">
-      <%= image_tag @company.portrait, alt: 'Portrait' if @image %>
-    </div>
-
-    <div class="col-md-6 border-bottom border-dark">
-      <div class="p-4">
-        <h4 class="text-center">Contact info</h4>
-        <p>
-        <strong>Contact name:</strong>
-        <%= @company.contact_name %>
-        </p>
-
-        <p>
-        <strong>Contact email:</strong>
-        <%= @company.contact_email %>
-        </p>
-
-        <p>
-        <strong>Contact phone:</strong>
-        <%= @company.contact_phone %>
-        </p>
-
-        <p>
-        <strong>Contact jobtitle:</strong>
-        <%= @company.contact_jobtitle %>
-        </p>
-
-        <p>Address: <%= @company.address %></p>
-
-      </div>
-    </div>
-
-    <div class="col-md-6 tile-first">
-      <div class="p-4 ">
-        <h4 class="text-center">Social</h4>
-
-        <strong>Linkedin:</strong>
-        <%= link_to(@company.linkedin, @company.linkedin, target: "_blank") %>
-        <br>
-
-        <strong>Flickr:</strong>
-        <%= link_to(@company.flickr, @company.flickr, target: "_blank") %>
-        <br>
-
-        <strong>Facebook:</strong>
-        <%= link_to(@company.facebook, @company.facebook, target: "_blank") %>
-        <br>
-
-        <strong>Instagram:</strong>
-        <%= link_to(@company.instagram, @company.instagram, target: "_blank") %>
-        <br>
-
-        <strong>Twitter:</strong>
-        <%= link_to(@company.twitter, @company.twitter, target: "_blank") %>
-        <br>
-
-        <strong>Pinterest:</strong>
-        <%= link_to(@company.pinterest, @company.pinterest, target: "_blank") %>
-        <br>
-
-        <strong>Youtube:</strong>
-        <%= link_to(@company.youtube, @company.youtube, target: "_blank") %>
-        <br>
-
-        <strong>Video link:</strong>
-        <%= link_to(@company.video_link, @company.video_link, target: "_blank") %>
-        <br>
-
-        <strong>Website:</strong>
-        <%= link_to(@company.website, @company.website, target: "_blank") %>
-        <br>
-      </div>
-    </div>
-
-    <div class="col-md-6 p-0">
-      <% if @company.lat.present? && @company.lng.present? %>
-        <%= render partial: 'map', locals: { locations: [@company]} %>
+<div class="row my-5">
+  <div class="col-md-4 col-xl-2">
+    <h4>Materials</h4>
+    <ul class="list-unstyled">
+      <% @company.materials_taxonomies.each do |x| %>
+        <li>
+          <%= link_to x, materials_taxonomy_url(x) %>
+        </li>
       <% end %>
+    </ul>
+  </div>
+
+  <div class="col-md-4 col-xl-2">
+    <h4>Processes</h4>
+    <ul class="list-unstyled">
+      <% @company.process_taxonomies.each do |x| %>
+        <li>
+          <%= link_to x, process_taxonomy_url(x) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="col-md-4 col-xl-3 mb-4">
+    <h4>Machines</h4>
+    <ul class="list-unstyled">
+      <% @company.machines_taxonomies.each do |x| %>
+        <li>
+          <%= link_to x, machines_taxonomy_url(x) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="col-md-6 col-xl-2">
+    <h4>Works With</h4>
+    <ul class="list-unstyled">
+      <%= render 'list_item_checkbox', the_bool: @company.works_with_large_business, the_text: 'Large business' %>
+      <%= render 'list_item_checkbox', the_bool: @company.works_with_small_companies, the_text: 'Small companies' %>
+      <%= render 'list_item_checkbox', the_bool: @company.works_with_professionals, the_text: 'Professionals' %>
+      <%= render 'list_item_checkbox', the_bool: @company.works_with_general_public , the_text: 'General public' %>
+      <%= render 'list_item_checkbox', the_bool: @company.works_with_students, the_text: 'Students' %>
+    </ul>
+  </div>
+
+  <div class="col-md-6 col-xl-3">
+    <h4>Capacity</h4>
+    <ul class="list-unstyled">
+      <%= render 'list_item_checkbox', the_bool: @company.bespoke_one_offs, the_text: 'Bespoke 1-offs' %>
+      <%= render 'list_item_checkbox', the_bool: @company.sample_production, the_text: 'Sample production' %>
+      <%= render 'list_item_checkbox', the_bool: @company.batch_production, the_text: 'Batch production / Prototypes' %>
+      <%= render 'list_item_checkbox', the_bool: @company.short_run,  the_text: 'Short run' %>
+      <%= render 'list_item_checkbox', the_bool: @company.medium_run, the_text: 'Medium run' %>
+      <%= render 'list_item_checkbox', the_bool: @company.large_run, the_text: 'Large run' %>
+    </ul>
+  </div>
+</div>
+
+<div class="row border border-dark">
+  <div class="col-md-6 tile-first p-0 border-bottom border-dark">
+    <%= image_tag @company.portrait, alt: 'Portrait' if @image %>
+  </div>
+
+  <div class="col-md-6 border-bottom border-dark">
+    <div class="p-4">
+      <h4 class="text-center">Contact info</h4>
+      <p>
+      <strong>Contact name:</strong>
+      <%= @company.contact_name %>
+      </p>
+
+      <p>
+      <strong>Contact email:</strong>
+      <%= @company.contact_email %>
+      </p>
+
+      <p>
+      <strong>Contact phone:</strong>
+      <%= @company.contact_phone %>
+      </p>
+
+      <p>
+      <strong>Contact jobtitle:</strong>
+      <%= @company.contact_jobtitle %>
+      </p>
+
+      <p>Address: <%= @company.address %></p>
+
     </div>
   </div>
 
-  <div class="my-3">
-    <p>Companies nearby:</p>
-    <% unless @company.new_record? %>
-      <ul>
-        <% @company.nearbys&.each do |c| %>
-          <li>
-            <%= link_to c, company_url(c) %>
-          </li>
-        <% end %>
-      </ul>
+  <div class="col-md-6 tile-first">
+    <div class="p-4 ">
+      <h4 class="text-center">Social</h4>
+
+      <strong>Linkedin:</strong>
+      <%= link_to(@company.linkedin, @company.linkedin, target: "_blank") %>
+      <br>
+
+      <strong>Flickr:</strong>
+      <%= link_to(@company.flickr, @company.flickr, target: "_blank") %>
+      <br>
+
+      <strong>Facebook:</strong>
+      <%= link_to(@company.facebook, @company.facebook, target: "_blank") %>
+      <br>
+
+      <strong>Instagram:</strong>
+      <%= link_to(@company.instagram, @company.instagram, target: "_blank") %>
+      <br>
+
+      <strong>Twitter:</strong>
+      <%= link_to(@company.twitter, @company.twitter, target: "_blank") %>
+      <br>
+
+      <strong>Pinterest:</strong>
+      <%= link_to(@company.pinterest, @company.pinterest, target: "_blank") %>
+      <br>
+
+      <strong>Youtube:</strong>
+      <%= link_to(@company.youtube, @company.youtube, target: "_blank") %>
+      <br>
+
+      <strong>Video link:</strong>
+      <%= link_to(@company.video_link, @company.video_link, target: "_blank") %>
+      <br>
+
+      <strong>Website:</strong>
+      <%= link_to(@company.website, @company.website, target: "_blank") %>
+      <br>
+    </div>
+  </div>
+
+  <div class="col-md-6 p-0">
+    <% if @company.lat.present? && @company.lng.present? %>
+      <%= render partial: 'map', locals: { locations: [@company]} %>
     <% end %>
   </div>
+</div>
 
-  <div class="row my-5">
-    <div class="col-md-6 p-0 mx-auto">
-      <div id="carouselCompany" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner bg-dark">
-          <%= render partial: 'carousel_item', locals: { images: @company.all_photos } %>
-        </div>
-        <a class="carousel-control-prev" href="#carouselCompany" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselCompany" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
+<div class="my-3">
+  <p>Companies nearby:</p>
+  <% unless @company.new_record? %>
+    <ul>
+      <% @company.nearbys&.each do |c| %>
+        <li>
+          <%= link_to c, company_url(c) %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
+
+<div class="row my-5">
+  <%= @company.all_photos %>
+  <div class="col-md-6 p-0 mx-auto">
+    <div id="carouselCompany" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner bg-dark">
+        <%= render partial: 'carousel_item', locals: { images: @company.all_photos } %>
       </div>
+      <a class="carousel-control-prev" href="#carouselCompany" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselCompany" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </a>
     </div>
   </div>
 </div>
