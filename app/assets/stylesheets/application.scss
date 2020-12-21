@@ -28,8 +28,13 @@ body {
   //background-color: #F9F9F9;
   color: $black3;
   //font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 18px;
+  //font-size: 18px;
   font-family: 'Inter', sans-serif;
+}
+
+// Remove after simple_form starts to support Bootstrap 5
+.form-group {
+  margin-bottom: 10px;
 }
 
 a {

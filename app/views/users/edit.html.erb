@@ -9,11 +9,12 @@
 
   <hr>
 
-  <%= link_to "Delete my account!",
-    admin_destroy_user_path(current_user),
-    method: :delete,
-    data: { confirm: "You sure?" },
-    class: 'btn btn-danger float-right mb-5' %>
-  <br>
+  <div class="text-end">
+    <%= link_to "Delete my account!",
+      admin_destroy_user_path(current_user),
+      method: :delete,
+      data: { confirm: "You sure?" },
+      class: 'btn btn-danger mb-5' %>
+  </div>
 
 </div>

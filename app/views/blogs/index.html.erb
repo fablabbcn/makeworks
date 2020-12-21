@@ -6,9 +6,7 @@
   </div>
   <div class="input-group mb-3">
     <%= f.search_field :title_or_blurb_or_content_cont, class: 'form-control', placeholder: 'Search for a blog title / content' %>
-    <div class="input-group-append">
-      <%= f.submit class: 'btn btn-primary' %>
-    </div>
+    <%= f.submit class: 'btn btn-primary' %>
   </div>
 <% end %>
 
@@ -24,11 +22,11 @@
   <%= link_to 'New Blog', new_blog_path, class: 'btn btn-primary my-3' %>
 <% end %>
 
-<div class="border-top border-left border-right border-dark">
+<div class="border-top border-start border-end border-dark">
 
   <% @blogs.each_with_index do |blog, index| %>
-    <div class="row no-gutters border-bottom border-dark ">
-      <div class="col-6 p-5">
+    <div class="row g-0 border-bottom border-dark ">
+      <div class="col-lg-6 p-5">
         <p><%= link_to blog.title, blog %></p>
         <small> <%= blog.created_at&.strftime("%B %d, %Y") %> </small>
         <h4><%= blog.blurb %></h4>
@@ -38,7 +36,7 @@
         <%# blog.medium_id %>
         <p><%= blog.sub_title %></p>
       </div>
-      <div class="col-6 text-center <%= 'order-first' if index % 2 == 0 %>">
+      <div class="col-lg-6 text-center <%= 'order-first' if index % 2 == 0 %>">
         <%= link_to image_tag(blog.header_image, class: 'img-fill'), blog %>
       </div>
     </div>

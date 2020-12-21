@@ -3,6 +3,7 @@
 
   <%= search_form_for @q, class: 'pt-3 mx-auto' do |f| %>
     <h1 class="mb-4"><%= t('shared.tagline') %></h1>
+    <h5>Search by</h5>
     <div class="row">
       <div class="my-2 col-md-6 col-xl-3">
         <%= f.select :region_id_eq, Region.where(is_public: true).pluck(:name, :id), {include_blank: 'All Regions'}, class: 'form-control' %>
@@ -19,9 +20,7 @@
     </div>
     <div class="input-group my-2" style="max-width:800px">
       <%= f.search_field :name_or_description_cont, class: 'form-control', placeholder: 'Company name or description contains..' %>
-      <div class="input-group-append">
-        <%= f.submit class: 'btn btn-primary' %>
-      </div>
+      <%= f.submit class: 'btn btn-primary' %>
     </div>
   <% end %>
 
@@ -31,7 +30,7 @@
   </div>
 
   <% if current_user %>
-    <div class="text-right">
+    <div class="text-end">
       <%= link_to 'New Company', new_company_path, class: 'btn btn-outline-primary my-3' %>
     </div>
   <% end %>

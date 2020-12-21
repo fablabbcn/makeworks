@@ -11,7 +11,7 @@
     <div class="col-lg-6 d-flex align-items-center justify-content-center">
       <% if company.top_image.present? %>
         <%= link_to company_url(company) do %>
-          <%= image_tag(company&.top_image, alt: 'Company logo', class: 'img-fluid ml-auto') %>
+          <%= image_tag(company&.top_image, alt: 'Company logo', class: 'img-fluid ms-auto') %>
         <% end %>
       <% end %>
     </div>
