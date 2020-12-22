@@ -4,9 +4,8 @@
   <% end %>
 </div>
 
-<%= link_to "Companies", companies_url %> /
-<%= link_to @company.region, region_url(@company.region) %> /
-<%= title @company.name, class: 'font-weight-bold' %>
+<%= link_to @company.region, region_url(@company.region) %>
+<%= title @company.name %>
 
 <div class="row my-4">
   <div class="col-md-7">
@@ -245,7 +244,6 @@
 </div>
 
 <div class="row my-5">
-  <%= @company.all_photos %>
   <div class="col-md-6 p-0 mx-auto">
     <div id="carouselCompany" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner bg-dark">
@@ -261,4 +259,10 @@
       </a>
     </div>
   </div>
+</div>
+
+<div class="mb-3">
+  <% if current_user&.is_admin? || current_user&.is_champion_in_region(@company.region) %>
+    <%= link_to 'Edit', edit_company_path(@company), class: 'btn btn-primary'  %>
+  <% end %>
 </div>
