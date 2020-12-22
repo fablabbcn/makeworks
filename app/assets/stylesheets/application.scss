@@ -146,7 +146,7 @@ h2 {
   border: $border-width solid $black2;
   color: $black2;
 
-  &:hover {
+  &:hover, &:focus {
     background: $black !important;
     border: $border-width solid $black2;
     color: $white !important;

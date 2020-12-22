@@ -1,88 +1,87 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white sticky-top" style="border-bottom: 2px solid #222;">
   <div class="container-fluid">
 
-  <%= link_to root_url, class: 'navbar-brand' do %>
-    <%= image_tag 'favicon.png', style: 'max-height: 35px', alt: 'MakeWorks logo' %>
-    <span class="font-weight-bold">
-      MAKE WORKS
-    </span>
-  <% end %>
-  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <% if current_user&.is_admin? %>
-      <ul class="navbar-nav ms-0 ms-lg-5">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Browse by Tags (Admin only)
-          </a>
-          <div class="dropdown-menu mb-2" aria-labelledby="navbarDropdown">
-            <%= link_to t("shared.processes"), process_taxonomies_url, class: "dropdown-item" %>
-            <%= link_to t("shared.materials"), materials_taxonomies_url, class: "dropdown-item" %>
-            <%= link_to t("shared.industry"), industry_taxonomies_url, class: "dropdown-item" %>
-            <%= link_to t("shared.machines"), machines_taxonomies_url, class: "dropdown-item" %>
-            <%= link_to t("shared.manufacturers"), manufacturer_taxonomies_url, class: "dropdown-item" %>
-            <%= link_to t("shared.finished_products"), finished_products_taxonomies_url, class: "dropdown-item" %>
-            <div class="dropdown-divider"></div>
-            <div class="dropdown-header">
-              SuperAdmin only
-            </div>
-            <%= link_to "Taxonomies", taxonomies_url, class: "dropdown-item" %>
-            <%= link_to "Media", media_url, class: "dropdown-item" %>
-          </div>
-        </li>
-      </ul>
+    <%= link_to root_url, class: 'navbar-brand' do %>
+      <%= image_tag 'favicon.png', style: 'max-height: 35px', alt: 'MakeWorks logo' %>
+      <span class="font-weight-bold">
+        MAKE WORKS
+      </span>
     <% end %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <%= link_to t("shared.regions"), regions_url,     class: "nav-link mb-3 mb-md-0 me-2 ms-auto btn #{current_page?(regions_url) ? 'btn-primary' : 'btn-outline-primary'}" %>
-    <%= link_to t("shared.companies"), companies_url, class: "nav-link mb-3 mb-md-0 me-2 btn #{current_page?(companies_url) ? 'btn-primary' : 'btn-outline-primary'}" %>
-    <%= link_to "Blog", blogs_url,          class: "nav-link mb-3 mb-md-0 me-2 btn #{current_page?(blogs_url) ? 'btn-primary' : 'btn-outline-primary'}" %>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <% if current_user&.is_admin? %>
+        <ul class="navbar-nav ms-0 ms-lg-5">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Browse by Tags (Admin only)
+            </a>
+            <div class="dropdown-menu mb-2" aria-labelledby="navbarDropdown">
+              <%= link_to t("shared.processes"), process_taxonomies_url, class: "dropdown-item" %>
+              <%= link_to t("shared.materials"), materials_taxonomies_url, class: "dropdown-item" %>
+              <%= link_to t("shared.industry"), industry_taxonomies_url, class: "dropdown-item" %>
+              <%= link_to t("shared.machines"), machines_taxonomies_url, class: "dropdown-item" %>
+              <%= link_to t("shared.manufacturers"), manufacturer_taxonomies_url, class: "dropdown-item" %>
+              <%= link_to t("shared.finished_products"), finished_products_taxonomies_url, class: "dropdown-item" %>
+              <div class="dropdown-divider"></div>
+              <div class="dropdown-header">
+                SuperAdmin only
+              </div>
+              <%= link_to "Taxonomies", taxonomies_url, class: "dropdown-item" %>
+              <%= link_to "Media", media_url, class: "dropdown-item" %>
+            </div>
+          </li>
+        </ul>
+      <% end %>
 
-    <!--
-    <form class="mx-auto" action="/companies">
-      <div class="input-group">
+      <%= link_to t("shared.regions"), regions_url,     class: "nav-link mb-3 mb-md-0 me-2 ms-auto btn #{current_page?(regions_url) ? 'btn-primary' : 'btn-outline-primary'}" %>
+      <%= link_to t("shared.companies"), companies_url, class: "nav-link mb-3 mb-md-0 me-2 btn #{current_page?(companies_url) ? 'btn-primary' : 'btn-outline-primary'}" %>
+      <%= link_to "Blog", blogs_url,                    class: "nav-link mb-3 mb-md-0 me-2 btn #{current_page?(blogs_url) ? 'btn-primary' : 'btn-outline-primary'}" %>
+
+      <!--
+        <form class="mx-auto" action="/companies">
+        <div class="input-group">
         <input class="form-control " name="q[name_or_description_cont]" type="search" placeholder="Search companies.." aria-label="Search">
         <button class="btn btn-dark input-group-append" type="submit">Search</button>
-      </div>
-    </form>
-    -->
+        </div>
+        </form>
+      -->
 
-    <% if current_user %>
-      <ul class="navbar-nav ms-0 ms-lg-5">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarUser" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <% if current_user.avatar.attached? %>
-              <%= image_tag current_user.avatar, class: 'avatar-small' %>
-            <% end %>
-            <%= current_user.name %>
-          </a>
-          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarUser">
-            <%= link_to "User settings", edit_profile_url(current_user), class: "dropdown-item" %>
-            <% if current_user.is_admin? %>
-              <%= link_to "Admin", "/admin", target: '_blank', class: "dropdown-item" %>
-            <% end %>
-            <div class="dropdown-divider"></div>
-            <%= link_to t('shared.log_out'), destroy_user_session_url, class: "dropdown-item" %>
-          </div>
-        </li>
-      </ul>
-    <% else %>
-      <ul class="navbar-nav ms-0 ms-lg-5">
-        <li class="nav-item dropdown">
-          <a class="dropdown-toggle btn btn-outline-primary px-4" href="#" id="not-logged-in" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= t('shared.log_in') %>
-          </a>
-          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="not-logged-in">
-            <%= link_to t('shared.log_in'), new_user_session_url, class: 'dropdown-item' %>
-            <%= link_to t('shared.create_an_account'), new_user_registration_url, class: 'dropdown-item' %>
-          </div>
-        </li>
-      </ul>
+      <% if current_user %>
+        <ul class="navbar-nav ms-0 ms-lg-5">
+          <li class="nav-item dropdown">
+            <a class="btn btn-outline-primary nav-link dropdown-toggle" href="#" id="navbarUser" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <% if current_user.avatar.attached? %>
+                <%= image_tag current_user.avatar, class: 'avatar-small' %>
+              <% end %>
+              <%= current_user.name %>
+            </a>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarUser">
+              <%= link_to "User settings", edit_profile_url(current_user), class: "dropdown-item" %>
+              <% if current_user.is_admin? %>
+                <%= link_to "Admin", "/admin", target: '_blank', class: "dropdown-item" %>
+              <% end %>
+              <div class="dropdown-divider"></div>
+              <%= link_to t('shared.log_out'), destroy_user_session_url, class: "dropdown-item" %>
+            </div>
+          </li>
+        </ul>
+      <% else %>
+        <ul class="navbar-nav ms-0 ms-lg-5">
+          <li class="nav-item dropdown">
+            <a class="dropdown-toggle btn btn-outline-primary px-4" href="#" id="not-logged-in" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= t('shared.log_in') %>
+            </a>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="not-logged-in">
+              <%= link_to t('shared.log_in'), new_user_session_url, class: 'dropdown-item' %>
+              <%= link_to t('shared.create_an_account'), new_user_registration_url, class: 'dropdown-item' %>
+            </div>
+          </li>
+        </ul>
+      <% end %>
 
-    <% end %>
-
-  </div>
+    </div>
   </div>
 </nav>

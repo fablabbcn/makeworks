@@ -28,7 +28,7 @@
     <% if @user.avatar.attached? %>
       <%= image_tag @user.avatar, style: 'max-height:200px;' %>
     <% end %>
-    <%= f.input :avatar %>
+    <%= f.input :avatar, input_html: { class: 'form-control' } %>
   </div>
 
   <div class="my-5">
