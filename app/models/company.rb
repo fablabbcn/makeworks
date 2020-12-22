@@ -39,7 +39,7 @@ class Company < ApplicationRecord
 
   def all_photos
     arr = []
-    attributes.each do |name,value|
+    attributes.each do |name, value|
       if name =~ /photo\d/
         arr << value if value.present?
       end

@@ -150,7 +150,7 @@
 
 <div class="row border border-dark">
   <div class="col-md-6 tile-first p-0 border-bottom border-dark">
-    <%= image_tag @company.portrait, alt: 'Portrait' if @image %>
+    <%= image_tag(@company.portrait, alt: 'Portrait', class: 'img-fil') if @company&.portrait.present? %>
   </div>
 
   <div class="col-md-6 border-bottom border-dark">
@@ -234,7 +234,7 @@
   <p>Companies nearby:</p>
   <% unless @company.new_record? %>
     <ul>
-      <% @company.nearbys&.each do |c| %>
+      <% @company.nearbys.limit(8)&.each do |c| %>
         <li>
           <%= link_to c, company_url(c) %>
         </li>
