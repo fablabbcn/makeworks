@@ -26,7 +26,7 @@ jobs:
       with:
         fetch-depth: 0
 
-    - name: Show available Ruby versions
+    - name: Show available Ruby versions, debug info
       run: |
         ls $RUNNER_TOOL_CACHE/Ruby
         uname -a
