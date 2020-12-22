@@ -23,7 +23,7 @@ require("@rails/actiontext")
 // JavaScript
 document.addEventListener("turbolinks:load", function () {
   // Select2 is loaded via CDN
-  $("select").select2();
+  $("select").select2({'width': '100%'});
   $(".toast").toast('show');
 });
 
