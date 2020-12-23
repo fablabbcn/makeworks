@@ -24,11 +24,14 @@ $yellow: #FFEF61;
 $yellow2: #FFBE02;
 $border-width: 1px;
 
+html {
+  font-size: 17px; // default 16px
+}
+
 body {
   //background-color: #F9F9F9;
   color: $black3;
   //font-family: 'IBM Plex Sans', sans-serif;
-  //font-size: 18px;
   font-family: 'Inter', sans-serif;
 }
 
