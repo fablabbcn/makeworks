@@ -17,7 +17,7 @@ class CompaniesController < ApplicationController
   def index
     @q = Company
       .includes(:region)
-      .where(:regions => {is_public: true})
+      .where(regions: { is_public: true })
       .where(is_verified: true)
       .ransack(params[:q])
 
