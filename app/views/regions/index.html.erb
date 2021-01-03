@@ -19,7 +19,7 @@
         <p><%= region.about_text %></p>
 
         <% if admin? %>
-          <div class="border p-2 mt-2">
+          <div class="card-admin">
             <p>Admin information</p>
             <ul>
               <li>Companies: <strong><%= region.companies.count %></strong></li>
