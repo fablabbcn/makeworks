@@ -234,7 +234,7 @@
   <p>Companies nearby:</p>
   <% unless @company.new_record? %>
     <ul>
-      <% @company.nearbys.limit(8)&.each do |c| %>
+      <% @company.nearbys&.limit(8)&.each do |c| %>
         <li>
           <%= link_to c, company_url(c) %>
         </li>
