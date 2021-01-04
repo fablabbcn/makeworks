@@ -55,7 +55,8 @@ jobs:
         bundle exec rake
         bundle exec rails test:system
       env:
-        SYSTEM_TEST: headless_chrome
+        SYSTEM_TEST: headless_firefox
+        #SYSTEM_TEST: headless_chrome
         RAILS_ENV: test
         TEST_DB_HOST: localhost
         TEST_DB_NAME: postgres
