@@ -43,6 +43,8 @@
 
   <div class="col-md-6">
     <div class="text-center mb-4">
+
+      <% #TODO logo are the old way, remove? %>
       <% if @region.logo&.include? 'http' %>
         <%= image_tag(@region.logo, class:'img-fluid', alt: 'Region logo') %>
       <% else %>
