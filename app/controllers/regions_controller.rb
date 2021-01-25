@@ -18,7 +18,10 @@ class RegionsController < ApplicationController
     #@regions = @q.result(distinct: true).page(params[:page])
 
     # Normal users only see public regions
-    @regions = Region.where(is_public: true).order(:created_at)
+    @regions = Region
+      .where(is_public: true)
+      .order(:created_at)
+      .includes([:rich_text_about_text])
   end
 
   # GET /regions/1
