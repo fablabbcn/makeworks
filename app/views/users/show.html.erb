@@ -2,10 +2,6 @@
   <div class="justify-content-between d-flex">
     <div class="">
       <%= title @user %>
-      <p>
-      <strong>Email:</strong>
-      <%= @user.email %>
-      </p>
 
       <p>
       <strong>First name:</strong>
@@ -16,10 +12,23 @@
       <strong>Last name:</strong>
       <%= @user.last_name %>
       </p>
-      <p>
-      <strong>Locale:</strong>
-      <%= @user.locale %>
-      </p>
+
+      <% if current_user == @user %>
+        <p>
+        <strong>Email:</strong>
+        <%= @user.email %>
+        </p>
+
+        <p>
+        <strong>Locale:</strong>
+        <%= @user.locale %>
+        </p>
+
+        <p>
+        <strong>Time zone</strong>
+        <%= @user.time_zone %>
+        </p>
+      <% end %>
     </div>
     <div class="">
       <% if @user.avatar.attached? %>
@@ -32,7 +41,7 @@
     <%= link_to "Edit", edit_profile_url(current_user), class: 'btn btn-primary' %>
   <% end %>
   <hr>
-  <h4>Is in regions:</h4>
 
   <%= render 'user_regions' %>
+
 </div>
