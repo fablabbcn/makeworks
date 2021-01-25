@@ -53,7 +53,9 @@ module ApplicationHelper
     # https://static.make.works/company/BroadWorkshop/940px/191115_BroadWorkshop_4.jpg
     # https://static.make.works/company/BroadWorkshop/1200px/191115_BroadWorkshop_4.jpg
 
-    comp_name = the_url.split('/')[-2]
-    the_url.sub(comp_name.to_s, "#{comp_name}/1200px")
+    # Find the starting point of company name
+    pos = the_url.index(the_url.split('/')[-1])
+    # Insert the 1200px to a duplicate of the string, so we don't accidentally modify the original one
+    the_url.dup.insert(pos, '1200px/')
   end
 end
