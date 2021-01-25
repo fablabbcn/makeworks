@@ -37,11 +37,11 @@
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarUser">
               <%= link_to "User settings", edit_profile_url(current_user), class: "dropdown-item" %>
               <% if current_user.is_admin? %>
-                <%= link_to "Admin dashboard", "/admin", target: '_blank', class: "dropdown-item" %>
                 <div class="dropdown-divider"></div>
                 <div class="dropdown-header">
                   Admin only
                 </div>
+                <%= link_to "Admin dashboard", "/admin", target: '_blank', class: "dropdown-item" %>
                 <%= link_to t("shared.processes"), process_taxonomies_url, class: "dropdown-item" %>
                 <%= link_to t("shared.materials"), materials_taxonomies_url, class: "dropdown-item" %>
                 <%= link_to t("shared.industry"), industry_taxonomies_url, class: "dropdown-item" %>
