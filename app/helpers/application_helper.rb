@@ -54,6 +54,6 @@ module ApplicationHelper
     # https://static.make.works/company/BroadWorkshop/1200px/191115_BroadWorkshop_4.jpg
 
     comp_name = the_url.split('/')[-2]
-    the_url.gsub(comp_name.to_s, "#{comp_name}/1200px")
+    the_url.sub(comp_name.to_s, "#{comp_name}/1200px")
   end
 end
