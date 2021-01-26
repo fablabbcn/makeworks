@@ -37,8 +37,10 @@ en:
     hints:
       company:
         address: Street address of the company
+        background: Company background
         file_types: Indicate what types of files the company accepts
         film_ready: Film
+        intro: Describe your company in one sentence
         location: Name of the City
         machines_taxonomies: Select as many as you want
         name: Name of the company
