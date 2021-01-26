@@ -16,7 +16,7 @@ class RegionsTest < ApplicationSystemTestCase
 
     check "Can signup" if @region.can_signup
     check "Is public" if @region.is_public
-    fill_in "Logo", with: @region.logo
+    #fill_in "Logo", with: @region.logo
     #fill_in "M", with: @region.m_id
     fill_in "Name", with: @region.name
     fill_in "Trimmed name", with: @region.trimmed_name
@@ -32,7 +32,7 @@ class RegionsTest < ApplicationSystemTestCase
 
     check "Can signup" if @region.can_signup
     check "Is public" if @region.is_public
-    fill_in "Logo", with: @region.logo
+    #fill_in "Logo", with: @region.logo
     #fill_in "M", with: @region.m_id
     fill_in "Name", with: @region.name
     fill_in "Trimmed name", with: @region.trimmed_name
