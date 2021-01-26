@@ -44,10 +44,16 @@ en:
         name: Name of the company
         number_of_staff: Enter a number
         region: Select a region
+        slider_images: Upload images to be used in the slider (carousel)
         #sample_production: Sample production
         #short_run: Short run
         trimmed_name: The 'slug' that will be used in the URL to the company
         website: Does the company have a website?
+      region:
+        logo: The old way of storing logos
+        trimmed_name: The 'slug' that will be used in the URL to the region
+        lat: Latitude
+        lng: Longitude
       user:
         locale: Choose a language for the system. All tags and user data will still
           be in English.

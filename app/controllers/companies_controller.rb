@@ -1,16 +1,21 @@
 class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:show, :index]
-  before_action :who_can_edit!, only: [:edit, :destroy, :update]
+  before_action :who_can_edit!, only: [:edit, :destroy, :update, :delete_image_attachment]
 
   def who_can_edit!
-    if current_user && (current_user.is_champion_in_region(@company.region.id) || current_user.is_admin?)
+    if current_user && (current_user.is_champion_in_region(@company&.region&.id) || current_user.is_admin?)
     else
       flash[:error] = 'Only admins and champions can edit'
       redirect_to @company
     end
   end
 
+  def delete_image_attachment
+    @image = ActiveStorage::Attachment.find(params[:id])
+    @image.purge
+    redirect_back(fallback_location: companies_url)
+  end
 
   # GET /companies
   # GET /companies.json
@@ -117,6 +122,7 @@ class CompaniesController < ApplicationController
       :works_with_students,
       :batch_production,
       :production_access,
+      slider_images: [],
       materials_taxonomy_ids: [],
       industry_taxonomy_ids: [],
       process_taxonomy_ids: [],

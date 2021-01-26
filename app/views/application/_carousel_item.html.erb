@@ -1,7 +1,0 @@
-<% images.each_with_index do |img, index| %>
-  <% if img.present? %>
-    <div class="carousel-item <%= 'active' if index == 0 %>">
-      <%= image_tag(img, class: 'd-block w-100') %>
-    </div>
-  <% end %>
-<% end %>

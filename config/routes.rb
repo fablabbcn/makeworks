@@ -35,7 +35,11 @@ Rails.application.routes.draw do
   resources :taxonomies
 
   get 'taxtree', to: 'taxonomies#tree'
-  resources :companies
+  resources :companies do
+    member do
+      delete :delete_image_attachment
+    end
+  end
   resources :regions do
     member do
       get 'join'

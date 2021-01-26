@@ -17,7 +17,6 @@
       <%= f.association :region, prompt: 'Select a region' %>
     <% end %>
 
-    <hr>
     <%= f.input :location %>
     <%= f.input :address %>
 
@@ -48,15 +47,83 @@
 
     <hr>
     <% if current_user.is_admin? %>
-      <div class="card-admin">
+      <div class="card-admin my-2">
         <h4>Admin only</h4>
         <%= f.input :is_verified %>
         <%= f.input :been_visited %>
         <%= f.input :film_ready %>
         <%= f.input :soft_delete %>
       </div>
-      <hr>
     <% end %>
+
+    <h3>Media</h3>
+
+    <%= f.input :video_link %>
+
+    <% if current_user&.is_admin? || current_user&.is_champion_in_region(@company.region) %>
+      <div class="card-admin my-4">
+        <h5>Admin info</h5>
+        <p>The 'New way' of adding images:</p>
+        <div class="my-3">
+          <%= f.input :slider_images, as: :file, input_html: { multiple: true, class: 'form-control' } %>
+
+          <% if @company.slider_images.attached? %>
+            <div class="row">
+              <% @company.slider_images.each_with_index do |img, index| %>
+                <div class="col-auto">
+                  <%= image_tag(img, class: 'd-block border', style: 'max-width: 100px') %>
+                  <%= link_to "Remove", delete_image_attachment_company_url(img.id),
+                     class: 'd-block my-1 text-danger', method: :delete, remote: true,
+                     data: { confirm: 'Are you sure you want to remove this image?' } %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+
+        <hr>
+        <p>TODO:</p>
+        <ul>
+          <li>DONE - slider_images? Unlimited images? (old name: Photo1-9) used in slider</li>
+          <li>SKIP - profile_image? Only 1 image? (old name: 'Top_Image') used where?</li>
+          <li>contact_person_image? Only 1 image? (old name: 'Portrait') picture of the contact person</li>
+        </ul>
+
+        Limits:
+        <ul>
+          <li>Should all users be able to upload as many images as possible?</li>
+          <li>What if a bot / random user signs up and uploads 500 pictures?</li>
+          <li>Only Verified companies can upload images?</li>
+        </ul>
+
+        <p>Below is the 'OLD way' of adding images.</p>
+        <ul>
+          <li>It Uploaded images to Amazon S3 via plugin? (how / where)?</li>
+          <li>Each image has a column in the database.</li>
+          <li>There was a limit of 9 images. (To add more we have to create a new database column)</li>
+          <li>Ideally we should MERGE the 'old' way into the 'new' way</li>
+          <li>But the old way took 1 image 'original' and created multiple sizes, 1200px, 940px etc</li>
+        </ul>
+
+        <h4>Company profile image (old way)</h4>
+        <%# f.input :image_bucket %>
+        <%= f.input :top_image %>
+        <%= f.input :portrait %>
+
+        <h4>Slider images (old way)</h4>
+
+        <%= f.input :photo1 %>
+        <%= f.input :photo2 %>
+        <%= f.input :photo3 %>
+        <%= f.input :photo4 %>
+        <%= f.input :photo5 %>
+        <%= f.input :photo6 %>
+        <%= f.input :photo7 %>
+        <%= f.input :photo8 %>
+        <%= f.input :photo9 %>
+      </div>
+    <% end %>
+
 
     <h4>Tags</h4>
     <%= f.association :machines_taxonomies %>
@@ -102,44 +169,6 @@
     <%= f.button :submit %>
     <hr>
 
-    <h3>Photos</h3>
-    <% if current_user&.is_admin? || current_user&.is_champion_in_region(@company.region) %>
-      <div class="card-admin">
-        <p>The old way of adding images was adding URLs to the images.</p>
-        <p>The new way of adding images, is uploading them directly.</p>
-
-        <p>Should all users be able to upload as many images as possible?</p>
-        <p>What if a bot / random user signs up and uploads 1.000 pictures?</p>
-
-        <p>Verified companies can upload multiple images?</p>
-        <p>Unverified companies can upload only certain images?</p>
-        <ul>
-          <li>Profile image? profile_image</li>
-          <li>Slider images? slider_images</li>
-        </ul>
-
-
-        <h4>Company profile image</h4>
-        <%# f.input :image_bucket %>
-        <%= f.input :top_image %>
-        <%= f.input :portrait %>
-        <%= f.input :video_link %>
-
-        <h4>Slider images (carousel)</h4>
-
-        <%= f.input :photo1 %>
-        <%= f.input :photo2 %>
-        <%= f.input :photo3 %>
-        <%= f.input :photo4 %>
-        <%= f.input :photo5 %>
-        <%= f.input :photo6 %>
-        <%= f.input :photo7 %>
-        <%= f.input :photo8 %>
-        <%= f.input :photo9 %>
-      </div>
-    <% end %>
-
-    <hr>
     <h3>Social</h3>
     <%= f.input :facebook %>
     <%= f.input :flickr %>

@@ -19,6 +19,8 @@ class Company < ApplicationRecord
   has_many :machines, dependent: :destroy
   has_many :machines_taxonomies, through: :machines
 
+  has_many_attached :slider_images
+
   extend FriendlyId
   friendly_id :name, use: :slugged, slug_column: :trimmed_name
 

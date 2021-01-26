@@ -1,8 +1,20 @@
-<div class="mb-3">
-  <% if current_user&.is_admin? || current_user&.is_champion_in_region(@company.region) %>
-    <%= link_to 'Edit', edit_company_path(@company), class: 'btn btn-primary'  %>
-  <% end %>
-</div>
+<% if current_user&.is_admin? || current_user&.is_champion_in_region(@company.region) %>
+  <%= link_to 'Edit', edit_company_path(@company), class: 'btn btn-primary'  %>
+  <div class="my-4">
+    <div class="card-admin">
+      <p>Admin info:</p>
+      <ul>
+        <%# @company.title %>
+        <li>Is verified: <%= @company.is_verified? %></li>
+        <li>Trimmed name: <%= @company.trimmed_name %></li>
+        <li>Soft delete: <%= @company.soft_delete %></li>
+        <li>Been visited: <%= @company.been_visited %> </li>
+        <li>Year founded: <%= @company.year_founded %></li>
+        <li>Film ready: <%= @company.film_ready %></li>
+      </ul>
+    </div>
+  </div>
+<% end %>
 
 <%= link_to @company.region, region_url(@company.region) %>
 <%= title @company.name %>
@@ -39,24 +51,54 @@
   </div>
 </div>
 
-<%= image_tag(get_1200px(@company.top_image), class: 'border border-dark') if @company.top_image.present? %>
+<!-- new slider -->
+<% if @company.slider_images.attached? %>
+  <div class="carousel slide" id="carouselCompany" data-bs-ride="carousel">
+    <div class="carousel-inner border border-dark mb-3">
 
-<% if current_user&.is_admin? %>
-  <div class="my-4">
-    <div class="card-admin">
-      <p>Admin info:</p>
-      <ul>
-        <%# @company.title %>
-        <li>Is verified: <%= @company.is_verified? %></li>
-        <li>Trimmed name: <%= @company.trimmed_name %></li>
-        <li>Soft delete: <%= @company.soft_delete %></li>
-        <li>Been visited: <%= @company.been_visited %> </li>
-        <li>Year founded: <%= @company.year_founded %></li>
-        <li>Film ready: <%= @company.film_ready %></li>
-      </ul>
+      <% @company.slider_images.each_with_index do |img, index| %>
+        <div class="carousel-item <%= 'active' if index == 0 %>">
+          <%= image_tag(img, class: 'd-block mx-auto img-fluid') %>
+        </div>
+      <% end %>
+
     </div>
+    <a class="carousel-control-prev" href="#carouselCompany" role="button" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselCompany" role="button" data-bs-slide="next">
+      <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </a>
   </div>
 <% end %>
+
+<!-- old slider -->
+<% if @company.all_photos.present? %>
+  <div class="carousel slide" id="carouselCompany-old" data-bs-ride="carousel">
+    <div class="carousel-inner border border-dark">
+      <% @company.all_photos.each_with_index do |img, index| %>
+        <% if img.present? %>
+          <div class="carousel-item <%= 'active' if index == 0 %>">
+            <%= image_tag(get_1200px(img), class: 'd-block w-100') %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <a class="carousel-control-prev" href="#carouselCompany-old" role="button" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselCompany-old" role="button" data-bs-slide="next">
+      <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </a>
+  </div>
+<% end %>
+
+<!-- this image is sometimes a part of the the slider, as the first image -->
+<%# image_tag(get_1200px(@company.top_image), class: 'border border-dark') if @company.top_image.present? %>
 
 <h2 class="mt-5">Production details</h2>
 
@@ -241,24 +283,6 @@
       <% end %>
     </ul>
   <% end %>
-</div>
-
-<div class="row my-5">
-  <div class="col-md-6 p-0 mx-auto">
-    <div id="carouselCompany" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner bg-dark">
-        <%= render partial: 'carousel_item', locals: { images: @company.all_photos } %>
-      </div>
-      <a class="carousel-control-prev" href="#carouselCompany" role="button" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselCompany" role="button" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </a>
-    </div>
-  </div>
 </div>
 
 <div class="mb-3">
