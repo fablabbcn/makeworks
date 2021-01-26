@@ -31,7 +31,7 @@
       <ul class="list-unstyled">
         <% @region.champions.order(:created_at).each do |item| %>
           <li>
-            <%= image_tag(item.user.avatar, class: 'avatar-small') if item.user.avatar.attached? %>
+            <%= image_tag(item.user.avatar, class: 'avatar-small', alt: '', title: item.user) if item.user.avatar.attached? %>
             <%= link_to item.user.name, item.user, class: '' %>
           </li>
         <% end %>
