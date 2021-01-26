@@ -24,41 +24,35 @@
   <%= title @region.name %>
 </div>
 
-<div class="row">
-  <div class="col-md-6">
-    <div class="my-2">
-      <ul class="list-unstyled">
-        <% @region.champions.order(:created_at).each do |item| %>
-          <li>
-            <%= image_tag(item.user.avatar, class: 'avatar-small', alt: '', title: item.user) if item.user.avatar.attached? %>
-            <%= link_to item.user.name, item.user, class: '' %>
-          </li>
-        <% end %>
-      </ul>
-      <%= @region.about_text %>
-    </div>
-
-  </div>
-
-  <div class="col-md-6">
-    <% if @region.has_lat_lng? %>
-      <%# render partial: 'region_map', locals: { locations: [@region]} %>
+<div class="my-2">
+  <ul class="list-unstyled">
+    <% @region.champions.order(:created_at).each do |item| %>
+      <li>
+        <%= image_tag(item.user.avatar, class: 'avatar-small', alt: '', title: item.user) if item.user.avatar.attached? %>
+        <%= link_to item.user.name, item.user, class: '' %>
+      </li>
     <% end %>
-
-    <% if admin? %>
-      <div class="card-admin">
-        <p>Admin only information:</p>
-        <ul class="list-unstyled">
-          <li>Users in region: <%= @region.users.count %></li>
-          <li>Is Public: <strong><%= @region.is_public %></strong></li>
-          <li>Can signup: <strong><%= @region.can_signup %></strong></li>
-          <li>Lat: <%= @region.lat %></li>
-          <li>Lng: <%= @region.lng %></li>
-        </ul>
-      </div>
-    <% end %>
-  </div>
+  </ul>
+  <%= @region.about_text %>
 </div>
+
+
+<% if @region.has_lat_lng? %>
+  <%# render partial: 'region_map', locals: { locations: [@region]} %>
+<% end %>
+
+<% if admin? %>
+  <div class="card-admin">
+    <p>Admin only information:</p>
+    <ul class="list-unstyled">
+      <li>Users in region: <%= @region.users.count %></li>
+      <li>Is Public: <strong><%= @region.is_public %></strong></li>
+      <li>Can signup: <strong><%= @region.can_signup %></strong></li>
+      <li>Lat: <%= @region.lat %></li>
+      <li>Lng: <%= @region.lng %></li>
+    </ul>
+  </div>
+<% end %>
 
 
 <div class="my-2">
