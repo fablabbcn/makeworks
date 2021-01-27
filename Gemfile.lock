@@ -333,7 +333,11 @@ GEM
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
     semantic_range (2.3.0)
-    sentry-raven (3.1.1)
+    sentry-rails (4.1.5)
+      rails (>= 5.0)
+      sentry-ruby (~> 4.1.2)
+    sentry-ruby (4.1.4)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
       faraday (>= 1.0)
     shellany (0.0.1)
     simple_form (5.0.2)
@@ -414,7 +418,8 @@ DEPENDENCIES
   rails (~> 6.0.1)
   sass-rails (>= 6)
   selenium-webdriver
-  sentry-raven
+  sentry-rails
+  sentry-ruby
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
