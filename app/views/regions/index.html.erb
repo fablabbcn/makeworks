@@ -18,19 +18,6 @@
 
         <p><%= region.about_text %></p>
 
-        <% if admin? %>
-          <div class="card-admin">
-            <p>Admin information</p>
-            <ul>
-              <li>Companies: <strong><%= region.companies.count %></strong></li>
-              <li>Users in region: <strong><%= region.users.count %></strong></li>
-              <li>Is Public: <strong><%= region.is_public %></strong></li>
-              <li>Can signup: <strong><%= region.can_signup %></strong></li>
-              <li>Lat: <%= region.lat %></li>
-              <li>Lng: <%= region.lng %></li>
-            </ul>
-          </div>
-        <% end %>
       </div>
     </div>
   <% end %>

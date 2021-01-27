@@ -33,6 +33,7 @@ en:
     start_your_region: Start your region
     submit_a_maker: Submit a maker
     tagline: Find local manufacturers in your region
+    user_settings: User settings
   simple_form:
     hints:
       company:
