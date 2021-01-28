@@ -37,7 +37,7 @@ en:
   simple_form:
     hints:
       company:
-        address: Street address of the company
+        address: Street address, house number, ZIP code of the company
         background: Company history / background
         description: Describe the company
         file_types: Indicate what types of files the company accepts
