@@ -68,4 +68,4 @@
 
 <h3 class="mt-4">Region Updates</h3>
 
-<%= render @region.companies.last %>
+<%= render @region.companies.last if @region.companies.present? %>
