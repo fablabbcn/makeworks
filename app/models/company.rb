@@ -39,7 +39,7 @@ class Company < ApplicationRecord
     trimmed_name.blank?
   end
 
-  def all_photos
+  def old_photos
     arr = []
     attributes.each do |name, value|
       if name =~ /photo\d/

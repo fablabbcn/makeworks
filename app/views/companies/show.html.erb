@@ -58,7 +58,7 @@
 
       <% @company.slider_images.each_with_index do |img, index| %>
         <div class="carousel-item <%= 'active' if index == 0 %>">
-          <%= image_tag(img, class: 'd-block mx-auto img-fluid') %>
+          <%= image_tag(img, class: 'd-block mx-auto', style: 'height:500px') %>
         </div>
       <% end %>
 
@@ -75,10 +75,10 @@
 <% end %>
 
 <!-- old slider -->
-<% if @company.all_photos.present? %>
+<% if @company.old_photos.present? %>
   <div class="carousel slide" id="carouselCompany-old" data-bs-ride="carousel">
     <div class="carousel-inner border border-dark">
-      <% @company.all_photos.each_with_index do |img, index| %>
+      <% @company.old_photos.each_with_index do |img, index| %>
         <% if img.present? %>
           <div class="carousel-item <%= 'active' if index == 0 %>">
             <%= image_tag(get_1200px(img), class: 'd-block w-100') %>
