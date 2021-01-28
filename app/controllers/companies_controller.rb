@@ -122,6 +122,7 @@ class CompaniesController < ApplicationController
       :works_with_students,
       :batch_production,
       :production_access,
+      :production_specifics,
       slider_images: [],
       materials_taxonomy_ids: [],
       industry_taxonomy_ids: [],

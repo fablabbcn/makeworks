@@ -201,6 +201,7 @@ namespace :makeworks do
         photo9: row['Photo9'],
         portrait: row['Portrait'],
         pinterest: row['Pinterest'],
+        production_specifics: row['ProductionSpecifics'],
         sample_production: row['Sample_production'],
         short_run: row['Short_run'],
         soft_delete: row['Soft_Delete'],
