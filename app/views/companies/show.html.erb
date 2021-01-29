@@ -208,7 +208,7 @@
         </h3>
       <% end %>
 
-      <table class="table">
+      <table class="w-100 mb-4" style="line-height:33px;">
         <% if @company.contact_jobtitle.present? %>
           <tr>
             <th>Contact jobtitle:</th>
@@ -230,19 +230,19 @@
           </tr>
         <% end %>
 
-        <% if @company.address.present? %>
-          <tr>
-            <th> Address: </th>
-            <td> <%= @company.address %> </td>
-          </tr>
-        <% end %>
-
         <% if @company.website.present? %>
           <tr>
             <th>Website:</th>
             <td>
               <%= link_to(@company.website, @company.website, target: "_blank", class: 'text-decoration-none') %>
             </td>
+          </tr>
+        <% end %>
+
+        <% if @company.address.present? %>
+          <tr>
+            <th> Address: </th>
+            <td> <%= @company.address %> </td>
           </tr>
         <% end %>
 
