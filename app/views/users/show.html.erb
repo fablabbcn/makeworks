@@ -20,7 +20,7 @@
         </p>
 
         <p>
-        <strong>Locale:</strong>
+        <strong>Language:</strong>
         <%= @user.locale %>
         </p>
 
@@ -29,6 +29,12 @@
         <%= @user.time_zone %>
         </p>
       <% end %>
+
+      <p>
+      <strong>Biography:</strong>
+      <%= @user.bio %>
+      </p>
+
     </div>
     <div class="">
       <% if @user.avatar.attached? %>

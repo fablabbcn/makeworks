@@ -75,6 +75,7 @@ class UsersController < ApplicationController
   def user_params
     params_to_permit = [
       :avatar,
+      :bio,
       :email,
       :first_name,
       :last_name,

@@ -15,7 +15,11 @@
     <div class="my-3">
       <%= f.input :locale, collection: locale_name_pairs, include_blank: false %>
     </div>
+
+    <%= f.label :bio %>
+    <%= f.rich_text_area :bio %>
     <%= f.input :time_zone %>
+
     <p>
     Time now in this zone: <%= Time.now.in_time_zone(current_user.time_zone) %>
     </p>

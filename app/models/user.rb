@@ -11,6 +11,7 @@ class User < ApplicationRecord
   friendly_id :first_name, use: :slugged
 
   has_one_attached :avatar
+  has_rich_text :bio
 
   def to_s
     name

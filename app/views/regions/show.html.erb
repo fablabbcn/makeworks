@@ -30,16 +30,24 @@
 </div>
 
 <div class="my-2">
-  <ul class="list-unstyled">
-    <% @region.champions.order(:created_at).each do |item| %>
-      <li>
-        <%= image_tag(item.user.avatar, class: 'avatar-small', alt: '', title: item.user) if item.user.avatar.attached? %>
-        <%= link_to item.user.name, item.user, class: '' %>
-      </li>
-    <% end %>
-  </ul>
   <%= @region.short_description %>
+
   <%= @region.about_text %>
+
+  <h4>The team</h4>
+  <div class="row">
+    <% @region.champions.order(:created_at).each do |item| %>
+      <div class="col-md-6">
+        <%= image_tag(item.user.avatar, class: 'img-fluid', style: 'max-height:200px;', alt: '', title: item.user) if item.user.avatar.attached? %>
+
+        <h4>
+          <%= link_to item.user.name, item.user, class: 'd-block mt-3 text-decoration-none' %>
+        </h4>
+        <%= item.user.bio %>
+      </div>
+    <% end %>
+  </div>
+
 </div>
 
 
