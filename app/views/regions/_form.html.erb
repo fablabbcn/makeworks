@@ -5,6 +5,18 @@
 
   <div class="form-inputs">
     <%= f.input :name %>
+
+    <%= f.input :avatar, input_html: { class: 'form-control' } %>
+    <% if @region.avatar.attached? %>
+      <div class="text-center mb-3">
+        <%= image_tag @region.avatar, style: 'max-height:200px;' %>
+      </div>
+    <% end %>
+
+    <label>Short Description (shown on /regions page)</label>
+    <%= f.rich_text_area :short_description %>
+
+    <label>About text (Team / Partners)</label>
     <%= f.rich_text_area :about_text %>
     <%= f.input :can_signup %>
     <%= f.input :is_public %>

@@ -97,13 +97,18 @@ class RegionsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def region_params
-    params.require(:region).permit(:m_id, :name,
-                                   :can_signup,
-                                   :is_public,
-                                   :logo,
-                                   :trimmed_name,
-                                   :lat,
-                                   :lng,
-                                   :about_text)
+    params.require(:region).permit(
+      :m_id,
+      :avatar,
+      :about_text,
+      :short_description,
+      :name,
+      :can_signup,
+      :is_public,
+      :logo,
+      :trimmed_name,
+      :lat,
+      :lng
+    )
   end
 end

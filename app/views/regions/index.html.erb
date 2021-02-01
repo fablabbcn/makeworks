@@ -32,7 +32,10 @@ If you are trying to get in touch with a region specifically, then you can find 
           <% end %>
         </div>
 
-        <p><%= region.about_text %></p>
+        <% if region.avatar.attached? %>
+          <%= image_tag region.avatar, class: 'img-fluid' %>
+        <% end %>
+        <p><%= region.short_description %></p>
 
       </div>
     </div>

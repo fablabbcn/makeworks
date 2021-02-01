@@ -22,6 +22,11 @@
 
 <div class="my-4">
   <%= title @region.name %>
+  <% if @region.avatar.attached? %>
+    <div class="text-center mb-3">
+      <%= image_tag @region.avatar, class: 'img-fluid' %>
+    </div>
+  <% end %>
 </div>
 
 <div class="my-2">
@@ -33,6 +38,7 @@
       </li>
     <% end %>
   </ul>
+  <%= @region.short_description %>
   <%= @region.about_text %>
 </div>
 
