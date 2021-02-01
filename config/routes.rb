@@ -44,6 +44,7 @@ Rails.application.routes.draw do
     member do
       get 'join'
       get 'leave'
+      delete :delete_partner_image
     end
   end
   root 'welcome#index'

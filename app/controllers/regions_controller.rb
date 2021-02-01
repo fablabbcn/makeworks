@@ -11,6 +11,12 @@ class RegionsController < ApplicationController
     end
   end
 
+  def delete_partner_image
+    @image = ActiveStorage::Attachment.find(params[:id])
+    @image.purge
+    redirect_back(fallback_location: regions_url)
+  end
+
   # GET /regions
   # GET /regions.json
   def index
@@ -108,7 +114,9 @@ class RegionsController < ApplicationController
       :logo,
       :trimmed_name,
       :lat,
-      :lng
+      :lng,
+      :partner_text,
+      partner_logos: [],
     )
   end
 end

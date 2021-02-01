@@ -34,7 +34,7 @@
 
   <%= @region.about_text %>
 
-  <h4>The team</h4>
+  <h2>The team</h2>
   <div class="row">
     <% @region.champions.order(:created_at).each do |item| %>
       <div class="col-md-6">
@@ -47,6 +47,18 @@
       </div>
     <% end %>
   </div>
+
+  <%= @region.partner_text %>
+
+  <% if @region.partner_logos.attached? %>
+    <div class="row my-2">
+      <% @region.partner_logos.each do |img| %>
+        <div class="col-md-3">
+          <%= image_tag img, class: 'img-fluid' %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 
 </div>
 

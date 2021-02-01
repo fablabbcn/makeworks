@@ -8,6 +8,8 @@ class Region < ApplicationRecord
   has_one_attached :avatar
   has_rich_text :short_description
   has_rich_text :about_text
+  has_rich_text :partner_text
+  has_many_attached :partner_logos
 
   def champions
     UserRegion.where(region: self, is_champion: true)

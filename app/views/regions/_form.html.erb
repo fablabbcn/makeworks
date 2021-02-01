@@ -16,8 +16,26 @@
     <label>Short Description (shown on /regions page)</label>
     <%= f.rich_text_area :short_description %>
 
-    <label>About text (Team / Partners)</label>
+    <label>About text</label>
     <%= f.rich_text_area :about_text %>
+
+    <label>Partner text</label>
+    <%= f.rich_text_area :partner_text %>
+
+    <%= f.input :partner_logos, as: :file, input_html: { multiple: true, class: 'form-control' } %>
+    <% if @region.partner_logos.attached? %>
+      <div class="row my-3">
+        <% @region.partner_logos.each_with_index do |img, index| %>
+          <div class="col-auto">
+            <%= image_tag img, class: '', style: 'max-height:200px;' %>
+            <%= link_to "Remove", delete_partner_image_region_url(img.id),
+              class: 'd-block my-1 text-danger', method: :delete, remote: true,
+              data: { confirm: 'Are you sure you want to remove this image?' } %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
     <%= f.input :can_signup %>
     <%= f.input :is_public %>
     <%= f.input :trimmed_name %>
