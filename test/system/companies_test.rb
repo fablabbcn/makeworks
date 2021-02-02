@@ -38,7 +38,7 @@ class CompaniesTest < ApplicationSystemTestCase
     check "Medium run" if @company.medium_run
     fill_in "Minimum order", with: @company.minimum_order
     fill_in "Name", with: @company.name
-    fill_in "Number of staff", with: @company.number_of_staff
+    fill_in "Staff nr", with: @company.number_of_staff
     fill_in "Photo1", with: @company.photo1
     fill_in "Photo2", with: @company.photo2
     fill_in "Photo3", with: @company.photo3
@@ -97,7 +97,7 @@ class CompaniesTest < ApplicationSystemTestCase
     check "Medium run" if @company.medium_run
     fill_in "Minimum order", with: @company.minimum_order
     fill_in "Name", with: @company.name
-    fill_in "Number of staff", with: @company.number_of_staff
+    fill_in "Staff nr", with: @company.number_of_staff
     fill_in "Photo1", with: @company.photo1
     fill_in "Photo2", with: @company.photo2
     fill_in "Photo3", with: @company.photo3
