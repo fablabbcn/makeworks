@@ -2,6 +2,7 @@ class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:show, :index]
   before_action :who_can_edit!, only: [:edit, :destroy, :update, :delete_image_attachment]
+  before_action :index, only: [:advanced] #reuse the index on /companies_advanced
 
   def who_can_edit!
     if current_user && (current_user.is_champion_in_region(@company&.region&.id) || current_user.is_admin?)

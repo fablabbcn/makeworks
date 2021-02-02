@@ -1,0 +1,39 @@
+<%= render 'table_filters' %>
+
+<%= link_to "Simple view", companies_url %>
+
+<table class="table table-sm table-bordered table-striped table-hover">
+  <thead>
+    <tr>
+      <th><%= sort_link(@q, :name)%></th>
+      <th><%= sort_link(@q, :region)%></th>
+      <th>Address</th>
+      <th>Location</th>
+      <th>Background</th>
+      <th>Description</th>
+      <th>Intro</th>
+      <th><%= sort_link(@q, :minimum_order)%></th>
+      <th><%= sort_link(@q, :number_of_staff)%></th>
+      <th><%= sort_link(@q, :year_founded)%></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @companies.each do |company| %>
+      <tr>
+        <td><%= link_to company.name, company %></td>
+        <td><%= link_to company.region, company.region %></td>
+        <td title="<%= company.address %>"><%= company.address&.truncate(30) %></td>
+        <td title="<%= company.location %>"><%= company.location&.truncate(30) %></td>
+        <td title="<%= company.background %>"><%= company.background&.truncate(30) %></td>
+        <td title="<%= company.description %>"><%= company.description&.truncate(30) %></td>
+        <td title="<%= company.intro %>"><%= company.intro&.truncate(30)  %></td>
+        <td><%= company.minimum_order %></td>
+        <td><%= company.number_of_staff %></td>
+        <td><%= company.year_founded %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @companies %>

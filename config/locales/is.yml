@@ -4,6 +4,7 @@ is:
     attributes:
       company:
         address: Heimilisfang
+        number_of_staff: Fjöldi starfsmanna
     models:
       company:
         one: Fyrirtæki

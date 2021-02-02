@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   resources :taxonomies
 
   get 'taxtree', to: 'taxonomies#tree'
+  get '/companies_advanced', to: 'companies#advanced'
   resources :companies do
     member do
       delete :delete_image_attachment

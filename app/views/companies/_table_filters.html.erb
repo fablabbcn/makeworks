@@ -1,0 +1,35 @@
+<% content_for(:title, 'Companies') %>
+
+<%= search_form_for @q, class: 'pt-3 mx-auto' do |f| %>
+  <h1 class="mb-4"><%= t('shared.tagline') %></h1>
+  <h5>Search by</h5>
+  <div class="row">
+    <div class="my-2 col-md-6 col-xl-3">
+      <%= f.select :region_id_eq, Region.where(is_public: true).pluck(:name, :id), {include_blank: 'All Regions'}, class: 'form-control' %>
+    </div>
+    <div class="my-2 col-md-6 col-xl-3">
+      <%= f.select :industry_taxonomies_id_eq, IndustryTaxonomy.pluck(:name, :id), {include_blank: 'All Industries'}, class: 'form-control' %>
+    </div>
+    <div class="my-2 col-md-6 col-xl-3">
+      <%= f.select :materials_taxonomies_id_eq, MaterialsTaxonomy.pluck(:name, :id), {include_blank: 'All Materials'}, class: 'form-control' %>
+    </div>
+    <div class="my-2 col-md-6 col-xl-3">
+      <%= f.select :machines_taxonomies_id_eq, MachinesTaxonomy.pluck(:name, :id), {include_blank: 'All Machines'}, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="input-group my-2" style="max-width:800px">
+    <%= f.search_field :name_or_description_cont, class: 'form-control', placeholder: 'Company name or description contains..' %>
+    <%= f.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>
+
+<div class="my-4 d-flex justify-content-between align-items-center">
+  <p class="text-muted"> Showing: <%= @companies.count %> </p>
+  <%= paginate @companies %>
+</div>
+
+<% if current_user %>
+  <div class="text-end">
+    <%= link_to 'New Company', new_company_path, class: 'btn btn-outline-primary my-3' %>
+  </div>
+<% end %>

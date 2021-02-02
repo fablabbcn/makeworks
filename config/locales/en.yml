@@ -6,6 +6,7 @@ en:
     attributes:
       company:
         address: Address
+        number_of_staff: Staff nr.
       user:
         locale: Language
     models:
