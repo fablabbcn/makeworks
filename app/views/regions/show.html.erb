@@ -47,7 +47,10 @@
       </div>
     <% end %>
   </div>
+</div>
 
+<div class="my-2">
+  <h2>Partners & Funders</h2>
   <%= @region.partner_text %>
 
   <% if @region.partner_logos.attached? %>
@@ -59,7 +62,6 @@
       <% end %>
     </div>
   <% end %>
-
 </div>
 
 
@@ -81,6 +83,7 @@
 <% end %>
 
 
+<h2 class="mt-4">Listings</h2>
 <div class="my-2">
   <p>Companies in region: <%= @region.companies.count %> </p>
   <%= link_to "See all companies in #{@region.name}", companies_url('q[region_id_eq]': @region.id), class: 'btn btn-primary me-3 my-3' %>
@@ -92,6 +95,6 @@
   <% end %>
 </div>
 
-<h3 class="mt-4">Region Updates</h3>
+<h2 class="mt-4">Region Updates</h2>
 
 <%= render @region.companies.last if @region.companies.present? %>
