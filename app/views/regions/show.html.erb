@@ -69,20 +69,6 @@
   <%# render partial: 'region_map', locals: { locations: [@region]} %>
 <% end %>
 
-<% if admin? %>
-  <div class="card-admin">
-    <p>Admin only information:</p>
-    <ul class="list-unstyled">
-      <li>Users in region: <%= @region.users.count %></li>
-      <li>Is Public: <strong><%= @region.is_public %></strong></li>
-      <li>Can signup: <strong><%= @region.can_signup %></strong></li>
-      <li>Lat: <%= @region.lat %></li>
-      <li>Lng: <%= @region.lng %></li>
-    </ul>
-  </div>
-<% end %>
-
-
 <h2 class="mt-4">Listings</h2>
 <div class="my-2">
   <p>Companies in region: <%= @region.companies.count %> </p>
@@ -98,3 +84,16 @@
 <h2 class="mt-4">Region Updates</h2>
 
 <%= render @region.companies.last if @region.companies.present? %>
+
+<% if admin? %>
+  <div class="card-admin">
+    <p>Admin only information:</p>
+    <ul class="list-unstyled">
+      <li>Users in region: <%= @region.users.count %></li>
+      <li>Is Public: <strong><%= @region.is_public %></strong></li>
+      <li>Can signup: <strong><%= @region.can_signup %></strong></li>
+      <li>Lat: <%= @region.lat %></li>
+      <li>Lng: <%= @region.lng %></li>
+    </ul>
+  </div>
+<% end %>
