@@ -31,5 +31,4 @@ ActiveAdmin.register Blog do
       actions
     end
   end
-
 end
