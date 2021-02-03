@@ -21,9 +21,13 @@
 <% end %>
 
 <div class="my-4">
-  <%= title @region.name %>
+  <div class="text-center">
+    <%= title @region.name %>
+  </div>
 
-  <%= @region.short_info %>
+  <h4>
+    <%= @region.short_info %>
+  </h4>
 
   <% if @region.avatar.attached? %>
     <div class="text-center mb-3">
