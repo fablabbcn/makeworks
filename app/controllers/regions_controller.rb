@@ -107,6 +107,7 @@ class RegionsController < ApplicationController
       :m_id,
       :avatar,
       :about_text,
+      :short_info,
       :short_description,
       :name,
       :can_signup,

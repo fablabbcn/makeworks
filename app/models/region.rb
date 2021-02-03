@@ -5,6 +5,7 @@ class Region < ApplicationRecord
   extend FriendlyId
   friendly_id :name, use: :slugged, slug_column: :trimmed_name
 
+  has_rich_text :short_info
   has_one_attached :avatar
   has_rich_text :short_description
   has_rich_text :about_text

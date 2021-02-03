@@ -22,6 +22,9 @@
 
 <div class="my-4">
   <%= title @region.name %>
+
+  <%= @region.short_info %>
+
   <% if @region.avatar.attached? %>
     <div class="text-center mb-3">
       <%= image_tag @region.avatar, class: 'img-fluid' %>

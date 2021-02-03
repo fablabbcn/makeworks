@@ -5,6 +5,9 @@
   <div class="form-inputs">
     <%= f.input :name %>
 
+    <label>Short info (shown before image)</label>
+    <%= f.rich_text_area :short_info %>
+
     <%= f.input :avatar, input_html: { class: 'form-control' } %>
     <% if @region.avatar.attached? %>
       <div class="text-center mb-3">
