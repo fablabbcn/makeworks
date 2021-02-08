@@ -176,7 +176,7 @@
   </div>
 </div>
 
-<div class="row border border-dark">
+<div class="row border border-dark g-0">
   <div class="col-md-6 tile-first p-0 border-bottom border-dark">
     <%= image_tag(@company.portrait, alt: 'Portrait', class: 'img-fil') if @company&.portrait.present? %>
   </div>
@@ -258,16 +258,12 @@
   </div>
 </div>
 
-<div class="my-3">
-  <p>Companies nearby:</p>
+<div class="my-5">
+  <h4>4 nearby companies</h4>
   <% unless @company.new_record? %>
-    <ul>
-      <% @company.nearbys&.limit(8)&.each do |c| %>
-        <li>
-          <%= link_to c, company_url(c) %>
-        </li>
-      <% end %>
-    </ul>
+    <% @company.nearbys&.limit(4)&.each do |c| %>
+      <%= render c %>
+    <% end %>
   <% end %>
 </div>
 
