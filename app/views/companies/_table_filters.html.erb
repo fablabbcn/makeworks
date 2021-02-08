@@ -24,7 +24,7 @@
 <% end %>
 
 <div class="my-4 d-flex justify-content-between align-items-center">
-  <p class="text-muted"> Showing: <%= @companies.count %> </p>
+  <p class="text-muted"> Showing: <%= @companies.count %> / <%= @q.result.count  %></p>
   <%= paginate @companies %>
 </div>
 
