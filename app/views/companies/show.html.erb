@@ -1,22 +1,8 @@
 <% if current_user&.is_admin? || current_user&.is_champion_in_region(@company.region) %>
-  <%= link_to 'Edit', edit_company_path(@company), class: 'btn btn-primary'  %>
-  <div class="my-4">
-    <div class="card-admin">
-      <p>Admin info:</p>
-      <ul>
-        <%# @company.title %>
-        <li>Is verified: <%= @company.is_verified? %></li>
-        <li>Trimmed name: <%= @company.trimmed_name %></li>
-        <li>Soft delete: <%= @company.soft_delete %></li>
-        <li>Been visited: <%= @company.been_visited %> </li>
-        <li>Year founded: <%= @company.year_founded %></li>
-        <li>Film ready: <%= @company.film_ready %></li>
-      </ul>
-    </div>
-  </div>
+  <%= link_to 'Edit', edit_company_path(@company), class: 'btn btn-primary mb-4' %>
 <% end %>
 
-<%= link_to @company.region, region_url(@company.region) %>
+<%= link_to @company.region, region_url(@company.region), class: 'd-block' %>
 <%= title @company.name %>
 
 <div class="row my-4">
@@ -290,3 +276,17 @@
     <%= link_to 'Edit', edit_company_path(@company), class: 'btn btn-primary'  %>
   <% end %>
 </div>
+
+<div class="card-admin">
+  <p>Admin info:</p>
+  <ul>
+    <%# @company.title %>
+    <li>Is verified: <%= @company.is_verified? %></li>
+    <li>Trimmed name: <%= @company.trimmed_name %></li>
+    <li>Soft delete: <%= @company.soft_delete %></li>
+    <li>Been visited: <%= @company.been_visited %> </li>
+    <li>Year founded: <%= @company.year_founded %></li>
+    <li>Film ready: <%= @company.film_ready %></li>
+  </ul>
+</div>
+
