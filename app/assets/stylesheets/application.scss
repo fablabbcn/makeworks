@@ -35,6 +35,12 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1100px;
+  }
+}
+
 // Remove after simple_form starts to support Bootstrap 5
 .form-group {
   margin-bottom: 10px;
