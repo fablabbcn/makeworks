@@ -45,11 +45,10 @@
   <div class="row">
     <% @region.champions.order(:created_at).each do |item| %>
       <div class="col-md-6">
-        <%= image_tag(item.user.avatar, class: 'img-fluid', style: 'max-height:200px;', alt: '', title: item.user) if item.user.avatar.attached? %>
-
         <h4>
           <%= link_to item.user.name, item.user, class: 'd-block mt-3 text-decoration-none' %>
         </h4>
+        <%= image_tag(item.user.avatar, class: 'img-fluid my-3', style: 'max-height:200px;', alt: '', title: item.user) if item.user.avatar.attached? %>
         <%= item.user.bio %>
       </div>
     <% end %>
@@ -105,3 +104,9 @@
     </ul>
   </div>
 <% end %>
+
+<div class="my-3">
+  <% if current_user&.is_admin? || current_user&.is_champion_in_region(@region) %>
+    <%= link_to(t('shared.edit_region'), edit_region_url(@region), class: 'btn btn-primary')%>
+  <% end %>
+</div>

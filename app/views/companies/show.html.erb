@@ -178,7 +178,7 @@
 
 <div class="row border border-dark g-0">
   <div class="col-md-6 tile-first p-0 border-bottom border-dark">
-    <%= image_tag(@company.portrait, alt: 'Portrait', class: 'img-fil') if @company&.portrait.present? %>
+    <%= image_tag(@company.portrait, alt: 'Portrait', class: 'img-fill') if @company&.portrait.present? %>
   </div>
 
   <div class="col-md-6 border-bottom border-dark">
@@ -248,7 +248,9 @@
   <div class="col-md-6 tile-first">
     <div class="p-4">
       <h3>Company History</h3>
+      <p class="mt-4">
       <%= @company.background %>
+      </p>
     </div>
   </div>
   <div class="col-md-6 p-0">
@@ -261,8 +263,8 @@
 <div class="my-5">
   <h4>4 nearby companies</h4>
   <% unless @company.new_record? %>
-    <% @company.nearbys&.limit(4)&.each do |c| %>
-      <%= render c %>
+    <% @company.nearbys&.limit(4)&.each do |company| %>
+      <%= render company %>
     <% end %>
   <% end %>
 </div>

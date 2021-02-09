@@ -2,9 +2,10 @@
   <div class="row">
     <div class="col-lg-6">
       <div class="p-4">
-        <h5><%= link_to company.region, region_url(company.region) %></h5>
-        <h3><%= link_to company.name, company_url(company) %></h3>
-        <p><%= company.description %></p>
+        <%= link_to company.region, region_url(company.region), class: 'text-decoration-none mb-3 d-block' %>
+        <h3><%= link_to company.name, company_url(company), class: 'text-decoration-none' %></h3>
+        <h5> <%= company.manufacturer_taxonomies.to_sentence %> </h5>
+        <p class="mt-4"><%= company.description %></p>
         <p><%= company.intro %></p>
       </div>
     </div>
