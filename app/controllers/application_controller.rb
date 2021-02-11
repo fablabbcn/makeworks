@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :set_locale
+  before_action :set_user_context, if: :current_user
   around_action :set_time_zone, if: :current_user
 
   def check_if_admin
@@ -13,5 +14,11 @@ class ApplicationController < ActionController::Base
 
   def set_time_zone(&block)
     Time.use_zone(current_user&.time_zone, &block)
+  end
+
+  private
+
+  def set_user_context
+    Sentry.set_user(email: current_user.email, id: current_user.id)
   end
 end
