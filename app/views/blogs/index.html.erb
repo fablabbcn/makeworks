@@ -37,7 +37,7 @@
         <p><%= blog.sub_title %></p>
       </div>
       <div class="col-lg-6 text-center <%= 'order-first' if index % 2 == 0 %>">
-        <%= link_to image_tag(blog.header_image, class: 'img-fill'), blog %>
+        <%= link_to image_tag(get_1200px(blog.header_image), class: 'img-fill'), blog %>
       </div>
     </div>
   <% end %>
