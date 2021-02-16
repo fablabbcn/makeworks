@@ -18,11 +18,8 @@ Rails.application.routes.draw do
   patch "/users/:id", to: 'users#update'
   match 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user
 
-  resources :blogs
-  # The next 2 need to be after blogs resource
+  resources :blogs, path: 'blog'
   # The old web was using /blog/ and not /blogs/ - We want to keep the links working.
-  get 'blog', to: 'blogs#index'
-  get 'blog/:id', to: 'blogs#show'
 
   # These are admin only
   resources :process_taxonomies, path: 'processes'
