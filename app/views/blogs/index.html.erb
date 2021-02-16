@@ -22,11 +22,11 @@
   <%= link_to 'New Blog', new_blog_path, class: 'btn btn-primary my-3' %>
 <% end %>
 
-<div class="border-top border-start border-end border-dark">
+<div class="my-2">
 
   <% @blogs.each_with_index do |blog, index| %>
-    <div class="row g-0 border-bottom border-dark">
-      <div class="col-lg-6 p-5">
+    <div class="row g-0 border border-dark mb-3">
+      <div class="col-md-6 p-5 <%= cycle('order-last', 'tile-first', name: 'first') %>">
         <p><%= link_to blog.title, blog %></p>
         <small> <%= blog.created_at&.strftime("%B %d, %Y") %> </small>
         <h4><%= blog.blurb %></h4>
@@ -36,7 +36,7 @@
         <%# blog.medium_id %>
         <p><%= blog.sub_title %></p>
       </div>
-      <div class="col-lg-6 text-center <%= cycle 'order-lg-first', '' %>">
+      <div class="col-md-6 text-center <%= cycle('tile-first', '') %>">
         <%= link_to image_tag(get_1200px(blog.header_image), class: 'img-fill'), blog %>
       </div>
     </div>
