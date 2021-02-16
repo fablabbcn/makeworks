@@ -18,6 +18,39 @@ ActiveAdmin.register Blog do
   #   permitted
   # end
 
+  member_action :enable, method: :put do
+    thing = Blog.find(params[:id])
+    thing.toggle!(:dont_publish)
+    flash[:notice] = "Blog publish has been changed!"
+    redirect_back fallback_location: { action: :index }
+  end
+
+  remove_filter :medium
+  remove_filter :rich_text_content_action
+  remove_filter :m_id
+
+  index do
+
+    selectable_column
+    id_column
+    column :title
+    column :sub_title
+    column :slug
+    column :blurb
+    column :dont_publish do |thing|
+      link_to (thing.dont_publish? ? "Show post" : "Hide post"), url_for(action: :enable, id: thing.id), method: :put
+    end
+    column :dont_publish
+    column :created_at
+    column :updated_at
+    column :content do |c|
+      truncate(c.content, length: 100)
+    end
+    column :header_image
+    column :featured_video
+    actions
+  end
+
   form do |f|
     f.inputs do
       f.input :blog_category

@@ -9,6 +9,8 @@ en:
         number_of_staff: Staff nr.
       user:
         locale: Language
+      blog:
+        dont_publish: 'Hide post'
     models:
       company:
         one: Company
