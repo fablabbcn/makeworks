@@ -21,5 +21,54 @@ ActiveAdmin.register Company do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
+
+  scope :all
+  scope :verified
+  scope :unverified
+
+  batch_action :toggle_verified do |ids|
+    batch_action_collection.find(ids).each do |item|
+      item.toggle!(:is_verified)
+    end
+    redirect_back fallback_location: { action: :index }
+  end
+
+  remove_filter :region
+  remove_filter :finished_products
+  remove_filter :company_processes
+  remove_filter :machines
+  remove_filter :materials
+  remove_filter :industries
+  remove_filter :manufacturers
+
+  index do
+    selectable_column
+    id_column
+    column :is_verified
+    column :region
+    column :name
+    column :title
+    column :address
+    column :background
+    column :description
+    column :intro
+    column :contact_name
+    column :contact_email
+    column :large_run
+    column :lat
+    column :lng
+    column :location
+    column :medium_run
+    column :minimum_order
+    column :number_of_staff
+    column :sample_production
+    column :short_run
+    column :soft_delete
+    column :turnaround_time
+    column :year_founded
+    column :film_ready
+    column :been_visited
+    column :bespoke_one_offs
+    actions
+  end
 end

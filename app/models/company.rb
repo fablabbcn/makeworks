@@ -27,6 +27,9 @@ class Company < ApplicationRecord
   geocoded_by :full_address, latitude: :lat, longitude: :lng
   after_validation :geocode, if: :the_address_changed?
 
+  scope :verified, -> { where(is_verified: true) }
+  scope :unverified, -> { where.not(is_verified: true) }
+
   def full_address
     [location, address].compact.join(', ')
   end
