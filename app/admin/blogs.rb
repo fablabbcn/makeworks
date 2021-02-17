@@ -3,6 +3,10 @@ ActiveAdmin.register Blog do
     defaults finder: :find_by_slug
   end
 
+  scope :all
+  scope :published
+  scope :hidden
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #

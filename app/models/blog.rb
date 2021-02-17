@@ -3,6 +3,9 @@ class Blog < ApplicationRecord
   belongs_to :medium, optional: true
   default_scope { order(created_at: :desc) }
 
+  scope :published, -> { where.not(dont_publish: true) }
+  scope :hidden, -> { where(dont_publish: true) }
+
   extend FriendlyId
   friendly_id :title, use: :slugged
 
