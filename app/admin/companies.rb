@@ -1,9 +1,8 @@
 ActiveAdmin.register Company do
+  includes :region
+
   controller do
     defaults finder: :find_by_trimmed_name
-    def scoped_collection
-      Company.includes(:region)
-    end
   end
 
   # See permitted parameters documentation:
