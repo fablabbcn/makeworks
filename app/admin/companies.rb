@@ -1,6 +1,9 @@
 ActiveAdmin.register Company do
   controller do
     defaults finder: :find_by_trimmed_name
+    def scoped_collection
+      Company.includes(:region)
+    end
   end
 
   # See permitted parameters documentation:
@@ -47,11 +50,18 @@ ActiveAdmin.register Company do
     column :is_verified
     column :region
     column :name
-    column :title
-    column :address
-    column :background
-    column :description
-    column :intro
+    column :address do |x|
+      truncate(x.intro)
+    end
+    column :background do |x|
+      truncate(x.background)
+    end
+    column :description do |x|
+      truncate(x.intro)
+    end
+    column :intro do |x|
+      truncate(x.intro)
+    end
     column :contact_name
     column :contact_email
     column :large_run
