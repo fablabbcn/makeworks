@@ -3,6 +3,13 @@ ActiveAdmin.register Blog do
     defaults finder: :find_by_slug
   end
 
+  batch_action :toggle_published do |ids|
+    batch_action_collection.find(ids).each do |item|
+      item.toggle!(:dont_publish)
+    end
+    redirect_back fallback_location: { action: :index }
+  end
+
   scope :all
   scope :published
   scope :hidden
