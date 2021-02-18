@@ -42,6 +42,16 @@ module ApplicationHelper
     the_url.gsub(comp_name.to_s, "#{comp_name}/940px")
   end
 
+  # We can use this if we want to check if URL exists.
+  # For example to check if an image exists in S3
+  def link_exists?(url)
+    uri = URI(url)
+
+    request = Net::HTTP.new uri.host
+    response = request.request_head uri.path
+    response.code.to_i == 200
+  end
+
   def get_1200px(the_url)
     # Use a default image if the_url is empty.
     return 'https://static.make.works/company/BroadWorkshop/1200px/191115_BroadWorkshop_4.jpg' if the_url.blank?
