@@ -132,6 +132,8 @@ class CompaniesController < ApplicationController
       process_taxonomy_ids: [],
       finished_products_taxonomy_ids: [],
       manufacturer_taxonomy_ids: [],
-      machines_taxonomy_ids: [])
+      machines_taxonomy_ids: []
+    )
+      .merge(user_id: current_user.id)
   end
 end

@@ -1,5 +1,6 @@
 class Company < ApplicationRecord
   belongs_to :region
+  belongs_to :user, optional: true # The user who created /submitted the company
 
   has_many :finished_products, dependent: :destroy
   has_many :finished_products_taxonomies, through: :finished_products
@@ -19,6 +20,7 @@ class Company < ApplicationRecord
   has_many :machines, dependent: :destroy
   has_many :machines_taxonomies, through: :machines
 
+  #has_one_attached :contact_avatar
   has_many_attached :slider_images
 
   extend FriendlyId

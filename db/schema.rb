@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_02_195944) do
+ActiveRecord::Schema.define(version: 2021_02_18_162344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -147,7 +147,9 @@ ActiveRecord::Schema.define(version: 2021_02_02_195944) do
     t.string "production_access"
     t.boolean "is_verified"
     t.text "production_specifics"
+    t.bigint "user_id"
     t.index ["region_id"], name: "index_companies_on_region_id"
+    t.index ["user_id"], name: "index_companies_on_user_id"
   end
 
   create_table "company_processes", force: :cascade do |t|
@@ -332,6 +334,7 @@ ActiveRecord::Schema.define(version: 2021_02_02_195944) do
   add_foreign_key "blogs", "blog_categories"
   add_foreign_key "blogs", "media"
   add_foreign_key "companies", "regions"
+  add_foreign_key "companies", "users"
   add_foreign_key "company_processes", "companies"
   add_foreign_key "company_processes", "process_taxonomies"
   add_foreign_key "finished_products", "companies"

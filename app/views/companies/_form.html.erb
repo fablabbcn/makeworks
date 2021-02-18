@@ -54,6 +54,12 @@
         <%= f.input :been_visited %>
         <%= f.input :film_ready %>
         <%= f.input :soft_delete %>
+        <p>
+        Created by: <%= @company.user %>
+        </p>
+        <p>
+        Created on: <%= @company.created_at %>
+        </p>
       </div>
     <% end %>
 
