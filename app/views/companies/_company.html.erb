@@ -12,7 +12,7 @@
     <div class="col-lg-6">
       <% if company.top_image.present? %>
         <%= link_to company_url(company) do %>
-          <%= image_tag(company&.top_image, alt: 'Company logo', class: 'img-fill') %>
+          <%= image_tag(get_1200px(company&.top_image), alt: 'Company logo', class: 'img-fill') %>
         <% end %>
       <% end %>
     </div>
