@@ -88,7 +88,9 @@ class CompaniesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_company
-    # use bullet gem
+    # NOTE: now we also show is_verified:false companies. Should we hide them?
+    # Champions (not admins) need to see them, in order to VERIFY them.
+    # .where(is_verified: true)
     @company = Company.includes(
       company_processes: [:process_taxonomy],
       #finished_products: [:finished_products_taxonomy],

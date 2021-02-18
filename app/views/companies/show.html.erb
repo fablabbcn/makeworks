@@ -178,7 +178,7 @@
 
 <div class="row border border-dark g-0">
   <div class="col-md-6 tile-first p-0 border-bottom border-dark">
-    <%= image_tag(@company.portrait, alt: 'Portrait', class: 'img-fill') if @company&.portrait.present? %>
+    <%= image_tag(get_1200px(@company.portrait), alt: 'Portrait', class: 'img-fill') if @company&.portrait.present? %>
   </div>
 
   <div class="col-md-6 border-bottom border-dark">
