@@ -35,6 +35,7 @@ ActiveAdmin.register Company do
     redirect_back fallback_location: { action: :index }
   end
 
+  remove_filter :user
   remove_filter :region
   remove_filter :finished_products
   remove_filter :company_processes
@@ -42,6 +43,8 @@ ActiveAdmin.register Company do
   remove_filter :materials
   remove_filter :industries
   remove_filter :manufacturers
+  remove_filter :slider_images_attachments
+  remove_filter :slider_images_blobs
 
   index do
     selectable_column
