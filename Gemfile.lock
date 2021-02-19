@@ -264,6 +264,8 @@ GEM
       nio4r (~> 2.0)
     racc (1.5.2)
     rack (2.2.3)
+    rack-mini-profiler (2.3.1)
+      rack (>= 1.2.0)
     rack-proxy (0.6.5)
       rack
     rack-test (1.1.0)
@@ -415,6 +417,7 @@ DEPENDENCIES
   omniauth-linkedin-oauth2
   pg
   puma (~> 4.1)
+  rack-mini-profiler
   rails (~> 6.0.1)
   sass-rails (>= 6)
   selenium-webdriver
