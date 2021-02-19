@@ -7,7 +7,7 @@
   var locations = <%= raw locations.to_json %>;
   //console.log(locations)
   mycenter = new L.LatLng( locations[0].lat, locations[0].lng )
-  console.log(mycenter)
+  //console.log(mycenter)
 
   var map = new L.Map('leaflet', {
     center: mycenter,
