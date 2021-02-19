@@ -54,7 +54,7 @@ module ApplicationHelper
 
   def get_1200px(the_url)
     # Use a default image if the_url is empty.
-    return 'https://static.make.works/company/BroadWorkshop/1200px/191115_BroadWorkshop_4.jpg' if the_url.blank?
+    return 'https://via.placeholder.com/300x150' if the_url.blank?
     # Don't try to change URLs without multiple slashes /
     return the_url if the_url.count('/') < 3
 
