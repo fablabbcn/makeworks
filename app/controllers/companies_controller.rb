@@ -91,13 +91,14 @@ class CompaniesController < ApplicationController
     # NOTE: now we also show is_verified:false companies. Should we hide them?
     # Champions (not admins) need to see them, in order to VERIFY them.
     # .where(is_verified: true)
-    @company = Company.includes(
-      company_processes: [:process_taxonomy],
-      #finished_products: [:finished_products_taxonomy],
-      materials: [:materials_taxonomy],
-      #industries: [:industry_taxonomy],
-      machines: [:machines_taxonomy]
-    )
+    @company = Company
+      .includes(
+        company_processes: [:process_taxonomy],
+        #finished_products: [:finished_products_taxonomy],
+        materials: [:materials_taxonomy],
+        #industries: [:industry_taxonomy],
+        machines: [:machines_taxonomy]
+      )
       .friendly.find(params[:id])
   end
 
