@@ -278,7 +278,7 @@
 <div class="my-5">
   <h4>4 nearby companies</h4>
   <% unless @company.new_record? %>
-    <% @company.nearbys&.limit(4).includes(:region, :manufacturer_taxonomies)&.each do |company| %>
+    <% @company.nearbys&.limit(4)&.includes(:region, :manufacturer_taxonomies)&.each do |company| %>
       <%= render company %>
     <% end %>
   <% end %>
