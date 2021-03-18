@@ -27,7 +27,10 @@ class RegionsController < ApplicationController
     @regions = Region
       .where(is_public: true)
       .order(:created_at)
-      .includes([:rich_text_about_text])
+      .includes(
+        :rich_text_short_description,
+        :avatar_attachment
+      )
   end
 
   # GET /regions/1

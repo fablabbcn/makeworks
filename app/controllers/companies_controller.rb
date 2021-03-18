@@ -22,7 +22,11 @@ class CompaniesController < ApplicationController
   # GET /companies.json
   def index
     @q = Company
-      .includes(:region)
+      .includes(
+        :region,
+        :industry_taxonomies,
+        :industries
+      )
       .where(regions: { is_public: true })
       .where(is_verified: true)
       .ransack(params[:q])
