@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :regions, through: :user_regions
 
   extend FriendlyId
-  friendly_id :first_name, use: :slugged
+  friendly_id :first_name, use: [:slugged, :finders]
 
   has_one_attached :avatar
   has_rich_text :bio
