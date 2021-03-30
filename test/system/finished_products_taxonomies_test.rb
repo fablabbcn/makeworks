@@ -28,6 +28,8 @@ class FinishedProductsTaxonomiesTest < ApplicationSystemTestCase
     click_on "Fin1", match: :first
     click_on "Edit", match: :first
 
+    assert_text "Name"
+    assert_text "Parent"
     fill_in "Name", with: @finished_products_taxonomy.name
     #fill_in "Parent", with: @finished_products_taxonomy.parent_id
     select2 "Fin2", from: 'Parent'
