@@ -3,7 +3,7 @@ class Region < ApplicationRecord
   has_many :users, through: :user_regions
   has_many :companies
   extend FriendlyId
-  friendly_id :name, use: :slugged, slug_column: :trimmed_name
+  friendly_id :name, use: [:slugged, :finders], slug_column: :trimmed_name
 
   has_rich_text :short_info
   has_one_attached :avatar

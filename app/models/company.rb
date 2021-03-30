@@ -24,7 +24,7 @@ class Company < ApplicationRecord
   has_many_attached :slider_images
 
   extend FriendlyId
-  friendly_id :name, use: :slugged, slug_column: :trimmed_name
+  friendly_id :name, use: [:slugged, :finders], slug_column: :trimmed_name
 
   geocoded_by :full_address, latitude: :lat, longitude: :lng
   after_validation :geocode, if: :the_address_changed?

@@ -1,8 +1,4 @@
 ActiveAdmin.register Blog do
-  controller do
-    defaults finder: :find_by_slug
-  end
-
   batch_action :toggle_published do |ids|
     batch_action_collection.find(ids).each do |item|
       item.toggle!(:dont_publish)

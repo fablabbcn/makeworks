@@ -7,7 +7,7 @@ class Blog < ApplicationRecord
   scope :hidden, -> { where(dont_publish: true) }
 
   extend FriendlyId
-  friendly_id :title, use: :slugged
+  friendly_id :title, use: [:slugged, :finders]
 
   has_rich_text :content_action
 
