@@ -6,7 +6,9 @@ class IndustryTaxonomiesController < ApplicationController
   # GET /industry_taxonomies
   # GET /industry_taxonomies.json
   def index
-    @industry_taxonomies = IndustryTaxonomy.all.page(params[:page])
+    @industry_taxonomies = IndustryTaxonomy
+      .includes(:parent)
+      .page(params[:page])
   end
 
   # GET /industry_taxonomies/1

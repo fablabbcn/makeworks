@@ -6,7 +6,9 @@ class FinishedProductsTaxonomiesController < ApplicationController
   # GET /finished_products_taxonomies
   # GET /finished_products_taxonomies.json
   def index
-    @finished_products_taxonomies = FinishedProductsTaxonomy.all.page(params[:page])
+    @finished_products_taxonomies = FinishedProductsTaxonomy
+      .includes(:parent)
+      .page(params[:page])
   end
 
   # GET /finished_products_taxonomies/1

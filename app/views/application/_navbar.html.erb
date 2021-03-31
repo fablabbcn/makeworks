@@ -40,19 +40,24 @@
               <%= current_user.name %>
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarUser">
-              <%= link_to "User settings", edit_profile_url(current_user), class: "dropdown-item" %>
+              <%= link_to "User settings", edit_profile_url(current_user), class: "dropdown-item #{'active' if current_page?(edit_profile_url(current_user))}" %>
               <% if current_user.is_admin? %>
                 <div class="dropdown-divider"></div>
                 <div class="dropdown-header">
                   Admin only
                 </div>
-                <%= link_to "Admin dashboard", "/admin", target: '_blank', class: "dropdown-item" %>
-                <%= link_to t("shared.processes"), process_taxonomies_url, class: "dropdown-item" %>
-                <%= link_to t("shared.materials"), materials_taxonomies_url, class: "dropdown-item" %>
-                <%= link_to t("shared.industry"), industry_taxonomies_url, class: "dropdown-item" %>
-                <%= link_to t("shared.machines"), machines_taxonomies_url, class: "dropdown-item" %>
-                <%= link_to t("shared.manufacturers"), manufacturer_taxonomies_url, class: "dropdown-item" %>
-                <%= link_to t("shared.finished_products"), finished_products_taxonomies_url, class: "dropdown-item" %>
+                <%= link_to "/admin", target: '_blank', class: "dropdown-item" do %>
+                  Admin dashboard
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-right-square text-muted" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm5.854 8.803a.5.5 0 1 1-.708-.707L9.243 6H6.475a.5.5 0 1 1 0-1h3.975a.5.5 0 0 1 .5.5v3.975a.5.5 0 1 1-1 0V6.707l-4.096 4.096z"/>
+                  </svg>
+                <% end %>
+                <%= link_to t("shared.processes"), process_taxonomies_url, class: "dropdown-item #{'active' if current_page?(process_taxonomies_url)}" %>
+                <%= link_to t("shared.materials"), materials_taxonomies_url, class: "dropdown-item #{'active' if current_page?(materials_taxonomies_url)}" %>
+                <%= link_to t("shared.industry"), industry_taxonomies_url, class: "dropdown-item #{'active' if current_page?(industry_taxonomies_url)}" %>
+                <%= link_to t("shared.machines"), machines_taxonomies_url, class: "dropdown-item #{'active' if current_page?(machines_taxonomies_url)}" %>
+                <%= link_to t("shared.manufacturers"), manufacturer_taxonomies_url, class: "dropdown-item #{'active' if current_page?(manufacturer_taxonomies_url)}" %>
+                <%= link_to t("shared.finished_products"), finished_products_taxonomies_url, class: "dropdown-item #{'active' if current_page?(finished_products_taxonomies_url)}" %>
                 <div class="dropdown-header">
                   Remove the next 2?
                 </div>

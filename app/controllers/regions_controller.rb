@@ -101,7 +101,13 @@ class RegionsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_region
-    @region = Region.friendly.find(params[:id])
+    @region = Region
+      .includes(
+        companies: :manufacturer_taxonomies,
+        avatar_attachment: :blob,
+        partner_logos_attachments: :blob
+      )
+      .friendly.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.

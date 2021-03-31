@@ -6,7 +6,9 @@ class ProcessTaxonomiesController < ApplicationController
   # GET /process_taxonomies
   # GET /process_taxonomies.json
   def index
-    @process_taxonomies = ProcessTaxonomy.all.page(params[:page])
+    @process_taxonomies = ProcessTaxonomy
+      .includes(:parent)
+      .page(params[:page])
   end
 
   # GET /process_taxonomies/1

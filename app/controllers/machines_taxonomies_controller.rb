@@ -6,7 +6,9 @@ class MachinesTaxonomiesController < ApplicationController
   # GET /machines_taxonomies
   # GET /machines_taxonomies.json
   def index
-    @machines_taxonomies = MachinesTaxonomy.all.page(params[:page])
+    @machines_taxonomies = MachinesTaxonomy
+      .includes(:parent)
+      .page(params[:page])
   end
 
   # GET /machines_taxonomies/1
@@ -66,7 +68,9 @@ class MachinesTaxonomiesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_machines_taxonomy
-      @machines_taxonomy = MachinesTaxonomy.find(params[:id])
+      @machines_taxonomy = MachinesTaxonomy
+        .includes(companies: [:region, :manufacturers, :manufacturer_taxonomies])
+        .find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
