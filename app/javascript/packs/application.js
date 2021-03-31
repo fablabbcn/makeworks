@@ -25,6 +25,12 @@ document.addEventListener("turbolinks:load", function () {
   // Select2 is loaded via CDN
   $("select").select2({'width': '100%'});
   $(".toast").toast('show');
+
+  // Enable popovers globally
+  var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+  var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+    return new bootstrap.Popover(popoverTriggerEl)
+  })
 });
 
 document.addEventListener("turbolinks:before-cache", function () {

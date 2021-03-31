@@ -33,10 +33,12 @@ en:
     processes: Processes
     regions: Regions
     sign_up: Sign up
+    search_by: Search by
     start_your_region: Start your region
     submit_a_maker: Submit a maker
     tagline: Find local manufacturers in your region
     user_settings: User settings
+    you_can_filter: You can narrow down your search by filtering any of the following drop-down.
   simple_form:
     hints:
       company:
