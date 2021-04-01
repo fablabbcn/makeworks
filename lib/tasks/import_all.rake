@@ -262,7 +262,7 @@ namespace :makeworks do
           mat = Material.find_by(m_id: item["$oid"])
           MaterialTag.find_or_create_by(
             company: company,
-            materials: mat
+            material: mat
           )
         end
       end
