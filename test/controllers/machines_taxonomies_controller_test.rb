@@ -36,7 +36,7 @@ class MachinesTaxonomiesControllerTest < ActionDispatch::IntegrationTest
 
   test "should update machines_taxonomy" do
     patch machines_taxonomy_url(@machines_taxonomy), params: { machines_taxonomy: { m_id: @machines_taxonomy.m_id, name: @machines_taxonomy.name, parent_id: @machines_taxonomy.parent_id } }
-    assert_redirected_to machines_taxonomy_url(@machines_taxonomy)
+    assert_redirected_to machines_taxonomy_url(@machines_taxonomy.name.downcase)
   end
 
   test "should destroy machines_taxonomy" do
