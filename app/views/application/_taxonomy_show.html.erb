@@ -6,7 +6,7 @@
       <%= link_to my_item.parent.parent, polymorphic_url(my_item.parent.parent), title: 'Grand Parent' %>
     <% end %>
     /
-    <%= link_to my_item.parent, polymorphic_url(my_item.parent) %>
+    <%= link_to my_item.parent, polymorphic_url(my_item.parent), title: 'Parent'  %>
     /
   <% end %>
 
