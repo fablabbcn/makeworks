@@ -1,9 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  company: one
-  materials_taxonomy: one
+  m_id: MyString
+  name: MyString
+  parent: one
 
 two:
-  company: two
-  materials_taxonomy: two
+  m_id: MyString
+  name: MyString
+  parent: two

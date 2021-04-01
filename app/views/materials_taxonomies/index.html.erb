@@ -1,9 +1,0 @@
-<h1>Materials</h1>
-
-<% if @materials_taxonomies %>
-  <%= render partial: 'taxonomy_list', locals: {the_item: @materials_taxonomies} %>
-<% end %>
-
-<% if current_user&.is_admin? %>
-  <%= link_to 'New Materials Taxonomy', new_materials_taxonomy_path, class: 'btn btn-primary' %>
-<% end %>

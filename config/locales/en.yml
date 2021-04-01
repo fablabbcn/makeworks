@@ -75,7 +75,7 @@ en:
         lat: Latitude
         lng: Longitude
         machines_taxonomies: Machine tags
-        materials_taxonomies: Material tags
+        material_tags: Material tags
         industry_taxonomies: Industry tags
         process_taxonomies: Process tags
         finished_products_taxonomies: Finished products tags

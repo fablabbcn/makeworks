@@ -99,7 +99,7 @@ class CompaniesController < ApplicationController
       .includes(
         company_processes: [:process_taxonomy],
         #finished_products: [:finished_products_taxonomy],
-        materials: [:materials_taxonomy],
+        material_tags: [:material],
         #industries: [:industry_taxonomy],
         machines: [:machines_taxonomy]
       )
@@ -132,7 +132,7 @@ class CompaniesController < ApplicationController
       :production_access,
       :production_specifics,
       slider_images: [],
-      materials_taxonomy_ids: [],
+      materials_ids: [],
       industry_taxonomy_ids: [],
       process_taxonomy_ids: [],
       finished_products_taxonomy_ids: [],

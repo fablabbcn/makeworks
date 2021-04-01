@@ -1,11 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  m_id: MyString
-  name: MyString
-  parent: one
+  company: one
+  material: one
 
 two:
-  m_id: MyString
-  name: MyString
-  parent: two
+  company: two
+  material: two

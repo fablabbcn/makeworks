@@ -93,11 +93,11 @@ namespace :makeworks do
       row = JSON.parse(r)
 
       if row['parent']
-        the_parent = MaterialsTaxonomy.find_by(m_id: row['parent']['$oid'])
+        the_parent = Material.find_by(m_id: row['parent']['$oid'])
       else
         the_parent = nil
       end
-      MaterialsTaxonomy.find_or_create_by(
+      Material.find_or_create_by(
         m_id: row['_id']['$oid'],
         name: row['name'],
         parent: the_parent
@@ -259,10 +259,10 @@ namespace :makeworks do
 
       if row["Materials"].present?
         row["Materials"].each do |item|
-          mat = MaterialsTaxonomy.find_by(m_id: item["$oid"])
-          Material.find_or_create_by(
+          mat = Material.find_by(m_id: item["$oid"])
+          MaterialTag.find_or_create_by(
             company: company,
-            materials_taxonomy: mat
+            materials: mat
           )
         end
       end

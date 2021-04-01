@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_18_123422) do
+ActiveRecord::Schema.define(version: 2021_03_31_183410) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -219,7 +219,9 @@ ActiveRecord::Schema.define(version: 2021_03_18_123422) do
     t.bigint "parent_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "slug"
     t.index ["parent_id"], name: "index_machines_taxonomies_on_parent_id"
+    t.index ["slug"], name: "index_machines_taxonomies_on_slug", unique: true
   end
 
   create_table "manufacturer_taxonomies", force: :cascade do |t|
@@ -240,22 +242,22 @@ ActiveRecord::Schema.define(version: 2021_03_18_123422) do
     t.index ["manufacturer_taxonomy_id"], name: "index_manufacturers_on_manufacturer_taxonomy_id"
   end
 
-  create_table "materials", force: :cascade do |t|
+  create_table "material_tags", force: :cascade do |t|
     t.bigint "company_id", null: false
-    t.bigint "materials_taxonomy_id", null: false
+    t.bigint "material_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["company_id"], name: "index_materials_on_company_id"
-    t.index ["materials_taxonomy_id"], name: "index_materials_on_materials_taxonomy_id"
+    t.index ["company_id"], name: "index_material_tags_on_company_id"
+    t.index ["material_id"], name: "index_material_tags_on_material_id"
   end
 
-  create_table "materials_taxonomies", force: :cascade do |t|
+  create_table "materials", force: :cascade do |t|
     t.string "m_id"
     t.string "name"
     t.bigint "parent_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["parent_id"], name: "index_materials_taxonomies_on_parent_id"
+    t.index ["parent_id"], name: "index_materials_on_parent_id"
   end
 
   create_table "media", force: :cascade do |t|
@@ -353,8 +355,8 @@ ActiveRecord::Schema.define(version: 2021_03_18_123422) do
   add_foreign_key "machines", "machines_taxonomies"
   add_foreign_key "manufacturers", "companies"
   add_foreign_key "manufacturers", "manufacturer_taxonomies"
-  add_foreign_key "materials", "companies"
-  add_foreign_key "materials", "materials_taxonomies"
+  add_foreign_key "material_tags", "companies"
+  add_foreign_key "material_tags", "materials"
   add_foreign_key "user_regions", "regions"
   add_foreign_key "user_regions", "users"
 end

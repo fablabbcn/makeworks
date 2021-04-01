@@ -70,6 +70,7 @@ class MachinesTaxonomiesController < ApplicationController
     def set_machines_taxonomy
       @machines_taxonomy = MachinesTaxonomy
         .includes(companies: [:region, :manufacturers, :manufacturer_taxonomies])
+        .friendly
         .find(params[:id])
     end
 

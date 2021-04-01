@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
   # These are admin only
   resources :process_taxonomies, path: 'processes'
-  resources :materials_taxonomies, path: 'materials'
+  resources :materials
   resources :industry_taxonomies, path: 'industries'
   resources :finished_products_taxonomies, path: 'finished_products'
   resources :manufacturer_taxonomies, path: 'manufacturers'

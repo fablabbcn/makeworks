@@ -11,8 +11,8 @@ class Company < ApplicationRecord
   has_many :industries, dependent: :destroy
   has_many :industry_taxonomies, through: :industries
 
-  has_many :materials, dependent: :destroy
-  has_many :materials_taxonomies, through: :materials
+  has_many :material_tags, dependent: :destroy
+  has_many :materials, through: :material_tags
 
   has_many :manufacturers, dependent: :destroy
   has_many :manufacturer_taxonomies, through: :manufacturers

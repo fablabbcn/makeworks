@@ -133,9 +133,9 @@
   <div class="col-md-4 col-xl-2">
     <h4>Materials</h4>
     <ul class="list-unstyled">
-      <% @company.materials_taxonomies.each do |x| %>
+      <% @company.materials.each do |x| %>
         <li>
-          <%= link_to x, materials_taxonomy_url(x) %>
+          <%= link_to x, material_url(x.id) %>
         </li>
       <% end %>
     </ul>

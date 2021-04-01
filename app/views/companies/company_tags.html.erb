@@ -37,7 +37,7 @@
     <ul class="list-unstyled">
       <% @company.materials.each do |x| %>
         <li>
-          <%= link_to x.materials_taxonomy.name, materials_taxonomy_url(x) %>
+          <%= link_to x.material.name, material_url(x) %>
         </li>
       <% end %>
     </ul>

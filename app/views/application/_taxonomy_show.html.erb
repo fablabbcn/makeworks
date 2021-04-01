@@ -1,6 +1,10 @@
 <div class="my-4">
   <%= link_to my_item.class, polymorphic_url(my_item.class) %>
   <% if my_item.parent_id? %>
+    <% if my_item.parent.parent_id? %>
+      /
+      <%= link_to my_item.parent.parent, polymorphic_url(my_item.parent.parent), title: 'Grand Parent' %>
+    <% end %>
     /
     <%= link_to my_item.parent, polymorphic_url(my_item.parent) %>
     /

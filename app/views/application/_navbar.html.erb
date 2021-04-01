@@ -53,7 +53,7 @@
                   </svg>
                 <% end %>
                 <%= link_to t("shared.processes"), process_taxonomies_url, class: "dropdown-item #{'active' if current_page?(process_taxonomies_url)}" %>
-                <%= link_to t("shared.materials"), materials_taxonomies_url, class: "dropdown-item #{'active' if current_page?(materials_taxonomies_url)}" %>
+                <%= link_to t("shared.materials"), materials_url, class: "dropdown-item #{'active' if current_page?(materials_url)}" %>
                 <%= link_to t("shared.industry"), industry_taxonomies_url, class: "dropdown-item #{'active' if current_page?(industry_taxonomies_url)}" %>
                 <%= link_to t("shared.machines"), machines_taxonomies_url, class: "dropdown-item #{'active' if current_page?(machines_taxonomies_url)}" %>
                 <%= link_to t("shared.manufacturers"), manufacturer_taxonomies_url, class: "dropdown-item #{'active' if current_page?(manufacturer_taxonomies_url)}" %>

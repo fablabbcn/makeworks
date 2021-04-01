@@ -1,36 +1,35 @@
 require "application_system_test_case"
 
-class MaterialsTaxonomiesTest < ApplicationSystemTestCase
+class MaterialsTest < ApplicationSystemTestCase
   setup do
-    @materials_taxonomy = materials_taxonomies(:one)
+    @material = materials(:one)
     sign_in users(:one)
   end
 
   test "visiting the index" do
-    visit materials_taxonomies_url
+    visit materials_url
     #assert_selector "h1", text: "Materials Taxonomies"
   end
 
   test "creating a Materials taxonomy" do
-    visit materials_taxonomies_url
+    visit materials_url
     click_on "New Materials Taxonomy"
 
-    fill_in "Name", with: @materials_taxonomy.name
-    #fill_in "Parent", with: @materials_taxonomy.parent_id
-    click_on "Create Materials taxonomy"
+    fill_in "Name", with: @material.name
+    click_on "Create Material"
 
     assert_text "Materials taxonomy was successfully created"
     #click_on "Back"
   end
 
   test "updating a Materials taxonomy" do
-    visit materials_taxonomies_url
+    visit materials_url
     click_on "MyString", match: :first
     click_on "Edit", match: :first
 
-    fill_in "Name", with: @materials_taxonomy.name
-    #fill_in "Parent", with: @materials_taxonomy.parent_id
-    click_on "Update Materials taxonomy"
+    fill_in "Name", with: @material.name
+    #fill_in "Parent", with: @material.parent_id
+    click_on "Update Material"
 
     assert_text "Materials taxonomy was successfully updated"
     #click_on "Back"
@@ -38,7 +37,7 @@ class MaterialsTaxonomiesTest < ApplicationSystemTestCase
 
   test "destroying a Materials taxonomy" do
     skip
-    visit materials_taxonomies_url
+    visit materials_url
     page.accept_confirm do
       click_on "Destroy", match: :first
     end

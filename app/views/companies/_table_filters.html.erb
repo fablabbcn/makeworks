@@ -35,8 +35,8 @@
       %>
     </div>
     <div class="my-2 col-md-6 col-xl-3">
-      <%= f.select :materials_taxonomies_id_eq,
-        MaterialsTaxonomy.pluck(:name, :id),
+      <%= f.select :materials_id_eq,
+        Material.pluck(:name, :id),
         { include_blank: 'All Materials' },
         class: ''
       %>
