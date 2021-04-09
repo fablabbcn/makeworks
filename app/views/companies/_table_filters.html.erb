@@ -21,31 +21,35 @@
 
   <div class="row">
     <div class="my-2 col-md-6 col-xl-3">
+      <label>Regions</label>
       <%= f.select :regions_id_in,
         Region.where(is_public: true).pluck(:name, :id),
         { include_blank: 'All Regions' },
-        {class: '', multiple: true}
+        { class: '', multiple: true }
       %>
     </div>
     <div class="my-2 col-md-6 col-xl-3">
-      <%= f.select :industry_taxonomies_id_eq,
+      <label>Industry</label>
+      <%= f.select :industry_taxonomies_id_in,
         IndustryTaxonomy.pluck(:name, :id),
         { include_blank: 'All Industries' },
-        class: ''
+        { class: '', multiple: true }
       %>
     </div>
     <div class="my-2 col-md-6 col-xl-3">
-      <%= f.select :materials_id_eq,
+      <label>Material</label>
+      <%= f.select :materials_id_in,
         Material.pluck(:name, :id),
         { include_blank: 'All Materials' },
-        class: ''
+        { class: '', multiple: true }
       %>
     </div>
     <div class="my-2 col-md-6 col-xl-3">
-      <%= f.select :machines_taxonomies_id_eq,
+      <label>Machines</label>
+      <%= f.select :machines_taxonomies_id_in,
         MachinesTaxonomy.pluck(:name, :id),
         { include_blank: 'All Machines' },
-        { class: '', 'data-controller': 'select2-machines' }
+        { class: '', 'data-controller': 'select2-machines', multiple: true }
       %>
     </div>
   </div>
