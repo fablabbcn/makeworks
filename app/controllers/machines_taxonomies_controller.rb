@@ -69,7 +69,7 @@ class MachinesTaxonomiesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_machines_taxonomy
       @machines_taxonomy = MachinesTaxonomy
-        .includes(companies: [:region, :manufacturers, :manufacturer_taxonomies])
+        .includes(companies: [:regions, :manufacturers, :manufacturer_taxonomies])
         .friendly
         .find(params[:id])
     end

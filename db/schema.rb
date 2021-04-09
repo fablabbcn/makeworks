@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_09_142857) do
+ActiveRecord::Schema.define(version: 2021_04_09_151129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,7 +95,6 @@ ActiveRecord::Schema.define(version: 2021_04_09_142857) do
 
   create_table "companies", force: :cascade do |t|
     t.string "m_id"
-    t.bigint "region_id", null: false
     t.string "name"
     t.string "address"
     t.text "background"
@@ -156,9 +155,17 @@ ActiveRecord::Schema.define(version: 2021_04_09_142857) do
     t.text "production_specifics"
     t.bigint "user_id"
     t.string "slug"
-    t.index ["region_id"], name: "index_companies_on_region_id"
     t.index ["slug"], name: "index_companies_on_slug", unique: true
     t.index ["user_id"], name: "index_companies_on_user_id"
+  end
+
+  create_table "company_organizations", force: :cascade do |t|
+    t.bigint "region_id", null: false
+    t.bigint "company_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_company_organizations_on_company_id"
+    t.index ["region_id"], name: "index_company_organizations_on_region_id"
   end
 
   create_table "company_processes", force: :cascade do |t|
@@ -346,8 +353,9 @@ ActiveRecord::Schema.define(version: 2021_04_09_142857) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "blogs", "blog_categories"
   add_foreign_key "blogs", "media"
-  add_foreign_key "companies", "regions"
   add_foreign_key "companies", "users"
+  add_foreign_key "company_organizations", "companies"
+  add_foreign_key "company_organizations", "regions"
   add_foreign_key "company_processes", "companies"
   add_foreign_key "company_processes", "process_taxonomies"
   add_foreign_key "finished_products", "companies"

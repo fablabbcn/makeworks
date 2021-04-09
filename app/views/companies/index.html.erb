@@ -7,7 +7,7 @@
     <tr>
       <th><%= sort_link(@q, :name)%></th>
       <th><%= sort_link(@q, :year_founded, 'Founded')%></th>
-      <th><%= sort_link(@q, :region)%></th>
+      <th><%= sort_link(@q, :regions)%></th>
       <th>Location</th>
       <th><%= sort_link(@q, :minimum_order)%></th>
       <th><%= sort_link(@q, :number_of_staff)%></th>
@@ -24,7 +24,7 @@
           </small>
         </td>
         <td><%= company.year_founded %></td>
-        <td><%= link_to company.region, company.region %></td>
+        <td><%= company.regions.pluck(:name) %></td>
         <td title="<%= company.location %>"><%= company.location&.truncate(30) %></td>
         <td><%= company.minimum_order %></td>
         <td><%= company.number_of_staff %></td>

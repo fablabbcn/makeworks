@@ -12,9 +12,9 @@
     <%# f.input :title %>
 
     <% if params[:region_id].present? %>
-      <%= f.association :region, selected: (params[:region_id]) %>
+      <%= f.association :regions, selected: (params[:region_id]) %>
     <% else %>
-      <%= f.association :region, prompt: 'Select a region' %>
+      <%= f.association :regions, prompt: 'Select a region' %>
     <% end %>
 
     <%= f.input :location %>

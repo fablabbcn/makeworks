@@ -1,6 +1,8 @@
 class Company < ApplicationRecord
-  belongs_to :region
   belongs_to :user, optional: true # The user who created /submitted the company
+
+  has_many :company_organization, dependent: :destroy
+  has_many :regions, through: :company_organization
 
   has_many :finished_products, dependent: :destroy
   has_many :finished_products_taxonomies, through: :finished_products

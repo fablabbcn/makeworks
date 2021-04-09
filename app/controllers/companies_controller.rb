@@ -5,7 +5,7 @@ class CompaniesController < ApplicationController
   before_action :index, only: [:advanced] #reuse the index on /companies_advanced
 
   def who_can_edit!
-    if current_user && (current_user.is_champion_in_region(@company&.region&.id) || current_user.is_admin?)
+    if current_user && (current_user.is_champion_in_regions(@company&.region_ids) || current_user.is_admin?)
     else
       flash[:error] = 'Only admins and champions can edit'
       redirect_to @company
@@ -23,7 +23,7 @@ class CompaniesController < ApplicationController
   def index
     @q = Company
       .includes(
-        :region,
+        :regions,
         :industry_taxonomies,
         :industries
       )
@@ -110,7 +110,6 @@ class CompaniesController < ApplicationController
   def company_params
     params.require(:company).permit(
       :m_id,
-      :region_id,
       :name, :address,
       :background,
       :description, :intro, :contact_name, :contact_email,
@@ -131,6 +130,7 @@ class CompaniesController < ApplicationController
       :batch_production,
       :production_access,
       :production_specifics,
+      region_ids: [],
       slider_images: [],
       materials_ids: [],
       industry_taxonomy_ids: [],

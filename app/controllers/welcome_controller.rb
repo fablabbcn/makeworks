@@ -13,7 +13,7 @@ class WelcomeController < ApplicationController
     @random_companies = Company
       .all
       .where(is_verified: true)
-      .includes(:region)
+      .includes(:regions)
       .sample(3)
   end
 

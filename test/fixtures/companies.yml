@@ -2,7 +2,6 @@
 
 one:
   m_id: MyString
-  region: one
   name: Company1
   address: MyString
   background: MyText
@@ -53,7 +52,6 @@ one:
 
 two:
   m_id: MyString
-  region: two
   name: Company2
   address: MyString
   background: MyText

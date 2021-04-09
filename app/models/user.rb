@@ -55,7 +55,14 @@ class User < ApplicationRecord
     UserRegion.where(user: self, region: region_id).present?
   end
 
+  def is_champion_in_regions(region_ids)
+    # Example: A company can be a part of 3 regions.
+    # For every region in region_ids
+    # Check if the user is champion in ANY of them.
+    user_regions.where(region: region_ids).pluck(:is_champion).include?(true)
+  end
+
   def is_champion_in_region(region_id)
-    UserRegion.where(user: self, region: region_id).first&.is_champion
+    user_regions.where(region: region_id).first&.is_champion
   end
 end

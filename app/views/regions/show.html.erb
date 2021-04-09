@@ -9,7 +9,7 @@
       <% if current_user.in_region(@region) %>
         <%= link_to leave_region_url, class: 'btn btn-yellow', data: { confirm: 'Are you sure you want to leave this region?' } do %>
           Leave region
-          <% if current_user.is_champion_in_region(@region) %>
+          <% if current_user.is_champion_in_regions(@region) %>
             (Champion)
           <% end %>
         <% end %>

@@ -1,8 +1,11 @@
-<% if current_user&.is_admin? || current_user&.is_champion_in_region(@company.region) %>
+<%= current_user&.is_champion_in_regions(@company.regions) %>
+<% if current_user&.is_admin? || current_user&.is_champion_in_regions(@company.regions) %>
   <%= link_to 'Edit', edit_company_path(@company), class: 'btn btn-primary mb-4' %>
 <% end %>
 
-<%= link_to @company.region, region_url(@company.region), class: 'd-block' %>
+<% @company.regions.each do |region| %>
+  <%= link_to region, region_url(region), class: 'd-block' %>
+<% end %>
 <%= title @company.name %>
 
 <div class="row my-4">
@@ -26,7 +29,7 @@
         </tr>
         <tr>
           <th>Region</th>
-          <td><%= link_to @company.region, region_url(@company.region) %></td>
+          <td><%# link_to @company.region, region_url(@company.region) %></td>
         </tr>
         <tr>
           <th>Location</th>
@@ -278,14 +281,14 @@
 <div class="my-5">
   <h4>4 nearby companies</h4>
   <% unless @company.new_record? %>
-    <% @company.nearbys&.limit(4)&.includes(:region, :manufacturer_taxonomies)&.each do |company| %>
+    <% @company.nearbys&.limit(4)&.includes(:regions, :manufacturer_taxonomies)&.each do |company| %>
       <%= render company %>
     <% end %>
   <% end %>
 </div>
 
 <div class="mb-3">
-  <% if current_user&.is_admin? || current_user&.is_champion_in_region(@company.region) %>
+  <% if current_user&.is_admin? || current_user&.is_champion_in_regions(@company.regions) %>
     <%= link_to 'Edit', edit_company_path(@company), class: 'btn btn-primary'  %>
   <% end %>
 </div>
