@@ -18,10 +18,18 @@ class BlogsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create blog" do
     assert_difference('Blog.count') do
-      post blogs_url, params: { blog: { blog_category_id: @blog.blog_category_id, blurb: @blog.blurb, content: @blog.content, dont_publish: @blog.dont_publish, featured_video: @blog.featured_video, header_image: @blog.header_image, m_id: @blog.m_id, medium_id: @blog.medium_id, slug: @blog.slug, sub_title: @blog.sub_title, title: @blog.title } }
+      post blogs_url, params: {
+        blog: {
+          blog_category_id: @blog.blog_category_id, blurb: @blog.blurb, content: @blog.content,
+          dont_publish: @blog.dont_publish, featured_video: @blog.featured_video,
+          header_image: @blog.header_image, m_id: @blog.m_id, medium_id: @blog.medium_id,
+          slug: 'slug3',
+          sub_title: @blog.sub_title, title: @blog.title
+        }
+      }
     end
 
-    assert_redirected_to blog_url(Blog.last)
+    assert_redirected_to blog_url(Blog.first)
   end
 
   test "should show blog" do

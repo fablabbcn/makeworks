@@ -24,7 +24,7 @@ class BlogsTest < ApplicationSystemTestCase
     fill_in "Header image", with: @blog.header_image
     #fill_in "M", with: @blog.m_id
     #fill_in "Medium", with: @blog.medium_id
-    fill_in "Slug", with: @blog.slug
+    fill_in "Slug", with: 'slug3'
     fill_in "Sub title", with: @blog.sub_title
     fill_in "Title", with: @blog.title
     click_on "Create Blog", match: :first
@@ -46,7 +46,7 @@ class BlogsTest < ApplicationSystemTestCase
     fill_in "Header image", with: @blog.header_image
     #fill_in "M", with: @blog.m_id
     #fill_in "Medium", with: @blog.medium_id
-    fill_in "Slug", with: @blog.slug
+    fill_in "Slug", with: 'slug3'
     fill_in "Sub title", with: @blog.sub_title
     fill_in "Title", with: @blog.title
     click_on "Update Blog", match: :first

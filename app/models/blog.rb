@@ -6,6 +6,7 @@ class Blog < ApplicationRecord
   scope :published, -> { where.not(dont_publish: true) }
   scope :hidden, -> { where(dont_publish: true) }
 
+  validates :slug, uniqueness: true
   extend FriendlyId
   friendly_id :title, use: [:slugged, :finders]
 
