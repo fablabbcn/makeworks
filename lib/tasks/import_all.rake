@@ -1,4 +1,5 @@
 namespace :makeworks do
+  include ActionView::Helpers::TextHelper
   desc "Add from .json files"
 
   task import_all: [:environment] do
@@ -343,6 +344,7 @@ namespace :makeworks do
         blog.blurb = row['blurb']
         blog.blog_category = the_category
         blog.content = row['content']
+        blog.content_action = simple_format(row['content'])
         blog.dont_publish = row['dont_publish']
         blog.featured_video = row['featured_video']
         blog.header_image = row['header_image']
