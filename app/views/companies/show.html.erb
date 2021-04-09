@@ -1,4 +1,3 @@
-<%= current_user&.is_champion_in_regions(@company.regions) %>
 <% if current_user&.is_admin? || current_user&.is_champion_in_regions(@company.regions) %>
   <%= link_to 'Edit', edit_company_path(@company), class: 'btn btn-primary mb-4' %>
 <% end %>

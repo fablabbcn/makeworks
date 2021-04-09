@@ -164,9 +164,9 @@ namespace :makeworks do
         next
       end
 
-      company = Company.find_or_create_by(
+      company = Company.create(
         m_id: row['_id']['$oid'],
-        region: the_region,
+        regions: [the_region],
         address: row['Company_Address'],
         background: row['Company_Background'],
         contact_email: row['Contact_Email'],

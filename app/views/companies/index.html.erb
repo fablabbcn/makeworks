@@ -24,7 +24,7 @@
           </small>
         </td>
         <td><%= company.year_founded %></td>
-        <td><%= company.regions.pluck(:name) %></td>
+        <td><%= company.regions.to_sentence %></td>
         <td title="<%= company.location %>"><%= company.location&.truncate(30) %></td>
         <td><%= company.minimum_order %></td>
         <td><%= company.number_of_staff %></td>

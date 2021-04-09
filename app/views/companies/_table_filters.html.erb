@@ -24,7 +24,7 @@
       <%= f.select :regions_id_in,
         Region.where(is_public: true).pluck(:name, :id),
         { include_blank: 'All Regions' },
-        class: ''
+        {class: '', multiple: true}
       %>
     </div>
     <div class="my-2 col-md-6 col-xl-3">
