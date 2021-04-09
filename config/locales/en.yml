@@ -56,11 +56,11 @@ en:
         slider_images: Upload images to be used in the slider (carousel)
         #sample_production: Sample production
         #short_run: Short run
-        trimmed_name: The 'slug' that will be used in the URL to the company
+        slug: The 'slug' that will be used in the URL to the company
         website: Does the company have a website?
       region:
         logo: The old way of storing logos
-        trimmed_name: The 'slug' that will be used in the URL to the region
+        slug: The 'slug' that will be used in the URL to the region
         lat: Latitude
         lng: Longitude
       user:
@@ -80,5 +80,8 @@ en:
         process_taxonomies: Process tags
         finished_products_taxonomies: Finished products tags
         manufacturer_taxonomies: Manufacturer tags
+        slug: Trimmed name
+      region:
+        slug: Trimmed name
     placeholders:
       company: 

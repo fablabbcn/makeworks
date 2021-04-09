@@ -18,7 +18,12 @@ class RegionsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create region" do
     assert_difference('Region.count') do
-      post regions_url, params: { region: { can_signup: @region.can_signup, is_public: @region.is_public, logo: @region.logo, m_id: @region.m_id, name: @region.name, trimmed_name: @region.trimmed_name } }
+      post regions_url, params: {
+        region: {
+          can_signup: @region.can_signup, is_public: @region.is_public,
+          logo: @region.logo, m_id: @region.m_id, name: @region.name, slug: 'newslug1'
+        }
+      }
     end
 
     assert_redirected_to region_url(Region.last)
@@ -36,7 +41,12 @@ class RegionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update region" do
-    patch region_url(@region), params: { region: { can_signup: @region.can_signup, is_public: @region.is_public, logo: @region.logo, m_id: @region.m_id, name: @region.name, trimmed_name: @region.trimmed_name } }
+    patch region_url(@region), params: {
+      region: {
+        can_signup: @region.can_signup, is_public: @region.is_public, logo: @region.logo, m_id: @region.m_id, name: @region.name,
+        slug: @region.slug
+      }
+    }
     assert_redirected_to region_url(@region)
   end
 

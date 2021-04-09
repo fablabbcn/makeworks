@@ -23,8 +23,9 @@ class Company < ApplicationRecord
   #has_one_attached :contact_avatar
   has_many_attached :slider_images
 
+  validates :slug, uniqueness: true
   extend FriendlyId
-  friendly_id :name, use: [:slugged, :finders], slug_column: :trimmed_name
+  friendly_id :name, use: [:slugged, :finders]
 
   geocoded_by :full_address, latitude: :lat, longitude: :lng
   after_validation :geocode, if: :the_address_changed?
@@ -41,7 +42,7 @@ class Company < ApplicationRecord
   end
 
   def should_generate_new_friendly_id?
-    trimmed_name.blank?
+    slug.blank?
   end
 
   def old_photos

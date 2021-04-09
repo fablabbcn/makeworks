@@ -4,12 +4,12 @@ ActiveAdmin.register Region do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :m_id, :name, :can_signup, :is_public, :logo, :trimmed_name, :lat, :lng
+  permit_params :m_id, :name, :can_signup, :is_public, :logo, :slug, :lat, :lng
   #
   # or
   #
   # permit_params do
-  #   permitted = [:m_id, :name, :can_signup, :is_public, :logo, :trimmed_name]
+  #   permitted = [:m_id, :name, :can_signup, :is_public, :logo, :slug]
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end

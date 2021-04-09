@@ -9,7 +9,7 @@ namespace :makeworks do
         m_id: row['_id']['$oid'],
         name: row['organisation_name'],
         #short_name: row['short_name'],
-        trimmed_name: row['orgainisation_trimmed_name'],
+        slug: row['orgainisation_trimmed_name'],
         logo: row['logo'],
         can_signup: row['can_signup'],
         is_public: row['is_public']
@@ -207,7 +207,7 @@ namespace :makeworks do
         soft_delete: row['Soft_Delete'],
         title: row['Title'],
         top_image: row['Top_Image'],
-        trimmed_name: row['Trimmed_name'],
+        slug: row['Trimmed_name'],
         turnaround_time: row['Turnaround_Time'],
         twitter: row['Twitter'],
         video_link: row['Video_link'],

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_31_183410) do
+ActiveRecord::Schema.define(version: 2021_04_09_131549) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -133,7 +133,6 @@ ActiveRecord::Schema.define(version: 2021_03_31_183410) do
     t.boolean "soft_delete"
     t.string "title"
     t.string "top_image"
-    t.string "trimmed_name"
     t.string "turnaround_time"
     t.string "twitter"
     t.string "video_link"
@@ -155,7 +154,9 @@ ActiveRecord::Schema.define(version: 2021_03_31_183410) do
     t.boolean "is_verified"
     t.text "production_specifics"
     t.bigint "user_id"
+    t.string "slug"
     t.index ["region_id"], name: "index_companies_on_region_id"
+    t.index ["slug"], name: "index_companies_on_slug", unique: true
     t.index ["user_id"], name: "index_companies_on_user_id"
   end
 
@@ -286,11 +287,12 @@ ActiveRecord::Schema.define(version: 2021_03_31_183410) do
     t.boolean "can_signup"
     t.boolean "is_public"
     t.string "logo"
-    t.string "trimmed_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.float "lat"
     t.float "lng"
+    t.string "slug"
+    t.index ["slug"], name: "index_regions_on_slug", unique: true
   end
 
   create_table "taxonomies", force: :cascade do |t|

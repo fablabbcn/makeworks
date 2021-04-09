@@ -19,7 +19,7 @@ class RegionsTest < ApplicationSystemTestCase
     #fill_in "Logo", with: @region.logo
     #fill_in "M", with: @region.m_id
     fill_in "Name", with: @region.name
-    fill_in "Trimmed name", with: @region.trimmed_name
+    fill_in "Trimmed name", with: 'slug123'
     click_on "Create Region"
 
     assert_text "Region was successfully created"
@@ -35,7 +35,7 @@ class RegionsTest < ApplicationSystemTestCase
     #fill_in "Logo", with: @region.logo
     #fill_in "M", with: @region.m_id
     fill_in "Name", with: @region.name
-    fill_in "Trimmed name", with: @region.trimmed_name
+    fill_in "Trimmed name", with: 'slug456'
     click_on "Update Region"
 
     assert_text "Region was successfully updated"

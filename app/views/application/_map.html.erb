@@ -23,7 +23,7 @@
   locations.forEach(function(item) {
     L.marker([item.lat, item.lng]).addTo(map)
       .bindPopup(
-        "<a href='/companies/" + item.trimmed_name + "'>" + item.name + "</a><br/>" +
+        "<a href='/companies/" + item.slug + "'>" + item.name + "</a><br/>" +
         "<b>Location: </b>" + item.location + "<br/>" +
         "<b>Address: </b>" + item.address + "<br/>"
       )

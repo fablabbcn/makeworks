@@ -122,7 +122,7 @@ class RegionsController < ApplicationController
       :can_signup,
       :is_public,
       :logo,
-      :trimmed_name,
+      :slug,
       :lat,
       :lng,
       :partner_text,

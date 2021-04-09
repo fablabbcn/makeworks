@@ -1,9 +1,9 @@
 class Region < ApplicationRecord
-  has_many :user_regions
+  has_many :user_regions, dependent: :destroy
   has_many :users, through: :user_regions
-  has_many :companies
+  has_many :companies, dependent: :nullify
   extend FriendlyId
-  friendly_id :name, use: [:slugged, :finders], slug_column: :trimmed_name
+  friendly_id :name, use: [:slugged, :finders]
 
   has_rich_text :short_info
   has_one_attached :avatar
@@ -17,6 +17,6 @@ class Region < ApplicationRecord
   end
 
   def should_generate_new_friendly_id?
-    trimmed_name.blank? || name_changed?
+    slug.blank?
   end
 end

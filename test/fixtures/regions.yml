@@ -6,12 +6,12 @@ one:
   can_signup: false
   is_public: true
   #logo: MyString
-  trimmed_name: reg1
+  slug: reg1
 
 two:
-  m_id: MyString
+  m_id: MyString2
   name: Region2
   can_signup: false
   is_public: false
   #logo: MyString
-  trimmed_name: reg2
+  slug: reg2

@@ -42,7 +42,7 @@ one:
   soft_delete: false
   title: MyString
   top_image: image.png
-  trimmed_name: MyString
+  slug: myslug
   turnaround_time: MyString
   twitter: MyString
   video_link: MyString
@@ -93,7 +93,7 @@ two:
   soft_delete: false
   title: MyString
   top_image: image.png
-  trimmed_name: MyString
+  slug: Myslug2
   turnaround_time: MyString
   twitter: MyString
   video_link: MyString
