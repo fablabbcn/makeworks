@@ -262,7 +262,7 @@ GEM
       coderay (~> 1.1)
       method_source (~> 1.0)
     public_suffix (4.0.6)
-    puma (4.3.5)
+    puma (5.2.2)
       nio4r (~> 2.0)
     racc (1.5.2)
     rack (2.2.3)
@@ -417,7 +417,7 @@ DEPENDENCIES
   omniauth-fablabs!
   omniauth-linkedin-oauth2
   pg
-  puma (~> 4.3)
+  puma
   rack-mini-profiler
   rails (~> 6.1)
   sass-rails (>= 6)
