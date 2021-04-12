@@ -132,7 +132,7 @@ class CompaniesController < ApplicationController
       :production_specifics,
       region_ids: [],
       slider_images: [],
-      materials_ids: [],
+      material_ids: [],
       industry_taxonomy_ids: [],
       process_taxonomy_ids: [],
       finished_products_taxonomy_ids: [],
