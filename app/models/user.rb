@@ -5,6 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :trackable,
          :omniauthable, omniauth_providers: [:fablabs, :linkedin]
+
+  has_many :employees, dependent: :destroy
+  has_many :companies, through: :employees
+
   has_many :user_regions, dependent: :destroy
   has_many :regions, through: :user_regions
 

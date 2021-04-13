@@ -88,6 +88,26 @@ class CompaniesController < ApplicationController
     end
   end
 
+  def edit_employee
+    # TODO: Who can edit?
+
+    if current_user.is_admin? #or manager? #or region champion?
+      comp = Company.find(params[:id])
+      user = User.find(params[:user])
+      role = params[:role]
+
+      Employee
+        .where(company: comp, user: user)
+        .first
+        .update!(role: role)
+
+      render json: 'Employee changed'
+    else
+      # Only admin can edit?
+      render json: 'Only admin can change'
+    end
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -132,6 +152,7 @@ class CompaniesController < ApplicationController
       :production_specifics,
       region_ids: [],
       slider_images: [],
+      user_ids: [],
       material_ids: [],
       industry_taxonomy_ids: [],
       process_taxonomy_ids: [],

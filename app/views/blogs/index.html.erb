@@ -2,7 +2,11 @@
 
 <%= search_form_for @q, html: { style: 'max-width:700px;' } do |f| %>
   <div class="my-2">
-    <%= f.select :blog_category_id_eq, BlogCategory.pluck(:name, :id), {include_blank: 'All Categories'} %>
+    <%= f.select :blog_category_id_eq,
+      BlogCategory.pluck(:name, :id),
+      { include_blank: 'All Categories' },
+      { 'data-controller': 'select2'}
+    %>
   </div>
   <div class="input-group mb-3">
     <%= f.search_field :title_or_blurb_or_content_cont, class: 'form-control', placeholder: 'Search for a blog title / content' %>

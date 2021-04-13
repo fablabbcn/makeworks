@@ -25,7 +25,7 @@
       <%= f.select :regions_id_in,
         Region.where(is_public: true).pluck(:name, :id),
         { include_blank: 'All Regions' },
-        { class: '', multiple: true }
+        { class: '', multiple: true, 'data-controller': 'select2' }
       %>
     </div>
     <div class="my-2 col-md-6 col-xl-3">
@@ -33,7 +33,7 @@
       <%= f.select :industry_taxonomies_id_in,
         IndustryTaxonomy.pluck(:name, :id),
         { include_blank: 'All Industries' },
-        { class: '', multiple: true }
+        { class: '', multiple: true, 'data-controller': 'select2' }
       %>
     </div>
     <div class="my-2 col-md-6 col-xl-3">
@@ -41,7 +41,7 @@
       <%= f.select :materials_id_in,
         Material.pluck(:name, :id),
         { include_blank: 'All Materials' },
-        { class: '', multiple: true }
+        { class: '', multiple: true, 'data-controller': 'select2' }
       %>
     </div>
     <div class="my-2 col-md-6 col-xl-3">

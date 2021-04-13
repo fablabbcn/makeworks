@@ -10,12 +10,12 @@
     <%= f.input :title %>
     <%= f.input :sub_title %>
     <%= f.input :blurb %>
-    <%= f.association :blog_category %>
+    <%= f.association :blog_category, input_html: { 'data-controller': 'select2' } %>
     <%= f.rich_text_area :content_action %>
     <%= f.input :dont_publish %>
     <%= f.input :featured_video %>
     <%= f.input :header_image %>
-    <%= f.association :medium %>
+    <%# f.association :medium, input_html: { 'data-controller': 'select2' } %>
     <%= f.input :slug %>
   </div>
 

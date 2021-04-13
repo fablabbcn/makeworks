@@ -13,12 +13,12 @@
       </div>
     </div>
     <div class="my-3">
-      <%= f.input :locale, collection: locale_name_pairs, include_blank: false %>
+      <%= f.input :locale, collection: locale_name_pairs, include_blank: false, input_html: { 'data-controller': 'select2' } %>
     </div>
 
     <%= f.label :bio %>
     <%= f.rich_text_area :bio %>
-    <%= f.input :time_zone %>
+    <%= f.input :time_zone, input_html: { 'data-controller': 'select2' } %>
 
     <p>
     Time now in this zone: <%= Time.now.in_time_zone(current_user.time_zone) %>

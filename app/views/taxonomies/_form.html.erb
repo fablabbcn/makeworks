@@ -7,7 +7,7 @@
     <%= f.input :m_id %>
     <%= f.input :taxonomy %>
     <%= f.input :name %>
-    <%= f.association :parent %>
+    <%= f.association :parent, input_html: { 'data-controller': 'select2' } %>
   </div>
 
   <div class="form-actions">

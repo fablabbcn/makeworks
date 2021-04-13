@@ -12,10 +12,10 @@ export default class extends Controller {
       // user/form select currency
       //
 
-    $(this.element).select2({
-    'width': '50%'
-    })
     */
+    $(this.element).select2({
+    'width': '100%'
+    })
   }
 
   disconnect() {

@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th><%= sort_link(@q, :name)%></th>
-      <th><%= sort_link(@q, :region)%></th>
+      <th><%= t('shared.regions') %></th>
       <th>Address</th>
       <th>Location</th>
       <th>Background</th>
@@ -22,7 +22,7 @@
     <% @companies.each do |company| %>
       <tr>
         <td><%= link_to company.name, company %></td>
-        <td><%= link_to company.region, company.region %></td>
+        <td><%= company.regions.to_sentence %></td>
         <td title="<%= company.address %>"><%= company.address&.truncate(30) %></td>
         <td title="<%= company.location %>"><%= company.location&.truncate(30) %></td>
         <td title="<%= company.background %>"><%= company.background&.truncate(30) %></td>

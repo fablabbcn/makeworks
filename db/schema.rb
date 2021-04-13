@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_09_151129) do
+ActiveRecord::Schema.define(version: 2021_04_12_163559) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -175,6 +175,17 @@ ActiveRecord::Schema.define(version: 2021_04_09_151129) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["company_id"], name: "index_company_processes_on_company_id"
     t.index ["process_taxonomy_id"], name: "index_company_processes_on_process_taxonomy_id"
+  end
+
+  create_table "employees", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "company_id", null: false
+    t.integer "role"
+    t.string "title"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_employees_on_company_id"
+    t.index ["user_id"], name: "index_employees_on_user_id"
   end
 
   create_table "finished_products", force: :cascade do |t|
@@ -358,6 +369,8 @@ ActiveRecord::Schema.define(version: 2021_04_09_151129) do
   add_foreign_key "company_organizations", "regions"
   add_foreign_key "company_processes", "companies"
   add_foreign_key "company_processes", "process_taxonomies"
+  add_foreign_key "employees", "companies"
+  add_foreign_key "employees", "users"
   add_foreign_key "finished_products", "companies"
   add_foreign_key "finished_products", "finished_products_taxonomies"
   add_foreign_key "industries", "companies"

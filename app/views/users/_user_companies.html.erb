@@ -1,0 +1,18 @@
+<div class="mt-4 border p-4">
+  <p>User is an <b>employee</b> in these companies:</p>
+
+  <ul class="list-unstyled border-top">
+    <% @user.employees.each do |e| %>
+      <li class="border-bottom py-2">
+        <%= e.title %>
+        -
+        <small class="badge bg-secondary">
+          <%= e.role %>
+        </small>
+        <br>
+        <%= link_to e.company, e.company %>
+      </li>
+    <% end %>
+  </ul>
+
+</div>

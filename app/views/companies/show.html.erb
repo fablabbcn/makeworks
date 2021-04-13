@@ -303,5 +303,18 @@
     <li>Year founded: <%= @company.year_founded %></li>
     <li>Film ready: <%= @company.film_ready %></li>
   </ul>
-</div>
 
+  <p>Employees:</p>
+  <ul class="list-unstyled border-top">
+    <% @company.employees.each do |e| %>
+      <li class="border-bottom py-2">
+        <%= e.user %>
+        <small class="badge bg-secondary">
+          <%= e.role %>
+        </small>
+        <br>
+        <%= e.title %>
+      </li>
+    <% end %>
+  </ul>
+</div>
