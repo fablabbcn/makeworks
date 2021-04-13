@@ -5,7 +5,11 @@ class CompaniesController < ApplicationController
   before_action :index, only: [:advanced] #reuse the index on /companies_advanced
 
   def who_can_edit!
-    if current_user && (current_user.is_champion_in_regions(@company&.region_ids) || current_user.is_admin?)
+    if current_user && (
+        current_user.is_champion_in_regions(@company&.region_ids) ||
+        current_user.is_employee_in_company(@company.id) ||
+        current_user.is_admin?
+    )
     else
       flash[:error] = 'Only admins and champions can edit'
       redirect_to @company

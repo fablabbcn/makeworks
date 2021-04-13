@@ -122,7 +122,9 @@
 
     <%= f.input :video_link %>
 
-    <% if current_user&.is_admin? || current_user&.is_champion_in_region(@company.region) %>
+    <% if current_user&.is_admin? ||
+        current_user&.is_champion_in_region(@company.region_ids)
+      %>
       <div class="card-admin my-4">
         <h5>Admin only</h5>
         <p>The 'New way' of adding images:</p>

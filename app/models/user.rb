@@ -69,4 +69,8 @@ class User < ApplicationRecord
   def is_champion_in_region(region_id)
     user_regions.where(region: region_id).first&.is_champion
   end
+
+  def is_employee_in_company(company_id)
+    employees.where(company: company_id).first
+  end
 end
