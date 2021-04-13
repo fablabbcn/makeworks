@@ -77,7 +77,7 @@ class CompaniesControllerTest < ActionDispatch::IntegrationTest
         youtube: @company.youtube
       }
     }
-    assert_redirected_to company_url(@company)
+    assert_redirected_to edit_company_url(@company)
   end
 
   test "should destroy company" do
