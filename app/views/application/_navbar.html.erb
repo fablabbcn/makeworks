@@ -40,7 +40,7 @@
               <%= current_user.name %>
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarUser">
-              <%= link_to "User settings", edit_profile_url(current_user), class: "dropdown-item #{'active' if current_page?(edit_profile_url(current_user))}" %>
+              <%= link_to "User settings", user_url(current_user), class: "dropdown-item #{'active' if current_page?(edit_profile_url(current_user))}" %>
               <% if current_user.is_admin? %>
                 <div class="dropdown-divider"></div>
                 <div class="dropdown-header">
