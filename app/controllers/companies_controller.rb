@@ -98,12 +98,11 @@ class CompaniesController < ApplicationController
     if current_user.is_admin? #or manager? #or region champion?
       comp = Company.find(params[:id])
       user = User.find(params[:user])
-      role = params[:role]
 
       Employee
         .where(company: comp, user: user)
         .first
-        .update!(role: role)
+        .update!(role: params[:role], title: params[:title])
 
       render json: 'Employee changed'
     else

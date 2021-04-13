@@ -61,39 +61,49 @@
         Created on: <%= @company.created_at %>
         </p>
 
-        <h5 class="mt-4">
-          Employees
-          <span
-            class="text-muted ms-1"
-            data-bs-container="body"
-            data-bs-toggle="popover"
-            data-bs-trigger="hover"
-            data-bs-placement="right"
-            data-bs-content="<%= t('shared.info_roles') %>"
+      </div>
+    <% end %>
+
+    <div class="my-5">
+      <h3>
+        <%= t('shared.employees') %>
+        <span
+          class="text-muted ms-1"
+          data-bs-container="body"
+          data-bs-toggle="popover"
+          data-bs-trigger="hover"
+          data-bs-placement="right"
+          data-bs-content="<%= t('shared.info_roles') %>"
+          >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+          </svg>
+        </span>
+      </h3>
+
+      <%= f.association :users, label: false, label_method: :name_and_email, input_html: { 'data-controller': 'select2' } %>
+
+      <table class="table border-top">
+        <% @company.employees.order(:id).each do |e| %>
+          <tr
+            data-controller='employee'
+            data-employee-url="<%= edit_employee_company_url(@company.id) %>"
+            data-employee-userid="<%= e.user.id %>"
             >
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
-              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-              <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
-            </svg>
-          </span>
-        </h5>
-
-        <%= f.association :users, label: false, input_html: { 'data-controller': 'select2' } %>
-
-        <table class="table border-top">
-          <% @company.employees.each do |e| %>
-            <tr
-              data-controller='employee'
-              data-employee-url="<%= edit_employee_company_url(@company.id) %>"
-              >
-              <td>
-                <%= e.user %>
-                <br>
-                <small>
-                <%= e.title %>
-                </small>
-              </td>
-              <td>
+            <td title="Employee name">
+              <%= e.user %>
+            </td>
+            <td title="Employee title">
+              <input
+                class="form-control"
+                type="text"
+                value="<%= e.title %>"
+                data-employee-target="title"
+                data-action='change->employee#updateRole',
+                />
+            </td>
+            <td title="Employee role">
               <%= select(
                 :user,
                 :role,
@@ -102,29 +112,27 @@
                   e.role
                 ),
                 {},
-                { class: '',
+                {
+                  class: 'form-control',
                   'data-action': 'change->employee#updateRole',
-                  'data-employee-target': 'role',
-                  'data-userid': e.user.id,
-                  disabled: !current_user.is_admin?,
+                  'data-employee-target': 'role'
                 }
               ) %>
-              </td>
-            </tr>
-          <% end %>
-        </table>
-      </div>
-    <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
 
-    <%= f.button :submit %>
+      <%= f.button :submit %>
+    </div>
 
-    <h3 class="mt-3">Media</h3>
+
+    <h3>Media</h3>
 
     <%= f.input :video_link %>
 
     <% if current_user&.is_admin? ||
-        current_user&.is_champion_in_region(@company.region_ids)
-      %>
+        current_user&.is_champion_in_region(@company.region_ids) %>
       <div class="card-admin my-4">
         <h5>Admin only</h5>
         <p>The 'New way' of adding images:</p>

@@ -30,6 +30,10 @@ class User < ApplicationRecord
     end
   end
 
+  def name_and_email
+    "#{name} - #{email}"
+  end
+
   def self.from_omniauth(auth)
     # Should we care which provider / uid is used?
     # user = User.where(provider: auth.provider, uid: auth.uid).first

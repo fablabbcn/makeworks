@@ -2,7 +2,7 @@ import { Controller } from "stimulus"
 import Rails from "@rails/ujs";
 
 export default class extends Controller {
-  static targets = [ "role" ]
+  static targets = [ "role", "title" ]
 
   connect() {
     //console.log(this.roleTarget.dataset)
@@ -11,7 +11,8 @@ export default class extends Controller {
   updateRole(event){
     let data = new FormData()
     data.append("role", this.roleTarget.value)
-    data.append("user", event.target.dataset.userid)
+    data.append("title", this.titleTarget.value)
+    data.append("user", this.data.get("userid"))
 
     Rails.ajax({
       type: "PATCH",
