@@ -31,7 +31,7 @@ class CompaniesController < ApplicationController
         :industry_taxonomies,
         :industries
       )
-      .where(regions: { is_public: true })
+      .where.not(regions: { is_public: false }) # Don't show if company is a part of a region that is hidden?
       .where(is_verified: true)
       .ransack(params[:q])
 
