@@ -4,4 +4,8 @@ class ProcessTaxonomy < ApplicationRecord
 
   has_many :company_processes, dependent: :destroy
   has_many :companies, through: :company_processes
+
+  validates :slug, uniqueness: true
+  extend FriendlyId
+  friendly_id :name, use: :slugged
 end

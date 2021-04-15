@@ -68,7 +68,7 @@ class MaterialsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_material
-      @material = Material.find(params[:id])
+      @material = Material.friendly.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

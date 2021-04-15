@@ -4,4 +4,8 @@ class FinishedProductsTaxonomy < ApplicationRecord
 
   has_many :finished_products, dependent: :destroy
   has_many :companies, through: :finished_products
+
+  validates :slug, uniqueness: true
+  extend FriendlyId
+  friendly_id :name, use: :slugged
 end

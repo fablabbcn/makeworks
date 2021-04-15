@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_12_163559) do
+ActiveRecord::Schema.define(version: 2021_04_15_134535) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -203,7 +203,9 @@ ActiveRecord::Schema.define(version: 2021_04_12_163559) do
     t.bigint "parent_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "slug"
     t.index ["parent_id"], name: "index_finished_products_taxonomies_on_parent_id"
+    t.index ["slug"], name: "index_finished_products_taxonomies_on_slug", unique: true
   end
 
   create_table "industries", force: :cascade do |t|
@@ -221,7 +223,9 @@ ActiveRecord::Schema.define(version: 2021_04_12_163559) do
     t.bigint "parent_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "slug"
     t.index ["parent_id"], name: "index_industry_taxonomies_on_parent_id"
+    t.index ["slug"], name: "index_industry_taxonomies_on_slug", unique: true
   end
 
   create_table "machines", force: :cascade do |t|
@@ -250,7 +254,9 @@ ActiveRecord::Schema.define(version: 2021_04_12_163559) do
     t.bigint "parent_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "slug"
     t.index ["parent_id"], name: "index_manufacturer_taxonomies_on_parent_id"
+    t.index ["slug"], name: "index_manufacturer_taxonomies_on_slug", unique: true
   end
 
   create_table "manufacturers", force: :cascade do |t|
@@ -277,7 +283,9 @@ ActiveRecord::Schema.define(version: 2021_04_12_163559) do
     t.bigint "parent_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "slug"
     t.index ["parent_id"], name: "index_materials_on_parent_id"
+    t.index ["slug"], name: "index_materials_on_slug", unique: true
   end
 
   create_table "media", force: :cascade do |t|
@@ -297,7 +305,9 @@ ActiveRecord::Schema.define(version: 2021_04_12_163559) do
     t.bigint "parent_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "slug"
     t.index ["parent_id"], name: "index_process_taxonomies_on_parent_id"
+    t.index ["slug"], name: "index_process_taxonomies_on_slug", unique: true
   end
 
   create_table "regions", force: :cascade do |t|

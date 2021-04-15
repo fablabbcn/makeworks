@@ -4,8 +4,10 @@ one:
   m_id: MyString
   name: Fin1
   parent: one
+  slug: myslug
 
 two:
   m_id: MyString
   name: Fin2
   parent: two
+  slug: myslug2

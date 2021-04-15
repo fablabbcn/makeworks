@@ -68,7 +68,7 @@ class FinishedProductsTaxonomiesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_finished_products_taxonomy
-      @finished_products_taxonomy = FinishedProductsTaxonomy.find(params[:id])
+      @finished_products_taxonomy = FinishedProductsTaxonomy.friendly.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
