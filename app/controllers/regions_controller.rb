@@ -2,12 +2,20 @@ class RegionsController < ApplicationController
   before_action :set_region, only: [:show, :edit, :update, :destroy, :leave, :join]
   skip_before_action :authenticate_user!, only: [:show, :index]
   before_action :who_can_edit!, only: [:edit, :destroy, :update]
+  before_action :only_admins, only: [:new, :create]
 
   def who_can_edit!
     if current_user && (current_user.is_champion_in_region(@region.id) || current_user.is_admin?)
     else
       flash[:error] = 'Only champions and admins can edit'
       redirect_to @region
+    end
+  end
+
+  def only_admins
+    if current_user.is_admin?
+    else
+      redirect_to regions_url, notice: "Only admins can create a new region"
     end
   end
 
