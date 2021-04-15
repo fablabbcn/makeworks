@@ -1,4 +1,4 @@
-<div class="border border-dark my-5">
+<div class="border-top border-dark my-5">
   <p>
     <strong>M:</strong>
     <%= @medium.m_id %>
@@ -6,7 +6,7 @@
 
   <p>
     <strong>Company:</strong>
-    <%= @medium.company %>
+    <%= link_to @medium.company, edit_company_url(@medium.company) if @medium.company %>
   </p>
 
   <p>

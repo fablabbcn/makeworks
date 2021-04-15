@@ -5,7 +5,8 @@ class MediaController < ApplicationController
   # GET /media
   # GET /media.json
   def index
-    @media = Medium.all
+    @q = Medium.ransack(params[:q])
+    @media = @q.result(distinct: true).page(params[:page])
   end
 
   # GET /media/1

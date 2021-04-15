@@ -2,7 +2,18 @@
 
 <h1>Media</h1>
 
-<table>
+<%= search_form_for @q, class: 'my-4' do |f| %>
+  <label>Filter by company</label>
+  <%= f.select :company_id_in,
+    Company.pluck(:name, :id),
+    { include_blank: 'All Companies' },
+    { class: '', multiple: true, 'data-controller': 'select2' }
+  %>
+
+    <%= f.submit class: 'btn btn-primary my-3' %>
+<% end %>
+
+<table class="table">
   <thead>
     <tr>
       <th>M</th>
@@ -10,26 +21,23 @@
       <th>Thumbnail url</th>
       <th>Web url</th>
       <th>Hi res</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @media.each do |medium| %>
       <tr>
-        <td><%= medium.m_id %></td>
-        <td><%= medium.company_id %></td>
-        <td><%= medium.thumbnail_url %></td>
-        <td><%= medium.web_url %></td>
-        <td><%= medium.hi_res %></td>
-        <td><%= link_to 'Show', medium %></td>
-        <td><%= link_to 'Edit', edit_medium_path(medium) %></td>
-        <td><%= link_to 'Destroy', medium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to medium.m_id, medium %></td>
+        <td><%= link_to medium.company, edit_company_url(medium.company) if medium.company %></td>
+        <td><%= image_tag medium.thumbnail_url %></td>
+        <td><%= link_to 'web_url', medium.web_url %></td>
+        <td><%= link_to 'hi_res', medium.hi_res %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
+<%= paginate @media %>
 
 <%= link_to 'New Medium', new_medium_path %>
