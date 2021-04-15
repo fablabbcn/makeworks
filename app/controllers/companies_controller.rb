@@ -4,6 +4,11 @@ class CompaniesController < ApplicationController
   before_action :who_can_edit!, only: [:edit, :destroy, :update, :delete_image_attachment]
   before_action :index, only: [:advanced] #reuse the index on /companies_advanced
 
+  # NOTE:
+  # Every logged in user can create/submit a new company, and edit their own company.
+  # Region champions can edit all companies in their region.
+  # Admins can edit everything
+
   def who_can_edit!
     if current_user && (
         current_user.is_champion_in_regions(@company&.region_ids) ||

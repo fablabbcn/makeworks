@@ -1,13 +1,17 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:show, :index]
-  before_action :who_can_edit!, only: [:edit, :destroy, :update]
+  before_action :only_admins, only: [:new, :create, :edit, :destroy, :update]
 
-  def who_can_edit!
+  def only_admins
     if current_user.is_admin?
     else
-      flash[:error] = 'Only admins can edit'
-      redirect_to @blog
+      flash[:error] = 'Only admins can create and edit blogs'
+      if @blog
+        redirect_to @blog
+      else
+        redirect_to blogs_url
+      end
     end
   end
 
