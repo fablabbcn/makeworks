@@ -38,6 +38,12 @@ class Company < ApplicationRecord
   scope :verified, -> { where(is_verified: true) }
   scope :unverified, -> { where.not(is_verified: true) }
 
+  # Show companies without a region
+  # If company is a part of 2 regions, and one region is hidden, dont show.
+  def self.region_public_or_empty
+    where(regions: { is_public: true }).or(where(regions: nil))
+  end
+
   def full_address
     [location, address].compact.join(', ')
   end
