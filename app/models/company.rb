@@ -39,7 +39,7 @@ class Company < ApplicationRecord
   scope :unverified, -> { where.not(is_verified: true) }
 
   # Show companies without a region
-  # If company is a part of 2 regions, and one region is hidden, dont show.
+  # If company is a part of 2 regions, and one region is hidden, it should still show.
   def self.region_public_or_empty
     where(regions: { is_public: true }).or(where(regions: nil))
   end
