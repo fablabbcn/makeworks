@@ -1,4 +1,6 @@
-Technology:
+[MakeWorks](https://make.works/) is a platform that helps you find nearby manufacturers
+
+## Technology and development
 
 - Web framework: Ruby on Rails
 - Database: Postgresql
@@ -9,13 +11,20 @@ Staging web server:
 - http://staging.make.works/
 - https://staging-makeworks.herokuapp.com/
 
-## Import data
+### Development
+
+* Run tests with `rails test`
+* Automatic tests with `bundle exec guard`
+
+#### Import data
 
 `rake makeworks:import_all`
 
-## Login with 3rd party
+- TODO:
+- Get the API key to Login with linkedin
+- A region can use a 'can_signup' flag to control if companies can be submitted to their region?
 
-### Login with Fablabs.io
+#### Login with Fablabs.io
 
 The App ID and Secret were generated on https://fablabs.io/oauth/applications
 
@@ -23,29 +32,25 @@ If it stops working, it might need to be re-created:
 * Redirect URI: https://new.make.works/users/auth/fablabs/callback
 * Scopes: user
 
-### Login with linkedin
-
-- TODO: get the API key
-
-## Blog content
+#### Blog content
 
 Blog.content is the old content, from the old website.
 
 The new content uses Action Text and stores it under Blog.content_action
 
+## Regions and permissions
 
-## Development
-
-* Run tests with `rails test`
-* Automatic tests with `bundle exec guard`
-
+- Companies can belong to 0, 1 or multiple regions.
+- If a company belongs to 1 hidden region, and 1 visible region, the company will be visible.
+- If a company is in no region, it will be visible.
+- If the company is not verified, it will be hidden.
 
 ## Users and permissions
 
 What can each user do:
 
 ### Admins
-- Can access /admin
+- Can access /admin dashboard
 - Edit everything
 
 ### Champion
