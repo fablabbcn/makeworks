@@ -1,13 +1,20 @@
 ActiveAdmin.setup do |config|
-  ActiveAdmin::ResourceController.class_eval do
-    def find_resource
-      if resource_class.is_a?(FriendlyId)
-        scoped_collection.friendly.find(params[:id])
-      else
-        scoped_collection.find(params[:id])
-      end
-    end
-  end
+
+  # If we enable this, we get another error due to autoloading:
+  # https://github.com/rails/rails/issues/37672/
+  # Endpoints like /region won't work. 
+  # Check if it's been fixed before re-adding
+  #
+  #ActiveAdmin::ResourceController.class_eval do
+  #  def find_resource
+  #    if resource_class.is_a?(FriendlyId)
+  #      scoped_collection.friendly.find(params[:id])
+  #    else
+  #      scoped_collection.find(params[:id])
+  #    end
+  #  end
+  #end
+
   # == Site Title
   #
   # Set the title that is displayed on the main layout
