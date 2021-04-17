@@ -20,13 +20,14 @@ class BlogsControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Blog.count') do
       post blogs_url, params: {
         blog: {
-          blog_category_id: @blog.blog_category_id, blurb: @blog.blurb, content: @blog.content,
+          blurb: @blog.blurb, content: @blog.content,
           dont_publish: @blog.dont_publish, featured_video: @blog.featured_video,
           header_image: @blog.header_image, m_id: @blog.m_id, medium_id: @blog.medium_id,
           slug: 'slug3',
           sub_title: @blog.sub_title, title: @blog.title
         }
       }
+      #p @blog.blog_categories.pluck :name
     end
 
     assert_redirected_to blog_url(Blog.first)
@@ -43,7 +44,7 @@ class BlogsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update blog" do
-    patch blog_url(@blog), params: { blog: { blog_category_id: @blog.blog_category_id, blurb: @blog.blurb, content: @blog.content, dont_publish: @blog.dont_publish, featured_video: @blog.featured_video, header_image: @blog.header_image, m_id: @blog.m_id, medium_id: @blog.medium_id, slug: @blog.slug, sub_title: @blog.sub_title, title: @blog.title } }
+    patch blog_url(@blog), params: { blog: { blurb: @blog.blurb, content: @blog.content, dont_publish: @blog.dont_publish, featured_video: @blog.featured_video, header_image: @blog.header_image, m_id: @blog.m_id, medium_id: @blog.medium_id, slug: @blog.slug, sub_title: @blog.sub_title, title: @blog.title } }
     assert_redirected_to blog_url(@blog)
   end
 

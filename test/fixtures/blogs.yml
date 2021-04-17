@@ -3,7 +3,6 @@
 one:
   m_id: MyString
   blurb: Blurb1
-  blog_category: one
   content: MyText
   dont_publish: false
   featured_video: MyString
@@ -16,7 +15,6 @@ one:
 two:
   m_id: MyString
   blurb: Blurb2
-  blog_category: two
   content: MyText
   dont_publish: false
   featured_video: MyString
