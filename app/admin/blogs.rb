@@ -60,7 +60,6 @@ ActiveAdmin.register Blog do
 
   form do |f|
     f.inputs do
-      f.input :blog_category
       f.input :title
       #f.rich_text_area :content_action
       f.input :dont_publish
