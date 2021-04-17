@@ -336,8 +336,6 @@ namespace :makeworks do
         the_date = row['date']["$date"]
       end
 
-      puts $.
-
       b = Blog.create(
         m_id: row['_id']['$oid'],
         blurb: row['blurb'],
