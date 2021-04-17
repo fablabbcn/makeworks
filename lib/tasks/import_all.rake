@@ -6,14 +6,15 @@ namespace :makeworks do
     puts "Creating Regions..."
     File.open("csv/organisation.json").each do |r|
       row = JSON.parse(r)
-      Region.find_or_create_by(
-        m_id: row['_id']['$oid'],
+      Region.create_with(
         name: row['organisation_name'],
         #short_name: row['short_name'],
         slug: row['orgainisation_trimmed_name'],
         logo: row['logo'],
         can_signup: row['can_signup'],
         is_public: row['is_public']
+      ).find_or_create_by(
+        m_id: row['_id']['$oid']
       )
     end
 
@@ -164,8 +165,7 @@ namespace :makeworks do
         next
       end
 
-      company = Company.create(
-        m_id: row['_id']['$oid'],
+      company = Company.create_with(
         regions: [the_region],
         address: row['Company_Address'],
         background: row['Company_Background'],
@@ -225,6 +225,8 @@ namespace :makeworks do
         youtube: row['YouTube'],
         #WARNING two fields like this YearFounded and Year_Founded. Get the bigger one?
         year_founded: [row['YearFounded'], row['Year_Founded']].map(&:to_i).max
+      ).find_or_create_by(
+        m_id: row['_id']['$oid'],
       )
 
       # Create references to the company just created
