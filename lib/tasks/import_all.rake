@@ -324,11 +324,6 @@ namespace :makeworks do
     puts "Creating Blog..."
     File.open("csv/post.json").each do |r|
       row = JSON.parse(r)
-      the_category = nil
-      if BlogCategory.find_by(m_id: row['category']["$oid"])
-        the_category = BlogCategory.find_by(m_id: row['category']["$oid"])
-      end
-
       the_medium = nil
       if row['header_ref'] and row['header_ref']['$oid']
         the_medium = Medium.find_by(m_id: row['header_ref']['$oid'])
@@ -340,20 +335,27 @@ namespace :makeworks do
       end
 
       puts $.
-      Blog.find_or_create_by(m_id: row['_id']['$oid']) do |blog|
-        blog.blurb = row['blurb']
-        blog.blog_category = the_category
-        blog.content = row['content']
-        blog.content_action = simple_format(row['content'])
-        blog.dont_publish = row['dont_publish']
-        blog.featured_video = row['featured_video']
-        blog.header_image = row['header_image']
-        blog.medium = the_medium
-        blog.slug = row['slug']
-        blog.sub_title = row['sub_title']
-        blog.title = row['title']
-        blog.created_at = the_date
-      end
+
+      b = Blog.create(
+        m_id: row['_id']['$oid'],
+        blurb: row['blurb'],
+        content: row['content'],
+        content_action: simple_format(row['content']),
+        dont_publish: row['dont_publish'],
+        featured_video: row['featured_video'],
+        header_image: row['header_image'],
+        medium: the_medium,
+        slug: row['slug'],
+        sub_title: row['sub_title'],
+        title: row['title'],
+        created_at: the_date,
+      )
+
+      b.save!
+      # Tries to create a blog_tag. Does not fail if blog_category is nil
+      b.blog_tags.create(
+        blog_category: BlogCategory.find_by(m_id: row['category']["$oid"])
+      )
     end
 
     puts "Creating Region About..."

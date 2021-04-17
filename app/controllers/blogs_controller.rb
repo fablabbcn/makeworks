@@ -20,11 +20,6 @@ class BlogsController < ApplicationController
   def index
     @q = Blog.where(dont_publish: false).ransack(params[:q])
     @blogs = @q.result(distinct: true).page(params[:page])
-
-    if params[:category]
-      @blogs = @blogs.where(blog_category: params[:category])
-      @category = BlogCategory.find(params[:category])
-    end
   end
 
   # GET /blogs/1
@@ -89,6 +84,18 @@ class BlogsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def blog_params
-      params.require(:blog).permit(:m_id, :blurb, :blog_category_id, :content_action, :dont_publish, :featured_video, :header_image, :medium_id, :slug, :sub_title, :title)
+      params.require(:blog).permit(
+        :m_id,
+        :blurb,
+        :content_action,
+        :dont_publish,
+        :featured_video,
+        :header_image,
+        :medium_id,
+        :slug,
+        :sub_title,
+        :title,
+        blog_category_ids: []
+      )
     end
 end

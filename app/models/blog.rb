@@ -1,7 +1,9 @@
 class Blog < ApplicationRecord
-  belongs_to :blog_category, optional: true, class_name: 'BlogCategory'
   belongs_to :medium, optional: true
   default_scope { order(created_at: :desc) }
+
+  has_many :blog_tags, dependent: :destroy
+  has_many :blog_categories, through: :blog_tags
 
   scope :published, -> { where.not(dont_publish: true) }
   scope :hidden, -> { where(dont_publish: true) }

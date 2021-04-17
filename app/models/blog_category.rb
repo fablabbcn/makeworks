@@ -1,3 +1,3 @@
 class BlogCategory < ApplicationRecord
-  has_many :blogs
+  has_many :blog_tags
 end

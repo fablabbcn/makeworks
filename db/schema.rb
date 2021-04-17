@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_15_134535) do
+ActiveRecord::Schema.define(version: 2021_04_17_150839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,10 +74,18 @@ ActiveRecord::Schema.define(version: 2021_04_15_134535) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "blog_tags", force: :cascade do |t|
+    t.bigint "blog_id", null: false
+    t.bigint "blog_category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["blog_category_id"], name: "index_blog_tags_on_blog_category_id"
+    t.index ["blog_id"], name: "index_blog_tags_on_blog_id"
+  end
+
   create_table "blogs", force: :cascade do |t|
     t.string "m_id"
     t.string "blurb"
-    t.bigint "blog_category_id"
     t.text "content"
     t.boolean "dont_publish"
     t.string "featured_video"
@@ -88,7 +96,6 @@ ActiveRecord::Schema.define(version: 2021_04_15_134535) do
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["blog_category_id"], name: "index_blogs_on_blog_category_id"
     t.index ["medium_id"], name: "index_blogs_on_medium_id"
     t.index ["slug"], name: "index_blogs_on_slug", unique: true
   end
@@ -372,7 +379,8 @@ ActiveRecord::Schema.define(version: 2021_04_15_134535) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "blogs", "blog_categories"
+  add_foreign_key "blog_tags", "blog_categories"
+  add_foreign_key "blog_tags", "blogs"
   add_foreign_key "blogs", "media"
   add_foreign_key "companies", "users"
   add_foreign_key "company_organizations", "companies"

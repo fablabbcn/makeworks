@@ -2,10 +2,10 @@
 
 <%= search_form_for @q, html: { style: 'max-width:700px;' } do |f| %>
   <div class="my-2">
-    <%= f.select :blog_category_id_eq,
+    <%= f.select :blog_categories_id_in,
       BlogCategory.pluck(:name, :id),
       { include_blank: 'All Categories' },
-      { 'data-controller': 'select2'}
+      { 'data-controller': 'select2', multiple: true }
     %>
   </div>
   <div class="input-group mb-3">
@@ -34,7 +34,6 @@
         <p><%= link_to blog.title, blog %></p>
         <small> <%= blog.created_at&.strftime("%B %d, %Y") %> </small>
         <h4><%= blog.blurb %></h4>
-        <p><%# blog.blog_category_id %></p>
         <div><%# blog.content.html_safe %></div>
         <p><%= blog.featured_video %></p>
         <%# blog.medium_id %>

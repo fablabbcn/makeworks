@@ -1,12 +1,14 @@
 <% if admin? && @blog.medium %>
   Higher quality Medium:
   <%= link_to 'Medium', medium_url(@blog.medium_id) %>
+  <br></br>
 <% end %>
 
 <h4>
   <%= link_to "Blog", '/blog' %> /
-  <% if @blog.blog_category %>
-    <%= link_to @blog.blog_category.name, blogs_url('q[blog_category_id_eq]': @blog.blog_category) %>
+  <% @blog.blog_tags.each do |bt| %>
+    <%= link_to bt.blog_category, blogs_url("q[blog_categories_id_in]": bt.blog_category) %>
+    /
   <% end %>
 </h4>
 
