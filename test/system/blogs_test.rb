@@ -17,7 +17,7 @@ class BlogsTest < ApplicationSystemTestCase
 
     #fill_in "Blog category", with: @blog.blog_category_id
     fill_in "Blurb", with: @blog.blurb
-    select2 'Cat1', from: 'Blog category'
+    select2 'SomeGuide', from: 'Blog categories'
     #fill_in "Content", with: @blog.content
     check "Dont publish" if @blog.dont_publish
     fill_in "Featured video", with: @blog.featured_video
@@ -37,7 +37,7 @@ class BlogsTest < ApplicationSystemTestCase
     click_on "Title1", match: :first
     click_on "Edit", match: :first
 
-    select2 'Cat2', from: 'Blog category'
+    select2 'HowTos', from: 'Blog categories'
     #fill_in "Blog category", with: @blog.blog_category_id
     fill_in "Blurb", with: @blog.blurb
     #fill_in "Content", with: @blog.content
