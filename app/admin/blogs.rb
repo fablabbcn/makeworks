@@ -15,7 +15,7 @@ ActiveAdmin.register Blog do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :blurb, :blog_category_id, :dont_publish, :featured_video, :header_image, :sub_title, :title
+  permit_params :blurb, :dont_publish, :featured_video, :header_image, :sub_title, :title
   #
   # or
   #
