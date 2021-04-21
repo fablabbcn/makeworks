@@ -10,3 +10,7 @@
 
 <%= line_chart Company.group_by_day(:created_at).count %>
 
+<h2>Regions</h2>
+
+<%= line_chart Region.group_by_day(:created_at).count %>
+

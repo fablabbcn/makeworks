@@ -39,8 +39,13 @@
               <% end %>
               <%= current_user.name %>
             </a>
+
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarUser">
-              <%= link_to "User settings", user_url(current_user), class: "dropdown-item #{'active' if current_page?(edit_profile_url(current_user))}" %>
+              <%= link_to  user_url(current_user), class: "dropdown-item #{'active' if current_page?(edit_profile_url(current_user))}" do %>
+                <i class="bi bi-person-circle"></i>
+                <%= t("shared.user_settings") %>
+              <% end %>
+
               <% if current_user.is_admin? %>
                 <div class="dropdown-divider"></div>
                 <div class="dropdown-header">
@@ -48,9 +53,11 @@
                 </div>
                 <%= link_to "/admin", target: '_blank', class: "dropdown-item" do %>
                   Admin dashboard
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-right-square text-muted" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm5.854 8.803a.5.5 0 1 1-.708-.707L9.243 6H6.475a.5.5 0 1 1 0-1h3.975a.5.5 0 0 1 .5.5v3.975a.5.5 0 1 1-1 0V6.707l-4.096 4.096z"/>
-                  </svg>
+                  <i class="bi bi-box-arrow-up-right text-muted"></i>
+                <% end %>
+                <%= link_to stats_url, class: 'dropdown-item' do %>
+                  <i class="bi bi-graph-up text-muted"></i>
+                  <%= t("shared.statistics") %>
                 <% end %>
                 <%= link_to t("shared.processes"), process_taxonomies_url, class: "dropdown-item #{'active' if current_page?(process_taxonomies_url)}" %>
                 <%= link_to t("shared.materials"), materials_url, class: "dropdown-item #{'active' if current_page?(materials_url)}" %>
@@ -64,7 +71,9 @@
                 <%= link_to "Taxonomies", taxonomies_url, class: "dropdown-item" %>
                 <%= link_to "Media", media_url, class: "dropdown-item" %>
               <% end %>
+
               <div class="dropdown-divider"></div>
+
               <%= link_to t('shared.log_out'), destroy_user_session_url, class: "dropdown-item" %>
             </div>
           </li>
