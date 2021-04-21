@@ -66,6 +66,7 @@
 
     <div class="my-5">
       <h3>
+        <i class="bi bi-people-fill"></i>
         <%= t('shared.employees') %>
         <span
           class="text-muted ms-1"
@@ -131,7 +132,10 @@
     </div>
 
 
-    <h3>Media</h3>
+    <h3>
+      <i class="bi bi-images"></i>
+      Media
+    </h3>
 
     <%= f.input :video_link %>
 
@@ -201,7 +205,10 @@
     <% end %>
 
 
-    <h4>Tags</h4>
+    <h4>
+      <i class="bi bi-tags"></i>
+      Tags
+    </h4>
     <%= f.association :machines_taxonomies, input_html: { 'data-controller': 'select2' } %>
     <%= f.association :materials, input_html: { 'data-controller': 'select2' } %>
     <%= f.association :industry_taxonomies, input_html: { 'data-controller': 'select2' } %>
@@ -236,7 +243,10 @@
     <%= f.input :works_with_students %>
 
     <hr>
-    <h3>Contact info</h3>
+    <h3>
+      <i class="bi bi-person-lines-fill"></i>
+      Contact info
+    </h3>
     <%= f.input :contact_name %>
     <%= f.input :contact_email %>
     <%= f.input :contact_phone %>

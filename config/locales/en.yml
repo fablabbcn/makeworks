@@ -55,7 +55,7 @@ en:
         machines_taxonomies: Select as many as you want
         name: Name of the company
         number_of_staff: Enter a number
-        region: Select a region
+        regions: If the company belongs to any region(s)
         slider_images: Upload images to be used in the slider (carousel)
         #sample_production: Sample production
         #short_run: Short run
