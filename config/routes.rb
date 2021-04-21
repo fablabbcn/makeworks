@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/version', to: 'welcome#version'
   get '/styleguide', to: 'welcome#styleguide'
   get '/random', to: 'welcome#random'
+  get '/stats', to: 'welcome#stats'
   get '/roulette', to: 'welcome#random'
   patch "/users/:id", to: 'users#update'
   match 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user

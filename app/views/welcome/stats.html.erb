@@ -1,0 +1,12 @@
+<div class="text-center">
+  <%= title 'Statistics' %>
+</div>
+
+<h2>Users</h2>
+
+<%= line_chart User.group_by_day(:created_at).count %>
+
+<h2>Companies</h2>
+
+<%= line_chart Company.group_by_day(:created_at).count %>
+

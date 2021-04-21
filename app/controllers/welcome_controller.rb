@@ -17,6 +17,9 @@ class WelcomeController < ApplicationController
       .sample(3)
   end
 
+  def stats
+  end
+
   def version
     render json: {
       env: Rails.env,
