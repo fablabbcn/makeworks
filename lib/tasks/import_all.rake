@@ -166,6 +166,7 @@ namespace :makeworks do
       end
 
       company = Company.create_with(
+        created_at: row['Timestamp'],
         regions: [the_region],
         address: row['Company_Address'],
         background: row['Company_Background'],
