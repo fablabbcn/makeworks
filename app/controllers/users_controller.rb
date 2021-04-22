@@ -1,6 +1,14 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :only_admins, except: [:index, :show]
   before_action :authenticate_user!
+
+  def only_admins
+    if current_user.is_admin?
+    else
+      redirect_to users_url, notice: "Only admins can manage users"
+    end
+  end
 
   # GET /users
   # GET /users.json
