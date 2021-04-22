@@ -5,7 +5,10 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @q = User
+      .includes(avatar_attachment: :blob)
+      .ransack(params[:q])
+    @users = @q.result(distinct: true).page(params[:page])
   end
 
   # GET /users/1

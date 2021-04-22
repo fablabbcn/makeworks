@@ -6,8 +6,6 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'omniauth_callbacks'
   }
 
-  get "/users/:id", to: 'users#show', as: 'user'
-  get "/users/:id/edit", to: 'users#edit', as: 'edit_profile'
   get '/about', to: 'welcome#about'
   get '/contact', to: 'welcome#contact'
   get '/faq', to: 'welcome#faq'
@@ -18,6 +16,10 @@ Rails.application.routes.draw do
   get '/random', to: 'welcome#random'
   get '/stats', to: 'welcome#stats'
   get '/roulette', to: 'welcome#random'
+
+  get "/users", to: 'users#index'
+  get "/users/:id", to: 'users#show', as: 'user'
+  get "/users/:id/edit", to: 'users#edit', as: 'edit_profile'
   patch "/users/:id", to: 'users#update'
   match 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user
 

@@ -124,6 +124,13 @@ h2 {
   border-radius: 50%;
 }
 
+.avatar-medium {
+  height: 45px;
+  width: 45px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
 .btn {
   border-radius: 20px;
   padding: 6px 30px;

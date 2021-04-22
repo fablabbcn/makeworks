@@ -83,7 +83,12 @@
         </span>
       </h3>
 
-      <%= f.association :users, label: false, label_method: :name_and_email, input_html: { 'data-controller': 'select2' } %>
+      <% if current_user.is_admin? %>
+        <!-- Only admins should be allowed to see all users emails -->
+        <%# f.association :users, label: false, label_method: :name_and_email, input_html: { 'data-controller': 'select2' } %>
+      <% end %>
+
+      <%= f.association :users, label: false, input_html: { 'data-controller': 'select2-user' } %>
 
       <table class="table border-top">
         <% @company.employees.order(:id).each do |e| %>
@@ -92,12 +97,15 @@
             data-employee-url="<%= edit_employee_company_url(@company.id) %>"
             data-employee-userid="<%= e.user.id %>"
             >
-            <td title="Employee name">
+            <td title="Invited at: <%= e.created_at %>">
+              <% if e.user.avatar.attached?  %>
+                <%= image_tag(e.user.avatar, class: 'avatar-medium') %>
+              <% else %>
+                <%= image_tag('favicon.png', class: 'avatar-medium') %>
+              <% end %>
+            </td>
+            <td>
               <%= e.user %>
-              <br>
-              <small>
-                <%= e.user.email %>
-              </small>
             </td>
             <td title="Employee title">
               <input

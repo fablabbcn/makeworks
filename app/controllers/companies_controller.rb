@@ -129,6 +129,7 @@ class CompaniesController < ApplicationController
         #finished_products: [:finished_products_taxonomy],
         material_tags: [:material],
         #industries: [:industry_taxonomy],
+        employees: [:user],
         machines: [:machines_taxonomy]
       )
       .friendly.find(params[:id])

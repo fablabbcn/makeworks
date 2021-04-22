@@ -23,11 +23,13 @@ class User < ApplicationRecord
     name
   end
 
+  paginates_per 10
+
   def name
     if "#{first_name} #{last_name}".length > 1
       "#{first_name} #{last_name}"
     else
-      email
+      "ID: #{id.to_s}"
     end
   end
 
