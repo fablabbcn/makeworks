@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   #devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-  devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
+  devise_for :users, controllers: {
+    omniauth_callbacks: 'omniauth_callbacks'
+  }
 
   get "/users/:id", to: 'users#show', as: 'user'
   get "/users/:id/edit", to: 'users#edit', as: 'edit_profile'

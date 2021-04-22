@@ -10,6 +10,7 @@ gem 'pg'
 gem "aws-sdk-s3", require: false
 gem 'chartkick'
 gem "devise", "~> 4.7"
+gem "devise_invitable", "~> 2"
 gem 'friendly_id', '~> 5.3.0' # 5.4.0 has a breaking change! https://github.com/norman/friendly_id/pull/787
 gem 'geocoder'
 gem 'groupdate'
