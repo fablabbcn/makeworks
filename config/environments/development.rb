@@ -71,14 +71,20 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  config.action_mailer.default_url_options = { host: 'make.works' }
+  # Custom
 
-  config.action_mailer.delivery_method = :mailgun
-  config.action_mailer.mailgun_settings ={
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  config.action_mailer.delivery_method = :smtp
+  #config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
     api_key: ENV['MAILGUN_API_KEY'],
     domain:  ENV['MAILGUN_DOMAIN'],
     api_host: 'api.eu.mailgun.net' # Uncomment this line for EU region domains
   }
+
+  # Use Mailcatcher in dev
+  config.action_mailer.smtp_settings = { address: "localhost", port: 1025 }
 
   config.after_initialize do
     Bullet.enable = true
