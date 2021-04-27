@@ -19,6 +19,12 @@ class User < ApplicationRecord
   has_one_attached :avatar
   has_rich_text :bio
 
+  # The /users.json endpoint is using Ransack.
+  # Only allow to search for name, not email.
+  def self.ransackable_attributes(auth_object = nil)
+    super & %w(first_name last_name slug)
+  end
+
   def to_s
     name
   end

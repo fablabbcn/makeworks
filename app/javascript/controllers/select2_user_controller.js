@@ -13,7 +13,7 @@ export default class extends Controller {
         data: function(params){
           var query = {
             q: {
-              first_name_or_last_name_cont: params.term,
+              first_name_or_last_name_or_slug_cont: params.term,
             },
             page: params.page || 1
           }
@@ -36,9 +36,10 @@ export default class extends Controller {
         var $final = $(
           '<div>' +
           '<img src="' + item.avatar + '" class="avatar-small mr-2" />' +
-          '<small class="ms-2">' +
+          '<span class="ms-2">' +
           item.name +
-          '</small>' +
+          '</span> ' +
+          '<small class="text-muted">@' + item.slug + '</small>' +
           '</div>'
         );
 
