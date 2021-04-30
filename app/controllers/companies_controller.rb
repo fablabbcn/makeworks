@@ -1,6 +1,7 @@
 class CompaniesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
-  before_action :set_company, only: [:show, :edit, :update, :destroy, :edit_employee, :move_employee]
+  before_action :set_company, only: [:show, :edit, :update, :destroy]
+  before_action :set_company_without_includes, only: [:edit_employee, :move_employee]
   before_action :who_can_edit!, only: [:edit, :destroy, :update, :delete_image_attachment]
   before_action :index, only: [:advanced] #reuse the index on /companies_advanced
 
@@ -34,6 +35,7 @@ class CompaniesController < ApplicationController
       .includes(
         :regions,
         :industry_taxonomies,
+        :company_organization,
         :industries
       )
       .region_public_or_empty
@@ -99,9 +101,6 @@ class CompaniesController < ApplicationController
 
   def edit_employee
     # TODO: Who can edit?
-
-    @usr = User.find(params[:user])
-
     if current_user.is_admin? #or manager? #or region champion?
       Employee
         .where(company: @company, user: @usr)
@@ -116,12 +115,12 @@ class CompaniesController < ApplicationController
   end
 
   def move_employee
-    @usr = User.find(params[:user])
-
     Employee
       .where(company: @company, user: @usr)
       .first
       .insert_at(params[:position].to_i)
+
+    render json: 'Order changed'
   end
 
   private
@@ -141,6 +140,11 @@ class CompaniesController < ApplicationController
         machines: [:machines_taxonomy]
       )
       .friendly.find(params[:id])
+  end
+
+  def set_company_without_includes
+    @company = Company.find(params[:id])
+    @usr = User.find(params[:user])
   end
 
   # Only allow a list of trusted parameters through.

@@ -7,6 +7,7 @@ export default class extends Controller {
   connect() {
     this.sortable = Sortable.create(this.element, {
       group: 'shared',
+      handle: '.handle',
       animation: 150,
       onEnd: this.end.bind(this)
     })

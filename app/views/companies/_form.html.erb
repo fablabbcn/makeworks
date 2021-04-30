@@ -101,14 +101,17 @@
             data-employee-url="<%= edit_employee_company_url(@company.id) %>"
             data-employee-userid-value="<%= e.user.id %>"
             >
-            <td title="Invited at: <%= e.created_at %>">
-              <% if e.user.avatar.attached?  %>
-                <%= image_tag(e.user.avatar, class: 'avatar-medium') %>
-              <% else %>
-                <%= image_tag('favicon.png', class: 'avatar-medium') %>
-              <% end %>
+            <td title="Drag to reorder employees">
+              <div class="d-flex">
+                <i class="bi bi-grip-vertical handle align-self-center" style="font-size: 1.5rem;"></i>
+                <% if e.user.avatar.attached?  %>
+                  <%= image_tag(e.user.avatar, class: 'avatar-medium') %>
+                <% else %>
+                  <%= image_tag('favicon.png', class: 'avatar-medium') %>
+                <% end %>
+              </div>
             </td>
-            <td>
+            <td style="vertical-align:middle" title="Invited at: <%= e.created_at %>">
               <%= e.user %>
             </td>
             <td title="Employee title">
