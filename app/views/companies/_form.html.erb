@@ -93,7 +93,7 @@
       <table class="table border-top">
         <tbody
           data-controller="drag"
-          data-drag-url="<%= move_employee_company_url(@company.id) %>"
+          data-drag-url="<%= move_employee_company_url(@company&.id) if @company.persisted? %>"
           >
         <% @company.employees.order(position: :asc).each do |e| %>
           <tr
