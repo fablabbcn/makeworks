@@ -4,6 +4,8 @@ class Employee < ApplicationRecord
 
   before_create :set_default_role
 
+  acts_as_list scope: :company
+
   enum role: {
     owner: 0,
     manager: 1,

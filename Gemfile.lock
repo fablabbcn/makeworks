@@ -76,6 +76,8 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
+    acts_as_list (1.0.2)
+      activerecord (>= 4.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     arbre (1.4.0)
@@ -402,6 +404,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin
+  acts_as_list (~> 1.0)
   aws-sdk-s3
   bootsnap (>= 1.4.2)
   bullet

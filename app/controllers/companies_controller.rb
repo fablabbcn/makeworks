@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
-  before_action :set_company, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:show, :index]
+  before_action :set_company, only: [:show, :edit, :update, :destroy, :edit_employee, :move_employee]
   before_action :who_can_edit!, only: [:edit, :destroy, :update, :delete_image_attachment]
   before_action :index, only: [:advanced] #reuse the index on /companies_advanced
 
@@ -100,12 +100,11 @@ class CompaniesController < ApplicationController
   def edit_employee
     # TODO: Who can edit?
 
-    if current_user.is_admin? #or manager? #or region champion?
-      comp = Company.find(params[:id])
-      user = User.find(params[:user])
+    @usr = User.find(params[:user])
 
+    if current_user.is_admin? #or manager? #or region champion?
       Employee
-        .where(company: comp, user: user)
+        .where(company: @company, user: @usr)
         .first
         .update!(role: params[:role], title: params[:title])
 
@@ -114,6 +113,15 @@ class CompaniesController < ApplicationController
       # Only admin can edit?
       render json: 'Only admin can change'
     end
+  end
+
+  def move_employee
+    @usr = User.find(params[:user])
+
+    Employee
+      .where(company: @company, user: @usr)
+      .first
+      .insert_at(params[:position].to_i)
   end
 
   private

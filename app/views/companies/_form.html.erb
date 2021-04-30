@@ -91,7 +91,11 @@
       <%= f.association :users, label: false, input_html: { 'data-controller': 'select2-user' } %>
 
       <table class="table border-top">
-        <% @company.employees.order(:id).each do |e| %>
+        <tbody
+          data-controller="drag"
+          data-drag-url="<%= move_employee_company_url(@company.id) %>"
+          >
+        <% @company.employees.order(position: :asc).each do |e| %>
           <tr
             data-controller='employee'
             data-employee-url="<%= edit_employee_company_url(@company.id) %>"
@@ -134,6 +138,7 @@
             </td>
           </tr>
         <% end %>
+        </tbody>
       </table>
 
       <%= f.button :submit %>

@@ -42,6 +42,7 @@ Rails.application.routes.draw do
     member do
       delete :delete_image_attachment
       patch :edit_employee
+      patch :move_employee
     end
   end
   resources :regions do
