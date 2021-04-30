@@ -47,7 +47,7 @@ export default class extends Controller {
       },
 
       templateSelection: function(item) {
-        console.log(item)
+        //console.log(item)
         return item.text || item.first_name || 'Sea';
       }
 

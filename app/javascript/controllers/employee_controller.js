@@ -3,6 +3,7 @@ import Rails from "@rails/ujs";
 
 export default class extends Controller {
   static targets = [ "role", "title" ]
+  static values = { userid: Number }
 
   connect() {
     //console.log(this.roleTarget.dataset)
@@ -12,7 +13,7 @@ export default class extends Controller {
     let data = new FormData()
     data.append("role", this.roleTarget.value)
     data.append("title", this.titleTarget.value)
-    data.append("user", this.data.get("userid"))
+    data.append("user", this.useridValue)
 
     Rails.ajax({
       type: "PATCH",

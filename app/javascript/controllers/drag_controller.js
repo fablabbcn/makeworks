@@ -16,7 +16,7 @@ export default class extends Controller {
     let id = event.item.dataset.id
     let data = new FormData()
     data.append("position", event.newIndex + 1)
-    data.append("user", event.item.dataset.employeeUserid)
+    data.append("user", event.item.dataset.employeeUseridValue)
 
     Rails.ajax({
       type: "patch",

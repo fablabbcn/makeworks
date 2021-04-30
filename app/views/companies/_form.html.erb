@@ -99,7 +99,7 @@
           <tr
             data-controller='employee'
             data-employee-url="<%= edit_employee_company_url(@company.id) %>"
-            data-employee-userid="<%= e.user.id %>"
+            data-employee-userid-value="<%= e.user.id %>"
             >
             <td title="Invited at: <%= e.created_at %>">
               <% if e.user.avatar.attached?  %>
