@@ -53,6 +53,7 @@ en:
         intro: Describe your company in one sentence
         location: Name of the City
         machines_taxonomies: Select as many as you want
+        minimum_order: Minimum order in your currency
         name: Name of the company
         number_of_staff: Enter a number
         regions: If the company belongs to any region(s)
@@ -83,6 +84,9 @@ en:
         process_taxonomies: Process tags
         finished_products_taxonomies: Finished products tags
         manufacturer_taxonomies: Manufacturer tags
+        short_run: Short run (100-500)
+        medium_run: Medium run (500-1000)
+        large_run: Large Run
         slug: Trimmed name
       region:
         slug: Trimmed name
