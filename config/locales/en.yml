@@ -79,15 +79,18 @@ en:
         address: Address
         lat: Latitude
         lng: Longitude
+        batch_production: Batch production / prototype
+        bespoke_one_offs: Bespoke one offs
         machines_taxonomies: Machine tags
         material_tags: Material tags
         industry_taxonomies: Industry tags
         process_taxonomies: Process tags
         finished_products_taxonomies: Finished products tags
         manufacturer_taxonomies: Type of fabrication space
+        sample_production: Sample production (up to 10)
         short_run: Short run (100-500)
         medium_run: Medium run (500-1000)
-        large_run: Large Run
+        large_run: Large Run (1000+)
         slug: Trimmed name
       region:
         slug: Trimmed name
