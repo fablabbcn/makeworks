@@ -7,6 +7,23 @@
   </div>
 
   <div class="form-inputs">
+    <% if current_user.is_admin? %>
+      <div class="card-admin my-3">
+        <h5>Admin only</h5>
+        <%= f.input :is_verified %>
+        <%= f.input :been_visited %>
+        <%= f.input :film_ready %>
+        <%= f.input :soft_delete %>
+        <p>
+        Created by: <%= @company.user %>
+        </p>
+        <p>
+        Created on: <%= @company.created_at %>
+        </p>
+
+      </div>
+    <% end %>
+
     <%= f.input :name, required: true %>
     <%= f.input :slug %>
     <%# f.input :title %>
@@ -38,6 +55,7 @@
     <%= f.button :submit %>
 
     <hr>
+    <%= f.association :manufacturer_taxonomies, input_html: { 'data-controller': 'select2' } %>
     <%= f.input :intro %>
     <%= f.input :description %>
     <%= f.input :background %>
@@ -47,23 +65,6 @@
     <%= f.input :website %>
 
     <hr>
-    <% if current_user.is_admin? %>
-      <div class="card-admin my-3">
-        <h5>Admin only</h5>
-        <%= f.input :is_verified %>
-        <%= f.input :been_visited %>
-        <%= f.input :film_ready %>
-        <%= f.input :soft_delete %>
-        <p>
-        Created by: <%= @company.user %>
-        </p>
-        <p>
-        Created on: <%= @company.created_at %>
-        </p>
-
-      </div>
-    <% end %>
-
     <div class="my-5">
       <h3>
         <i class="bi bi-people-fill"></i>
@@ -230,7 +231,6 @@
     <%= f.association :industry_taxonomies, input_html: { 'data-controller': 'select2' } %>
     <%= f.association :process_taxonomies, input_html: { 'data-controller': 'select2' } %>
     <%= f.association :finished_products_taxonomies, input_html: { 'data-controller': 'select2' } %>
-    <%= f.association :manufacturer_taxonomies, input_html: { 'data-controller': 'select2' } %>
 
     <hr>
     <h4>Production Info</h4>

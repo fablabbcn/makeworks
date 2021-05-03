@@ -58,6 +58,7 @@ en:
         number_of_staff: Enter a number
         regions: If the company belongs to any region(s)
         slider_images: Upload images to be used in the slider (carousel)
+        soft_delete: Was used to hide companies in the old system
         #sample_production: Sample production
         #short_run: Short run
         slug: The 'slug' that will be used in the URL to the company
@@ -83,7 +84,7 @@ en:
         industry_taxonomies: Industry tags
         process_taxonomies: Process tags
         finished_products_taxonomies: Finished products tags
-        manufacturer_taxonomies: Manufacturer tags
+        manufacturer_taxonomies: Type of fabrication space
         short_run: Short run (100-500)
         medium_run: Medium run (500-1000)
         large_run: Large Run
