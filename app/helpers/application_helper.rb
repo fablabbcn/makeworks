@@ -15,7 +15,7 @@ module ApplicationHelper
                          role: "alert",
                          style: 'z-index:200; right:5%; opacity: 0.8;'
                         ) do
-        concat content_tag(:button, 'x', class: "btn-close", data: { dismiss: 'alert' })
+        concat content_tag(:button, 'x', class: "btn-close", data: { 'bs-dismiss': 'alert' })
         concat message
       end)
     end
