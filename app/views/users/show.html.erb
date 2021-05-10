@@ -51,4 +51,8 @@
   <%= render 'user_regions' %>
 
   <%= render 'user_companies' %>
+
+  <% if current_user == @user %>
+    <%= link_to t("devise.registrations.edit.cancel_my_account"), registration_path(current_user), data: { confirm: t("devise.registrations.edit.are_you_sure") }, method: :delete, class: 'text-danger my-3' %>
+  <% end %>
 </div>

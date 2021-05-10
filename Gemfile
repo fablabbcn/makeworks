@@ -12,6 +12,7 @@ gem "acts_as_list", "~> 1.0"
 gem 'chartkick'
 gem "devise", "~> 4.7"
 gem "devise_invitable", "~> 2"
+gem "devise-i18n"
 gem 'friendly_id', '~> 5.3.0' # 5.4.0 has a breaking change! https://github.com/norman/friendly_id/pull/787
 gem 'geocoder'
 gem 'groupdate'

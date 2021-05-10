@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :only_admins, except: [:index, :show]
+  before_action :find_anyone, only: [:show]
+  before_action :find_myself, only: [:edit, :update, :destroy]
+  #before_action :only_admins, except: [:index, :show, :edit, :update]
   before_action :authenticate_user!
 
   def only_admins
@@ -78,7 +79,11 @@ class UsersController < ApplicationController
   private
 
   # Use callbacks to share common setup or constraints between actions.
-  def set_user
+  def find_myself
+    @user = current_user
+  end
+
+  def find_anyone
     @user = User.friendly.find(params[:id])
   end
 
