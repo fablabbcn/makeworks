@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
+  # You can see everyone?
   before_action :find_anyone, only: [:show]
+  # You can only edit yourself
   before_action :find_myself, only: [:edit, :update, :destroy]
   #before_action :only_admins, except: [:index, :show, :edit, :update]
   before_action :authenticate_user!
@@ -32,8 +34,6 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    # You can only edit your self
-    @user = current_user
   end
 
   # POST /users
