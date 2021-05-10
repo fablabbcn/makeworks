@@ -281,11 +281,38 @@
 </div>
 
 <div class="my-5">
-  <h4>4 nearby companies</h4>
-  <% unless @company.new_record? %>
-    <% @company.nearbys&.limit(4)&.includes(:regions, :manufacturer_taxonomies)&.each do |company| %>
+  <h4>Nearby companies in same industries</h4>
+
+  <% if @company.persisted? %>
+    <%# Show 4 nearby companies only in same industries %>
+    <% Company
+      .geocoded
+      .includes(
+        :company_organization,
+        :regions,
+        :industries,
+        :manufacturers,
+        :manufacturer_taxonomies)
+      .joins(:industry_taxonomies)
+      .where(industry_taxonomies: {id: @company.industry_taxonomy_ids})
+      .where.not(id: @company.id)
+      .limit(4)
+      .near(@company.to_coordinates)
+      .uniq
+      .each do |company| %>
+
       <%= render company %>
+      <%# Shows distance in KM to the company %>
+      <%# Geocoder::Calculations.distance_between(@company.to_coordinates, company.to_coordinates) %>
     <% end %>
+
+    <%# Show nearby companies, no matter which industry %>
+    <%# @company
+      .nearbys
+      .includes(:regions, :manufacturer_taxonomies, :industry_taxonomies)
+      .each do |company| %>
+      <%#= render company %>
+    <%# end %>
   <% end %>
 </div>
 
