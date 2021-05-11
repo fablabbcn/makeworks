@@ -10,6 +10,8 @@ gem 'pg'
 gem "aws-sdk-s3", require: false
 gem "acts_as_list", "~> 1.0"
 gem 'chartkick'
+gem 'countries'
+gem 'country_select'
 gem "devise", "~> 4.7"
 gem "devise_invitable", "~> 2"
 gem "devise-i18n"

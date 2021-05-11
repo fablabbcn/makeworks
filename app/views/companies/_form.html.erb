@@ -34,6 +34,7 @@
       <%= f.association :regions, prompt: 'Select a region', input_html: { 'data-controller': 'select2' } %>
     <% end %>
 
+    <%= f.input :country_code, input_html: { 'data-controller': 'select2' } %>
     <%= f.input :location %>
     <%= f.input :address %>
 
