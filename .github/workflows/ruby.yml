@@ -44,11 +44,6 @@ jobs:
         which npm
         yarn install --check-files
 
-    - name: Build
-      run: |
-        gem install bundler
-        bundle install --jobs 4 --retry 3
-
     - name: Run tests
       run: |
         bundle exec rails db:create
