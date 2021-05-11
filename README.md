@@ -14,6 +14,7 @@ Staging web server:
 ### Development
 
 * Run tests with `rails test`
+* Run system tests with `rails test:system`
 * Automatic tests with `bundle exec guard`
 
 #### Import data
