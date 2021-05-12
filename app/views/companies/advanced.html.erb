@@ -9,6 +9,7 @@
       <th><%= t('shared.regions') %></th>
       <th>Address</th>
       <th>Location</th>
+      <th><%= sort_link(@q, :country_code, 'Country')%></th>
       <th>Background</th>
       <th>Description</th>
       <th>Intro</th>
@@ -25,6 +26,7 @@
         <td><%= company.regions.to_sentence %></td>
         <td title="<%= company.address %>"><%= company.address&.truncate(30) %></td>
         <td title="<%= company.location %>"><%= company.location&.truncate(30) %></td>
+        <td><%= link_to(company.country, company) if company.country %></td>
         <td title="<%= company.background %>"><%= company.background&.truncate(30) %></td>
         <td title="<%= company.description %>"><%= company.description&.truncate(30) %></td>
         <td title="<%= company.intro %>"><%= company.intro&.truncate(30)  %></td>

@@ -52,6 +52,10 @@ class Company < ApplicationRecord
     address_changed? || location_changed?
   end
 
+  def country
+    ISO3166::Country[country_code]
+  end
+
   def should_generate_new_friendly_id?
     slug.blank?
   end
