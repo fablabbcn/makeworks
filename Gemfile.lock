@@ -270,6 +270,11 @@ GEM
     omniauth (1.9.1)
       hashie (>= 3.4.6)
       rack (>= 1.6.2, < 3)
+    omniauth-google-oauth2 (0.8.2)
+      jwt (>= 2.0)
+      oauth2 (~> 1.1)
+      omniauth (~> 1.1)
+      omniauth-oauth2 (>= 1.6)
     omniauth-linkedin-oauth2 (1.0.0)
       omniauth-oauth2
     omniauth-oauth2 (1.6.0)
@@ -447,6 +452,7 @@ DEPENDENCIES
   mailgun-ruby
   mini_magick
   omniauth-fablabs!
+  omniauth-google-oauth2
   omniauth-linkedin-oauth2
   pg
   puma

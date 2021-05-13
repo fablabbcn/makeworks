@@ -1,0 +1,10 @@
+<hr>
+<div class="my-4">
+  <%= link_to omniauth_authorize_path(resource_name, 'fablabs'), class: "btn btn-outline-primary" do %>
+    <%= t('shared.sign_up_with_fablabs') %>
+  <% end %>
+
+  <%= link_to omniauth_authorize_path(resource_name, 'google_oauth2'), class: "btn btn-outline-primary" do %>
+    <%= t('shared.sign_up_with_google') %>
+  <% end %>
+</div>

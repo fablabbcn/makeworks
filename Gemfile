@@ -23,6 +23,7 @@ gem 'mailgun-ruby'
 gem 'mini_magick'
 gem 'omniauth-fablabs', github: 'academany/omniauth-fablabs'
 gem 'omniauth-linkedin-oauth2'
+gem 'omniauth-google-oauth2'
 gem "sentry-rails"
 gem "sentry-ruby"
 

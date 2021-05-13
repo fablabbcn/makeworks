@@ -5,7 +5,8 @@ class User < ApplicationRecord
          :invitable,
          :recoverable, :rememberable, :validatable,
          :trackable,
-         :omniauthable, omniauth_providers: [:fablabs, :linkedin]
+         :omniauthable,
+         omniauth_providers: [:fablabs, :linkedin, :google_oauth2]
 
   has_many :employees, dependent: :destroy
   has_many :companies, through: :employees
