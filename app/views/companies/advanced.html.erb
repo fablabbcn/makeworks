@@ -1,41 +1,49 @@
-<%= render 'table_filters' %>
+<div class="row">
+  <div class="col-lg-3">
+    <%= render 'table_filters' %>
+  </div>
 
-<%= link_to "Simple view", companies_url %>
+  <div class="col-lg-9">
+    <%= link_to "Simple view", companies_url %>
 
-<table class="table table-sm table-bordered table-striped table-hover">
-  <thead>
-    <tr>
-      <th><%= sort_link(@q, :name)%></th>
-      <th><%= t('shared.regions') %></th>
-      <th>Address</th>
-      <th>Location</th>
-      <th><%= sort_link(@q, :country_code, 'Country')%></th>
-      <th>Background</th>
-      <th>Description</th>
-      <th>Intro</th>
-      <th><%= sort_link(@q, :minimum_order)%></th>
-      <th><%= sort_link(@q, :number_of_staff)%></th>
-      <th><%= sort_link(@q, :year_founded)%></th>
-    </tr>
-  </thead>
+    <table class="table table-sm table-bordered table-striped table-hover">
+      <thead>
+        <tr>
+          <th><%= sort_link(@q, :name)%></th>
+          <th><%= t('shared.regions') %></th>
+          <th>Address</th>
+          <th>Location</th>
+          <th><%= sort_link(@q, :country_code, 'Country')%></th>
+          <th>Background</th>
+          <th>Description</th>
+          <th>Intro</th>
+          <th><%= sort_link(@q, :minimum_order)%></th>
+          <th><%= sort_link(@q, :number_of_staff)%></th>
+          <th><%= sort_link(@q, :year_founded)%></th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @companies.each do |company| %>
-      <tr>
-        <td><%= link_to company.name, company %></td>
-        <td><%= company.regions.to_sentence %></td>
-        <td title="<%= company.address %>"><%= company.address&.truncate(30) %></td>
-        <td title="<%= company.location %>"><%= company.location&.truncate(30) %></td>
-        <td><%= link_to(company.country, company) if company.country %></td>
-        <td title="<%= company.background %>"><%= company.background&.truncate(30) %></td>
-        <td title="<%= company.description %>"><%= company.description&.truncate(30) %></td>
-        <td title="<%= company.intro %>"><%= company.intro&.truncate(30)  %></td>
-        <td><%= company.minimum_order %></td>
-        <td><%= company.number_of_staff %></td>
-        <td><%= company.year_founded %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @companies.each do |company| %>
+          <tr>
+            <td><%= link_to company.name, company %></td>
+            <td><%= company.regions.to_sentence %></td>
+            <td title="<%= company.address %>"><%= company.address&.truncate(30) %></td>
+            <td title="<%= company.location %>"><%= company.location&.truncate(30) %></td>
+            <td><%= link_to(company.country, company) if company.country %></td>
+            <td title="<%= company.background %>"><%= company.background&.truncate(30) %></td>
+            <td title="<%= company.description %>"><%= company.description&.truncate(30) %></td>
+            <td title="<%= company.intro %>"><%= company.intro&.truncate(30)  %></td>
+            <td><%= company.minimum_order %></td>
+            <td><%= company.number_of_staff %></td>
+            <td><%= company.year_founded %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-<%= paginate @companies %>
+    <div class="d-flex justify-content-center">
+      <%= paginate @companies %>
+    </div>
+  </div>
+</div>

@@ -1,7 +1,6 @@
 <% content_for(:title, 'Companies') %>
 
 <%= search_form_for @q, class: 'pt-3 mx-auto' do |f| %>
-  <h1 class="mb-4"><%= t('shared.tagline') %></h1>
   <h5>
     <%= t 'shared.search_by' %>
     <span
@@ -20,7 +19,17 @@
   </h5>
 
   <div class="row">
-    <div class="my-2 col-md-6">
+
+    <div class="my-2">
+      <%= f.search_field :name_or_description_cont,
+        class: 'form-control',
+        title: 'Company name or description contains the word',
+        placeholder: 'Company name or description contains..'
+      %>
+    <%= f.submit class: 'btn btn-primary mt-2' %>
+    </div>
+
+    <div class="my-2">
       <label>Country</label>
       <%=
         f.country_select :country_code_eq,
@@ -29,7 +38,7 @@
       %>
     </div>
 
-    <div class="my-2 col-md-6">
+    <div class="my-2">
       <label>Regions</label>
       <%= f.select :regions_id_in,
         Region.where(is_public: true).pluck(:name, :id),
@@ -39,7 +48,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="my-2 col-md-6 col-lg-4">
+    <div class="my-2">
       <label>Industry</label>
       <%= f.select :industry_taxonomies_id_in,
         IndustryTaxonomy.pluck(:name, :id),
@@ -47,7 +56,7 @@
         { class: '', multiple: true, 'data-controller': 'select2' }
       %>
     </div>
-    <div class="my-2 col-md-6 col-lg-4">
+    <div class="my-2">
       <label>Material</label>
       <%= f.select :materials_id_in,
         Material.pluck(:name, :id),
@@ -55,7 +64,7 @@
         { class: '', multiple: true, 'data-controller': 'select2' }
       %>
     </div>
-    <div class="my-2 col-md-6 col-lg-4">
+    <div class="my-2">
       <label>Machines</label>
       <%= f.select :machines_taxonomies_id_in,
         MachinesTaxonomy.pluck(:name, :id),
@@ -64,19 +73,10 @@
       %>
     </div>
   </div>
-  <div class="input-group my-2" style="max-width:800px">
-    <%= f.search_field :name_or_description_cont, class: 'form-control', placeholder: 'Company name or description contains..' %>
-    <%= f.submit class: 'btn btn-primary' %>
-  </div>
+
+  <%= f.submit class: 'btn btn-primary' %>
 <% end %>
 
 <div class="my-4 d-block d-md-flex justify-content-between align-items-center">
   <p class="text-muted"> Showing: <%= @companies.count %> / <%= @q.result.count  %></p>
-  <%= paginate @companies %>
 </div>
-
-<% if current_user %>
-  <div class="text-end">
-    <%= link_to 'New Company', new_company_path, class: 'btn btn-outline-primary my-3' %>
-  </div>
-<% end %>

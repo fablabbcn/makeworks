@@ -1,36 +1,49 @@
-<%= render 'table_filters' %>
+<h1 class="mb-4"><%= t('shared.tagline') %></h1>
 
-<%= link_to "Advanced view", companies_advanced_url %>
+<div class="row">
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th><%= sort_link(@q, :name)%></th>
-      <th><%= sort_link(@q, :year_founded, 'Founded')%></th>
-      <th><%= t('shared.regions') %></th>
-      <th>Location</th>
-      <th><%= sort_link(@q, :minimum_order)%></th>
-      <th><%= sort_link(@q, :number_of_staff)%></th>
-    </tr>
-  </thead>
+  <div class="col-md-3">
+    <%= render 'table_filters' %>
+  </div>
 
-  <tbody>
-    <% @companies.each do |company| %>
-      <tr>
-        <td>
-          <%= link_to company.name, company %><br>
-          <small>
-            <%= company.industry_taxonomies.to_sentence %>
-          </small>
-        </td>
-        <td><%= company.year_founded %></td>
-        <td><%= company.regions.to_sentence %></td>
-        <td title="<%= company.location %>"><%= company.location&.truncate(30) %></td>
-        <td><%= company.minimum_order %></td>
-        <td><%= company.number_of_staff %></td>
-      </tr>
+  <div class="col-md-9">
+    <% if current_user %>
+      <div class="text-end">
+        <%= link_to 'New Company', new_company_path, class: 'btn btn-outline-primary my-3' %>
+      </div>
     <% end %>
-  </tbody>
-</table>
 
-<%= paginate @companies %>
+    <section class="row">
+      <% @companies.each do |company| %>
+        <article class="col-lg-6 col-xl-4 mb-3">
+          <div class="card rounded-3 border-0 shadow-sm">
+            <%= image_tag(get_1200px(company&.top_image), alt: 'Company logo', class: 'card-img-top') %>
+            <small class="badge rounded-pill bg-white text-dark shadow-sm position-absolute" title="<%= company.location %>" style="left:20px; top:20px">
+              <%= company.location&.truncate(30) %>
+            </small>
+
+            <div class="card-body">
+              <h3> <%= link_to company.name, company %> </h3>
+              <p title="<%= company&.intro %>"><%= company&.intro&.truncate(43) %></p>
+              <br>
+              <div class="row">
+                <div class="col-12 col-md-6">
+                  <h6>TYPE</h6>
+                  <span class="badge rounded-pill bg-secondary"><%= company.manufacturer_taxonomies.to_sentence %></span>
+                </div>
+                <div class="col-12 col-md-6">
+                  <h6>CATEGORY</h6>
+                  <span class="badge rounded-pill bg-secondary"><%= company.industry_taxonomies.to_sentence %></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      <% end %>
+    </section>
+
+    <div class="d-flex justify-content-center">
+      <%= paginate @companies %>
+    </div>
+  </div>
+</div>
