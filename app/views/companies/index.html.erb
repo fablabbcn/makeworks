@@ -15,7 +15,7 @@
 
     <section class="row">
       <% @companies.each do |company| %>
-        <article class="col-lg-6 col-xl-4 mb-3">
+        <article class="col-lg-6 col-xxl-4 mb-3">
           <div class="card rounded-3 border-0 shadow-sm">
             <%= image_tag(get_1200px(company&.top_image), alt: 'Company logo', class: 'card-img-top') %>
             <small class="badge rounded-pill bg-white text-dark shadow-sm position-absolute" title="<%= company.location %>" style="left:20px; top:20px">
@@ -33,7 +33,10 @@
                 </div>
                 <div class="col-12 col-md-6">
                   <h6>CATEGORY</h6>
-                  <span class="badge rounded-pill bg-secondary"><%= company.industry_taxonomies.to_sentence %></span>
+                  <span
+                    title="<%= company.industry_taxonomies.to_sentence %>"
+                    class="badge rounded-pill bg-secondary"
+                    style="white-space: unset"><%= truncate company.industry_taxonomies.to_sentence %></span>
                 </div>
               </div>
             </div>
