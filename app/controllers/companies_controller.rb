@@ -35,6 +35,8 @@ class CompaniesController < ApplicationController
       .includes(
         :regions,
         :industry_taxonomies,
+        :manufacturer_taxonomies,
+        :manufacturers,
         :company_organization,
         :industries
       )
