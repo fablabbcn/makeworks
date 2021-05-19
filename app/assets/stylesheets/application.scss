@@ -17,8 +17,11 @@
 $black: #000;
 $black2: #222;
 $black3: #333;
+$green: #C4EBC4;
 $grey: #555;
-$grey2: #ddd;
+$grey2: #ccc;
+$grey3: #eee;
+$grey4: #F4F5F5;
 $white: #fff;
 $yellow: #FFEF61;
 $yellow2: #FFBE02;
@@ -29,7 +32,7 @@ html {
 }
 
 body {
-  background-color: #F4F5F5;
+  background-color: $grey4;
   color: $black3;
   //font-family: 'IBM Plex Sans', sans-serif;
   font-family: 'Inter', sans-serif;
@@ -101,8 +104,9 @@ h2 {
 }
 
 .mw-border-50 {
-  border: $border-width solid $black;
-  border-radius: 50px;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
 }
 
 .img-fill {
@@ -112,9 +116,12 @@ h2 {
 }
 
 .card-admin {
-  background: #eeeeee70;
+  background-color: $grey3;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+  margin-bottom: 20px;
   padding: 20px;
-  border: 1px solid #ccc;
 }
 
 .avatar-small {
@@ -194,8 +201,10 @@ h2 {
 }
 
 .card {
-  border: $border-width solid #222;
-  border-radius: 0;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+  margin-bottom: 20px;
 }
 
 .card-columns { column-count: 1; }
@@ -327,8 +336,19 @@ footer {
 }
 
 .bg-green {
-  background: #0D8055;
+  background: $green;
 }
+
+.bg-grey {
+  background-color: $grey;
+}
+.bg-grey2 {
+  background-color: $grey2;
+}
+.bg-grey3 {
+  background-color: $grey3;
+}
+
 
 .bg-blue {
   background: #002CBA;

@@ -1,0 +1,31 @@
+<div class="carousel" id="carouselCompany" data-bs-ride="carousel">
+  <div class="carousel-inner border rounded-3 mb-3">
+
+    <% @company.slider_images.includes(:blob).each_with_index do |img, index| %>
+      <div class="carousel-item <%= 'active' if index == 0 %>">
+        <%= image_tag(img, class: 'd-block mx-auto', style: 'height:500px') %>
+      </div>
+    <% end %>
+
+  </div>
+  <a class="carousel-control-prev" href="#carouselCompany" role="button" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselCompany" role="button" data-bs-slide="next">
+    <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </a>
+
+  <ul class="carousel-indicators list-inline mx-auto position-relative" style="height: 100px; ">
+    <% @company.slider_images.includes(:blob).each_with_index do |img, index| %>
+      <li class="list-inline-item <%= 'active' if index == 0 %>">
+        <a data-bs-target="#carouselCompany" data-bs-slide-to="<%= index %>" style="opacity:unset;" aria-current="true" aria-label="Slide <%= index %>">
+          <%= image_tag(img, class: 'img-fill border', style: 'height:100px') %>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+
+</div>
+
