@@ -17,6 +17,7 @@
 $black: #000;
 $black2: #222;
 $black3: #333;
+$blue: #193EE9;
 $green: #C4EBC4;
 $grey: #555;
 $grey2: #ccc;
@@ -149,6 +150,25 @@ h2 {
   font-size: 25px;
   border-radius: 30px;
   font-weight: 500;
+}
+
+.btn-blank {
+  color: $black3;
+  &:hover {
+    background: white;
+    border: 1px solid $black3;
+    color: $black3;
+  }
+}
+
+.btn-blue {
+  background: $blue;
+  color: white;
+  &:hover {
+    background: white;
+    border: 1px solid $blue;
+    color: $blue;
+  }
 }
 
 .btn-primary {
@@ -357,7 +377,7 @@ footer {
 
 
 .bg-blue {
-  background: #002CBA;
+  background: $blue;
 }
 
 .trix-content {
