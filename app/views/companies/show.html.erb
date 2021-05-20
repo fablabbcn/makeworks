@@ -240,7 +240,8 @@
         :regions,
         :industries,
         :manufacturers,
-        :manufacturer_taxonomies)
+        :manufacturer_taxonomies,
+      )
       .joins(:industry_taxonomies)
       .where(industry_taxonomies: {id: @company.industry_taxonomy_ids})
       .where.not(id: @company.id)
