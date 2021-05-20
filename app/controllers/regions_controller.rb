@@ -111,7 +111,12 @@ class RegionsController < ApplicationController
   def set_region
     @region = Region
       .includes(
-        companies: :manufacturer_taxonomies,
+        companies: [
+          :company_organization,
+          :industry_taxonomies,
+          :manufacturer_taxonomies,
+          :regions,
+        ],
         avatar_attachment: :blob,
         partner_logos_attachments: :blob
       )

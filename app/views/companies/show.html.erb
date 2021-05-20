@@ -241,6 +241,7 @@
         :industries,
         :manufacturers,
         :manufacturer_taxonomies,
+        #industries: [:industry_taxonomy]
       )
       .joins(:industry_taxonomies)
       .where(industry_taxonomies: {id: @company.industry_taxonomy_ids})
