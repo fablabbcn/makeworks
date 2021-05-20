@@ -2,7 +2,7 @@
     current_user&.is_employee_in_company(@company.id) ||
     current_user&.is_champion_in_regions(@company.regions)
   %>
-  <%= link_to 'Edit', edit_company_path(@company), class: 'btn btn-primary mb-4' %>
+  <%= link_to 'Edit', edit_company_path(@company), class: 'btn btn-primary' %>
 <% end %>
 
 <section class="row my-4">
@@ -230,6 +230,7 @@
 <div class="my-5 p-5 bg-grey2">
   <h2>Similar companies nearby</h2>
 
+  <section class="row">
   <% if @company.persisted? %>
     <%# Show 4 nearby companies only in same industries %>
     <% Company
@@ -244,7 +245,7 @@
       .where(industry_taxonomies: {id: @company.industry_taxonomy_ids})
       .where.not(id: @company.id)
       .limit(4)
-      .near(@company.to_coordinates)
+      .near(@company.to_coordinates, 50)
       .uniq
       .each do |company| %>
 
@@ -261,4 +262,5 @@
       <%#= render company %>
       <%# end %>
     <% end %>
+  </section>
 </div>

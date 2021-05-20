@@ -1,23 +1,20 @@
-<div class="border border-dark my-4">
-  <div class="row">
-    <div class="col-lg-6">
-      <div class="p-4">
-        <% company.regions.each do |region| %>
-          <%= link_to region, region_url(region), class: 'text-decoration-none mb-3 d-inline border p-1' %>
-        <% end %>
-        <h3 class="mt-2"><%= link_to company.name, company_url(company), class: 'text-decoration-none' %></h3>
-        <h5> <%= company.manufacturer_taxonomies.to_sentence %> </h5>
-        <h6> <%= company.industry_taxonomies.to_sentence %> </h6>
-        <p class="mt-4"><%= company.description %></p>
-        <p><%= company.intro %></p>
-      </div>
-    </div>
-    <div class="col-lg-6">
-      <% if company.top_image.present? %>
-        <%= link_to company_url(company) do %>
-          <%= image_tag(get_1200px(company&.top_image), alt: 'Company logo', class: 'img-fill') %>
-        <% end %>
+<article class="col-md-6 col-lg-4 col-xxl-3 mb-3">
+  <div class="card my-4">
+    <% if company.top_image.present? %>
+      <%= link_to company_url(company) do %>
+        <%= image_tag(get_1200px(company&.top_image), alt: 'Company logo', class: 'card-img-top') %>
       <% end %>
+    <% end %>
+
+    <div class="p-4">
+      <% company.regions.each do |region| %>
+        <%= link_to region, region_url(region), class: 'text-decoration-none mb-3 d-inline border p-1' %>
+      <% end %>
+      <h3 class="mt-2"><%= link_to company.name, company_url(company), class: 'text-decoration-none' %></h3>
+      <h5> <%= company.manufacturer_taxonomies.to_sentence %> </h5>
+      <h6> <%= company.industry_taxonomies.to_sentence %> </h6>
+      <p class="mt-4"><%= company.description %></p>
+      <p><%= company.intro %></p>
     </div>
   </div>
-</div>
+</article>

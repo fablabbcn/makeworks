@@ -26,6 +26,7 @@ $white: #fff;
 $yellow: #FFEF61;
 $yellow2: #FFBE02;
 $border-width: 1px;
+$card-border-radius: 10px;
 
 html {
   font-size: 17px; // default 16px
@@ -202,9 +203,14 @@ h2 {
 
 .card {
   border: none;
-  border-radius: 10px;
+  border-radius: $card-border-radius;
   box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
   margin-bottom: 20px;
+}
+
+.card-img-top {
+  border-top-left-radius: $card-border-radius;
+  border-top-right-radius: $card-border-radius;
 }
 
 .card-columns { column-count: 1; }
