@@ -1,9 +1,78 @@
 <% content_for(:title, t('shared.tagline')) %>
 
-<div class="text-center mb-5">
-  <h1 style="font-weight: 500;" class="display-1">MAKE WORKS</h1>
-  <h4 style="font-weight: 400;"><%= t('shared.a_global_library') %></h4>
+<section class="p-5 imageback">
+  <div class="text-center p-5 m-5">
+    <h1 class="">
+      Find local and sustainable
+      fabricators, material suppliers
+      and workshop facilities
+    </h1>
+  </div>
+</section>
+
+<section class="bg-grey2 p-5 mb-5 text-center">
+  <h2 class="mb-5">How does it work?</h2>
+
+  <div class="row">
+    <div class="col-md-4">
+      <%= image_tag('DDMP_plasticforgood_7.jpg', alt: 'Plastic for good', class: 'img-fluid mb-4') %>
+      <h3>Explore</h3>
+      <p>Explore the processes, materials and machinery you need to fabricate work</p>
+    </div>
+    <div class="col-md-4">
+      <%= image_tag('DDMP_plasticforgood_7.jpg', alt: 'Plastic for good', class: 'img-fluid mb-4') %>
+      <h3>Connect</h3>
+      <p>In-depth information so you can find the right manufacturer to work with</p>
+    </div>
+    <div class="col-md-4">
+      <%= image_tag('DDMP_plasticforgood_7.jpg', alt: 'Plastic for good', class: 'img-fluid mb-4') %>
+      <h3>Produce</h3>
+      <p>Get in touch with manufacturers directly and start making work</p>
+    </div>
+  </div>
+</section>
+
+
+<div class="card mb-5">
+  <section class="row g-0">
+    <article class="col-12 col-lg-6">
+      <%= image_tag('DDMP_plasticforgood_7.jpg', alt: 'Plastic for good', class: 'img-fill') %>
+    </article>
+    <article class="col-12 col-lg-6">
+      <div class="p-5">
+        <h2 class="mb-4">Join Make.Works today!</h2>
+        <p class="fs-5"><i class="bi bi-check me-2"></i>Find new clients to grow your business</p>
+        <p class="fs-5"><i class="bi bi-check me-2"></i>Source effectively and produce sustainably</p>
+        <p class="fs-5"><i class="bi bi-check me-2"></i>Prototype your business idea</p>
+        <p class="fs-5"><i class="bi bi-check me-2"></i>Connect with like-minded individuals</p>
+        <%= link_to "Create your account", new_user_registration_url, class: 'btn btn-blue mt-4' %>
+      </div>
+    </article>
+  </section>
 </div>
+
+<section class="bg-grey2 p-5">
+  <h2 class="mt-5">Need inspiration?</h2>
+  <p>Explore popular search terms from the community</p>
+
+  <div>
+    <%= link_to "Vegan", '#', class: 'btn btn-outline-dark' %>
+  </div>
+</section>
+
+<section class="bg-green p-5">
+  <h2 class="mt-5">About Make Works</h2>
+  <p>
+  Make Works are making manufacturing accessible. Think of it like a public library.
+  An open resource made by dedicated factory finders where you can discover skilled
+  manufacturers, tools and materials to make work with in your area.
+  </p>
+
+  <%= link_to  about_url, class: 'btn btn-dark mb-5' do %>
+    Read more
+    <i class="bi bi-arrow-right ms-4"></i>
+  <% end %>
+</section>
 
 <!--
   <div class="my-4 d-flex justify-content-between align-items-end">
@@ -18,14 +87,7 @@
   </div>
 -->
 
-<h3 class="fw-normal">
-  You can’t find what you are searching for? 
-</h3>
-
-<h3 class="fw-normal">
-  We are making Make Works, together. Join us!
-</h3>
-
+<!--
 <div class="my-5 d-lg-flex justify-content-around d-grid gap-3">
   <%= link_to t("shared.contact_us"), contact_url, class: 'btn btn-xl btn-outline-primary' %>
   <%= link_to t("shared.submit_a_maker"), contact_url, class: 'btn btn-xl btn-outline-primary' %>
@@ -42,6 +104,7 @@ Find out how Make Works was created and transformed
 <u><%= link_to "here", about_url, class: 'text-decoration-underline' %></u>.
 </p>
 
+-->
 
 <%= render 'one_blog' %>
 

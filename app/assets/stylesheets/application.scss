@@ -40,15 +40,16 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1100px;
-  }
-}
-
 // Remove after simple_form starts to support Bootstrap 5
 .form-group {
   margin-bottom: 10px;
+}
+
+.imageback {
+  background-image: url('https://static.make.works/company/AlexBeggandCo/1200px/2013-09-16_AlexBeggCo_MakeWorks_StudioRoRo-9433.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 500px;
 }
 
 label {
