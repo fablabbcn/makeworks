@@ -1,53 +1,49 @@
 <%= title 'Blog' %>
 
-<%= search_form_for @q, html: { style: 'max-width:700px;' } do |f| %>
-  <div class="my-2">
-    <%= f.label :blog_categories_id_in, 'Select category' %>
-    <%= f.select :blog_categories_id_in,
-      BlogCategory.pluck(:name, :id),
-      { include_blank: 'All Categories' },
-      { 'data-controller': 'select2', multiple: true }
-    %>
-  </div>
-  <div class="input-group mb-3">
-    <%= f.search_field :title_or_blurb_or_content_cont, class: 'form-control', placeholder: 'Search for a blog title / content' %>
-    <%= f.submit class: 'btn btn-primary' %>
-  </div>
-<% end %>
-
-<div class="my-4 d-flex justify-content-between align-items-center">
-  <div>
-    Showing <strong><%= @blogs.count %></strong> / <%= @q.result.count %> blogs
-  </div>
-
-  <%= paginate @blogs %>
-</div>
-
-<% if current_user&.is_admin? %>
-  <%= link_to 'New Blog', new_blog_path, class: 'btn btn-primary my-3' %>
-<% end %>
-
-<div class="my-2">
-
-  <% @blogs.each_with_index do |blog, index| %>
-    <div class="row g-0 border border-dark mb-3">
-      <div class="col-md-6 p-5 <%= cycle('order-last', 'tile-first', name: 'first') %>">
-        <p><%= link_to blog.title, blog %></p>
-        <small> <%= blog.created_at&.strftime("%B %d, %Y") %> </small>
-        <h4><%= blog.blurb %></h4>
-        <div><%# blog.content.html_safe %></div>
-        <p><%= blog.featured_video %></p>
-        <%# blog.medium_id %>
-        <p><%= blog.sub_title %></p>
+<section class="row">
+  <article class="col-lg-3">
+    <%= search_form_for @q, html: { style: 'max-width:700px;' } do |f| %>
+      <div class="input-group mb-3">
+        <%= f.search_field :title_or_blurb_or_content_cont, class: 'form-control', placeholder: 'Search for a blog title / content' %>
+        <%= f.submit class: 'btn btn-primary' %>
       </div>
-      <div class="col-md-6 text-center <%= cycle('tile-first', '') %>">
-        <%= link_to image_tag(get_1200px(blog.header_image), class: 'img-fill'), blog %>
+
+      <div class="my-2">
+        <%= f.label :blog_categories_id_in, 'Select category' %>
+        <%= f.select :blog_categories_id_in,
+          BlogCategory.pluck(:name, :id),
+          { include_blank: 'All Categories' },
+          { 'data-controller': 'select2', multiple: true }
+        %>
       </div>
+    <% end %>
+  </article>
+
+  <article class="col-lg-9">
+    <% if current_user&.is_admin? %>
+      <%= link_to 'New Blog', new_blog_path, class: 'btn btn-primary my-3' %>
+    <% end %>
+
+    <div class="row mb-3">
+      <% @blogs.each_with_index do |blog, index| %>
+        <div class="mb-4 <%= cycle('col-md-8', 'col-md-4', 'col-md-4','col-md-4','col-md-4', 'col-md-4', 'col-md-8', name: 'first') %>">
+          <div class="card">
+            <%= link_to image_tag(get_1200px(blog.header_image), class: 'card-img-top'), blog %>
+            <small class="badge rounded-pill bg-white text-dark shadow-sm position-absolute" style="left:20px; top:20px">
+              <%= blog.blog_categories.first %>
+            </small>
+          </div>
+
+          <h3><%= link_to blog.title, blog %></h3>
+          <small> <%= blog.created_at&.strftime("%B %d, %Y") %> </small>
+          <h4><%= blog.blurb %></h4>
+        </div>
+      <% end %>
     </div>
-  <% end %>
-</div>
 
-<div class="my-4">
-  Showing <strong><%= @blogs.count %></strong> blogs
-  <%= paginate @blogs %>
-</div>
+    <div class="my-4">
+      Showing <strong><%= @blogs.count %></strong> / <%= @q.result.count %> blogs
+      <%= paginate @blogs %>
+    </div>
+  </article>
+</section>
