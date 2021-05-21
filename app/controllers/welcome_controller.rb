@@ -5,7 +5,7 @@ class WelcomeController < ApplicationController
     @public_regions = Region.where(is_public: true)
   end
 
-  def contact
+  def about
     @public_regions = Region.where(is_public: true)
   end
 
