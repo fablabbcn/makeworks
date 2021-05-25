@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_11_163957) do
+ActiveRecord::Schema.define(version: 2021_05_25_135438) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -185,6 +185,15 @@ ActiveRecord::Schema.define(version: 2021_05_11_163957) do
     t.index ["process_taxonomy_id"], name: "index_company_processes_on_process_taxonomy_id"
   end
 
+  create_table "company_production_accesses", force: :cascade do |t|
+    t.bigint "company_id", null: false
+    t.bigint "production_access_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_company_production_accesses_on_company_id"
+    t.index ["production_access_id"], name: "index_company_production_accesses_on_production_access_id"
+  end
+
   create_table "employees", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "company_id", null: false
@@ -319,6 +328,13 @@ ActiveRecord::Schema.define(version: 2021_05_11_163957) do
     t.index ["slug"], name: "index_process_taxonomies_on_slug", unique: true
   end
 
+  create_table "production_accesses", force: :cascade do |t|
+    t.string "name"
+    t.integer "position"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "regions", force: :cascade do |t|
     t.string "m_id"
     t.string "name"
@@ -401,6 +417,8 @@ ActiveRecord::Schema.define(version: 2021_05_11_163957) do
   add_foreign_key "company_organizations", "regions"
   add_foreign_key "company_processes", "companies"
   add_foreign_key "company_processes", "process_taxonomies"
+  add_foreign_key "company_production_accesses", "companies"
+  add_foreign_key "company_production_accesses", "production_accesses"
   add_foreign_key "employees", "companies"
   add_foreign_key "employees", "users"
   add_foreign_key "finished_products", "companies"

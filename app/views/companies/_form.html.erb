@@ -237,7 +237,8 @@
     <h4>Production Info</h4>
     <%= f.input :turnaround_time %>
     <%= f.input :minimum_order %>
-    <%= f.input :production_access %>
+    <%# f.input :production_access %>
+    <%= f.association :production_accesses, input_html: { 'data-controller': 'select2' } %>
     <%= f.input :file_types %>
 
     <%= f.button :submit %>

@@ -7,6 +7,9 @@ class Company < ApplicationRecord
   has_many :company_organization, dependent: :destroy
   has_many :regions, through: :company_organization
 
+  has_many :company_production_accesses, dependent: :destroy
+  has_many :production_accesses, through: :company_production_accesses
+
   has_many :finished_products, dependent: :destroy
   has_many :finished_products_taxonomies, through: :finished_products
 

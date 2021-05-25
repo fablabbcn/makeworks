@@ -87,6 +87,7 @@ en:
         material_tags: Material tags
         industry_taxonomies: Industry tags
         process_taxonomies: Process tags
+        production_accesses: Production Access
         finished_products_taxonomies: Finished products tags
         manufacturer_taxonomies: Type of fabrication space
         sample_production: Sample production (up to 10)

@@ -180,6 +180,7 @@ class CompaniesController < ApplicationController
       material_ids: [],
       industry_taxonomy_ids: [],
       process_taxonomy_ids: [],
+      production_access_ids: [],
       finished_products_taxonomy_ids: [],
       manufacturer_taxonomy_ids: [],
       machines_taxonomy_ids: []
