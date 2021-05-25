@@ -3,6 +3,15 @@ namespace :makeworks do
   desc "Add from .json files"
 
   task import_all: [:environment] do
+
+    ProductionAccess.create(position: 1, name: 'Closed: No Access')
+    ProductionAccess.create(position: 2, name: 'Trade Counter')
+    ProductionAccess.create(position: 3, name: 'Limited: Limited access to some production facilities')
+    ProductionAccess.create(position: 4, name: 'Project Specific: Depends on project and requirements')
+    ProductionAccess.create(position: 5, name: 'By Appointment: Access to visit the facitilies depending on the project')
+    ProductionAccess.create(position: 6, name: 'Workshop & Classes')
+    ProductionAccess.create(position: 7, name: 'Open: General access')
+
     puts "Creating Regions..."
     File.open("csv/organisation.json").each do |r|
       row = JSON.parse(r)
