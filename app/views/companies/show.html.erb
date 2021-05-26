@@ -45,23 +45,25 @@
       </div>
     </div>
 
-    <h6>Address</h6>
+    <h6>ADDRESS</h6>
     <p> <%= @company.address %> </p>
 
-    <h6>Website</h6>
+    <h6>WEBSITE</h6>
     <p>
     <%= link_to(@company.website, @company.website, target: "_blank", class: 'text-decoration-none') %>
     </p>
 
-    <h6>Phone</h6>
+    <h6>PHONE</h6>
     <p> <%= @company.contact_phone %> </p>
 
-    <h6 class="mt-4"> Social Media </h6>
-    <%= render 'social_media_icons' %>
+    <h6 class="mt-4">SOCIAL MEDIA</h6>
+    <div class="text-muted fs-3">
+      <%= render 'social_media_icons' %>
+    </div>
 
     <% if current_user&.is_admin? || current_user&.is_champion_in_regions(@company.regions) %>
       <div class="card-admin bg-white mt-4">
-        <p>Admin info:</p>
+        <p class="text-center">Admin info:</p>
         <%= link_to 'Edit', edit_company_path(@company), class: 'btn btn-primary mb-4'  %>
         <ul>
           <%# @company.title %>
