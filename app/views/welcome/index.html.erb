@@ -1,8 +1,8 @@
 <% content_for(:title, t('shared.tagline')) %>
 
 <section class="p-5 imageback">
-  <div class="text-center p-5 m-5">
-    <h1 class="">
+  <div class="p-5 m-5">
+    <h1 class="text-center mx-auto" style="max-width:700px;">
       Find local and sustainable
       fabricators, material suppliers
       and workshop facilities
@@ -10,69 +10,80 @@
   </div>
 </section>
 
-<section class="bg-grey2 p-5 mb-5 text-center">
-  <h2 class="mb-5">How does it work?</h2>
+<section class="bg-grey2 p-5 text-center">
+  <div class="container">
+    <h2 class="mb-5">How does it work?</h2>
 
-  <div class="row">
-    <div class="col-md-4">
-      <%= image_tag('DDMP_plasticforgood_7.jpg', alt: 'Plastic for good', class: 'img-fluid mb-4') %>
-      <h3>Explore</h3>
-      <p>Explore the processes, materials and machinery you need to fabricate work</p>
-    </div>
-    <div class="col-md-4">
-      <%= image_tag('DDMP_plasticforgood_7.jpg', alt: 'Plastic for good', class: 'img-fluid mb-4') %>
-      <h3>Connect</h3>
-      <p>In-depth information so you can find the right manufacturer to work with</p>
-    </div>
-    <div class="col-md-4">
-      <%= image_tag('DDMP_plasticforgood_7.jpg', alt: 'Plastic for good', class: 'img-fluid mb-4') %>
-      <h3>Produce</h3>
-      <p>Get in touch with manufacturers directly and start making work</p>
+    <div class="row">
+      <div class="col-md-4">
+        <%= image_tag('DDMP_plasticforgood_7.jpg', alt: 'Plastic for good', class: 'img-fluid mb-4') %>
+        <h3>Explore</h3>
+        <p>Explore the processes, materials and machinery you need to fabricate work</p>
+      </div>
+      <div class="col-md-4">
+        <%= image_tag('DDMP_plasticforgood_7.jpg', alt: 'Plastic for good', class: 'img-fluid mb-4') %>
+        <h3>Connect</h3>
+        <p>In-depth information so you can find the right manufacturer to work with</p>
+      </div>
+      <div class="col-md-4">
+        <%= image_tag('DDMP_plasticforgood_7.jpg', alt: 'Plastic for good', class: 'img-fluid mb-4') %>
+        <h3>Produce</h3>
+        <p>Get in touch with manufacturers directly and start making work</p>
+      </div>
     </div>
   </div>
 </section>
 
 
-<div class="card mb-5">
-  <section class="row g-0">
-    <article class="col-12 col-lg-6">
-      <%= image_tag('DDMP_plasticforgood_7.jpg', alt: 'Plastic for good', class: 'img-fill') %>
-    </article>
-    <article class="col-12 col-lg-6">
-      <div class="p-5">
-        <h2 class="mb-4">Join Make.Works today!</h2>
-        <p class="fs-5"><i class="bi bi-check me-2"></i>Find new clients to grow your business</p>
-        <p class="fs-5"><i class="bi bi-check me-2"></i>Source effectively and produce sustainably</p>
-        <p class="fs-5"><i class="bi bi-check me-2"></i>Prototype your business idea</p>
-        <p class="fs-5"><i class="bi bi-check me-2"></i>Connect with like-minded individuals</p>
-        <%= link_to "Create your account", new_user_registration_url, class: 'btn btn-blue mt-4' %>
-      </div>
-    </article>
-  </section>
-</div>
+<section class="bg-grey-2 py-5 my-5">
+  <div class="container">
+
+    <div class="card mb-5">
+      <section class="row g-0">
+        <article class="col-12 col-lg-6">
+          <%= image_tag('DDMP_plasticforgood_7.jpg', alt: 'Plastic for good', class: 'img-fill rounded-start') %>
+        </article>
+        <article class="col-12 col-lg-6">
+          <div class="p-5">
+            <h2 class="mb-4">Join Make.Works today!</h2>
+            <p class="fs-5"><i class="bi bi-check me-2"></i>Find new clients to grow your business</p>
+            <p class="fs-5"><i class="bi bi-check me-2"></i>Source effectively and produce sustainably</p>
+            <p class="fs-5"><i class="bi bi-check me-2"></i>Prototype your business idea</p>
+            <p class="fs-5"><i class="bi bi-check me-2"></i>Connect with like-minded individuals</p>
+            <%= link_to "Create your account", new_user_registration_url, class: 'btn btn-blue mt-4' %>
+          </div>
+        </article>
+      </section>
+    </div>
+  </div>
+</section>
 
 <section class="bg-grey2 p-5">
-  <h2 class="mt-5">Need inspiration?</h2>
-  <p>Explore popular search terms from the community</p>
+  <div class="container">
+    <h2 class="mt-5">Need inspiration?</h2>
+    <p>Explore popular search terms from the community</p>
 
-  <div>
-    <%= link_to "Vegan", '#', class: 'btn btn-outline-dark' %>
-    <%= link_to "Ceramics", "/companies?q%5Bname_or_description_cont%5D=&q%5Bcountry_code_eq%5D=&q%5Bregions_id_in%5D%5B%5D=&q%5Bindustry_taxonomies_id_in%5D%5B%5D=&q%5Bindustry_taxonomies_id_in%5D%5B%5D=13&q%5Bmaterials_id_in%5D%5B%5D=&q%5Bmachines_taxonomies_id_in%5D%5B%5D=&commit=Search", class: 'btn btn-outline-dark' %>
+    <div>
+      <%= link_to "Vegan", '#', class: 'btn btn-outline-dark' %>
+      <%= link_to "Ceramics", "/companies?q%5Bname_or_description_cont%5D=&q%5Bcountry_code_eq%5D=&q%5Bregions_id_in%5D%5B%5D=&q%5Bindustry_taxonomies_id_in%5D%5B%5D=&q%5Bindustry_taxonomies_id_in%5D%5B%5D=13&q%5Bmaterials_id_in%5D%5B%5D=&q%5Bmachines_taxonomies_id_in%5D%5B%5D=&commit=Search", class: 'btn btn-outline-dark' %>
+    </div>
   </div>
 </section>
 
 <section class="bg-green p-5">
-  <h2 class="mt-5">About Make Works</h2>
-  <p>
-  Make Works are making manufacturing accessible. Think of it like a public library.
-  An open resource made by dedicated factory finders where you can discover skilled
-  manufacturers, tools and materials to make work with in your area.
-  </p>
+  <div class="container">
+    <h2 class="mt-5">About Make Works</h2>
+    <p>
+    Make Works are making manufacturing accessible. Think of it like a public library.
+    An open resource made by dedicated factory finders where you can discover skilled
+    manufacturers, tools and materials to make work with in your area.
+    </p>
 
-  <%= link_to  about_url, class: 'btn btn-dark mb-5' do %>
-    Read more
-    <i class="bi bi-arrow-right ms-4"></i>
-  <% end %>
+    <%= link_to  about_url, class: 'btn btn-dark mb-5' do %>
+      Read more
+      <i class="bi bi-arrow-right ms-4"></i>
+    <% end %>
+  </div>
 </section>
 
 <!--

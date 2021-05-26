@@ -3,6 +3,10 @@ class WelcomeController < ApplicationController
 
   before_action :get_public_regions, only: [:about, :contact]
 
+  def index
+    render layout: 'blank'
+  end
+
   def random
     @random_companies = Company
       .all
