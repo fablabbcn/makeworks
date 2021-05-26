@@ -1,11 +1,10 @@
 <%= title 'Blog' %>
 
 <section class="row">
-  <article class="col-lg-3">
-    <%= search_form_for @q, html: { style: 'max-width:700px;' } do |f| %>
+  <article class="col-lg-3 mb-3">
+    <%= search_form_for @q do |f| %>
       <div class="input-group mb-3">
         <%= f.search_field :title_or_blurb_or_content_cont, class: 'form-control', placeholder: 'Search for a blog title / content' %>
-        <%= f.submit class: 'btn btn-primary' %>
       </div>
 
       <div class="my-2">
@@ -16,6 +15,8 @@
           { 'data-controller': 'select2', multiple: true }
         %>
       </div>
+
+      <%= f.submit class: 'btn btn-primary' %>
     <% end %>
   </article>
 
