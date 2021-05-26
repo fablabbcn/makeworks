@@ -157,8 +157,9 @@ h2 {
   color: $black3;
   &:hover {
     background: white;
-    border: 1px solid $black3;
+    border: 1px solid $grey;
     color: $black3;
+    transition: 0.4s;
   }
 }
 

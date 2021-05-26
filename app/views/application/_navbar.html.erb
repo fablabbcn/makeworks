@@ -13,9 +13,9 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <%# link_to t("shared.regions"), regions_url,     class: "nav-link mb-3 mb-md-0 me-2 ms-auto btn #{current_page?(regions_url) ? 'btn-primary' : 'btn-outline-primary'}" %>
-      <%= link_to t("shared.companies"), companies_url, class: "nav-link mx-2 my-2 my-lg-0 ms-lg-auto btn #{current_page?(companies_url) ? 'btn-primary' : 'btn-blank'}" %>
-      <%= link_to "Blog", blogs_url,                    class: "nav-link mx-2 my-2 my-lg-0 btn #{current_page?(blogs_url) ? 'btn-primary' : 'btn-blank'}" %>
-      <%= link_to "About", about_url,                   class: "nav-link mx-2 my-2 my-lg-0 btn #{current_page?(about_url) ? 'btn-primary' : 'btn-blank'}" %>
+      <%= link_to t("shared.companies"), companies_url, class: "nav-link mx-2 my-2 my-lg-0 ms-lg-auto btn #{current_page?(companies_url) ? 'active' : 'btn-blank'}" %>
+      <%= link_to "Blog", blogs_url,                    class: "nav-link mx-2 my-2 my-lg-0 btn #{current_page?(blogs_url) ? 'active' : 'btn-blank'}" %>
+      <%= link_to "About", about_url,                   class: "nav-link mx-2 my-2 my-lg-0 btn #{current_page?(about_url) ? 'active' : 'btn-blank'}" %>
 
       <!--
         <form class="mx-auto" action="/companies">
