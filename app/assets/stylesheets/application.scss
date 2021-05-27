@@ -53,7 +53,7 @@ body {
 }
 
 label {
-  color: #222;
+  color: $black2;
   margin-bottom: 5px;
 }
 
@@ -151,6 +151,17 @@ h2 {
   font-size: 25px;
   border-radius: 30px;
   font-weight: 500;
+}
+
+.btn-black {
+  background: $black;
+  color: white;
+  &:hover {
+    background: white;
+    border: 1px solid $grey;
+    color: $black3;
+    transition: 0.4s;
+  }
 }
 
 .btn-blank {
@@ -347,6 +358,14 @@ footer {
 
 .bg-black {
   background: $black;
+}
+
+.bg-black2 {
+  background: $black2;
+}
+
+.bg-black3 {
+  background: $black3;
 }
 
 .link-white {
