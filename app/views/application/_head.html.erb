@@ -1,4 +1,5 @@
 <head>
+  <%= render partial: 'google_analytics' %>
   <title><%= content_for?(:title) ? "#{yield(:title)} | Make Works" : 'Make Works' %></title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
