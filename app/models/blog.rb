@@ -13,5 +13,5 @@ class Blog < ApplicationRecord
 
   has_rich_text :content_action
 
-  paginates_per 20
+  paginates_per 10
 end

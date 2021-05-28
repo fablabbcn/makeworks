@@ -26,8 +26,8 @@
     <% end %>
 
     <div class="row mb-3">
-      <% @blogs.each_with_index do |blog, index| %>
-        <div class="mb-4 <%= cycle('col-md-8', 'col-md-4', 'col-md-4','col-md-4','col-md-4', 'col-md-4', 'col-md-8', name: 'first') %>">
+      <% @blogs.each do |blog| %>
+        <div class="mb-4 <%= cycle('col-md-8', 'col-md-4', 'col-md-4','col-md-4','col-md-4', 'col-md-4', 'col-md-8', 'col-md-4','col-md-4','col-md-4') %>">
           <%= render partial: 'blog', locals: {blog: blog} %>
         </div>
       <% end %>
