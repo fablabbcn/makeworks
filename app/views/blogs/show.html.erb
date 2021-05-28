@@ -28,7 +28,26 @@
     <%= @blog.content_action %>
   </div>
   <div class="col-lg-3">
-<small> <%= @blog.created_at&.strftime("%B %d, %Y") %> </small>
+    <small> <%= @blog.created_at&.strftime("%B %d, %Y") %> </small>
+    <hr>
+
+    <h4 class="mt-5">Categories</h4>
+    <hr>
+    <p> <%= @blog.blog_categories.to_sentence %> </p>
+
+    <h4 class="mt-5">Related stories</h4>
+    <hr>
+    <% Blog
+      .includes(:blog_categories, :blog_tags)
+      .where(blog_categories: {id: @blog.blog_category_ids})
+      .where.not(id: @blog.id)
+      .limit(5)
+      .uniq
+      .each do |blog|
+    %>
+      <%= link_to blog.title, blog_url(blog), title: blog.blog_categories.to_sentence %>
+      <hr>
+    <% end %>
   </div>
 </div>
 
