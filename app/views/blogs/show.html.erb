@@ -4,6 +4,10 @@
   <br></br>
 <% end %>
 
+<% if current_user&.is_admin? %>
+  <%= link_to 'Edit', edit_blog_url, class: 'btn btn-primary mb-3' %>
+<% end %>
+
 <h4>
   <%= link_to "Blog", '/blog' %> /
   <% @blog.blog_tags.each do |bt| %>
@@ -15,20 +19,18 @@
 <%= title @blog.title %>
 <p> <%= @blog.sub_title %> </p>
 
-
-<small> <%= @blog.created_at&.strftime("%B %d, %Y") %> </small>
-<% if current_user&.is_admin? %>
-  <br>
-  <%= link_to 'Edit', edit_blog_url, class: 'btn btn-primary mt-4' %>
-<% end %>
-
-
-<div class="my-2 text-center">
-  <%= image_tag @blog.header_image, class: 'img-fluid' %>
+<div class="">
+  <%= image_tag(get_1200px(@blog.header_image), class: 'img-fluid') %>
 </div>
 
-
-<%= @blog.content_action %>
+<div class="row mt-4">
+  <div class="col-lg-9">
+    <%= @blog.content_action %>
+  </div>
+  <div class="col-lg-3">
+<small> <%= @blog.created_at&.strftime("%B %d, %Y") %> </small>
+  </div>
+</div>
 
 <%= link_to blogs_url do %>
   <svg width="3em" height="3em" viewBox="0 0 16 16" class="mt-4 bi bi-arrow-left-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
