@@ -1,6 +1,5 @@
 class Blog < ApplicationRecord
   belongs_to :medium, optional: true
-  default_scope { order(created_at: :desc) }
 
   has_many :blog_tags, dependent: :destroy
   has_many :blog_categories, through: :blog_tags

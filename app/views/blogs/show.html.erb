@@ -51,6 +51,17 @@
   </div>
 </div>
 
+<div class="mt-4 g-grey2">
+  <h3>Latest stories</h3>
+  <div class="row">
+    <% @recent.each do |blog| %>
+      <div class="col-md-3">
+        <%= render partial: 'blog', locals: {blog: blog} %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
 <%= link_to blogs_url do %>
   <svg width="3em" height="3em" viewBox="0 0 16 16" class="mt-4 bi bi-arrow-left-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
     <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>

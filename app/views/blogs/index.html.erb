@@ -28,16 +28,7 @@
     <div class="row mb-3">
       <% @blogs.each_with_index do |blog, index| %>
         <div class="mb-4 <%= cycle('col-md-8', 'col-md-4', 'col-md-4','col-md-4','col-md-4', 'col-md-4', 'col-md-8', name: 'first') %>">
-          <div class="card">
-            <%= link_to image_tag(get_1200px(blog.header_image), class: 'card-img-top'), blog %>
-            <small class="badge rounded-pill bg-white text-dark shadow-sm position-absolute" style="left:20px; top:20px">
-              <%= blog.blog_categories.first %>
-            </small>
-          </div>
-
-          <h3><%= link_to blog.title, blog %></h3>
-          <small> <%= blog.created_at&.strftime("%B %d, %Y") %> </small>
-          <h4><%= blog.blurb %></h4>
+          <%= render partial: 'blog', locals: {blog: blog} %>
         </div>
       <% end %>
     </div>

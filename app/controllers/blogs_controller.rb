@@ -18,13 +18,21 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    @q = Blog.where(dont_publish: false).ransack(params[:q])
+    @q = Blog
+      .where(dont_publish: false)
+      .order(created_at: :desc)
+      .ransack(params[:q])
+
     @blogs = @q.result(distinct: true).page(params[:page])
   end
 
   # GET /blogs/1
   # GET /blogs/1.json
   def show
+    @recent = Blog
+      .where(dont_publish: false)
+      .order(created_at: :desc)
+      .limit(4)
   end
 
   # GET /blogs/new
