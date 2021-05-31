@@ -30,7 +30,7 @@ class BlogsControllerTest < ActionDispatch::IntegrationTest
       #p @blog.blog_categories.pluck :name
     end
 
-    assert_redirected_to blog_url(Blog.first)
+    assert_redirected_to blog_url('slug3')
   end
 
   test "should show blog" do
