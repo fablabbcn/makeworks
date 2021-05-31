@@ -29,9 +29,5 @@ module Makeworks
     config.i18n.available_locales = [:en, :is]
     config.i18n.default_locale = :en
     config.i18n.fallbacks = [:en]
-
-    Sentry.init do |config|
-      config.dsn = ENV['SENTRY_DSN']
-    end
   end
 end
