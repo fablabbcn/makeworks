@@ -1,5 +1,9 @@
 <h1>Users</h1>
 
+<% if current_user.is_admin? %>
+  <%= link_to "Invite user", new_user_invitation_url, class:"btn btn-primary" %>
+<% end %>
+
 <table class="table">
   <thead>
     <tr>
