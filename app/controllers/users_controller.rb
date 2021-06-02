@@ -84,7 +84,10 @@ class UsersController < ApplicationController
   end
 
   def find_anyone
-    @user = User.friendly.find(params[:id])
+    @user = User
+      .includes(employees: [:company])
+      .friendly
+      .find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.
