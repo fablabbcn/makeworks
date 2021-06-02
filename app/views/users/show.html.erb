@@ -1,6 +1,9 @@
 <div class="mw-border-50 my-5 p-5">
   <div class="justify-content-between d-flex">
     <div class="">
+      <% if @user == current_user %>
+        <%= link_to "Edit", edit_profile_url(current_user), class: 'btn btn-primary mb-3' %>
+      <% end %>
       <%= title @user %>
 
       <p>
@@ -43,9 +46,6 @@
     </div>
   </div>
 
-  <% if @user == current_user %>
-    <%= link_to "Edit", edit_profile_url(current_user), class: 'btn btn-primary' %>
-  <% end %>
   <hr>
 
   <%= render 'user_regions' %>
