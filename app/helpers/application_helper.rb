@@ -11,7 +11,7 @@ module ApplicationHelper
   def flash_messages(opts = {})
     flash.each do |msg_type, message|
       concat(content_tag(:div, message,
-                         class: "alert #{bootstrap_class_for(msg_type)} position-fixed shadow px-4 w-25 mt-3",
+                         class: "alert #{bootstrap_class_for(msg_type)} d-flex position-fixed shadow px-4 w-25 mt-3",
                          role: "alert",
                          style: 'z-index:200; right:5%; opacity: 0.8;'
                         ) do
