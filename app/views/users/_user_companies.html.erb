@@ -4,13 +4,14 @@
   <ul class="list-unstyled border-top">
     <% @user.employees.each do |e| %>
       <li class="border-bottom py-2">
-        <%= e.title %>
-        -
+        <%= link_to e.company, e.company %>
+        <br>
         <small class="badge bg-secondary">
           <%= e.role %>
         </small>
-        <br>
-        <%= link_to e.company, e.company %>
+        <small>
+        <%= e.title %>
+        </small>
       </li>
     <% end %>
   </ul>

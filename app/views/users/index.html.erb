@@ -7,6 +7,7 @@
 <table class="table">
   <thead>
     <tr>
+      <th></th>
       <th>First name</th>
       <th>Last name</th>
       <th>Slug</th>
@@ -17,9 +18,18 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
+        <td>
+          <%= link_to(user) do %>
+            <% if user.avatar.attached?  %>
+              <%= image_tag(user.avatar, class: 'avatar-small')%>
+            <% else %>
+              <%= image_tag('favicon.png', class: 'avatar-small') %>
+            <% end %>
+          <% end %>
+        </td>
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
-        <td><%= user.slug %></td>
+        <td><%= link_to((user.slug || 'slug missing'), user) %></td>
       </tr>
     <% end %>
   </tbody>
