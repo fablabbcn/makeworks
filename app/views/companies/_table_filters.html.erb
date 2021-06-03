@@ -72,6 +72,14 @@
         { class: '', 'data-controller': 'select2-machines', multiple: true }
       %>
     </div>
+    <div class="my-2">
+      <label>Products</label>
+      <%= f.select :finished_products_taxonomies_id_in,
+        FinishedProductsTaxonomy.pluck(:name, :id),
+        { include_blank: 'All' },
+        { class: '', 'data-controller': 'select2-machines', multiple: true }
+      %>
+    </div>
   </div>
 
   <%= f.submit class: 'btn btn-primary' %>
