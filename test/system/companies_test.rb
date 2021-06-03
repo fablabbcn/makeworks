@@ -13,7 +13,7 @@ class CompaniesTest < ApplicationSystemTestCase
 
   test "creating a Company" do
     visit companies_url
-    click_on "New Company"
+    click_on "Submit a maker"
 
     fill_in "Address", with: @company.address
     fill_in "Background", with: @company.background
