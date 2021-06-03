@@ -26,7 +26,7 @@
         title: 'Company name or description contains the word',
         placeholder: 'Company name or description contains..'
       %>
-    <%= f.submit class: 'btn btn-primary mt-2' %>
+    <%= f.submit class: 'btn btn-primary mt-3' %>
     </div>
 
     <div class="my-2">
@@ -73,18 +73,22 @@
       %>
     </div>
     <div class="my-2">
+      <label>Processes</label>
+      <%= f.select :process_taxonomies_id_in,
+        ProcessTaxonomy.pluck(:name, :id),
+        { include_blank: 'All' },
+        { class: '', 'data-controller': 'select2', multiple: true }
+      %>
+    </div>
+    <div class="my-2">
       <label>Products</label>
       <%= f.select :finished_products_taxonomies_id_in,
         FinishedProductsTaxonomy.pluck(:name, :id),
         { include_blank: 'All' },
-        { class: '', 'data-controller': 'select2-machines', multiple: true }
+        { class: '', 'data-controller': 'select2', multiple: true }
       %>
     </div>
   </div>
 
   <%= f.submit class: 'btn btn-primary' %>
 <% end %>
-
-<div class="my-4 d-block d-md-flex justify-content-between align-items-center">
-  <p class="text-muted"> Showing: <%= @companies.count %> / <%= @q.result.count  %></p>
-</div>

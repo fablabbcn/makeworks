@@ -20,6 +20,6 @@ export default class extends Controller {
 
   disconnect() {
     console.log('select2machines destroy')
-    //$(this.element).select2('destroy')
+    $(this.element).select2('destroy')
   }
 }
