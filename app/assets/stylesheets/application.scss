@@ -184,6 +184,14 @@ h2 {
   }
 }
 
+.btn-outline-blue {
+  border: 1px solid $blue;
+  color: $blue;
+  &:hover {
+    color: $black;
+  }
+}
+
 .btn-primary {
   background: $black2;
   border-color: $black2;
@@ -256,7 +264,7 @@ h2 {
 }
 
 .form-control {
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 .select2-container .select2-selection--single{

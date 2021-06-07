@@ -43,6 +43,7 @@ Rails.application.routes.draw do
       delete :delete_image_attachment
       patch :edit_employee
       patch :move_employee
+      patch :toggle_favorite
     end
   end
   resources :regions do

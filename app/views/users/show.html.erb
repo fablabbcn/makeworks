@@ -48,6 +48,18 @@
 
   <hr>
 
+  <div>
+    <h4>Favorite Companies</h4>
+    <% @user.favorite_companies.where(is_favorite: true).each do |c| %>
+      <%= link_to c.company&.name, c.company %>
+      <small>
+      <%= c.note %>
+      </small>
+      <br>
+    <% end %>
+  </div>
+
+  <hr>
   <%= render 'user_regions' %>
 
   <%= render 'user_companies' %>

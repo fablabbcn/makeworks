@@ -28,6 +28,15 @@ class CompaniesController < ApplicationController
     redirect_back(fallback_location: companies_url)
   end
 
+  def toggle_favorite
+    @company = Company.friendly.find(params[:id])
+    current_user
+      .favorite_companies
+      .find_or_create_by(company: @company)
+      .toggle!(:is_favorite)
+    redirect_to @company
+  end
+
   # GET /companies
   # GET /companies.json
   def index

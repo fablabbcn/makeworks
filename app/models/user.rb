@@ -14,6 +14,8 @@ class User < ApplicationRecord
   has_many :user_regions, dependent: :destroy
   has_many :regions, through: :user_regions
 
+  has_many :favorite_companies
+
   extend FriendlyId
   friendly_id :first_name, use: [:slugged, :finders]
 

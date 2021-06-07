@@ -42,6 +42,35 @@
           </tbody>
         </table>
 
+        <div>
+          <%= link_to toggle_favorite_company_url(@company),
+            method: :patch,
+            class: 'btn btn-outline-blue d-block mt-4' do %>
+
+            <% if current_user.favorite_companies.where(company: @company.id).first&.is_favorite %>
+              <i class="bi bi-star-fill"></i>
+              Saved
+            <% else %>
+              <i class="bi bi-star"></i>
+              Save to favorites
+            <% end %>
+          <% end %>
+
+          <br>
+          <% if false  # current_user.favorite_companies.pluck(:company_id).include?(@company.id) %>
+            <small>
+              Personal note:
+              <input
+                type="text"
+                class="form-control"
+                name=""
+                id=""
+                value="<%= current_user.favorite_companies.where(company: @company.id).first&.note %>"
+                />
+            </small>
+          <% end %>
+        </div>
+
       </div>
     </div>
 
@@ -56,7 +85,7 @@
     <h6>PHONE</h6>
     <p> <%= @company.contact_phone %> </p>
 
-    <h6 class="mt-4">SOCIAL MEDIA</h6>
+    <h6>SOCIAL MEDIA</h6>
     <div class="text-muted fs-3">
       <%= render 'social_media_icons' %>
     </div>
