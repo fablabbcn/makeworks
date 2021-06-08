@@ -7,6 +7,7 @@
 
     <label>Short info (shown before image)</label>
     <%= f.rich_text_area :short_info %>
+    <br>
 
     <%= f.input :avatar, input_html: { class: 'form-control' } %>
     <% if @region.avatar.attached? %>
@@ -14,19 +15,23 @@
         <%= image_tag @region.avatar, style: 'max-height:200px;' %>
       </div>
     <% end %>
+    <br>
 
     <label>Short Description (shown on /regions page)</label>
     <%= f.rich_text_area :short_description %>
+    <br>
 
     <label>About text</label>
     <%= f.rich_text_area :about_text %>
+    <br>
 
     <label>Partner text</label>
     <%= f.rich_text_area :partner_text %>
+    <br>
 
     <%= f.input :partner_logos, as: :file, input_html: { multiple: true, class: 'form-control' } %>
     <% if @region.partner_logos.attached? %>
-      <div class="row my-3 bg-light p-3 m-1 border">
+      <div class="row my-4 bg-light p-3 m-1 border">
         <% @region.partner_logos.each_with_index do |img, index| %>
           <div class="col-auto">
             <%= image_tag img, class: '', style: 'max-height:200px;' %>
