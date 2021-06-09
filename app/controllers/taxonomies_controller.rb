@@ -9,7 +9,7 @@ class TaxonomiesController < ApplicationController
   end
 
   def tree
-    @taxonomies = Taxonomy.all
+    @taxonomies = Taxonomy.all.includes(:children)
   end
 
   # GET /taxonomies/1

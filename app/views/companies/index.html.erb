@@ -13,32 +13,8 @@
 
     <section class="row">
       <% @companies.each do |company| %>
-        <article class="col-lg-6 col-xxl-4 mb-3">
-          <div class="card">
-            <%= image_tag(get_1200px(company&.top_image), alt: 'Company logo', class: 'card-img-top') %>
-            <small class="badge rounded-pill bg-white text-dark shadow-sm position-absolute" title="<%= company.location %>" style="left:20px; top:20px">
-              <%= company.location&.truncate(30) %>
-            </small>
-
-            <div class="card-body">
-              <h3> <%= link_to company.name, company %> </h3>
-              <p title="<%= company&.intro %>"><%= company&.intro&.truncate(43) %></p>
-              <br>
-              <div class="row">
-                <div class="col-12 col-md-6">
-                  <h6>TYPE</h6>
-                  <span class="badge rounded-pill bg-secondary"><%= company.manufacturer_taxonomies.to_sentence %></span>
-                </div>
-                <div class="col-12 col-md-6">
-                  <h6>CATEGORY</h6>
-                  <span
-                    title="<%= company.industry_taxonomies.to_sentence %>"
-                    class="badge rounded-pill bg-secondary"
-                    style="white-space: unset"><%= truncate company.industry_taxonomies.to_sentence %></span>
-                </div>
-              </div>
-            </div>
-          </div>
+        <article class="col-lg-6 col-xxl-3 mb-3">
+          <%= render partial: 'companies/company_card', locals: { company: company } %>
         </article>
       <% end %>
     </section>
