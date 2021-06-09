@@ -5,9 +5,18 @@
 
   <div class="p-4">
 
-    <small class="badge rounded-pill bg-white text-dark shadow-sm position-absolute" title="<%= company.location %>" style="left:20px; top:20px">
-      <%= company.location&.truncate(30) %>
-    </small>
+    <div class="position-absolute w-100" title="<%= company.location %>" style="left:0px; top:20px">
+      <small class="badge rounded-pill bg-white text-dark shadow-sm ms-3" title="<%= company.location %>">
+        <%= company.location&.truncate(30) %>
+      </small>
+      <span class="float-end text-white me-3 fs-5">
+        <% if current_user.favorite_companies.where(company: company.id).first&.is_favorite %>
+          <i class="bi bi-star-fill" title="Favorite company"></i>
+        <% else %>
+          <i class="bi bi-star"></i>
+        <% end %>
+      </span>
+    </div>
 
     <% company.regions.each do |region| %>
       <%# link_to region, region_url(region), class: 'text-decoration-none mb-3 d-inline border p-1' %>
