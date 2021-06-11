@@ -188,7 +188,8 @@ h2 {
   border: 1px solid $blue;
   color: $blue;
   &:hover {
-    color: $black;
+    color: white;
+    background: $blue;
   }
 }
 

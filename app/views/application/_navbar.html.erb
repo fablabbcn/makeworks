@@ -17,15 +17,6 @@
       <%= link_to "Blog", blogs_url,                    class: "nav-link mx-2 my-2 my-lg-0 btn #{current_page?(blogs_url) ? 'active' : 'btn-blank'}" %>
       <%= link_to "About", about_url,                   class: "nav-link mx-2 my-2 my-lg-0 btn #{current_page?(about_url) ? 'active' : 'btn-blank'}" %>
 
-      <!--
-        <form class="mx-auto" action="/companies">
-        <div class="input-group">
-        <input class="form-control " name="q[name_or_description_cont]" type="search" placeholder="Search companies.." aria-label="Search">
-        <button class="btn btn-dark input-group-append" type="submit">Search</button>
-        </div>
-        </form>
-      -->
-
       <% if current_user %>
         <ul class="navbar-nav mx-2">
           <li class="nav-item dropdown">
