@@ -1,7 +1,7 @@
 <% content_for(:title, t('shared.tagline')) %>
 
 <section class="p-5 imageback">
-  <div class="p-5 m-5">
+  <div class="p-5 m-5 mb-0">
     <h1 class="text-center mx-auto" style="max-width:700px;">
       Find local and sustainable
       fabricators, material suppliers
@@ -9,12 +9,19 @@
     </h1>
   </div>
 
-  <form class="mx-auto" action="/companies">
-    <div class="input-group">
-      <input class="form-control " name="q[name_or_description_or_intro_or_background_cont]" type="search" placeholder="Search companies.." aria-label="Search">
-      <button class="btn btn-dark input-group-append" type="submit">Search</button>
-    </div>
-  </form>
+    <form class="mx-auto" action="/companies">
+      <div class="input-group mx-auto" style="max-width:600px;">
+        <input
+          class="form-control"
+          name="q[name_or_description_or_intro_or_background_cont]"
+          type="search"
+          placeholder="Search companies.."
+          aria-label="Search"
+          style="border-bottom-left-radius: 20px; border-top-left-radius: 20px"
+          >
+        <button class="btn btn-dark input-group-append" type="submit">Search</button>
+      </div>
+    </form>
 
 </section>
 
