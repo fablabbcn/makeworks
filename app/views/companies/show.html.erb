@@ -56,9 +56,11 @@
             <% end %>
           <% end %>
 
-          <%= mail_to @company.contact_email, class: 'btn btn-outline-blue d-block mt-4' do %>
-            <i class="bi bi-envelope"></i>
-            Contact
+          <% if @company.contact_email.present? %>
+            <%= mail_to @company.contact_email, class: 'btn btn-outline-blue d-block mt-4' do %>
+              <i class="bi bi-envelope"></i>
+              Contact
+            <% end %>
           <% end %>
 
           <br>
