@@ -10,7 +10,7 @@
         <%= company.location&.truncate(30) %>
       </small>
       <span class="float-end text-white me-3 fs-5">
-        <% if current_user.favorite_companies.where(company: company.id).first&.is_favorite %>
+        <% if current_user && current_user.favorite_companies.where(company: company.id).first&.is_favorite %>
           <i class="bi bi-star-fill" title="Favorite company"></i>
         <% else %>
           <i class="bi bi-star"></i>
