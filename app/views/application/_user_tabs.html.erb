@@ -1,5 +1,5 @@
 <div class="my-4">
-  <%= link_to user_url(current_user), class: "btn #{'btn-outline-dark' if current_page?(user_url(current_user))}" do %>
+  <%= link_to user_url(current_user), class: "btn #{'btn-outline-dark' if current_page?(user_url(current_user)) || current_page?(edit_profile_url(current_user))}" do %>
     <i class="bi bi-person-circle"></i>
     <%= t("shared.user_settings") %>
   <% end %>

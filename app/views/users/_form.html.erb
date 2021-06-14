@@ -2,7 +2,7 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
+  <div class="card p-5">
     <%= f.input :email %>
     <div class="row">
       <div class="col-6">
@@ -30,12 +30,14 @@
     <% end %>
 
     <% if @user.avatar.attached? %>
-      <%= image_tag @user.avatar, style: 'max-height:200px;' %>
+      <div class="d-flex">
+        <%= image_tag @user.avatar, class: 'img-fluid', style: 'max-height:200px;' %>
+      </div>
     <% end %>
     <%= f.input :avatar, input_html: { class: 'form-control' } %>
-  </div>
 
-  <div class="my-5">
-    <%= f.button :submit %>
+    <div class="mt-5">
+      <%= f.button :submit %>
+    </div>
   </div>
 <% end %>

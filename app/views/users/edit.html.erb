@@ -2,16 +2,12 @@
 
 <%= render 'user_tabs' %>
 
-<div class="card my-5 p-5">
-  <%= render 'form', user: @user %>
+<div class="my-5 row">
+  <div class="col-lg-8">
+    <%= render 'form', user: @user %>
+  </div>
 
-  <hr>
-
-  <%= render 'user_regions' %>
-
-  <hr>
-
-  <div class="text-end mt-5">
+  <div class="mt-5">
     <%= link_to t("devise.registrations.edit.cancel_my_account"),
       registration_path(current_user),
       method: :delete,
