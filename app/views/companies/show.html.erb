@@ -9,13 +9,15 @@
   <article class="col-lg-4">
     <div class="card">
       <div class="card-body">
-        <%= title @company.name %>
+        <div class="text-center mb-4">
+          <%= title @company.name %>
 
-        <% @company.regions.each do |region| %>
-          <%= link_to region, region_url(region), class: 'd-block mb-3' %>
-        <% end %>
+          <% @company.regions.each do |region| %>
+            <%= link_to region, region_url(region), class: 'd-block mb-3' %>
+          <% end %>
 
-        <p><%= @company.intro %></p>
+          <p><%= @company.intro %></p>
+        </div>
 
         <table class="w-100">
           <tbody>
