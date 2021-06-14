@@ -12,39 +12,48 @@
         <div class="text-center mb-4">
           <%= title @company.name %>
 
-          <% @company.regions.each do |region| %>
-            <%= link_to region, region_url(region), class: 'd-block mb-3' %>
-          <% end %>
+          <p>
+          <i class="bi bi-geo-alt-fill"></i>
+          <%= @company.location %>
+          </p>
 
           <p><%= @company.intro %></p>
         </div>
 
-        <table class="w-100">
-          <tbody>
-            <tr>
-              <th>Type</th>
-              <td> <%= @company.manufacturer_taxonomies.to_sentence %> </td>
-            </tr>
-            <tr>
-              <th>Industry</th>
-              <td><%= @company.industry_taxonomies.to_sentence %></td>
-            </tr>
-            <tr>
-              <th><%= t('shared.employees') %></th>
-              <td><%= @company.number_of_staff %></td>
-            </tr>
-            <tr>
-              <th>Region</th>
-              <td><%# link_to @company.region, region_url(@company.region) %></td>
-            </tr>
-            <tr>
-              <th>Location</th>
-              <td><%= @company.location %></td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="row">
+
+          <div class="col-md-6">
+            <h5>Type</h5>
+            <p> <%= @company.manufacturer_taxonomies.to_sentence %> </p>
+          </div>
+
+          <div class="col-md-6">
+            <h5>Industry</h5>
+            <p><%= @company.industry_taxonomies.to_sentence %></p>
+          </div>
+
+          <div class="col-md-6">
+            <h5><%= t('shared.employees') %></h5>
+            <p><%= @company.number_of_staff %></p>
+          </div>
+
+          <div class="col-md-6">
+            <h5 title="Region">Organization</h5>
+
+            <% @company.regions.each do |region| %>
+              <%= link_to region, region_url(region), class: 'd-block mb-3' %>
+            <% end %>
+          </div>
+        </div>
 
         <div>
+          <% if @company.contact_email.present? %>
+            <%= mail_to @company.contact_email, class: 'btn btn-outline-blue d-block mt-4' do %>
+              <i class="bi bi-envelope"></i>
+              Contact
+            <% end %>
+          <% end %>
+
           <%= link_to toggle_favorite_company_url(@company),
             method: :patch,
             class: 'btn btn-outline-blue d-block mt-4' do %>
@@ -55,13 +64,6 @@
             <% else %>
               <i class="bi bi-star"></i>
               Save to favorites
-            <% end %>
-          <% end %>
-
-          <% if @company.contact_email.present? %>
-            <%= mail_to @company.contact_email, class: 'btn btn-outline-blue d-block mt-4' do %>
-              <i class="bi bi-envelope"></i>
-              Contact
             <% end %>
           <% end %>
 
