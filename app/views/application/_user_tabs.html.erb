@@ -1,0 +1,16 @@
+<div class="my-4">
+  <%= link_to edit_profile_url(current_user), class: "btn #{'btn-outline-dark' if current_page?(edit_profile_url(current_user))}" do %>
+    <i class="bi bi-person-circle"></i>
+    <%= t("shared.user_settings") %>
+  <% end %>
+
+  <%= link_to favorites_url, class: "btn #{'btn-outline-dark' if current_page?(favorites_url)}" do %>
+    <i class="bi bi-star-fill"></i>
+    <%= t("shared.saved_companies") %>
+  <% end %>
+
+  <%= link_to my_companies_url, class: "btn #{'btn-outline-dark' if current_page?(my_companies_url)}" do %>
+    <i class="bi bi-building"></i>
+    <%= t("shared.my_companies") %>
+  <% end %>
+</div>

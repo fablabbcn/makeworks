@@ -43,6 +43,11 @@
                 <%= t("shared.saved_companies") %>
               <% end %>
 
+              <%= link_to my_companies_url, class: "dropdown-item #{'active' if current_page?(my_companies_url)}" do %>
+                <i class="bi bi-building"></i>
+                <%= t("shared.my_companies") %>
+              <% end %>
+
               <% if current_user.is_admin? %>
                 <div class="dropdown-divider"></div>
                 <div class="dropdown-header">

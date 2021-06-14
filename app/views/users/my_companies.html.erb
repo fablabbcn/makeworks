@@ -1,0 +1,9 @@
+<%= title t('shared.my_companies') %>
+
+<%= render 'user_tabs' %>
+
+<div class="row">
+  <% current_user.companies.each do |company| %>
+    <%= render partial: 'companies/company', locals: { company: company } %>
+  <% end %>
+</div>

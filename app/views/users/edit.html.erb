@@ -1,6 +1,8 @@
-<div class="card my-5 p-5">
-  <%= title 'Editing User' %>
+<%= title 'Editing User' %>
 
+<%= render 'user_tabs' %>
+
+<div class="card my-5 p-5">
   <%= render 'form', user: @user %>
 
   <hr>

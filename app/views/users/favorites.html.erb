@@ -1,5 +1,7 @@
 <%= title t('shared.saved_companies') %>
 
+<%= render 'user_tabs' %>
+
 <% if current_user.favorite_companies.blank? %>
   <div class="card card-body my-5 p-5 text-center">
     <h3 class="mb-4">Start exploring companies</h3>

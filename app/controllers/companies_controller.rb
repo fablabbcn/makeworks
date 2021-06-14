@@ -32,6 +32,7 @@ class CompaniesController < ApplicationController
     @company = Company.friendly.find(params[:id])
     current_user
       .favorite_companies
+      .unscoped
       .find_or_create_by(company: @company)
       .toggle!(:is_favorite)
     redirect_to @company
