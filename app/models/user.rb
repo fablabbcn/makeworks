@@ -14,7 +14,11 @@ class User < ApplicationRecord
   has_many :user_regions, dependent: :destroy
   has_many :regions, through: :user_regions
 
-  has_many :favorite_companies
+  # Only shows where is_favorites: true - not if the company has a note
+  # If we use notes, we have to decide if they are always shown or not
+  # Company can be unfavorited - does that also remove the note? Is that company still shown?
+  # See: https://github.com/fablabbcn/makeworks/issues/21
+  has_many :favorite_companies, -> { where(is_favorite: true) }
 
   extend FriendlyId
   friendly_id :first_name, use: [:slugged, :finders]

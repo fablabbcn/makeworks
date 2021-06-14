@@ -1,0 +1,7 @@
+<%= title t('shared.saved_companies') %>
+
+<div class="row">
+  <% current_user.favorite_companies.each do |company| %>
+    <%= render partial: 'companies/company', locals: { company: company.company } %>
+  <% end %>
+</div>

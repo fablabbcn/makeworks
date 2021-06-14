@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get '/stats', to: 'welcome#stats'
   get '/roulette', to: 'welcome#random'
 
+  get "/favorites", to: 'users#favorites'
   get "/users", to: 'users#index'
   get "/users/:id", to: 'users#show', as: 'user'
   get "/users/:id/edit", to: 'users#edit', as: 'edit_profile'

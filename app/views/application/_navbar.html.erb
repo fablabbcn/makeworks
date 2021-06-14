@@ -33,9 +33,14 @@
             </a>
 
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarUser">
-              <%= link_to  user_url(current_user), class: "dropdown-item #{'active' if current_page?(edit_profile_url(current_user))}" do %>
+              <%= link_to user_url(current_user), class: "dropdown-item #{'active' if current_page?(edit_profile_url(current_user))}" do %>
                 <i class="bi bi-person-circle"></i>
                 <%= t("shared.user_settings") %>
+              <% end %>
+
+              <%= link_to favorites_url, class: "dropdown-item #{'active' if current_page?(favorites_url)}" do %>
+                <i class="bi bi-star-fill"></i>
+                <%= t("shared.saved_companies") %>
               <% end %>
 
               <% if current_user.is_admin? %>
