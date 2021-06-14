@@ -1,3 +1,5 @@
+<%= title t("shared.user_settings") %>
+
 <%= render 'user_tabs' %>
 
 <div class="card my-5 p-5">
@@ -6,7 +8,6 @@
       <% if @user == current_user %>
         <%= link_to "Edit", edit_profile_url(current_user), class: 'btn btn-primary mb-3' %>
       <% end %>
-      <%= title @user %>
 
       <p>
       <strong>First name:</strong>
