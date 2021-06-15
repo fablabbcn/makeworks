@@ -18,18 +18,26 @@
     </span>
   </h5>
 
-  <div class="row">
-
-    <div class="my-2">
+  <div class="">
+    <div class="input-group mb-3">
+      <%# f.submit class: 'btn btn-primary my-3', type: 'submit' %>
       <%= f.search_field :name_or_description_or_intro_or_background_cont,
         class: 'form-control',
         title: 'Company name or description contains the word',
+        style: "border-top-left-radius: 20px; border-bottom-left-radius: 20px",
         placeholder: 'Search for companies'
       %>
-    <%= f.submit class: 'btn btn-primary mt-3' %>
+      <button class="btn btn-outline-secondary" type="submit" >
+        <i class="bi bi-search"></i>
+      </button>
     </div>
 
-    <div class="my-2">
+    <div class="d-flex justify-content-between">
+      <p class="text-muted"> Showing: <%= @companies.count %> / <%= @q.result.count  %></p>
+      <%= link_to "Clear all", companies_url %>
+    </div>
+
+    <div class="mb-2">
       <label>Country</label>
       <%=
         f.country_select :country_code_eq,
@@ -47,7 +55,8 @@
       %>
     </div>
   </div>
-  <div class="row">
+
+  <div class="">
     <div class="my-2">
       <label>Industry</label>
       <%= f.select :industry_taxonomies_id_in,
