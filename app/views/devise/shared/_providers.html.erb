@@ -1,14 +1,13 @@
-<hr>
 <div class="my-4">
-  <%= link_to omniauth_authorize_path(resource_name, 'fablabs'), class: "btn btn-outline-primary" do %>
-    <%= t('shared.sign_up_with_fablabs') %>
+  <%= link_to omniauth_authorize_path(resource_name, 'google_oauth2'), class: "btn btn-outline-primary", title: 'Google' do %>
+    <i class="bi bi-google"></i>
   <% end %>
 
-  <%= link_to omniauth_authorize_path(resource_name, 'google_oauth2'), class: "btn btn-outline-primary" do %>
-    <%= t('shared.sign_up_with_google') %>
+  <%= link_to omniauth_authorize_path(resource_name, 'linkedin'), class: "btn btn-outline-primary", title: 'LinkedIn' do %>
+    <i class="bi bi-linkedin"></i>
   <% end %>
 
-  <%= link_to omniauth_authorize_path(resource_name, 'linkedin'), class: "btn btn-outline-primary" do %>
-    Linkedin
+  <%= link_to omniauth_authorize_path(resource_name, 'fablabs'), class: "btn btn-outline-primary", title: 'Fablabs.io' do %>
+    <%= image_tag('fabio.ico', height: 23) %>
   <% end %>
 </div>
