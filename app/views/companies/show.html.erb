@@ -169,47 +169,65 @@
         <p><%= @company.production_specifics %></p>
 
         <section class="row my-4">
-          <article class="col-sm-6 mb-3">
-            <h5>Turnaround time</h5>
-            <span><%= @company.turnaround_time %></span>
+          <article class="col-sm-6 mb-3 d-flex">
+            <i class="bi bi-clock-history fs-2 me-3"></i>
+            <div>
+              <h5>Turnaround time</h5>
+              <span><%= @company.turnaround_time %></span>
+            </div>
           </article>
 
-          <article class="col-sm-6 mb-3">
-            <h5>File types</h5>
-            <span><%= @company.file_types %></span>
+          <article class="col-sm-6 mb-3 d-flex">
+            <i class="bi bi-file-earmark-check fs-2 me-3"></i>
+            <div>
+              <h5>File types</h5>
+              <span><%= @company.file_types %></span>
+            </div>
           </article>
 
-          <article class="col-sm-6 mb-3">
-            <h5>Minimum order</h5>
-            <span><%= @company.minimum_order %></span>
+          <article class="col-sm-6 mb-3 d-flex">
+            <i class="bi bi-card-list fs-2 me-3"></i>
+            <div>
+              <h5>Minimum order</h5>
+              <span><%= @company.minimum_order %></span>
+            </div>
           </article>
 
-          <article class="col-sm-6 mb-3">
-            <h5>Production access</h5>
-            <span><%= @company.production_accesses.to_sentence %></span>
+          <article class="col-sm-6 mb-3 d-flex">
+            <i class="bi bi-door-open fs-2 me-3"></i>
+            <div>
+              <h5>Production access</h5>
+              <span><%= @company.production_accesses.to_sentence %></span>
+            </div>
           </article>
 
-          <article class="col-sm-6 mb-3">
-            <h5>Works With</h5>
-            <ul class="list-unstyled">
-              <%= render 'list_item_checkbox', the_bool: @company.works_with_large_business, the_text: 'Large business' %>
-              <%= render 'list_item_checkbox', the_bool: @company.works_with_small_companies, the_text: 'Small companies' %>
-              <%= render 'list_item_checkbox', the_bool: @company.works_with_professionals, the_text: 'Professionals' %>
-              <%= render 'list_item_checkbox', the_bool: @company.works_with_general_public , the_text: 'General public' %>
-              <%= render 'list_item_checkbox', the_bool: @company.works_with_students, the_text: 'Students' %>
-            </ul>
+          <article class="col-sm-6 mb-3 d-flex">
+            <i class="bi bi-bank fs-2 me-3"></i>
+            <div>
+              <h5>Works With</h5>
+              <ul class="list-unstyled">
+                <%= render 'list_item_checkbox', the_bool: @company.works_with_large_business, the_text: 'Large business' %>
+                <%= render 'list_item_checkbox', the_bool: @company.works_with_small_companies, the_text: 'Small companies' %>
+                <%= render 'list_item_checkbox', the_bool: @company.works_with_professionals, the_text: 'Professionals' %>
+                <%= render 'list_item_checkbox', the_bool: @company.works_with_general_public , the_text: 'General public' %>
+                <%= render 'list_item_checkbox', the_bool: @company.works_with_students, the_text: 'Students' %>
+              </ul>
+            </div>
           </article>
 
-          <article class="col-sm-6 mb-2">
-            <h5>Capacity</h5>
-            <ul class="list-unstyled">
-              <%= render 'list_item_checkbox', the_bool: @company.bespoke_one_offs, the_text: 'Bespoke 1-offs' %>
-              <%= render 'list_item_checkbox', the_bool: @company.sample_production, the_text: 'Sample production' %>
-              <%= render 'list_item_checkbox', the_bool: @company.batch_production, the_text: 'Prototypes' %>
-              <%= render 'list_item_checkbox', the_bool: @company.short_run,  the_text: 'Short run' %>
-              <%= render 'list_item_checkbox', the_bool: @company.medium_run, the_text: 'Medium run' %>
-              <%= render 'list_item_checkbox', the_bool: @company.large_run, the_text: 'Large run' %>
-            </ul>
+          <article class="col-sm-6 mb-2 d-flex">
+            <i class="bi bi-server fs-2 me-3"></i>
+            <div>
+              <h5>Capacity</h5>
+              <ul class="list-unstyled">
+                <%= render 'list_item_checkbox', the_bool: @company.bespoke_one_offs, the_text: 'Bespoke 1-offs' %>
+                <%= render 'list_item_checkbox', the_bool: @company.sample_production, the_text: 'Sample production' %>
+                <%= render 'list_item_checkbox', the_bool: @company.batch_production, the_text: 'Prototypes' %>
+                <%= render 'list_item_checkbox', the_bool: @company.short_run,  the_text: 'Short run' %>
+                <%= render 'list_item_checkbox', the_bool: @company.medium_run, the_text: 'Medium run' %>
+                <%= render 'list_item_checkbox', the_bool: @company.large_run, the_text: 'Large run' %>
+              </ul>
+            </div>
           </article>
         </section>
 
@@ -221,6 +239,7 @@
             <ul class="list-unstyled">
               <% @company.materials.each do |x| %>
                 <li>
+                  <i class="bi bi-check"></i>
                   <%= link_to x, material_url(x.id) %>
                 </li>
               <% end %>
@@ -232,6 +251,7 @@
             <ul class="list-unstyled">
               <% @company.process_taxonomies.each do |x| %>
                 <li>
+                  <i class="bi bi-check"></i>
                   <%= link_to x, process_taxonomy_url(x) %>
                 </li>
               <% end %>
@@ -243,6 +263,7 @@
             <ul class="list-unstyled">
               <% @company.machines_taxonomies.each do |x| %>
                 <li>
+                  <i class="bi bi-check"></i>
                   <%= link_to x, machines_taxonomy_url(x) %>
                 </li>
               <% end %>
@@ -254,6 +275,7 @@
             <ul class="list-unstyled">
               <% @company.finished_products_taxonomies.each do |x| %>
                 <li>
+                  <i class="bi bi-check"></i>
                   <%= link_to x, finished_products_taxonomy_url(x) %>
                 </li>
               <% end %>
