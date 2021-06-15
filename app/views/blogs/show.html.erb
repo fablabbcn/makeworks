@@ -31,11 +31,11 @@
     <small> <%= @blog.created_at&.strftime("%B %d, %Y") %> </small>
     <hr>
 
-    <h4 class="mt-5">Categories</h4>
+    <h4 class="mt-5 fw-bold">Categories</h4>
     <hr>
     <p> <%= @blog.blog_categories.to_sentence %> </p>
 
-    <h4 class="mt-5">Related stories</h4>
+    <h4 class="mt-5 fw-bold">Related stories</h4>
     <hr>
     <% Blog
       .includes(:blog_categories, :blog_tags)
