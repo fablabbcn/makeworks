@@ -28,6 +28,10 @@
     <%= @blog.content_action %>
   </div>
   <div class="col-lg-3">
+    <p class="fw-bold">WORDS</p>
+    <%= @blog.user %>
+    <hr>
+
     <small> <%= @blog.created_at&.strftime("%B %d, %Y") %> </small>
     <hr>
 

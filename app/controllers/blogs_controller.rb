@@ -105,6 +105,7 @@ class BlogsController < ApplicationController
         :medium_id,
         :slug,
         :sub_title,
+        :user_id,
         :title,
         blog_category_ids: []
       )

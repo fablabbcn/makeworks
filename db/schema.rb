@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_07_095930) do
+ActiveRecord::Schema.define(version: 2021_06_16_182051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -96,8 +96,10 @@ ActiveRecord::Schema.define(version: 2021_06_07_095930) do
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
     t.index ["medium_id"], name: "index_blogs_on_medium_id"
     t.index ["slug"], name: "index_blogs_on_slug", unique: true
+    t.index ["user_id"], name: "index_blogs_on_user_id"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -423,6 +425,7 @@ ActiveRecord::Schema.define(version: 2021_06_07_095930) do
   add_foreign_key "blog_tags", "blog_categories"
   add_foreign_key "blog_tags", "blogs"
   add_foreign_key "blogs", "media"
+  add_foreign_key "blogs", "users"
   add_foreign_key "companies", "users"
   add_foreign_key "company_organizations", "companies"
   add_foreign_key "company_organizations", "regions"

@@ -4,6 +4,8 @@ class Blog < ApplicationRecord
   has_many :blog_tags, dependent: :destroy
   has_many :blog_categories, through: :blog_tags
 
+  belongs_to :user, optional: true
+
   scope :published, -> { where.not(dont_publish: true) }
   scope :hidden, -> { where(dont_publish: true) }
 
