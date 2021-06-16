@@ -8,20 +8,22 @@
 
   <div class="form-inputs">
     <%= f.input :title %>
+    <%= f.input :sub_title %>
     <%= f.association :user,
       label: 'Author',
       input_html: { 'data-controller': 'select2' },
       selected: @blog.user_id || current_user.id
     %>
     <%= f.input :slug %>
-    <%= f.input :sub_title %>
     <%= f.input :blurb %>
     <%= f.association :blog_categories, input_html: { 'data-controller': 'select2' } %>
-    <%= f.rich_text_area :content_action %>
-    <%= f.input :dont_publish %>
+    <div class="my-4">
+      <%= f.rich_text_area :content_action, style: 'height: 200px' %>
+    </div>
     <%= f.input :featured_video %>
     <%= f.input :header_image %>
     <%# f.association :medium, input_html: { 'data-controller': 'select2' } %>
+    <%= f.input :dont_publish %>
   </div>
 
   <div class="form-actions">
