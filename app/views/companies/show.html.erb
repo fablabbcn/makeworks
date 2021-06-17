@@ -172,7 +172,7 @@
           <article class="col-sm-6 mb-3 d-flex">
             <i class="bi bi-clock-history fs-2 me-3"></i>
             <div>
-              <h5>Turnaround time</h5>
+              <h5 class="mt-2">Turnaround time</h5>
               <span><%= @company.turnaround_time %></span>
             </div>
           </article>
@@ -180,7 +180,7 @@
           <article class="col-sm-6 mb-3 d-flex">
             <i class="bi bi-file-earmark-check fs-2 me-3"></i>
             <div>
-              <h5>File types</h5>
+              <h5 class="mt-2">File types</h5>
               <span><%= @company.file_types %></span>
             </div>
           </article>
@@ -188,7 +188,7 @@
           <article class="col-sm-6 mb-3 d-flex">
             <i class="bi bi-card-list fs-2 me-3"></i>
             <div>
-              <h5>Minimum order</h5>
+              <h5 class="mt-2">Minimum order</h5>
               <span><%= @company.minimum_order %></span>
             </div>
           </article>
@@ -196,7 +196,7 @@
           <article class="col-sm-6 mb-3 d-flex">
             <i class="bi bi-door-open fs-2 me-3"></i>
             <div>
-              <h5>Production access</h5>
+              <h5 class="mt-2">Production access</h5>
               <span><%= @company.production_accesses.to_sentence %></span>
             </div>
           </article>
@@ -204,7 +204,7 @@
           <article class="col-sm-6 mb-3 d-flex">
             <i class="bi bi-bank fs-2 me-3"></i>
             <div>
-              <h5>Works With</h5>
+              <h5 class="mt-2">Works With</h5>
               <ul class="list-unstyled">
                 <%= render 'list_item_checkbox', the_bool: @company.works_with_large_business, the_text: 'Large business' %>
                 <%= render 'list_item_checkbox', the_bool: @company.works_with_small_companies, the_text: 'Small companies' %>
@@ -218,7 +218,7 @@
           <article class="col-sm-6 mb-2 d-flex">
             <i class="bi bi-server fs-2 me-3"></i>
             <div>
-              <h5>Capacity</h5>
+              <h5 class="mt-2">Capacity</h5>
               <ul class="list-unstyled">
                 <%= render 'list_item_checkbox', the_bool: @company.bespoke_one_offs, the_text: 'Bespoke 1-offs' %>
                 <%= render 'list_item_checkbox', the_bool: @company.sample_production, the_text: 'Sample production' %>

@@ -10,11 +10,18 @@
         <%= company.location&.truncate(30) %>
       </small>
       <span class="float-end text-white me-3 fs-5">
-        <% if current_user && current_user.favorite_companies.where(company: company.id).first&.is_favorite %>
-          <i class="bi bi-star-fill" title="Favorite company"></i>
-        <% else %>
-          <i class="bi bi-star"></i>
-        <% end %>
+
+          <%= link_to toggle_favorite_company_url(company),
+            method: :patch,
+            remote: true do %>
+            <i class="bi bi-star fs-3 <%= favorite_company?(company.id) ? 'text-warning' : '' %>"
+               title="<%= favorite_company?(company.id) ? 'Unfavorite' : 'Favorite' %>"
+               data-controller="toggle",
+               data-action="click->toggle#toggle"
+               data-toggle-css-class="text-warning"
+               title="Favorite company"></i>
+
+          <% end %>
       </span>
     </div>
 

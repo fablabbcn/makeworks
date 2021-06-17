@@ -52,6 +52,10 @@ module ApplicationHelper
     response.code.to_i == 200
   end
 
+  def favorite_company?(company_id)
+    current_user && current_user.favorite_companies.where(company: company_id).first&.is_favorite
+  end
+
   def get_1200px(the_url)
     # Use a default image if the_url is empty.
     return 'https://via.placeholder.com/300x200' if the_url.blank?

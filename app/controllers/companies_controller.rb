@@ -30,12 +30,23 @@ class CompaniesController < ApplicationController
 
   def toggle_favorite
     @company = Company.friendly.find(params[:id])
-    current_user
+
+    # Toggle if found, else create a new record
+    fav = current_user
       .favorite_companies
       .unscoped
-      .find_or_create_by(company: @company)
-      .toggle!(:is_favorite)
-    redirect_to @company
+      .find_by(company: @company)
+
+    if fav.present?
+      fav.toggle!(:is_favorite)
+    else
+      current_user.favorite_companies.create!(company: @company, is_favorite: true)
+    end
+
+    respond_to do |format|
+      format.html { redirect_to @company }
+      format.js { }
+    end
   end
 
   # GET /companies
