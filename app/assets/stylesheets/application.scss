@@ -114,7 +114,7 @@ h2 {
 
 .card-admin {
   background-color: $grey3;
-  border-radius: 10px;
+  border-radius: $card-border-radius;
   border: none;
   box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
   margin-bottom: 20px;
@@ -251,7 +251,7 @@ h2 {
 }
 
 .form-control {
-  border-radius: 10px;
+  border-radius: $card-border-radius;
 }
 
 .select2-container .select2-selection--single{
