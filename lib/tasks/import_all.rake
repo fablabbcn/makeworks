@@ -345,8 +345,12 @@ namespace :makeworks do
         the_date = row['date']["$date"]
       end
 
-      b = Blog.create(
-        m_id: row['_id']['$oid'],
+      the_author = nil
+      if row['words_by_author'] && row['words_by_author']['$oid']
+        the_author = row['words_by_author']['$oid']
+      end
+
+      b = Blog.create_with(
         blurb: row['blurb'],
         content: row['content'],
         content_action: simple_format(row['content']),
@@ -358,6 +362,9 @@ namespace :makeworks do
         sub_title: row['sub_title'],
         title: row['title'],
         created_at: the_date,
+        words_by_author: the_author
+      ).find_or_create_by(
+        m_id: row['_id']['$oid']
       )
 
       b.save!
