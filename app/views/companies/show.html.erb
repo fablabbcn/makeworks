@@ -164,7 +164,7 @@
     <%# image_tag(get_1200px(@company.top_image), class: 'border border-dark') if @company.top_image.present? %>
 
     <div class="card">
-      <div class="card-body">
+      <div class="card-body p-5">
         <h2 class="mt-2">Production details</h2>
         <p><%= @company.production_specifics %></p>
 
@@ -286,7 +286,7 @@
     </div><!-- card -->
 
     <div class="card">
-      <div class="p-4">
+      <div class="p-5">
         <h3>Company History</h3>
         <p class="mt-4">
         <%= @company.background %>
