@@ -302,7 +302,9 @@
 </section><!-- main row -->
 
 <div class="my-5">
-  <h2>Similar companies nearby</h2>
+  <% if @nearby.present? %>
+    <h2>Similar companies nearby</h2>
+  <% end %>
 
   <section class="row">
   <% if @company.persisted? %>
