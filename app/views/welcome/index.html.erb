@@ -132,6 +132,22 @@
   </div>
 </section>
 
+<section>
+  <div class="container">
+    <h2>Random companies</h2>
+    <div class="row">
+      <% Company
+        .all
+        .where.not(soft_delete: true)
+        .sample(4).each do |company| %>
+        <article class="col-md-6 col-lg-3 mb-3">
+          <%= render partial: 'companies/company_card', locals: { company: company } %>
+        </article>
+      <% end %>
+    </div>
+  </div>
+</section>
+
 <section class="py-5 my-5">
   <div class="container">
 
