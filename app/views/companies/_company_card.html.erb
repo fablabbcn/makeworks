@@ -5,14 +5,16 @@
 
   <div class="p-4">
 
-    <div class="position-absolute w-100" title="<%= company.location %>" style="left:0px; top:20px">
-      <% if company.location.present? %>
-        <small class="badge rounded-pill bg-white text-dark shadow-sm ms-3" title="<%= company.location %>">
-          <%= company.location&.truncate(30) %>
-        </small>
-      <% end %>
-      <span class="float-end text-white me-3 fs-5">
-
+    <section class="position-absolute w-100 px-3 align-items-center d-flex justify-content-between" title="<%= company.location %>" style="left:0px; top:20px">
+      <div class="fs-6">
+        <% if company.location.present? %>
+          <small class="badge rounded-pill p-2 bg-white text-dark shadow-sm" title="<%= company.location %>">
+            <i class="bi bi-geo-alt-fill"></i>
+            <%= company.location&.truncate(30) %>
+          </small>
+        <% end %>
+      </div>
+      <span class="float-end text-white fs-5">
           <%= link_to toggle_favorite_company_url(company),
             method: :patch,
             remote: true do %>
@@ -25,7 +27,7 @@
 
           <% end %>
       </span>
-    </div>
+    </section>
 
     <% company.regions.each do |region| %>
       <%# link_to region, region_url(region), class: 'text-decoration-none mb-3 d-inline border p-1' %>
