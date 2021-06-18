@@ -63,6 +63,7 @@ class CompaniesController < ApplicationController
       )
       .region_public_or_empty
       .where(is_verified: true)
+      .where.not(soft_delete: true)
       .ransack(params[:q])
 
     @companies = @q.result(distinct: true).page(params[:page])
