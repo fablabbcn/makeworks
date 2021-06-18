@@ -6,9 +6,11 @@
   <div class="p-4">
 
     <div class="position-absolute w-100" title="<%= company.location %>" style="left:0px; top:20px">
-      <small class="badge rounded-pill bg-white text-dark shadow-sm ms-3" title="<%= company.location %>">
-        <%= company.location&.truncate(30) %>
-      </small>
+      <% if company.location.present? %>
+        <small class="badge rounded-pill bg-white text-dark shadow-sm ms-3" title="<%= company.location %>">
+          <%= company.location&.truncate(30) %>
+        </small>
+      <% end %>
       <span class="float-end text-white me-3 fs-5">
 
           <%= link_to toggle_favorite_company_url(company),
