@@ -27,7 +27,7 @@ $white: #fff;
 $yellow: #FFEF61;
 $yellow2: #FFBE02;
 $border-width: 1px;
-$card-border-radius: 10px;
+$card-border-radius: 20px;
 
 html {
   font-size: 17px; // default 16px
@@ -282,6 +282,7 @@ h6 {
 .select2-container .select2-selection--multiple{
   border: 1px solid $grey2;
   border-radius: $card-border-radius;
+  padding-left: 7px;
 }
 
 .select2-container--default .select2-selection--single .select2-selection__rendered {
