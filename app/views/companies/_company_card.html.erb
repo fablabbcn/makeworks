@@ -29,7 +29,7 @@
       <%# link_to region, region_url(region), class: 'text-decoration-none mb-3 d-inline border p-1' %>
     <% end %>
 
-    <h3><%= link_to company.name, company_url(company), class: 'text-decoration-none' %></h3>
+    <h4><%= link_to company.name, company_url(company), class: 'text-decoration-none' %></h4>
 
     <p title="<%= company&.intro %>"><%= company&.intro&.truncate(54) %></p>
 
