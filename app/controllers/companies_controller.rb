@@ -72,6 +72,23 @@ class CompaniesController < ApplicationController
   # GET /companies/1
   # GET /companies/1.json
   def show
+    @nearby = Company
+      .geocoded
+      .includes(
+        :company_organization,
+        :regions,
+        :industries,
+        :manufacturers,
+        :manufacturer_taxonomies,
+        #industries: [:industry_taxonomy]
+      )
+      .joins(:industry_taxonomies)
+      .where(industry_taxonomies: {id: @company.industry_taxonomy_ids})
+      .where.not(id: @company.id)
+      .limit(4)
+      .near(@company.to_coordinates, 50)
+      .uniq
+
   end
 
   # GET /companies/new

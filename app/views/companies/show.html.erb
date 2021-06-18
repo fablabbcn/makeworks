@@ -301,29 +301,12 @@
   </article>
 </section><!-- main row -->
 
-<div class="my-5 p-5 bg-grey3">
+<div class="my-5">
   <h2>Similar companies nearby</h2>
 
   <section class="row">
   <% if @company.persisted? %>
-    <%# Show 4 nearby companies only in same industries %>
-    <% Company
-      .geocoded
-      .includes(
-        :company_organization,
-        :regions,
-        :industries,
-        :manufacturers,
-        :manufacturer_taxonomies,
-        #industries: [:industry_taxonomy]
-      )
-      .joins(:industry_taxonomies)
-      .where(industry_taxonomies: {id: @company.industry_taxonomy_ids})
-      .where.not(id: @company.id)
-      .limit(4)
-      .near(@company.to_coordinates, 50)
-      .uniq
-      .each do |company| %>
+    <% @nearby.each do |company| %>
 
       <%= render company %>
 
