@@ -163,7 +163,10 @@
             <p class="fs-5"><i class="bi bi-check me-2"></i>Source effectively and produce sustainably</p>
             <p class="fs-5"><i class="bi bi-check me-2"></i>Prototype your business idea</p>
             <p class="fs-5"><i class="bi bi-check me-2"></i>Connect with like-minded individuals</p>
-            <%= link_to "Create your account", new_user_registration_url, class: 'btn btn-blue mt-4' %>
+            <%= link_to  new_user_registration_url, class: 'btn btn-blue mt-4' do %>
+              Create your account
+              <i class="bi bi-arrow-right"></i>
+            <% end %>
           </div>
         </article>
       </section>
