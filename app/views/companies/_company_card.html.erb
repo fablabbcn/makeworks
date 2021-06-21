@@ -18,11 +18,12 @@
           <%= link_to toggle_favorite_company_url(company),
             method: :patch,
             remote: true do %>
-            <i class="bi bi-star fs-3 <%= favorite_company?(company.id) ? 'text-warning' : '' %>"
+            <i class="bi fs-3 text-white <%= favorite_company?(company.id) ? 'bi-star-fill' : 'bi-star' %>"
                title="<%= favorite_company?(company.id) ? 'Unfavorite' : 'Favorite' %>"
-               data-controller="toggle",
-               data-action="click->toggle#toggle"
-               data-toggle-css-class="text-warning"
+               data-controller="toggle-favorite",
+               data-action="click->toggle-favorite#toggle"
+               data-toggle-filled-class="bi-star-fill"
+               data-toggle-unfilled-class="bi-star"
                title="Favorite company"></i>
 
           <% end %>
