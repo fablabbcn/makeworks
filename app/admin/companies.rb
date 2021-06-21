@@ -44,6 +44,7 @@ ActiveAdmin.register Company do
     id_column
     column :regions
     column :is_verified
+    column :soft_delete
     column :name
     column :address do |x|
       truncate(x.intro)
@@ -68,7 +69,6 @@ ActiveAdmin.register Company do
     column :number_of_staff
     column :sample_production
     column :short_run
-    column :soft_delete
     column :turnaround_time
     column :year_founded
     column :film_ready
