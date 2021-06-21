@@ -1,4 +1,6 @@
-<h2>Change your password</h2>
+<div class="text-center">
+  <%= title 'Change your password' %>
+</div>
 
 <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
@@ -20,7 +22,7 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Change my password" %>
+    <%= f.button :submit, "Change my password", class: 'w-100' %>
   </div>
 <% end %>
 
