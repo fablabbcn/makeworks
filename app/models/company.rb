@@ -38,6 +38,9 @@ class Company < ApplicationRecord
   geocoded_by :full_address, latitude: :lat, longitude: :lng
   after_validation :geocode, if: :the_address_changed?
 
+  # Soft delete is a flag inherited from the the old website.
+  scope :soft_deleted, -> { where(soft_delete: true) }
+  scope :not_soft_deleted, -> { where(soft_delete: [false, nil]) }
   scope :verified, -> { where(is_verified: true) }
   scope :unverified, -> { where.not(is_verified: true) }
 

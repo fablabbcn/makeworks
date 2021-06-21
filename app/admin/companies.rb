@@ -18,6 +18,8 @@ ActiveAdmin.register Company do
   scope :all
   scope :verified
   scope :unverified
+  scope :soft_deleted
+  scope :not_soft_deleted
 
   batch_action :toggle_verified do |ids|
     batch_action_collection.find(ids).each do |item|

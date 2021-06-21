@@ -137,8 +137,7 @@
     <h2>Random companies</h2>
     <div class="row">
       <% Company
-        .all
-        .where.not(soft_delete: true)
+        .not_soft_deleted
         .sample(4).each do |company| %>
         <%= render company %>
       <% end %>

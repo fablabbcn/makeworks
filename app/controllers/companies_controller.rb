@@ -53,6 +53,7 @@ class CompaniesController < ApplicationController
   # GET /companies.json
   def index
     @q = Company
+      .not_soft_deleted
       .includes(
         :regions,
         :industry_taxonomies,
@@ -63,7 +64,6 @@ class CompaniesController < ApplicationController
       )
       .region_public_or_empty
       .where(is_verified: true)
-      .where.not(soft_delete: true)
       .ransack(params[:q])
 
     @companies = @q.result(distinct: true).page(params[:page])
@@ -73,6 +73,7 @@ class CompaniesController < ApplicationController
   # GET /companies/1.json
   def show
     @nearby = Company
+      .not_soft_deleted
       .geocoded
       .includes(
         :company_organization,
