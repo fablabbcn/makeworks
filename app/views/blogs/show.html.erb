@@ -19,8 +19,8 @@
 <%= title @blog.title %>
 <p> <%= @blog.sub_title %> </p>
 
-<div class="">
-  <%= image_tag(get_1200px(@blog.header_image), class: 'img-fluid') %>
+<div class="mb-5">
+  <%= image_tag(get_1200px(@blog.header_image), class: 'img-fill') %>
 </div>
 
 <div class="row mt-4">
@@ -28,9 +28,11 @@
     <%= @blog.content_action %>
   </div>
   <div class="col-lg-4">
-    <p class="fw-bold">WORDS</p>
-    <%= @blog.user %>
-    <hr>
+    <% if @blog.user.present? %>
+      <p class="fw-bold">WORDS</p>
+      <%= @blog.user %>
+      <hr>
+    <% end %>
 
     <small> <%= @blog.created_at&.strftime("%B %d, %Y") %> </small>
     <hr>
@@ -49,7 +51,7 @@
       .uniq
       .each do |blog|
     %>
-      <%= link_to blog.title, blog_url(blog), title: blog.blog_categories.to_sentence %>
+      <%= link_to blog.title, blog_url(blog), title: blog.blog_categories.to_sentence, class: 'text-decoration-none' %>
       <hr>
     <% end %>
   </div>
