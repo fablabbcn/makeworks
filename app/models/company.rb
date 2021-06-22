@@ -31,6 +31,8 @@ class Company < ApplicationRecord
   #has_one_attached :contact_avatar
   has_many_attached :slider_images
 
+  paginates_per 12
+
   validates :slug, uniqueness: true
   extend FriendlyId
   friendly_id :name, use: [:slugged, :finders]
