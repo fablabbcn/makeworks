@@ -51,6 +51,10 @@ body {
   min-height: 500px;
 }
 
+.mw-900 {
+  max-width: 900px;
+}
+
 label {
   color: $black2;
   margin-bottom: 5px;
@@ -91,31 +95,6 @@ h6 {
 
 .border-top-2 {
   border-top: 2px solid $black;
-}
-
-// Tiles use bootstrap borders, but need to change when they collaps on md- sizes
-.tile-first {
-  border-bottom: $border-width solid $black;
-}
-
-.tile-right {
-  border-right: $border-width solid $black;
-  border-bottom: $border-width solid $black;
-  border-left: $border-width solid $black;
-}
-
-// Bigger than 768px
-@media (min-width: 768px){
-  .tile-first {
-    border: 0;
-    border-right: $border-width solid $black;
-  }
-  .tile-right {
-    border-top: $border-width solid $black;
-    border-right: $border-width solid $black;
-    border-bottom: $border-width solid $black;
-    border-left: unset;
-  }
 }
 
 .img-fill {
@@ -404,7 +383,6 @@ footer {
 .bg-grey3 {
   background-color: $grey3;
 }
-
 
 .bg-blue {
   background: $blue;
