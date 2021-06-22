@@ -6,8 +6,12 @@ class MachinesTaxonomiesController < ApplicationController
   # GET /machines_taxonomies
   # GET /machines_taxonomies.json
   def index
-    @machines_taxonomies = MachinesTaxonomy
+    @q = MachinesTaxonomy
       .includes(:parent)
+      .ransack(params[:q])
+
+    @machines_taxonomies = @q
+      .result(distinct: true)
       .page(params[:page])
   end
 

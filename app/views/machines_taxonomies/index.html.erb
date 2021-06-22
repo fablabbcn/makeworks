@@ -1,5 +1,10 @@
 <%= title 'Machines' %>
 
+<%= search_form_for @q, class: 'my-4' do |f| %>
+  <%= f.label :name_cont, 'Filter by machine name' %>
+  <%= f.search_field :name_cont, class: 'form-control w-75', placeholder: 'Search for machine name' %>
+  <%= f.submit class: 'btn btn-primary my-3' %>
+<% end %>
 <% if @machines_taxonomies %>
   <%= render partial: 'taxonomy_list', locals: {the_item: @machines_taxonomies} %>
 <% end %>
