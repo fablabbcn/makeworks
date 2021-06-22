@@ -24,6 +24,7 @@ en:
     create_new: Create new
     edit_region: Edit Region
     employees: Employees
+    explore_all: Explore all companies
     finished_products: Finished products
     industries: Industries
     info_roles: Each employee can have a different role. You can drag them around to reorder the list.
@@ -38,7 +39,6 @@ en:
     regions: Regions
     saved_companies: Saved companies
     sign_up: Sign up
-    search_by: Search by
     start_your_region: Start your region
     statistics: Statistics
     submit_a_maker: Submit a maker
