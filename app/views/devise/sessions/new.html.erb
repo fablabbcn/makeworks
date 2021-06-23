@@ -5,14 +5,36 @@
   </div>
 
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="form-inputs">
+    <div
+      data-controller="show-password"
+      class="form-inputs"
+      >
+
       <%= f.input :email,
         required: false,
         autofocus: true,
         input_html: { autocomplete: "email" } %>
-      <%= f.input :password,
-        required: false,
-        input_html: { autocomplete: "current-password" } %>
+
+      <label class="password optional" for="user_password">Password</label>
+      <div class="input-group mb-3">
+        <input
+          class="form-control password optional"
+          autocomplete="current-password"
+          data-show-password-target="password"
+          type="password"
+          name="user[password]"
+          id="user_password">
+        <span
+          title="Show password"
+          data-action="click->show-password#toggle"
+          class="input-group-text" id="basic-addon1">
+          <i
+            class="bi bi-eye"
+            data-show-password-target="theicon"
+            ></i>
+        </span>
+      </div>
+
       <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
     </div>
 

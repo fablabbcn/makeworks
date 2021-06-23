@@ -55,6 +55,10 @@ body {
   max-width: 900px;
 }
 
+.mw-radius {
+  border-radius: $card-border-radius;
+}
+
 label {
   color: $black2;
   margin-bottom: 5px;
@@ -239,10 +243,6 @@ h6 {
 }
 @media (min-width: 768px) {
   .card-columns { column-count: 3; }
-}
-
-.form-control {
-  border-radius: $card-border-radius;
 }
 
 .select2-container .select2-selection--single{
