@@ -33,8 +33,7 @@
       <% end %>
     </div>
 
-    <div class="my-4">
-      Showing <strong><%= @blogs.count %></strong> / <%= @q.result.count %> blogs
+    <div class="d-flex justify-content-center">
       <%= paginate @blogs %>
     </div>
   </article>
