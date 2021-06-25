@@ -279,50 +279,21 @@ td {
 
 .pagination a, .pagination span.current, .pagination span.gap {
   border: $border-width solid $grey2;
-  border-left-width: 0;
+  border-radius: $card-border-radius;
   float: left;
   line-height: 38px;
+  margin: 2px;
   padding: 0 14px;
   text-decoration: none;
+  &:hover {
+    background-color: $grey3;
+  }
 }
 
 .pagination {
-  border-left: $border-width solid $grey2;
-  margin: 5px 0;
-
-  .first {
-    border: 0;
-    float: none;
-    padding: 0;
-  }
-
-  .prev {
-    border: 0;
-    float: none;
-    padding: 0;
-  }
-
-  .page {
-    border: 0;
-    float: none;
-    padding: 0;
-  }
-
   .current {
     background: $black;
     color: $white;
-  }
-
-  .next {
-    border: 0;
-    float: none;
-    padding: 0;
-  }
-
-  .last {
-    border: 0;
-    float: none;
-    padding: 0;
   }
 }
 
