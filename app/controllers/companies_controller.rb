@@ -90,6 +90,7 @@ class CompaniesController < ApplicationController
       .near(@company.to_coordinates, 50)
       .uniq
 
+    render layout: 'blank'
   end
 
   # GET /companies/new

@@ -1,328 +1,334 @@
-<% if current_user&.is_admin? ||
-    current_user&.is_employee_in_company(@company.id) ||
-    current_user&.is_champion_in_regions(@company.regions)
-  %>
-  <%= link_to 'Edit', edit_company_path(@company), class: 'btn btn-primary' %>
-<% end %>
+<div class="container-xxl my-5">
 
-<section class="row my-4">
-  <article class="col-lg-4">
-    <div class="card">
-      <div class="card-body p-4">
-        <div class="text-center mb-4">
-          <%= title @company.name %>
-
-          <p>
-          <i class="bi bi-geo-alt-fill"></i>
-          <%= @company.location %>
-          </p>
-
-          <p><%= @company.intro %></p>
-        </div>
-
-        <div class="row">
-
-          <div class="col-md-6">
-            <h6>Type</h6>
-            <p> <%= @company.manufacturer_taxonomies.to_sentence %> </p>
-          </div>
-
-          <div class="col-md-6">
-            <h6>Industry</h6>
-            <p><%= @company.industry_taxonomies.to_sentence %></p>
-          </div>
-
-          <div class="col-md-6">
-            <h6><%= t('shared.employees') %></h6>
-            <p><%= @company.number_of_staff %></p>
-          </div>
-
-          <div class="col-md-6">
-            <h6 title="Region">Organization</h6>
-
-            <% @company.regions.each do |region| %>
-              <%= link_to region, region_url(region), class: 'd-block mb-3' %>
-            <% end %>
-          </div>
-        </div>
-
-        <div>
-          <% if @company.contact_email.present? %>
-            <%= mail_to @company.contact_email, class: 'btn btn-blue d-block mt-4' do %>
-              <i class="bi bi-envelope"></i>
-              Contact
-            <% end %>
-          <% end %>
-
-          <%= link_to toggle_favorite_company_url(@company),
-            method: :patch,
-            class: 'btn btn-outline-blue d-block mt-4' do %>
-
-            <% if current_user && current_user.favorite_companies.where(company: @company.id).first&.is_favorite %>
-              <i class="bi bi-star-fill"></i>
-              Saved
-            <% else %>
-              <i class="bi bi-star"></i>
-              Save to favorites
-            <% end %>
-          <% end %>
-
-          <br>
-          <% if false  # current_user.favorite_companies.pluck(:company_id).include?(@company.id) %>
-            <small>
-              Personal note:
-              <input
-                type="text"
-                class="form-control"
-                name=""
-                id=""
-                value="<%= current_user.favorite_companies.where(company: @company.id).first&.note %>"
-                />
-            </small>
-          <% end %>
-        </div>
-
-      </div>
-    </div>
-
-    <h6>ADDRESS</h6>
-    <p> <%= @company.address %> </p>
-
-    <h6>WEBSITE</h6>
-    <p>
-    <%= link_to(@company.website, @company.website, target: "_blank", class: 'text-decoration-none') %>
-    </p>
-
-    <h6>PHONE</h6>
-    <p> <%= @company.contact_phone %> </p>
-
-    <h6>SOCIAL MEDIA</h6>
-    <div class="text-muted fs-3">
-      <%= render 'social_media_icons' %>
-    </div>
-
-    <% if current_user&.is_admin? || current_user&.is_champion_in_regions(@company.regions) %>
-      <div class="card-admin bg-white mt-4">
-        <p class="text-center">Admin info:</p>
-        <%= link_to 'Edit', edit_company_path(@company), class: 'btn btn-primary mb-4'  %>
-        <ul>
-          <%# @company.title %>
-          <li>Is verified: <%= @company.is_verified? %></li>
-          <li>Trimmed name: <%= @company.slug %></li>
-          <li>Soft delete: <%= @company.soft_delete %></li>
-          <li>Been visited: <%= @company.been_visited %> </li>
-          <li>Year founded: <%= @company.year_founded %></li>
-          <li>Film ready: <%= @company.film_ready %></li>
-        </ul>
-
-        <p>Employees:</p>
-        <ul class="list-unstyled border-top">
-          <% @company.employees.each do |e| %>
-            <li class="border-bottom py-2">
-              <%= e.user %>
-              <small class="badge bg-secondary">
-                <%= e.role %>
-              </small>
-              <br>
-              <%= e.title %>
-            </li>
-          <% end %>
-        </ul>
-
-        <p>Contact name:
-        <%= @company.contact_name %> </p>
-
-        <p>Contact jobtitle:
-        <%= @company.contact_jobtitle %> </p>
-
-        <p>Email
-        <%= @company.contact_email %> </p>
-
-
-        <%= image_tag(get_1200px(@company.portrait), alt: 'Portrait', class: 'img-fill') if @company&.portrait.present? %>
-        <!--
-          TODO: contact_avatar (new) using Active Storage
-          <%# image_tag(@company.contact_avatar, alt: 'Portrait', class: 'img-fill') if @company&.contact_avatar.attached? %>
-        -->
-
-      </div>
-    <% end %>
-  </article>
-
-  <article class="col-lg-8">
-    <!-- new slider -->
-    <% if @company.slider_images.attached? %>
-      <%= render 'new_slider' %>
-    <% end %>
-
-    <!-- old slider -->
-    <% if @company.old_photos.present? %>
-      <%= render 'old_slider' %>
-    <% end %>
-
-    <!-- this image is sometimes a part of the the slider, as the first image -->
-    <%# image_tag(get_1200px(@company.top_image), class: 'border border-dark') if @company.top_image.present? %>
-
-    <div class="card">
-      <div class="card-body p-5">
-        <h2 class="mt-2">Production details</h2>
-        <p><%= @company.production_specifics %></p>
-
-        <section class="row my-4">
-          <article class="col-sm-6 mb-3 d-flex">
-            <i class="bi bi-clock-history fs-2 me-3"></i>
-            <div>
-              <h5 class="mt-2">Turnaround time</h5>
-              <span><%= @company.turnaround_time %></span>
-            </div>
-          </article>
-
-          <article class="col-sm-6 mb-3 d-flex">
-            <i class="bi bi-file-earmark-check fs-2 me-3"></i>
-            <div>
-              <h5 class="mt-2">File types</h5>
-              <span><%= @company.file_types %></span>
-            </div>
-          </article>
-
-          <article class="col-sm-6 mb-3 d-flex">
-            <i class="bi bi-card-list fs-2 me-3"></i>
-            <div>
-              <h5 class="mt-2">Minimum order</h5>
-              <span><%= @company.minimum_order %></span>
-            </div>
-          </article>
-
-          <article class="col-sm-6 mb-3 d-flex">
-            <i class="bi bi-door-open fs-2 me-3"></i>
-            <div>
-              <h5 class="mt-2">Production access</h5>
-              <span><%= @company.production_accesses.to_sentence %></span>
-            </div>
-          </article>
-
-          <article class="col-sm-6 mb-3 d-flex">
-            <i class="bi bi-bank fs-2 me-3"></i>
-            <div>
-              <h5 class="mt-2">Works With</h5>
-              <ul class="list-unstyled">
-                <%= render 'list_item_checkbox', the_bool: @company.works_with_large_business, the_text: 'Large business' %>
-                <%= render 'list_item_checkbox', the_bool: @company.works_with_small_companies, the_text: 'Small companies' %>
-                <%= render 'list_item_checkbox', the_bool: @company.works_with_professionals, the_text: 'Professionals' %>
-                <%= render 'list_item_checkbox', the_bool: @company.works_with_general_public , the_text: 'General public' %>
-                <%= render 'list_item_checkbox', the_bool: @company.works_with_students, the_text: 'Students' %>
-              </ul>
-            </div>
-          </article>
-
-          <article class="col-sm-6 mb-2 d-flex">
-            <i class="bi bi-server fs-2 me-3"></i>
-            <div>
-              <h5 class="mt-2">Capacity</h5>
-              <ul class="list-unstyled">
-                <%= render 'list_item_checkbox', the_bool: @company.bespoke_one_offs, the_text: 'Bespoke 1-offs' %>
-                <%= render 'list_item_checkbox', the_bool: @company.sample_production, the_text: 'Sample production' %>
-                <%= render 'list_item_checkbox', the_bool: @company.batch_production, the_text: 'Prototypes' %>
-                <%= render 'list_item_checkbox', the_bool: @company.short_run,  the_text: 'Short run' %>
-                <%= render 'list_item_checkbox', the_bool: @company.medium_run, the_text: 'Medium run' %>
-                <%= render 'list_item_checkbox', the_bool: @company.large_run, the_text: 'Large run' %>
-              </ul>
-            </div>
-          </article>
-        </section>
-
-        <hr>
-
-        <section class="row my-5 mb-5">
-          <article class="col-md-6">
-            <h4>Materials</h4>
-            <ul class="list-unstyled">
-              <% @company.materials.each do |x| %>
-                <li>
-                  <i class="bi bi-check"></i>
-                  <%= link_to x, material_url(x.id) %>
-                </li>
-              <% end %>
-            </ul>
-          </article>
-
-          <article class="col-md-6 mb-5">
-            <h4>Processes</h4>
-            <ul class="list-unstyled">
-              <% @company.process_taxonomies.each do |x| %>
-                <li>
-                  <i class="bi bi-check"></i>
-                  <%= link_to x, process_taxonomy_url(x) %>
-                </li>
-              <% end %>
-            </ul>
-          </article>
-
-          <article class="col-md-6 mb-5">
-            <h4>Machines</h4>
-            <ul class="list-unstyled">
-              <% @company.machines_taxonomies.each do |x| %>
-                <li>
-                  <i class="bi bi-check"></i>
-                  <%= link_to x, machines_taxonomy_url(x) %>
-                </li>
-              <% end %>
-            </ul>
-          </article>
-
-          <article class="col-md-6 mb-5">
-            <h4>Products</h4>
-            <ul class="list-unstyled">
-              <% @company.finished_products_taxonomies.each do |x| %>
-                <li>
-                  <i class="bi bi-check"></i>
-                  <%= link_to x, finished_products_taxonomy_url(x) %>
-                </li>
-              <% end %>
-            </ul>
-          </article>
-        </section>
-      </div>
-    </div><!-- card -->
-
-    <div class="card">
-      <div class="p-5">
-        <h3>Company History</h3>
-        <p class="mt-4">
-        <%= @company.background %>
-        </p>
-      </div>
-
-      <% if @company.lat.present? && @company.lng.present? %>
-        <%= render partial: 'map', locals: { locations: [@company]} %>
-      <% end %>
-    </div><!-- card -->
-
-  </article>
-</section><!-- main row -->
-
-<div class="my-5">
-  <% if @nearby.present? %>
-    <h2>Similar companies nearby</h2>
+  <% if current_user&.is_admin? ||
+      current_user&.is_employee_in_company(@company.id) ||
+      current_user&.is_champion_in_regions(@company.regions)
+    %>
+    <%= link_to 'Edit', edit_company_path(@company), class: 'btn btn-primary' %>
   <% end %>
 
-  <section class="row">
-  <% if @company.persisted? %>
-    <% @nearby.each do |company| %>
+  <section class="row my-4">
+    <article class="col-lg-4">
+      <div class="card">
+        <div class="card-body p-4">
+          <div class="text-center mb-4">
+            <%= title @company.name %>
 
-      <%= render company %>
+            <p>
+            <i class="bi bi-geo-alt-fill"></i>
+            <%= @company.location %>
+            </p>
 
-      <%# Shows distance in KM to the company %>
-      <%# Geocoder::Calculations.distance_between(@company.to_coordinates, company.to_coordinates) %>
+            <p><%= @company.intro %></p>
+          </div>
+
+          <div class="row">
+
+            <div class="col-md-6">
+              <h6>Type</h6>
+              <p> <%= @company.manufacturer_taxonomies.to_sentence %> </p>
+            </div>
+
+            <div class="col-md-6">
+              <h6>Industry</h6>
+              <p><%= @company.industry_taxonomies.to_sentence %></p>
+            </div>
+
+            <div class="col-md-6">
+              <h6><%= t('shared.employees') %></h6>
+              <p><%= @company.number_of_staff %></p>
+            </div>
+
+            <div class="col-md-6">
+              <h6 title="Region">Organization</h6>
+
+              <% @company.regions.each do |region| %>
+                <%= link_to region, region_url(region), class: 'd-block mb-3' %>
+              <% end %>
+            </div>
+          </div>
+
+          <div>
+            <% if @company.contact_email.present? %>
+              <%= mail_to @company.contact_email, class: 'btn btn-blue d-block mt-4' do %>
+                <i class="bi bi-envelope"></i>
+                Contact
+              <% end %>
+            <% end %>
+
+            <%= link_to toggle_favorite_company_url(@company),
+              method: :patch,
+              class: 'btn btn-outline-blue d-block mt-4' do %>
+
+              <% if current_user && current_user.favorite_companies.where(company: @company.id).first&.is_favorite %>
+                <i class="bi bi-star-fill"></i>
+                Saved
+              <% else %>
+                <i class="bi bi-star"></i>
+                Save to favorites
+              <% end %>
+            <% end %>
+
+            <br>
+            <% if false  # current_user.favorite_companies.pluck(:company_id).include?(@company.id) %>
+              <small>
+                Personal note:
+                <input
+                  type="text"
+                  class="form-control"
+                  name=""
+                  id=""
+                  value="<%= current_user.favorite_companies.where(company: @company.id).first&.note %>"
+                  />
+              </small>
+            <% end %>
+          </div>
+
+        </div>
+      </div>
+
+      <h6>ADDRESS</h6>
+      <p> <%= @company.address %> </p>
+
+      <h6>WEBSITE</h6>
+      <p>
+      <%= link_to(@company.website, @company.website, target: "_blank", class: 'text-decoration-none') %>
+      </p>
+
+      <h6>PHONE</h6>
+      <p> <%= @company.contact_phone %> </p>
+
+      <h6>SOCIAL MEDIA</h6>
+      <div class="text-muted fs-3">
+        <%= render 'social_media_icons' %>
+      </div>
+
+      <% if current_user&.is_admin? || current_user&.is_champion_in_regions(@company.regions) %>
+        <div class="card-admin bg-white mt-4">
+          <p class="text-center">Admin info:</p>
+          <%= link_to 'Edit', edit_company_path(@company), class: 'btn btn-primary mb-4'  %>
+          <ul>
+            <%# @company.title %>
+            <li>Is verified: <%= @company.is_verified? %></li>
+            <li>Trimmed name: <%= @company.slug %></li>
+            <li>Soft delete: <%= @company.soft_delete %></li>
+            <li>Been visited: <%= @company.been_visited %> </li>
+            <li>Year founded: <%= @company.year_founded %></li>
+            <li>Film ready: <%= @company.film_ready %></li>
+          </ul>
+
+          <p>Employees:</p>
+          <ul class="list-unstyled border-top">
+            <% @company.employees.each do |e| %>
+              <li class="border-bottom py-2">
+                <%= e.user %>
+                <small class="badge bg-secondary">
+                  <%= e.role %>
+                </small>
+                <br>
+                <%= e.title %>
+              </li>
+            <% end %>
+          </ul>
+
+          <p>Contact name:
+          <%= @company.contact_name %> </p>
+
+          <p>Contact jobtitle:
+          <%= @company.contact_jobtitle %> </p>
+
+          <p>Email
+          <%= @company.contact_email %> </p>
+
+
+          <%= image_tag(get_1200px(@company.portrait), alt: 'Portrait', class: 'img-fill') if @company&.portrait.present? %>
+          <!--
+            TODO: contact_avatar (new) using Active Storage
+            <%# image_tag(@company.contact_avatar, alt: 'Portrait', class: 'img-fill') if @company&.contact_avatar.attached? %>
+          -->
+
+        </div>
+      <% end %>
+    </article>
+
+    <article class="col-lg-8">
+      <!-- new slider -->
+      <% if @company.slider_images.attached? %>
+        <%= render 'new_slider' %>
+      <% end %>
+
+      <!-- old slider -->
+      <% if @company.old_photos.present? %>
+        <%= render 'old_slider' %>
+      <% end %>
+
+      <!-- this image is sometimes a part of the the slider, as the first image -->
+      <%# image_tag(get_1200px(@company.top_image), class: 'border border-dark') if @company.top_image.present? %>
+
+      <div class="card">
+        <div class="card-body p-5">
+          <h2 class="mt-2">Production details</h2>
+          <p><%= @company.production_specifics %></p>
+
+          <section class="row my-4">
+            <article class="col-sm-6 mb-3 d-flex">
+              <i class="bi bi-clock-history fs-2 me-3"></i>
+              <div>
+                <h5 class="mt-2">Turnaround time</h5>
+                <span><%= @company.turnaround_time %></span>
+              </div>
+            </article>
+
+            <article class="col-sm-6 mb-3 d-flex">
+              <i class="bi bi-file-earmark-check fs-2 me-3"></i>
+              <div>
+                <h5 class="mt-2">File types</h5>
+                <span><%= @company.file_types %></span>
+              </div>
+            </article>
+
+            <article class="col-sm-6 mb-3 d-flex">
+              <i class="bi bi-card-list fs-2 me-3"></i>
+              <div>
+                <h5 class="mt-2">Minimum order</h5>
+                <span><%= @company.minimum_order %></span>
+              </div>
+            </article>
+
+            <article class="col-sm-6 mb-3 d-flex">
+              <i class="bi bi-door-open fs-2 me-3"></i>
+              <div>
+                <h5 class="mt-2">Production access</h5>
+                <span><%= @company.production_accesses.to_sentence %></span>
+              </div>
+            </article>
+
+            <article class="col-sm-6 mb-3 d-flex">
+              <i class="bi bi-bank fs-2 me-3"></i>
+              <div>
+                <h5 class="mt-2">Works With</h5>
+                <ul class="list-unstyled">
+                  <%= render 'list_item_checkbox', the_bool: @company.works_with_large_business, the_text: 'Large business' %>
+                  <%= render 'list_item_checkbox', the_bool: @company.works_with_small_companies, the_text: 'Small companies' %>
+                  <%= render 'list_item_checkbox', the_bool: @company.works_with_professionals, the_text: 'Professionals' %>
+                  <%= render 'list_item_checkbox', the_bool: @company.works_with_general_public , the_text: 'General public' %>
+                  <%= render 'list_item_checkbox', the_bool: @company.works_with_students, the_text: 'Students' %>
+                </ul>
+              </div>
+            </article>
+
+            <article class="col-sm-6 mb-2 d-flex">
+              <i class="bi bi-server fs-2 me-3"></i>
+              <div>
+                <h5 class="mt-2">Capacity</h5>
+                <ul class="list-unstyled">
+                  <%= render 'list_item_checkbox', the_bool: @company.bespoke_one_offs, the_text: 'Bespoke 1-offs' %>
+                  <%= render 'list_item_checkbox', the_bool: @company.sample_production, the_text: 'Sample production' %>
+                  <%= render 'list_item_checkbox', the_bool: @company.batch_production, the_text: 'Prototypes' %>
+                  <%= render 'list_item_checkbox', the_bool: @company.short_run,  the_text: 'Short run' %>
+                  <%= render 'list_item_checkbox', the_bool: @company.medium_run, the_text: 'Medium run' %>
+                  <%= render 'list_item_checkbox', the_bool: @company.large_run, the_text: 'Large run' %>
+                </ul>
+              </div>
+            </article>
+          </section>
+
+          <hr>
+
+          <section class="row my-5 mb-5">
+            <article class="col-md-6">
+              <h4>Materials</h4>
+              <ul class="list-unstyled">
+                <% @company.materials.each do |x| %>
+                  <li>
+                    <i class="bi bi-check"></i>
+                    <%= link_to x, material_url(x.id) %>
+                  </li>
+                <% end %>
+              </ul>
+            </article>
+
+            <article class="col-md-6 mb-5">
+              <h4>Processes</h4>
+              <ul class="list-unstyled">
+                <% @company.process_taxonomies.each do |x| %>
+                  <li>
+                    <i class="bi bi-check"></i>
+                    <%= link_to x, process_taxonomy_url(x) %>
+                  </li>
+                <% end %>
+              </ul>
+            </article>
+
+            <article class="col-md-6 mb-5">
+              <h4>Machines</h4>
+              <ul class="list-unstyled">
+                <% @company.machines_taxonomies.each do |x| %>
+                  <li>
+                    <i class="bi bi-check"></i>
+                    <%= link_to x, machines_taxonomy_url(x) %>
+                  </li>
+                <% end %>
+              </ul>
+            </article>
+
+            <article class="col-md-6 mb-5">
+              <h4>Products</h4>
+              <ul class="list-unstyled">
+                <% @company.finished_products_taxonomies.each do |x| %>
+                  <li>
+                    <i class="bi bi-check"></i>
+                    <%= link_to x, finished_products_taxonomy_url(x) %>
+                  </li>
+                <% end %>
+              </ul>
+            </article>
+          </section>
+        </div>
+      </div><!-- card -->
+
+      <div class="card">
+        <div class="p-5">
+          <h3>Company History</h3>
+          <p class="mt-4">
+          <%= @company.background %>
+          </p>
+        </div>
+
+        <% if @company.lat.present? && @company.lng.present? %>
+          <%= render partial: 'map', locals: { locations: [@company]} %>
+        <% end %>
+      </div><!-- card -->
+
+    </article>
+  </section><!-- main row -->
+
+</div><!-- container -->
+
+<div class="py-5 bg-grey2">
+  <div class="container">
+    <% if @nearby.present? %>
+      <h2>Similar companies nearby</h2>
     <% end %>
 
-    <%# Show nearby companies, no matter which industry %>
-    <%# @company
-      .nearbys
-      .includes(:regions, :manufacturer_taxonomies, :industry_taxonomies)
-      .each do |company| %>
-      <%#= render company %>
-      <%# end %>
-    <% end %>
-  </section>
+    <section class="row">
+      <% if @company.persisted? %>
+        <% @nearby.each do |company| %>
+
+          <%= render company %>
+
+          <%# Shows distance in KM to the company %>
+          <%# Geocoder::Calculations.distance_between(@company.to_coordinates, company.to_coordinates) %>
+        <% end %>
+
+        <%# Show nearby companies, no matter which industry %>
+        <%# @company
+          .nearbys
+          .includes(:regions, :manufacturer_taxonomies, :industry_taxonomies)
+          .each do |company| %>
+          <%#= render company %>
+          <%# end %>
+        <% end %>
+    </section>
+  </div>
 </div>
