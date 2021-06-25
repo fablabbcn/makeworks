@@ -4,6 +4,20 @@ class WelcomeController < ApplicationController
   before_action :get_public_regions, only: [:about, :contact]
 
   def index
+    # Random companies
+    # NOTE: .sample(4) is much slower request than .first(4)
+    @companies = Company
+      .not_soft_deleted
+      .includes(
+        :industries,
+        :industry_taxonomies,
+        :manufacturer_taxonomies,
+        :manufacturers,
+        :regions
+      )
+      .where(is_verified: true)
+      .sample(4)
+
     render layout: 'blank'
   end
 

@@ -136,11 +136,7 @@
   <div class="container">
     <h2>Random companies</h2>
     <div class="row">
-      <% Company
-        .not_soft_deleted
-        .sample(4).each do |company| %>
-        <%= render company %>
-      <% end %>
+      <%= render @companies %>
     </div>
   </div>
 </section>
