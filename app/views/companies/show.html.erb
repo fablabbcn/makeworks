@@ -104,7 +104,7 @@
       </div>
 
       <% if current_user&.is_admin? || current_user&.is_champion_in_regions(@company.regions) %>
-        <div class="card-admin bg-white mt-4">
+        <div class="card-admin bg-white mt-4 p-5">
           <p class="text-center">Admin info:</p>
           <%= link_to 'Edit', edit_company_path(@company), class: 'btn btn-primary mb-4'  %>
           <ul>
@@ -235,8 +235,8 @@
 
           <hr>
 
-          <section class="row my-5 mb-5">
-            <article class="col-md-6">
+          <section class="row mt-5">
+            <article class="col-md-6 mb-3">
               <h4>Materials</h4>
               <ul class="list-unstyled">
                 <% @company.materials.each do |x| %>
@@ -248,7 +248,7 @@
               </ul>
             </article>
 
-            <article class="col-md-6 mb-5">
+            <article class="col-md-6 mb-3">
               <h4>Processes</h4>
               <ul class="list-unstyled">
                 <% @company.process_taxonomies.each do |x| %>
@@ -260,7 +260,7 @@
               </ul>
             </article>
 
-            <article class="col-md-6 mb-5">
+            <article class="col-md-6 mb-3">
               <h4>Machines</h4>
               <ul class="list-unstyled">
                 <% @company.machines_taxonomies.each do |x| %>
@@ -272,7 +272,7 @@
               </ul>
             </article>
 
-            <article class="col-md-6 mb-5">
+            <article class="col-md-6">
               <h4>Products</h4>
               <ul class="list-unstyled">
                 <% @company.finished_products_taxonomies.each do |x| %>

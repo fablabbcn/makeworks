@@ -1,6 +1,5 @@
-<div class="mb-5 text-center bg-dark">
-  <%= image_tag("https://static.make.works/company/CyanClayworks/1200px/2013-09-27_MakeWorks_CYAN-CLAYWORKS_StudioRoRo_3020.jpg", class: 'img-fill', style: 'opacity:0.9;') %>
-  <div class='carousel-caption' style="top: 33vw;">
+<div class="blogheader mb-5 text-center bg-dark">
+  <div class='text-white text-center' style="padding-top: 240px;">
     <%= title('Stories') %>
     <p class="fs-5">Inspiring articles from our community of creators</p>
   </div>
@@ -29,7 +28,7 @@
 
     <article class="col-lg-9">
       <% if current_user&.is_admin? %>
-        <%= link_to 'New Blog', new_blog_path, class: 'btn btn-primary my-3' %>
+        <%= link_to 'New Story', new_blog_path, class: 'btn btn-primary mb-3' %>
       <% end %>
 
       <div class="row mb-3">

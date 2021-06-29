@@ -8,12 +8,12 @@ class BlogsTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit blogs_url
-    assert_selector "h1", text: "Blog"
+    assert_selector "h1", text: "Stories"
   end
 
   test "creating a Blog" do
     visit blogs_url
-    click_on "New Blog"
+    click_on "New Story"
 
     #fill_in "Blog category", with: @blog.blog_category_id
     fill_in "Blurb", with: @blog.blurb
