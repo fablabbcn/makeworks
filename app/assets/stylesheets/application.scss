@@ -23,6 +23,7 @@ $grey: #555;
 $grey2: #ccc;
 $grey3: #ddd;
 $grey4: #F4F5F5;
+$grey5: #EEE;
 $white: #fff;
 $yellow: #FFEF61;
 $yellow2: #FFBE02;
@@ -348,11 +349,17 @@ footer {
 .bg-grey {
   background-color: $grey;
 }
+
 .bg-grey2 {
   background-color: $grey2;
 }
+
 .bg-grey3 {
   background-color: $grey3;
+}
+
+.bg-grey5 {
+  background-color: $grey5;
 }
 
 .bg-blue {
