@@ -18,7 +18,7 @@
     <%= f.input :blurb %>
     <%= f.association :blog_categories, input_html: { 'data-controller': 'select2' } %>
     <div class="my-4">
-      <%= f.rich_text_area :content_action, style: 'height: 200px' %>
+      <%= f.rich_text_area :content_action, style: 'min-height: 200px' %>
     </div>
     <%= f.input :featured_video %>
     <%= f.input :header_image %>
