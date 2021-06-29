@@ -24,6 +24,7 @@ class BlogsController < ApplicationController
       .ransack(params[:q])
 
     @blogs = @q.result(distinct: true).page(params[:page])
+    render layout: 'blank'
   end
 
   # GET /blogs/1

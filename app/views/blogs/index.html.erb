@@ -1,46 +1,48 @@
-<div class="mb-5 text-center">
-  <%= image_tag("https://static.make.works/company/CyanClayworks/1200px/2013-09-27_MakeWorks_CYAN-CLAYWORKS_StudioRoRo_3020.jpg", class: 'img-fill') %>
+<div class="mb-5 text-center bg-dark">
+  <%= image_tag("https://static.make.works/company/CyanClayworks/1200px/2013-09-27_MakeWorks_CYAN-CLAYWORKS_StudioRoRo_3020.jpg", class: 'img-fill', style: 'opacity:0.9;') %>
   <div class='carousel-caption' style="top: 33vw;">
     <%= title('Stories') %>
     <p class="fs-5">Inspiring articles from our community of creators</p>
   </div>
 </div>
 
-<section class="row">
-  <article class="col-lg-3 mb-3">
-    <%= search_form_for @q do |f| %>
-      <div class="input-group mb-3">
-        <%= f.search_field :title_or_blurb_or_content_cont, class: 'form-control mw-radius', placeholder: 'Search for a blog title / content' %>
-      </div>
-
-      <div class="my-2">
-        <%= f.label :blog_categories_id_in, 'Select category' %>
-        <%= f.select :blog_categories_id_in,
-          BlogCategory.pluck(:name, :id),
-          { include_blank: 'All Categories' },
-          { 'data-controller': 'select2', multiple: true }
-        %>
-      </div>
-
-      <%= f.submit class: 'btn btn-primary' %>
-    <% end %>
-  </article>
-
-  <article class="col-lg-9">
-    <% if current_user&.is_admin? %>
-      <%= link_to 'New Blog', new_blog_path, class: 'btn btn-primary my-3' %>
-    <% end %>
-
-    <div class="row mb-3">
-      <% @blogs.each do |blog| %>
-        <div class="mb-4 <%= cycle('col-md-8', 'col-md-4', 'col-md-4','col-md-4','col-md-4', 'col-md-4', 'col-md-8', 'col-md-4','col-md-4','col-md-4') %>">
-          <%= render partial: 'blog', locals: {blog: blog} %>
+<div class="container">
+  <section class="row">
+    <article class="col-lg-3 mb-3">
+      <%= search_form_for @q do |f| %>
+        <div class="input-group mb-3">
+          <%= f.search_field :title_or_blurb_or_content_cont, class: 'form-control mw-radius', placeholder: 'Search for a blog title / content' %>
         </div>
-      <% end %>
-    </div>
 
-    <div class="d-flex justify-content-center" style="overflow: auto; white-space: nowrap;">
-      <%= paginate @blogs, window: 1 %>
-    </div>
-  </article>
-</section>
+        <div class="my-2">
+          <%= f.label :blog_categories_id_in, 'Select category' %>
+          <%= f.select :blog_categories_id_in,
+            BlogCategory.pluck(:name, :id),
+            { include_blank: 'All Categories' },
+            { 'data-controller': 'select2', multiple: true }
+          %>
+        </div>
+
+        <%= f.submit class: 'btn btn-primary' %>
+      <% end %>
+    </article>
+
+    <article class="col-lg-9">
+      <% if current_user&.is_admin? %>
+        <%= link_to 'New Blog', new_blog_path, class: 'btn btn-primary my-3' %>
+      <% end %>
+
+      <div class="row mb-3">
+        <% @blogs.each do |blog| %>
+          <div class="mb-4 <%= cycle('col-md-8', 'col-md-4', 'col-md-4','col-md-4','col-md-4', 'col-md-4', 'col-md-8', 'col-md-4','col-md-4','col-md-4') %>">
+            <%= render partial: 'blog', locals: {blog: blog} %>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="d-flex justify-content-center" style="overflow: auto; white-space: nowrap;">
+        <%= paginate @blogs, window: 1 %>
+      </div>
+    </article>
+  </section>
+</div>
