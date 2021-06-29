@@ -2,10 +2,6 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-actions my-2">
-    <%= f.button :submit %>
-  </div>
-
   <div class="form-inputs">
     <% if current_user.is_admin? %>
       <div class="card-admin my-3">
@@ -53,7 +49,6 @@
         <%= f.input :lng, disabled: true %>
       </div>
     </div>
-    <%= f.button :submit %>
 
     <hr>
     <%= f.association :manufacturer_taxonomies, input_html: { 'data-controller': 'select2' } %>
@@ -146,7 +141,6 @@
         </tbody>
       </table>
 
-      <%= f.button :submit %>
     </div>
 
 
@@ -241,7 +235,6 @@
     <%= f.association :production_accesses, input_html: { 'data-controller': 'select2' } %>
     <%= f.input :file_types %>
 
-    <%= f.button :submit %>
     <hr>
     <h4>Capacity</h4>
     <p>What scale of production do you take on?</p>
@@ -271,7 +264,6 @@
     <%= f.input :contact_phone %>
     <%= f.input :contact_jobtitle %>
 
-    <%= f.button :submit %>
     <hr>
 
     <h3>Social</h3>
