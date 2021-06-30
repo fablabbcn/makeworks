@@ -34,6 +34,8 @@ class BlogsController < ApplicationController
       .where(dont_publish: false)
       .order(created_at: :desc)
       .limit(4)
+
+    render layout: 'blank'
   end
 
   # GET /blogs/new
