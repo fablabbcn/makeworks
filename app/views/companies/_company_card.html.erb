@@ -1,57 +1,52 @@
 <div class="card my-4">
   <%= link_to company_url(company) do %>
-    <%= image_tag(get_1200px(company&.top_image), alt: 'Company logo', class: 'card-img-top') %>
+    <%= image_tag(get_1200px(company&.top_image), alt: 'Company logo', class: 'card-img-top', style: '') %>
   <% end %>
 
-  <div class="p-4">
+  <section class="position-absolute w-100 px-3 align-items-center d-flex justify-content-between" title="<%= company.location %>" style="left:0px; top:20px;">
+    <div class="fs-6">
+      <% if company.location.present? %>
+        <small class="badge rounded-pill p-2 bg-white text-dark shadow-sm" title="<%= company.location %>">
+          <i class="bi bi-geo-alt-fill"></i>
+          <%= company.location&.truncate(30) %>
+        </small>
+      <% end %>
+    </div>
+    <span class="float-end text-white fs-5">
+      <% if current_user %>
+        <%= link_to toggle_favorite_company_url(company),
+          method: :patch,
+          remote: true do %>
+          <i class="bi fs-3 text-white <%= favorite_company?(company.id) ? 'bi-star-fill' : 'bi-star' %>"
+             title="<%= favorite_company?(company.id) ? 'Unfavorite' : 'Favorite' %>"
+             data-controller="toggle-favorite",
+             data-action="click->toggle-favorite#toggle"
+             data-toggle-filled-class="bi-star-fill"
+             data-toggle-unfilled-class="bi-star"
+             title="Favorite company"></i>
 
-    <section class="position-absolute w-100 px-3 align-items-center d-flex justify-content-between" title="<%= company.location %>" style="left:0px; top:20px">
-      <div class="fs-6">
-        <% if company.location.present? %>
-          <small class="badge rounded-pill p-2 bg-white text-dark shadow-sm" title="<%= company.location %>">
-            <i class="bi bi-geo-alt-fill"></i>
-            <%= company.location&.truncate(30) %>
-          </small>
         <% end %>
-      </div>
-      <span class="float-end text-white fs-5">
-        <% if current_user %>
-          <%= link_to toggle_favorite_company_url(company),
-            method: :patch,
-            remote: true do %>
-            <i class="bi fs-3 text-white <%= favorite_company?(company.id) ? 'bi-star-fill' : 'bi-star' %>"
-               title="<%= favorite_company?(company.id) ? 'Unfavorite' : 'Favorite' %>"
-               data-controller="toggle-favorite",
-               data-action="click->toggle-favorite#toggle"
-               data-toggle-filled-class="bi-star-fill"
-               data-toggle-unfilled-class="bi-star"
-               title="Favorite company"></i>
-
-          <% end %>
-        <% else %>
-          <%= link_to new_user_session_url do %>
-            <i class="bi fs-3 text-white bi-star" title="Log in to save your favorites"></i>
-            <% end %>
+      <% else %>
+        <%= link_to new_user_session_url do %>
+          <i class="bi fs-3 text-white bi-star" title="Log in to save your favorites"></i>
         <% end %>
-      </span>
-    </section>
+      <% end %>
+    </span>
+  </section>
 
-    <% company.regions.each do |region| %>
-      <%# link_to region, region_url(region), class: 'text-decoration-none mb-3 d-inline border p-1' %>
-    <% end %>
-
-    <h4><%= link_to truncate(company.name), company_url(company), class: 'text-decoration-none' %></h4>
-
-    <p title="<%= company&.intro %>"><%= company&.intro&.truncate(54) %></p>
-
+  <section class="p-4 d-flex flex-column h-100 justify-content-between" style="min-height:250px;">
+    <div>
+      <h4><%= link_to truncate(company.name), company_url(company), class: 'text-decoration-none' %></h4>
+      <p title="<%= company&.intro %>"><%= company&.intro&.truncate(54) %></p>
+    </div>
     <div class="row">
       <div class="col-12 col-md-6 mb-2">
         <h6 style="font-size:12px;">TYPE</h6>
         <% company.manufacturer_taxonomies.each do |t| %>
-        <span
-          class="badge rounded-pill bg-grey5 text-dark fw-normal"
-          style="white-space: unset"
-          ><%= t %></span>
+          <span
+            class="badge rounded-pill bg-grey5 text-dark fw-normal"
+            style="white-space: unset"
+            ><%= t %></span>
         <% end %>
       </div>
       <div class="col-12 col-md-6">
@@ -64,6 +59,5 @@
         <% end %>
       </div>
     </div>
-
-  </div>
+  </section>
 </div>
