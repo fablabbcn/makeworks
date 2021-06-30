@@ -24,7 +24,10 @@
     </div>
 
     <div class="">
-      <%= f.button :submit, "Sign up", class: 'w-100 my-3' %>
+      <%= button_tag(:submit, class: 'btn btn-blue w-100 my-3') do %>
+        Get Started
+        <i class="bi bi-arrow-right ps-3"></i>
+      <% end %>
     </div>
   <% end %>
 

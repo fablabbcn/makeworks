@@ -12,7 +12,7 @@
       <div class="card">
         <div class="card-body p-4">
           <div class="text-center mb-4">
-            <%= title @company.name %>
+            <%= title(@company.name, class: 'fs-1') %>
 
             <p>
             <i class="bi bi-geo-alt-fill"></i>
@@ -25,22 +25,22 @@
           <div class="row">
 
             <div class="col-md-6">
-              <h6>Type</h6>
+              <h6 class="text-uppercase" style="font-weight:600">Type</h6>
               <p> <%= @company.manufacturer_taxonomies.to_sentence %> </p>
             </div>
 
             <div class="col-md-6">
-              <h6>Industry</h6>
+              <h6 class="text-uppercase" style="font-weight:600">Industry</h6>
               <p><%= @company.industry_taxonomies.to_sentence %></p>
             </div>
 
             <div class="col-md-6">
-              <h6><%= t('shared.employees') %></h6>
+              <h6 class="text-uppercase" style="font-weight:600"><%= t('shared.employees') %></h6>
               <p><%= @company.number_of_staff %></p>
             </div>
 
             <div class="col-md-6">
-              <h6 title="Region">Organization</h6>
+              <h6 class="text-uppercase" style="font-weight:600" title="Region">Organization</h6>
 
               <% @company.regions.each do |region| %>
                 <%= link_to region, region_url(region), class: 'd-block mb-3' %>
@@ -87,18 +87,18 @@
         </div>
       </div>
 
-      <h6>ADDRESS</h6>
+      <h6 style="font-weight:600">ADDRESS</h6>
       <p> <%= @company.address %> </p>
 
-      <h6>WEBSITE</h6>
+      <h6 style="font-weight:600">WEBSITE</h6>
       <p>
       <%= link_to(@company.website, @company.website, target: "_blank", class: 'text-decoration-none') %>
       </p>
 
-      <h6>PHONE</h6>
+      <h6 style="font-weight:600">PHONE</h6>
       <p> <%= @company.contact_phone %> </p>
 
-      <h6>SOCIAL MEDIA</h6>
+      <h6 style="font-weight:600">SOCIAL MEDIA</h6>
       <div class="text-muted fs-3">
         <%= render 'social_media_icons' %>
       </div>
