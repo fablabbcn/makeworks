@@ -37,10 +37,10 @@
     </span>
   </section>
 
-  <section class="p-4 d-flex flex-column h-100 justify-content-between" style="min-height:250px;">
+  <section class="p-4 d-flex flex-column justify-content-between" style="min-height:270px;">
     <div>
       <h4><%= link_to truncate(company.name), company_url(company), class: 'text-decoration-none' %></h4>
-      <p title="<%= company&.intro %>"><%= company&.intro&.truncate(84) %></p>
+      <p title="<%= company&.intro %>"><%= company&.intro&.truncate(80) %></p>
     </div>
     <div class="row">
       <div class="col-12 col-md-6 mb-2">
