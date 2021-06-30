@@ -5,8 +5,8 @@
   </small>
 </div>
 
-<h3><%= link_to blog.title, blog %></h3>
+<h4 title="<%= blog.title %>"><%= link_to(blog.title.truncate(58), blog) %></h4>
 
 <small> <%= blog.created_at&.strftime("%B %d, %Y") %> </small>
 
-<p><%= blog.blurb %></p>
+<p class="mt-2"><%= blog.blurb.truncate(56) %></p>
