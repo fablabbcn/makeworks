@@ -34,7 +34,7 @@ namespace :makeworks do
       # find all orgs/region that user belongs to
       all_orgs = []
       row["organisations"].each do |o|
-        all_orgs << Region.find_by(m_id: o["$oid"])
+        all_orgs << Region.find_by(m_id: o["$oid"]) if Region.find_by(m_id: o["$oid"]).present?
       end
 
       the_pass = rand(36**10).to_s(36)
