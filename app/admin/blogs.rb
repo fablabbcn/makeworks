@@ -42,6 +42,7 @@ ActiveAdmin.register Blog do
     id_column
     column :title
     column :sub_title
+    column :blog_categories
     column :slug
     column :blurb
     column :dont_publish do |thing|
