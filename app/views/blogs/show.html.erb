@@ -15,7 +15,7 @@
   <% end %>
 
   <h4>
-    <%= link_to "Blog", '/blog' %> /
+    <%= link_to "Stories", '/blog' %> /
     <% @blog.blog_tags.each do |bt| %>
       <%= link_to bt.blog_category, blogs_url("q[blog_categories_id_in]": bt.blog_category) %>
       /
