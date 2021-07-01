@@ -3,6 +3,10 @@ class WelcomeController < ApplicationController
 
   before_action :get_public_regions, only: [:about, :contact]
 
+  def about
+    render layout: 'blank'
+  end
+
   def index
     # Random companies
     # NOTE: .sample(4) is much slower request than .first(4)

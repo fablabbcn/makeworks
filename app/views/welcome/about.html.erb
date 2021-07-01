@@ -1,99 +1,105 @@
-<div class="">
-  <%= title 'About Make Works' %>
-  <p>
-  Make Works are making manufacturing accessible.
-  Think of it like a public library.
-  An open resource made by dedicated factory finders where you can discover skilled manufacturers,
-  tools and materials to make work with in your area.
-  </p>
+<div class="aboutheader text-center">
+  <div class='text-white text-center' style="padding-top: 240px;">
+    <%= title 'About Make Works' %>
 
-  <h3>
+    <p class="mx-auto" style="max-width: 700px">
+    Make Works are making manufacturing accessible.
+    Think of it like a public library.
+    An open resource made by dedicated factory finders where you can discover skilled manufacturers,
+    tools and materials to make work with in your area.
+    </p>
+
+  </div>
+</div>
+
+
+<div class="container-xxl mt-5">
+  <h3 class="my-5">
     Make Works is a global library for local manufacturing, connecting people who want to make with people who do. We aim for free and accessible fabrication for artists, designers and makers.
   </h3>
-</div>
 
-<div class="my-5">
+
   <p>Make Works consists of multiple <i>regions</i> each lead by a community champions in collaboration with local partners. We believe in distributed teams and collaborative governance. </p>
   <%= render partial: 'region_map', locals: { locations: Region.with_lat_lng } if Region.with_lat_lng.present? %>
-</div>
 
-<div class="row">
-  <div class="col-md-6">
-    <p>
-    Make Works partners with individuals and organisations across the UK and beyond who want to run their own open-access directory of manufacturing for their local area.
-    Our partners aren't just people using our platform - they are fellow manufacturing geeks who are passionate about local manufacturing.
-    More recently, in 2019, Make Works has been transferred to the Institute for Advanced Architecture of Catalonia (IAAC), Fab City Research Lab Barcelona, and sits within Fab City’s Distributed Design platform, funded by Creative Europe.
-    </p>
-  </div>
-  <div class="col-md-6">
-    <h4>You want to know more?</h4>
-    <p class="my-4">Check out our regions to find out about new listings, latest news, local partners and events.</p>
-    <div class="dropdown">
-      <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownRegions2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Regions list
-      </a>
+  <div class="row my-5">
+    <div class="col-md-6">
+      <p>
+      Make Works partners with individuals and organisations across the UK and beyond who want to run their own open-access directory of manufacturing for their local area.
+      Our partners aren't just people using our platform - they are fellow manufacturing geeks who are passionate about local manufacturing.
+      More recently, in 2019, Make Works has been transferred to the Institute for Advanced Architecture of Catalonia (IAAC), Fab City Research Lab Barcelona, and sits within Fab City’s Distributed Design platform, funded by Creative Europe.
+      </p>
+    </div>
+    <div class="col-md-6">
+      <h4>You want to know more?</h4>
+      <p class="my-4">Check out our regions to find out about new listings, latest news, local partners and events.</p>
+      <div class="dropdown">
+        <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownRegions2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Regions list
+        </a>
 
-      <div class="dropdown-menu" aria-labelledby="dropdownRegions2">
-        <% @public_regions.each do |region| %>
-          <%= link_to region.name, region, class: 'dropdown-item' %>
-        <% end %>
+        <div class="dropdown-menu" aria-labelledby="dropdownRegions2">
+          <% @public_regions.each do |region| %>
+            <%= link_to region.name, region, class: 'dropdown-item' %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="row mt-5">
-  <div class="col-md-6">
-    <h2>What?</h2>
-    <p>Make Works is a global library for local manufacturing, where you can search by material, process or by factory name to find someone to help you bring your ideas to life. We host and verify manufacturers, fabricators and factories of all shapes and sizes through recommendations from people like you, and through our teams on the ground.</p>
+  <div class="row mt-5">
+    <div class="col-md-6">
+      <h2>What?</h2>
+      <p>Make Works is a global library for local manufacturing, where you can search by material, process or by factory name to find someone to help you bring your ideas to life. We host and verify manufacturers, fabricators and factories of all shapes and sizes through recommendations from people like you, and through our teams on the ground.</p>
+    </div>
+
+    <div class="col-md-6">
+      <h2>How?</h2>
+      <p>You can search or browse for manufacturing processes, materials, machinery or equipment you need. This might be for a design brief, new artwork, a hardware product, outfitting a shop, props or set for a show, or just something for your home - anything physical you need to make or repair. Once you have found a factory that suits you, get directly in touch to start making.</p>
+    </div>
+
+    <div class="col-md-6">
+      <h2>Why?</h2>
+      <p>Local manufacturing is better for the environment, sustains local economies and supports communities. Make Works is open and accessible, connecting people directly to making and repairing things, democratising access to production and investing in local economies, skills and community. We sit within the Fab City Global Initiative which is enabling a shift away from the industrial paradigm of Product-in Trash-out, by enabling the return of manufacture to cities supported by a Data-In Data-out urban model.</p>
+      <p>We want to make making easier, accessible and local.</p>
+    </div>
+
+    <div class="col-md-6">
+      <h2>For who?</h2>
+      <p>Make Works is for everyone, whether you want to get a one-off bespoke item made, a product designer exploring new materials, or a small business looking to outsource your manufacturing. We’ll be able to help you learn about and navigate your local manufacturers.</p>
+    </div>
   </div>
 
-  <div class="col-md-6">
-    <h2>How?</h2>
-    <p>You can search or browse for manufacturing processes, materials, machinery or equipment you need. This might be for a design brief, new artwork, a hardware product, outfitting a shop, props or set for a show, or just something for your home - anything physical you need to make or repair. Once you have found a factory that suits you, get directly in touch to start making.</p>
-  </div>
 
-  <div class="col-md-6">
-    <h2>Why?</h2>
-    <p>Local manufacturing is better for the environment, sustains local economies and supports communities. Make Works is open and accessible, connecting people directly to making and repairing things, democratising access to production and investing in local economies, skills and community. We sit within the Fab City Global Initiative which is enabling a shift away from the industrial paradigm of Product-in Trash-out, by enabling the return of manufacture to cities supported by a Data-In Data-out urban model.</p>
-    <p>We want to make making easier, accessible and local.</p>
-  </div>
+  <div class="row my-5">
+    <div class="col-md-6">
+      <h2>Make Works Story</h2>
+      <h3>How everything started</h3>
 
-  <div class="col-md-6">
-    <h2>For who?</h2>
-    <p>Make Works is for everyone, whether you want to get a one-off bespoke item made, a product designer exploring new materials, or a small business looking to outsource your manufacturing. We’ll be able to help you learn about and navigate your local manufacturers.</p>
-  </div>
-</div>
+    </div>
 
+    <div class="col-md-6">
+      <h3>2020</h3>
+      <p>
+      Make Works was founded by Fi Scott whilst studying Product Design at Glasgow School of Art. The idea developed working in a wood, cork and furniture workshop in Brooklyn, NY with Daniel Michalik. Here, she realised the value, power and importance of making.
+      </p>
 
-<div class="row mt-5">
-  <div class="col-md-6">
-    <h2>Make Works Story</h2>
-    <h3>How everything started</h3>
+      <h3>2018</h3>
+      <p>
+      Returning to Scotland, Fi was frustrated with not being able to find the practical means of getting things made. She scraped the internet, finding outdated manufacturing websites and a web of confusing engineering and industry jargon.
+      </p>
 
-  </div>
+      <h3>2017</h3>
+      <p>
+      Make Works was researched and tested as a design proposal in Fi's final year at art school, which meant that Fi tumbled out of her degree show with a plan to get going. When she graduated, she worked from a borrowed desk in MAKLab, Glasgow for six months - figuring out how to get the idea off the ground.
+      </p>
 
-  <div class="col-md-6">
-    <h3>2020</h3>
-    <p>
-    Make Works was founded by Fi Scott whilst studying Product Design at Glasgow School of Art. The idea developed working in a wood, cork and furniture workshop in Brooklyn, NY with Daniel Michalik. Here, she realised the value, power and importance of making.
-    </p>
+      <h3>2016</h3>
+      <p>
+      After six months of filling out public funding applications (and being knocked back from each and every one) - Fi decided to get on the road and prove that industry in Scotland really did still exist. She called up Ben Dawson, a furniture maker she had worked for in high school, and asked if she could borrow his VW camper van. She then asked designer Vana Coleman and photographer Ross Fraser Mclean to join her on the road.
+      </p>
 
-    <h3>2018</h3>
-    <p>
-    Returning to Scotland, Fi was frustrated with not being able to find the practical means of getting things made. She scraped the internet, finding outdated manufacturing websites and a web of confusing engineering and industry jargon.
-    </p>
-
-    <h3>2017</h3>
-    <p>
-    Make Works was researched and tested as a design proposal in Fi's final year at art school, which meant that Fi tumbled out of her degree show with a plan to get going. When she graduated, she worked from a borrowed desk in MAKLab, Glasgow for six months - figuring out how to get the idea off the ground.
-    </p>
-
-    <h3>2016</h3>
-    <p>
-    After six months of filling out public funding applications (and being knocked back from each and every one) - Fi decided to get on the road and prove that industry in Scotland really did still exist. She called up Ben Dawson, a furniture maker she had worked for in high school, and asked if she could borrow his VW camper van. She then asked designer Vana Coleman and photographer Ross Fraser Mclean to join her on the road.
-    </p>
+    </div>
 
   </div>
-
 </div>
