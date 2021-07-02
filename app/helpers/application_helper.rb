@@ -56,9 +56,17 @@ module ApplicationHelper
     current_user && current_user.favorite_companies.where(company: company_id).first&.is_favorite
   end
 
+  # This method tries to get the 1200px version of an image.
+  # The old website had images in multiple sizes and we think it was using JavaScript
+  # on the front end to change the links, by injecting /1200px/ into the image URLs
   def get_1200px(the_url)
     # Use a default image if the_url is empty.
     return 'https://via.placeholder.com/300x200' if the_url.blank?
+
+    # If the image is from a third party website, don't inject the 1200px into the URL
+    # All our old images are hosted on S3 at https://static.make.works
+    return the_url unless the_url.include? 'make.works/'
+
     # Don't try to change URLs without multiple slashes /
     return the_url if the_url.count('/') < 3
 
