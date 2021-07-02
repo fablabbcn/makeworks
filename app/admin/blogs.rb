@@ -15,7 +15,7 @@ ActiveAdmin.register Blog do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :blurb, :dont_publish, :featured_video, :header_image, :sub_title, :title
+  permit_params :blurb, :dont_publish, :featured_video, :header_image, :sub_title, :title, :created_at
   #
   # or
   #
@@ -68,7 +68,9 @@ ActiveAdmin.register Blog do
       f.input :blurb
       f.input :slug
       f.input :featured_video
-      actions
+      f.input :created_at
     end
+
+    actions
   end
 end
