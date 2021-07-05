@@ -155,7 +155,11 @@
         current_user&.is_champion_in_region(@company.region_ids) %>
       <div class="card-admin my-4">
         <h5>Admin only</h5>
-        <p>The 'New way' of adding images:</p>
+        <small>
+        <p>In the old system, there was a maximum of 9 images in the slider. Each image had it's own URL field in this form.</p>
+        <p>Now, in this new system, there can be unlimited images, and all images are uploaded in the file picker.</p>
+        </small>
+        <p>The <strong>New way</strong> of adding images:</p>
         <div class="my-3">
           <%= f.input :slider_images, as: :file, input_html: { multiple: true, class: 'form-control' } %>
 
@@ -176,7 +180,6 @@
         <hr>
         <p>TODO:</p>
         <ul>
-          <li>DONE - slider_images? Unlimited images? (old name: Photo1-9) used in slider</li>
           <li>SKIP - profile_image? Only 1 image? (old name: 'Top_Image') used where?</li>
           <li>contact_person_image? Only 1 image? (old name: 'Portrait') picture of the contact person</li>
         </ul>
