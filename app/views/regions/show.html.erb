@@ -82,7 +82,7 @@
 <h2 class="mt-4">Listings</h2>
 <div class="my-2">
   <p>Companies in region: <%= @region.companies.count %> </p>
-  <%= link_to "See all companies in #{@region.name}", companies_url('q[region_id_eq]': @region.id), class: 'btn btn-primary me-3 my-3' %>
+  <%= link_to "See all companies in #{@region.name}", companies_url('q[regions_id_in]': @region.id), class: 'btn btn-primary me-3 my-3' %>
   <% if @region.can_signup? %>
     <%= link_to "Submit a new company in this region", new_company_url(region_id: @region.id), class: 'btn btn-yellow my-3' %>
   <% end %>
