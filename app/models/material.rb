@@ -5,6 +5,8 @@ class Material < ApplicationRecord
   has_many :material_tags, dependent: :destroy
   has_many :companies, through: :material_tags
 
+  default_scope { order(name: :asc) }
+
   validates :slug, uniqueness: true
   extend FriendlyId
   friendly_id :name, use: :slugged

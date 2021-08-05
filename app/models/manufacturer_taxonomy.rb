@@ -5,6 +5,8 @@ class ManufacturerTaxonomy < ApplicationRecord
   has_many :manufacturers, dependent: :destroy
   has_many :companies, through: :manufacturers
 
+  default_scope { order(name: :asc) }
+
   validates :slug, uniqueness: true
   extend FriendlyId
   friendly_id :name, use: :slugged

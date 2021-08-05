@@ -5,6 +5,8 @@ class IndustryTaxonomy < ApplicationRecord
   has_many :industries, dependent: :destroy
   has_many :companies, through: :industries
 
+  default_scope { order(name: :asc) }
+
   validates :slug, uniqueness: true
   extend FriendlyId
   friendly_id :name, use: :slugged
