@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/legal', to: 'welcome#legal'
   get '/random', to: 'welcome#random'
   get '/roulette', to: 'welcome#random'
+  get '/searching', to: 'welcome#searching'
   get '/stats', to: 'welcome#stats'
   get '/styleguide', to: 'welcome#styleguide'
   get '/version', to: 'welcome#version'
