@@ -6,11 +6,11 @@
 
 <%= line_chart User.group_by_month(:created_at).count %>
 
-<h2 class="mt-4">Companies <%= Company.count %></h2>
+<h2 class="mt-4">Manufacturers <%= Company.count %></h2>
 
 <%= line_chart Company.group_by_month(:created_at).count %>
 
-<h2 class="mt-4">Companies per region</h2>
+<h2 class="mt-4">Manufacturers per region</h2>
 
 <%= pie_chart CompanyOrganization.joins(:region).group("regions.name").count %>
 
@@ -24,7 +24,7 @@
   </thead>
   <tbody>
     <tr>
-      <td>Company Processes</td>
+      <td>Processes</td>
       <td><%= CompanyProcess.count %></td>
     </tr>
     <tr>

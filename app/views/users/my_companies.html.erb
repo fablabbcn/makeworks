@@ -4,12 +4,12 @@
 
 <% if current_user.companies.blank? %>
   <div class="card card-body my-5 p-5 text-center">
-    <h3 class="mb-4">Register your company</h3>
+    <h3 class="mb-4"><%= t('shared.create_a_listing') %></h3>
     <p>Join today and find new clients to grow your business!</p>
 
     <div class="d-flex justify-content-center my-4">
       <%= link_to new_company_url, class: 'btn btn-blue d-block' do %>
-        Create Company
+        <%= t('shared.create_a_listing') %>
         <i class="bi bi-arrow-right"></i>
       <% end %>
     </div>

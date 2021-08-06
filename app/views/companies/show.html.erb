@@ -289,7 +289,7 @@
 
       <div class="card">
         <div class="p-5">
-          <h3>Company History</h3>
+          <h3>History</h3>
           <p class="mt-4">
           <%= @company.background %>
           </p>
@@ -308,7 +308,7 @@
 <div class="py-5 bg-grey3">
   <div class="container">
     <% if @nearby.present? %>
-      <h2>Similar companies nearby</h2>
+      <h2><%= t('shared.nearby_manufacturers') %></h2>
     <% end %>
 
     <section class="row">

@@ -64,7 +64,7 @@ class CompaniesTest < ApplicationSystemTestCase
     fill_in "Website", with: @company.website
     fill_in "Year founded", with: @company.year_founded
     fill_in "Youtube", with: @company.youtube
-    click_on "Create Company", match: :first
+    click_on "Create Manufacturer", match: :first
 
     assert_text "Company was successfully created"
   end
@@ -123,7 +123,7 @@ class CompaniesTest < ApplicationSystemTestCase
     fill_in "Website", with: @company.website
     fill_in "Year founded", with: @company.year_founded
     fill_in "Youtube", with: @company.youtube
-    click_on "Update Company", match: :first
+    click_on "Update", match: :first
 
     assert_text "Company was successfully updated"
   end
