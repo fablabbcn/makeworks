@@ -1,0 +1,113 @@
+---
+es:
+  active_admin:
+    dashboard: Dashboard
+  activerecord:
+    attributes:
+      blog:
+        dont_publish: Hide post
+      company:
+        address: Address
+        number_of_staff: Staff nr.
+      user:
+        locale: Language
+    models:
+      company:
+        one: Manufacturer
+        other: Manufacturers
+  name: Espanol
+  shared:
+    a_global_library: a global library for local manufacturing
+    companies: Manufacturers
+    contact_us: Contact us
+    create_a_listing: Create a listing
+    create_a_listing_in_region: Create a listing in this region
+    create_an_account: Create an account
+    create_new: Create new
+    edit_region: Edit Region
+    employees: Employees
+    explore_all: Explore all manufacturers
+    finished_products: Finished products
+    industries: Industries
+    info_roles: Each employee can have a different role. You can drag them around
+      to reorder the list.
+    join_free: Join free
+    log_in: Log in
+    log_out: Log out
+    machines: Machines
+    manufacturers: Manufacturers
+    manufacturers_in_region: Manufacturers in region
+    materials: Materials
+    my_companies: My listings
+    nearby_manufacturers: Nearby manufacturers
+    processes: Processes
+    regions: Regions
+    saved_companies: Saved listings
+    see_all_companies: See all manufacturers
+    sign_up: Sign up
+    start_your_region: Start your region
+    statistics: Statistics
+    submit_a_maker: Submit a maker
+    tagline: Find local manufacturers in your region
+    user_settings: User settings
+    you_can_filter: You can narrow down your search by filtering any of the following
+      drop-down.
+  simple_form:
+    hints:
+      blog:
+        blog_categories: Choose as many categories as needed
+        slug: The URL the blog will use
+        sub_title: The sub title
+        title: The main title
+      company:
+        address: Street address, house number, ZIP code
+        background: History & background
+        description: Describe the manufacturer
+        file_types: Indicate what types of files the manufacturer accepts
+        film_ready: Film
+        intro: Describe your listing in one sentence
+        location: Name of the City
+        machines_taxonomies: Select as many as you want
+        minimum_order: Minimum order in your currency
+        name: Name of the manufacturer
+        number_of_staff: Enter a number
+        regions: If the manufacturer belongs to any region(s)
+        slider_images: Upload images to be used in the slider (carousel)
+        slug: The 'slug' that will be used in the URL to the manufacturer
+        soft_delete: Was used to hide manufacturers in the old system
+        website: Does the manufacturer have a website?
+      region:
+        lat: Latitude
+        lng: Longitude
+        logo: The old way of storing logos
+        slug: The 'slug' that will be used in the URL to the region
+      user:
+        locale: Choose a language for the system. All tags and user data will still
+          be in English.
+    include_blanks:
+      company:
+        region: prom
+    labels:
+      company:
+        address: Address
+        batch_production: Batch production / prototype
+        bespoke_one_offs: Bespoke one offs
+        country_code: Country
+        finished_products_taxonomies: Finished products tags
+        industry_taxonomies: Industry tags
+        large_run: Large Run (1000+)
+        lat: Latitude
+        lng: Longitude
+        machines_taxonomies: Machine tags
+        manufacturer_taxonomies: Type of fabrication space
+        material_tags: Material tags
+        medium_run: Medium run (500-1000)
+        process_taxonomies: Process tags
+        production_accesses: Production Access
+        sample_production: Sample production (up to 10)
+        short_run: Short run (100-500)
+        slug: Trimmed name
+      region:
+        slug: Trimmed name
+    placeholders:
+      company: 

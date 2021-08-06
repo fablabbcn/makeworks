@@ -26,7 +26,7 @@ module Makeworks
 
     config.app_generators.scaffold_controller = :scaffold_controller
 
-    config.i18n.available_locales = [:en, :is]
+    config.i18n.available_locales = [:en, :es, :fr, :is, :it]
     config.i18n.default_locale = :en
     config.i18n.fallbacks = [:en]
   end
