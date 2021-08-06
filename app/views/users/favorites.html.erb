@@ -5,12 +5,12 @@
 <% if current_user.favorite_companies.blank? %>
   <div class="card card-body my-5 p-5 text-center">
     <h3 class="mb-4">Start exploring companies</h3>
-    <p>Save your favorite companies to check and contact later the
+    <p>Save your favorites to check and later contact the
     ones that suits best for your project.</p>
 
     <div class="d-flex justify-content-center my-4">
       <%= link_to companies_url, class: 'btn btn-blue d-block' do %>
-        See all companies
+        <%= t('shared.see_all_companies') %>
         <i class="bi bi-arrow-right"></i>
       <% end %>
     </div>
