@@ -21,7 +21,7 @@ class FinishedProductsTaxonomiesControllerTest < ActionDispatch::IntegrationTest
       post finished_products_taxonomies_url, params: { finished_products_taxonomy: { m_id: @finished_products_taxonomy.m_id, name: @finished_products_taxonomy.name, parent_id: @finished_products_taxonomy.parent_id } }
     end
 
-    assert_redirected_to finished_products_taxonomy_url(FinishedProductsTaxonomy.last)
+    assert_redirected_to finished_products_taxonomy_url(FinishedProductsTaxonomy.unscoped.last)
   end
 
   test "should show finished_products_taxonomy" do

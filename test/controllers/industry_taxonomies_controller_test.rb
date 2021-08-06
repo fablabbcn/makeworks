@@ -21,7 +21,7 @@ class IndustryTaxonomiesControllerTest < ActionDispatch::IntegrationTest
       post industry_taxonomies_url, params: { industry_taxonomy: { m_id: @industry_taxonomy.m_id, name: @industry_taxonomy.name, parent_id: @industry_taxonomy.parent_id } }
     end
 
-    assert_redirected_to industry_taxonomy_url(IndustryTaxonomy.last)
+    assert_redirected_to industry_taxonomy_url(IndustryTaxonomy.unscoped.last)
   end
 
   test "should show industry_taxonomy" do

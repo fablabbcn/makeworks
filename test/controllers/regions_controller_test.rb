@@ -26,7 +26,7 @@ class RegionsControllerTest < ActionDispatch::IntegrationTest
       }
     end
 
-    assert_redirected_to region_url(Region.last)
+    assert_redirected_to region_url(Region.unscoped.last)
   end
 
   test "should show region" do

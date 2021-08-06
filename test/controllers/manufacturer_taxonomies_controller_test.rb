@@ -21,7 +21,7 @@ class ManufacturerTaxonomiesControllerTest < ActionDispatch::IntegrationTest
       post manufacturer_taxonomies_url, params: { manufacturer_taxonomy: { m_id: @manufacturer_taxonomy.m_id, name: @manufacturer_taxonomy.name, parent_id: @manufacturer_taxonomy.parent_id } }
     end
 
-    assert_redirected_to manufacturer_taxonomy_url(ManufacturerTaxonomy.last)
+    assert_redirected_to manufacturer_taxonomy_url(ManufacturerTaxonomy.unscoped.last)
   end
 
   test "should show manufacturer_taxonomy" do

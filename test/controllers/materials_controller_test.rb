@@ -21,7 +21,7 @@ class MaterialsControllerTest < ActionDispatch::IntegrationTest
       post materials_url, params: { material: { m_id: @material.m_id, name: @material.name, parent_id: @material.parent_id } }
     end
 
-    assert_redirected_to material_url(Material.last)
+    assert_redirected_to material_url(Material.unscoped.last)
   end
 
   test "should show material" do

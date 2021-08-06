@@ -21,7 +21,7 @@ class MachinesTaxonomiesControllerTest < ActionDispatch::IntegrationTest
       post machines_taxonomies_url, params: { machines_taxonomy: { m_id: @machines_taxonomy.m_id, name: @machines_taxonomy.name, parent_id: @machines_taxonomy.parent_id } }
     end
 
-    assert_redirected_to machines_taxonomy_url(MachinesTaxonomy.last)
+    assert_redirected_to machines_taxonomy_url(MachinesTaxonomy.unscoped.last)
   end
 
   test "should show machines_taxonomy" do

@@ -21,7 +21,7 @@ class ProcessTaxonomiesControllerTest < ActionDispatch::IntegrationTest
       post process_taxonomies_url, params: { process_taxonomy: { m_id: @process_taxonomy.m_id, name: @process_taxonomy.name, parent_id: @process_taxonomy.parent_id } }
     end
 
-    assert_redirected_to process_taxonomy_url(ProcessTaxonomy.last)
+    assert_redirected_to process_taxonomy_url(ProcessTaxonomy.unscoped.last)
   end
 
   test "should show process_taxonomy" do
