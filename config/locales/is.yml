@@ -5,6 +5,8 @@ is:
       company:
         address: Heimilisfang
         number_of_staff: Fjöldi starfsmanna
+      user:
+        locale: Tungumál
     models:
       company:
         one: Fyrirtæki
@@ -14,15 +16,21 @@ is:
     companies: Fyrirtæki
     create_new: Búa til nýtt
     edit_region: Breyta svæði
+    explore_all: Skoða allt
     finished_products: Tilbúnar vörur
     industries: Iðnaður
     log_in: Innskráning
     machines: Vélar
     manufacturers: Framleiðendur
+    manufacturers_in_region: Framleiðendur á þessu svæði
     materials: Efni
+    my_companies: Mínir framleiðendur
+    nearby_manufacturers: Nálægir framleiðendur
     processes: Ferlar
     regions: Svæði
+    see_all_companies: Sjá alla framleiðendur
     sign_up: Búa til aðgang
+    statistics: Tölfræði
     tagline: Finndu framleiðendur á þínu svæði
   simple_form:
     hints:
