@@ -82,4 +82,8 @@ module ApplicationHelper
     # Insert the 1200px to a duplicate of the string, so we don't accidentally modify the original one
     the_url.dup.insert(pos, '1200px/')
   end
+
+  def get_vimeo_id(url)
+    url.split('/').last
+  end
 end

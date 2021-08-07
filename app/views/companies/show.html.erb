@@ -284,6 +284,15 @@
               </ul>
             </article>
           </section>
+
+          <% if @company.video_link.present? %>
+            <div class="ratio ratio-16x9">
+              <iframe src="https://player.vimeo.com/video/<%= get_vimeo_id(@company.video_link) %>"
+                      allow="autoplay; fullscreen; picture-in-picture"
+                      allowfullscreen></iframe>
+            </div>
+          <% end %>
+
         </div>
       </div><!-- card -->
 
