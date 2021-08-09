@@ -17,17 +17,12 @@ Make Works consists of regions. Each region will be able to give you local suppo
 </h5>
 
 
-<div class="row mt-5">
+<section class="row mt-5">
 
   <% @public_regions.each do |region| %>
-    <div class="col-md-6 mb-5">
-      <div class="border-top-2 border-dark pt-3">
-        <h2>
-          <%= link_to region.name, region_url(region) %>
-        </h2>
 
-      </div>
-    </div>
+    <%= render region %>
+
   <% end %>
 
-</div>
+</section>
