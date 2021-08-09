@@ -86,15 +86,15 @@
   <% if @region.can_signup? %>
     <%= link_to t("shared.create_a_listing_in_region"), new_company_url(region_id: @region.id), class: 'btn btn-yellow my-3' %>
   <% end %>
-  <% if @region.companies.verified.not_soft_deleted.with_lat_lng.present? %>
-    <%= render partial: 'map', locals: { locations: @region.companies.verified.not_soft_deleted.with_lat_lng} %>
+  <% if @region.companies.with_lat_lng.present? %>
+    <%= render partial: 'map', locals: { locations: @region.companies.with_lat_lng} %>
   <% end %>
 </div>
 
 <h2 class="mt-4">Region Updates</h2>
 
 <small>Last company created:</small>
-<%= render @region.companies.verified.not_soft_deleted.last if @region.companies.verified.not_soft_deleted.present? %>
+<%= render @region.companies.last if @region.companies.present? %>
 
 <% if admin? %>
   <div class="card-admin">
