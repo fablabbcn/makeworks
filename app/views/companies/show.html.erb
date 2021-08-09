@@ -15,8 +15,10 @@
             <%= title(@company.name, class: 'fs-1') %>
 
             <p>
-            <i class="bi bi-geo-alt-fill"></i>
-            <%= @company.location %>
+              <a href="#history">
+                <i class="bi bi-geo-alt-fill"></i>
+                <%= @company.location %>
+              </a>
             </p>
 
             <p><%= @company.intro %></p>
@@ -298,7 +300,7 @@
 
       <div class="card">
         <div class="p-5">
-          <h3>History</h3>
+          <h3 id="history">History</h3>
           <p class="mt-4">
           <%= @company.background %>
           </p>
