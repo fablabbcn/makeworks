@@ -41,6 +41,7 @@ class User < ApplicationRecord
   paginates_per 10
 
   def name
+    # Be careful to not show other users email addresses. Instead we show ID if no name present.
     if "#{first_name} #{last_name}".length > 1
       "#{first_name} #{last_name}"
     else

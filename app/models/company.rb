@@ -44,7 +44,7 @@ class Company < ApplicationRecord
   scope :soft_deleted, -> { where(soft_delete: true) }
   scope :not_soft_deleted, -> { where(soft_delete: [false, nil]) }
   scope :verified, -> { where(is_verified: true) }
-  scope :unverified, -> { where.not(is_verified: true) }
+  scope :unverified, -> { where(is_verified: [false, nil]) }
 
   # Show companies without a region
   # If company is a part of 2 regions, and one region is hidden, it should still show.
