@@ -7,6 +7,19 @@
     <%= link_to 'Edit', edit_company_path(@company), class: 'btn btn-primary' %>
   <% end %>
 
+  <% if @company.is_verified? %>
+  <% else %>
+    <div class="alert alert-warning mt-3" role="alert">
+    <%= t 'shared.company_not_visible_until_verified' %>
+    </div>
+  <% end %>
+
+  <% if @company.soft_delete %>
+    <div class="alert alert-warning mt-3" role="alert">
+      <%= t 'shared.company_marked_soft_delete' %>
+    </div>
+  <% end %>
+
   <section class="row my-4">
     <article class="col-lg-4">
       <div class="card">

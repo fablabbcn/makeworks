@@ -28,7 +28,7 @@
   <% end %>
 <% end %>
 
-<% if @company.video_link %>
+<% if @company.video_link.present? %>
   <%= link_to(@company.video_link, target: "_blank", class: 'text-decoration-none m-1') do %>
     <i class="bi bi-play-fill text-muted"></i>
   <% end %>
