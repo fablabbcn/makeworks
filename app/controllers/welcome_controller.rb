@@ -12,6 +12,7 @@ class WelcomeController < ApplicationController
     # NOTE: .sample(4) is much slower request than .first(4)
     @companies = Company
       .not_soft_deleted
+      .verified
       .includes(
         :industries,
         :industry_taxonomies,
@@ -19,7 +20,6 @@ class WelcomeController < ApplicationController
         :manufacturers,
         :regions
       )
-      .where(is_verified: true)
       .sample(4)
 
     render layout: 'blank'
