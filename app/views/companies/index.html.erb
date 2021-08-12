@@ -13,6 +13,10 @@
 
         </article>
       <% end %>
+
+      <% if @companies.blank? %>
+        <p class="text-center mt-5">Nothing found. Try widening the search.</p>
+      <% end %>
     </section>
 
     <div class="d-flex justify-content-center">
