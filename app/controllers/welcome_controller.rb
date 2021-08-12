@@ -28,7 +28,7 @@ class WelcomeController < ApplicationController
   def random
     @random_companies = Company
       .not_soft_deleted
-      .where(is_verified: true)
+      .verified
       .includes(:regions)
       .sample(3)
   end
