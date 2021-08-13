@@ -112,6 +112,13 @@ class CompaniesController < ApplicationController
       if @company.save
         format.html { redirect_to @company, notice: 'Company was successfully created. It needs to be verified by an administrator, before it will be visible on the website.' }
         format.json { render :show, status: :created, location: @company }
+
+        # We need this so the creator can edit his company
+        Employee.create(
+          user: current_user,
+          title: 'Creator',
+          company: @company
+        )
       else
         format.html { render :new }
         format.json { render json: @company.errors, status: :unprocessable_entity }
