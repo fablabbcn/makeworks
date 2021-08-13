@@ -15,7 +15,7 @@
       <% end %>
 
       <% if @companies.blank? %>
-        <p class="text-center mt-5">Nothing found. Try widening the search.</p>
+        <p class="text-center mt-5"><%= t('shared.search_nothing_found') %></p>
       <% end %>
     </section>
 
