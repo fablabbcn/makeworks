@@ -32,4 +32,8 @@
 
   map.once('focus', function() { map.scrollWheelZoom.enable(); });
 
+  // Center the map on ALL locations in a region.
+  // If one listing is by accident in the wrong region, it changes the map center.
+  map.fitBounds(locations);
+
 </script>
