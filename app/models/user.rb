@@ -45,7 +45,7 @@ class User < ApplicationRecord
     if "#{first_name} #{last_name}".length > 1
       "#{first_name} #{last_name}"
     else
-      "ID: #{id.to_s}"
+      "ID: #{id}"
     end
   end
 

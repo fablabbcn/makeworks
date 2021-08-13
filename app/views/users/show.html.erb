@@ -1,6 +1,6 @@
 <%= title t("shared.user_settings") %>
 
-<%= render 'user_tabs' %>
+<%= render 'user_tabs' if current_user == @user %>
 
 <div class="card my-5 p-5 mw-900">
   <div class="justify-content-between d-flex">
