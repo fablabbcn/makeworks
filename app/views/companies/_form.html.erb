@@ -157,8 +157,9 @@
       <div class="card-admin my-4">
         <h5>Admin only</h5>
         <small>
-        <p>In the old system, there was a maximum of 9 images in the slider. Each image had it's own URL field in this form.</p>
-        <p>Now, in this new system, there can be unlimited images, and all images are uploaded in the file picker.</p>
+          <p>In the old system, there was a maximum of 9 images in the slider. Each image had it's own URL field in this form.</p>
+          <p>Now, in this new system, there can be unlimited images, and all images are uploaded in the file picker below.</p>
+          <p>This system uses the 'new way slider' if it has any images. If not it uses the 'old way'.</p>
         </small>
         <p>The <strong>New way</strong> of adding images:</p>
         <div class="my-3">
@@ -198,7 +199,8 @@
           <li>Each image has a column in the database.</li>
           <li>There was a limit of 9 images. (To add more we have to create a new database column)</li>
           <li>Ideally we should MERGE the 'old' way into the 'new' way</li>
-          <li>But the old way took 1 image 'original' and created multiple sizes, 1200px, 940px etc</li>
+          <li>The old way took 1 image 'original' and created multiple sizes, 1200px, 940px etc</li>
+          <li>Then a front end script was used to replace the URL, changing /1200px/ to /940px/ when needed.</li>
         </ul>
 
         <h4>Profile image (old way)</h4>
@@ -207,6 +209,7 @@
         <%= f.input :portrait %>
 
         <h4>Slider images (old way)</h4>
+        <p>These images will only be used in a slider if the 'new way' above has no images.</p>
 
         <%= f.input :photo1 %>
         <%= f.input :photo2 %>

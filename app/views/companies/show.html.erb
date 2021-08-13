@@ -121,7 +121,7 @@
       </div>
 
       <% if current_user&.is_admin? || current_user&.is_champion_in_regions(@company.regions) %>
-        <div class="card-admin bg-white mt-4 p-5">
+        <div class="card-admin mt-4 p-5">
           <p class="text-center">Admin info:</p>
           <%= link_to 'Edit', edit_company_path(@company), class: 'btn btn-primary mb-4'  %>
           <ul>
@@ -154,11 +154,16 @@
           <p>Contact jobtitle:
           <%= @company.contact_jobtitle %> </p>
 
-          <p>Email
-          <%= @company.contact_email %> </p>
+          <p>
+            Email:
+            <small>
+              <%= @company.contact_email %>
+            </small>
+          </p>
 
 
-          <%= image_tag(get_1200px(@company.portrait), alt: 'Portrait', class: 'img-fill') if @company&.portrait.present? %>
+          <small>Portrait image:</small>
+          <%= image_tag(get_1200px(@company.portrait), alt: 'Portrait', class: 'img-fill', title: 'Portrait') if @company&.portrait.present? %>
           <!--
             TODO: contact_avatar (new) using Active Storage
             <%# image_tag(@company.contact_avatar, alt: 'Portrait', class: 'img-fill') if @company&.contact_avatar.attached? %>
