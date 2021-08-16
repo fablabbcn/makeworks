@@ -155,7 +155,7 @@
     <% if current_user&.is_admin? ||
         current_user&.is_champion_in_region(@company.region_ids) %>
       <div class="card-admin my-4">
-        <h5>Admin only</h5>
+        <h5>Admin and champion only</h5>
         <small>
           <p>In the old system, there was a maximum of 9 images in the slider. Each image had it's own URL field in this form.</p>
           <p>Now, in this new system, there can be unlimited images, and all images are uploaded in the file picker below.</p>
