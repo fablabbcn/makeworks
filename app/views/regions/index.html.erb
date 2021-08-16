@@ -30,3 +30,7 @@
 
   <% end %>
 </section>
+
+<section class="container mb-5">
+  <%= render partial: 'region_map', locals: { locations: @regions.with_lat_lng} %>
+</section>

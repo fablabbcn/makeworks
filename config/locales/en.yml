@@ -112,6 +112,8 @@ en:
         short_run: Short run (100-500)
         slug: Trimmed name
       region:
+        lat: Latitude
+        lng: Longitude
         slug: Trimmed name
     placeholders:
       company: 
