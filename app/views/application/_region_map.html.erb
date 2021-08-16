@@ -1,5 +1,5 @@
-<div class="embed-responsive embed-responsive-16by9">
-  <div id="leaflet_region" class="embed-responsive-item"> </div>
+<div class="ratio ratio-16x9">
+  <div id="leaflet_region"> </div>
 </div>
 
 <script>
@@ -21,10 +21,9 @@
   });
 
   locations.forEach(function(item) {
-    L.marker([item.lat, item.lng]).addTo(map)
+    L.marker([item.lat, item.lng], {title: item.name}).addTo(map)
       .bindPopup(
-        "<a href='/regions/" + item.id + "'>" + item.name + "</a><br/>" +
-        "<b>Latitude: </b>" + item.lat + "<br/>"
+        "<a href='/regions/" + item.id + "'>" + item.name + "</a><br/>"
       )
       .openPopup();
   });

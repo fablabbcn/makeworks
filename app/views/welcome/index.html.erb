@@ -28,7 +28,6 @@
         </button>
     </div>
   </form>
-
 </section>
 
 <section class="bg-grey3 p-5 text-center">
@@ -140,6 +139,11 @@
       <%= render @companies %>
     </div>
   </div>
+</section>
+
+<section class="container mb-5">
+  <p>All regions locations</p>
+  <%= render partial: 'region_map', locals: { locations: @public_regions.with_lat_lng} %>
 </section>
 
 <% if current_user %>

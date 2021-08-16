@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
   skip_before_action :authenticate_user!
 
-  before_action :get_public_regions, only: [:about, :contact]
+  before_action :get_public_regions, only: [:about, :contact, :index]
 
   def about
     render layout: 'blank'
