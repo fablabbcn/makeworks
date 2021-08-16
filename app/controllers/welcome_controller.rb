@@ -13,13 +13,6 @@ class WelcomeController < ApplicationController
     @companies = Company
       .not_soft_deleted
       .verified
-      .includes(
-        :industries,
-        :industry_taxonomies,
-        :manufacturer_taxonomies,
-        :manufacturers,
-        :regions
-      )
       .sample(4)
 
     render layout: 'blank'
