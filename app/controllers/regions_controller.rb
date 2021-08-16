@@ -37,7 +37,7 @@ class RegionsController < ApplicationController
       .order(:created_at)
       .includes(
         :rich_text_short_description,
-        :avatar_attachment
+        avatar_attachment: :blob
       )
   end
 
