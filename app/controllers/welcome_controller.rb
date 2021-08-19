@@ -23,7 +23,7 @@ class WelcomeController < ApplicationController
       .not_soft_deleted
       .verified
       .includes(:regions)
-      .sample(3)
+      .sample(4)
   end
 
   def stats
