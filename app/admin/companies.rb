@@ -46,6 +46,7 @@ ActiveAdmin.register Company do
     column :is_verified
     column :soft_delete
     column :name
+    column :slug
     column :address do |x|
       truncate(x.intro)
     end
