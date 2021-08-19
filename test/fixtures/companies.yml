@@ -9,7 +9,7 @@ one:
   intro: MyText
   is_verified: true
   contact_name: MyString
-  contact_email: MyString
+  contact_email: user@comp1.test
   contact_phone: MyString
   contact_jobtitle: MyString
   flickr: MyString
@@ -59,7 +59,7 @@ two:
   intro: MyText
   is_verified: true
   contact_name: MyString
-  contact_email: MyString
+  contact_email: user@comp2.test
   contact_phone: MyString
   contact_jobtitle: MyString
   flickr: MyString

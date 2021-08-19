@@ -1,4 +1,4 @@
-<%= simple_form_for(@company) do |f| %>
+<%= simple_form_for(@company, html: {novalidate: false}) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
@@ -21,7 +21,10 @@
     <% end %>
 
     <%= f.input :name, required: true %>
-    <%= f.input :slug %>
+    <% if @company.persisted? %>
+      <%= f.input :slug, pattern: "^[^./]*$" %>
+    <% end %>
+
     <%# f.input :title %>
 
     <% if params[:region_id].present? %>
@@ -266,7 +269,7 @@
       <i class="bi bi-person-lines-fill"></i>
       Contact info
     </h3>
-    <%= f.input :contact_name %>
+    <%= f.input :contact_name, required: true %>
     <%= f.input :contact_email %>
     <%= f.input :contact_phone %>
     <%= f.input :contact_jobtitle %>

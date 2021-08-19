@@ -57,7 +57,7 @@ class CompaniesTest < ApplicationSystemTestCase
     check "Soft delete" if @company.soft_delete
     #fill_in "Title", with: @company.title
     fill_in "Top image", with: @company.top_image
-    fill_in "Trimmed name", with: 'slug123'
+    #fill_in "Trimmed name", with: 'slug123' # Not visible when creating, only when editing.
     fill_in "Turnaround time", with: @company.turnaround_time
     fill_in "Twitter", with: @company.twitter
     fill_in "Video link", with: @company.video_link
