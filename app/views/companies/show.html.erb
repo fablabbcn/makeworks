@@ -4,23 +4,10 @@
       current_user&.is_employee_in_company(@company.id) ||
       current_user&.is_champion_in_regions(@company.regions)
     %>
-    <%= link_to 'Edit', edit_company_path(@company), class: 'btn btn-primary' %>
+    <%= link_to 'Edit', edit_company_path(@company), class: 'btn btn-primary mb-3' %>
   <% end %>
 
-  <% if @company.is_verified? %>
-  <% else %>
-    <div class="alert alert-warning mt-3" role="alert">
-      <i class="bi bi-patch-check"></i>
-      <%= t 'shared.company_not_visible_until_verified' %>
-    </div>
-  <% end %>
-
-  <% if @company.soft_delete %>
-    <div class="alert alert-warning mt-3" role="alert">
-      <i class="bi bi-trash"></i>
-      <%= t 'shared.company_marked_soft_delete' %>
-    </div>
-  <% end %>
+  <%= render 'company_alerts', company: @company %>
 
   <section class="row my-4">
     <article class="col-lg-4">
