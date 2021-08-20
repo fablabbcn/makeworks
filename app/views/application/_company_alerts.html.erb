@@ -7,7 +7,7 @@
 <% end %>
 
 <% if company&.soft_delete %>
-  <div class="alert alert-warning mt-3" role="alert">
+  <div class="alert alert-danger mt-3" role="alert">
     <i class="bi bi-trash"></i>
     <%= t 'shared.company_marked_soft_delete' %>
   </div>
