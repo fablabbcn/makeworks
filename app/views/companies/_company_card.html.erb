@@ -39,6 +39,12 @@
 
   <section class="p-4 d-flex flex-column justify-content-between" style="min-height:270px;">
     <div>
+      <% unless company.is_verified? %>
+        <p class="alert alert-warning">
+        <i class="bi bi-patch-check"></i>
+        Company has not yet been verified.
+        </p>
+      <% end %>
       <h4><%= link_to truncate(company.name), company_url(company), class: 'text-decoration-none' %></h4>
       <p title="<%= company&.intro %>"><%= company&.intro&.truncate(80) %></p>
     </div>
