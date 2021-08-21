@@ -23,16 +23,9 @@
       <p class="text-muted"> Showing: <%= @companies.count %> / <%= @q.result.count  %></p>
       <%= link_to "Clear all", companies_url %>
     </div>
+  </div>
 
-    <div class="mb-2">
-      <label>Country</label>
-      <%=
-        f.country_select :country_code_eq,
-        { include_blank: 'All Countries' },
-        {'data-controller': 'select2'}
-      %>
-    </div>
-
+  <div>
     <div class="my-2">
       <label>Regions</label>
       <%= f.select :regions_id_in,
@@ -41,9 +34,15 @@
         { class: '', multiple: true, 'data-controller': 'select2' }
       %>
     </div>
-  </div>
 
-  <div class="">
+    <div class="my-2">
+      <label>Country</label>
+      <%=
+        f.country_select :country_code_eq,
+        { include_blank: 'All Countries' },
+        {'data-controller': 'select2'}
+      %>
+    </div>
     <div class="my-2">
       <label>Industry</label>
       <%= f.select :industry_taxonomies_id_in,
