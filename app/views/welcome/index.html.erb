@@ -134,7 +134,7 @@
 
 <section>
   <div class="container">
-    <h2>Random companies</h2>
+    <h2>Roulette</h2>
     <div class="row">
       <%= render @companies %>
     </div>
@@ -142,7 +142,7 @@
 </section>
 
 <section class="container mb-5">
-  <p>All regions locations</p>
+  <h2>Make Works regions</h2>
   <%= render partial: 'region_map', locals: { locations: @public_regions.with_lat_lng} %>
 </section>
 
