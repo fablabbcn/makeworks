@@ -28,6 +28,9 @@ class Company < ApplicationRecord
   has_many :machines, dependent: :destroy
   has_many :machines_taxonomies, through: :machines
 
+  has_many :character_taggings, dependent: :destroy
+  has_many :character_tags, through: :character_taggings
+
   #has_one_attached :contact_avatar
   has_many_attached :slider_images
 

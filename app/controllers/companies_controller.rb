@@ -227,6 +227,7 @@ class CompaniesController < ApplicationController
       slider_images: [],
       user_ids: [],
       material_ids: [],
+      character_tag_ids: [],
       industry_taxonomy_ids: [],
       process_taxonomy_ids: [],
       production_access_ids: [],

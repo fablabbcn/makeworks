@@ -83,6 +83,15 @@
         { class: '', 'data-controller': 'select2', multiple: true }
       %>
     </div>
+    <div class="my-2">
+      <label><%= t('shared.character_tags') %></label>
+      <%= f.select :character_tags_id_in,
+        CharacterTag.pluck(:name, :id),
+        { include_blank: 'All' },
+        { class: '', 'data-controller': 'select2', multiple: true }
+      %>
+    </div>
+
   </div>
 
   <%= f.submit class: 'btn btn-primary' %>

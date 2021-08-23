@@ -22,6 +22,7 @@ en:
     company_marked_soft_delete: Listing has been marked for soft deletion.
     company_not_visible_until_verified: Listing will not be visible until it has been
       verified by either an admin or a region champion.
+    character_tags: Character tags
     contact_us: Contact us
     create_a_listing: Create a listing
     create_a_listing_in_region: Create a listing in this region

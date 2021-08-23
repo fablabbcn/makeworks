@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_17_062820) do
+ActiveRecord::Schema.define(version: 2021_08_23_135033) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -101,6 +101,22 @@ ActiveRecord::Schema.define(version: 2021_06_17_062820) do
     t.index ["medium_id"], name: "index_blogs_on_medium_id"
     t.index ["slug"], name: "index_blogs_on_slug", unique: true
     t.index ["user_id"], name: "index_blogs_on_user_id"
+  end
+
+  create_table "character_taggings", force: :cascade do |t|
+    t.bigint "character_tag_id", null: false
+    t.bigint "company_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_tag_id"], name: "index_character_taggings_on_character_tag_id"
+    t.index ["company_id"], name: "index_character_taggings_on_company_id"
+  end
+
+  create_table "character_tags", force: :cascade do |t|
+    t.string "name"
+    t.boolean "is_promoted"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "companies", force: :cascade do |t|
@@ -427,6 +443,8 @@ ActiveRecord::Schema.define(version: 2021_06_17_062820) do
   add_foreign_key "blog_tags", "blogs"
   add_foreign_key "blogs", "media"
   add_foreign_key "blogs", "users"
+  add_foreign_key "character_taggings", "character_tags"
+  add_foreign_key "character_taggings", "companies"
   add_foreign_key "companies", "users"
   add_foreign_key "company_organizations", "companies"
   add_foreign_key "company_organizations", "regions"

@@ -237,6 +237,11 @@
     <%= f.association :process_taxonomies, input_html: { 'data-controller': 'select2' } %>
     <%= f.association :finished_products_taxonomies, input_html: { 'data-controller': 'select2' } %>
 
+    <% if current_user&.is_admin? ||
+        current_user&.is_champion_in_region(@company.region_ids) %>
+      <%= f.association :character_tags, input_html: { 'data-controller': 'select2' } %>
+    <% end %>
+
     <hr>
     <h4>Production Info</h4>
     <%= f.input :turnaround_time %>
