@@ -41,4 +41,13 @@ class CharacterTagsTest < ApplicationSystemTestCase
 
     assert_text "Character tag was successfully destroyed"
   end
+
+  test "creating a Character tag as NON Admin" do
+    # User two is not an admin, and should not be able to create Character tags
+    sign_in users(:two)
+    visit character_tags_url
+    click_on "New Character Tag"
+
+    assert_text "Admin only"
+  end
 end
