@@ -76,3 +76,5 @@ There are 3 roles:
 
 
 To become a 'champion' an admin needs to make you one, via the https://new.make.works/admin/user_regions interface.
+
+Edit manufacturering tags in a not verified listing as an admin by deleting /admin/ out of listing URL to enter front end editor.  
