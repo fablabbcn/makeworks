@@ -9,5 +9,5 @@ class Material < ApplicationRecord
 
   validates :slug, uniqueness: true
   extend FriendlyId
-  friendly_id :first, use: [:slugged, :finders]
+  friendly_id :name, use: [:slugged, :finders]
 end
