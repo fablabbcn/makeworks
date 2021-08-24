@@ -141,11 +141,6 @@
   </div>
 </section>
 
-<section class="container mb-5">
-  <h2>Make Works regions</h2>
-  <%= render partial: 'region_map', locals: { locations: @public_regions.with_lat_lng} %>
-</section>
-
 <% if current_user %>
 
 <% else %>
@@ -187,6 +182,11 @@
       <% end %>
     </div>
   </div>
+</section>
+
+<section class="container my-5">
+  <h2>Make Works regions</h2>
+  <%= render partial: 'region_map', locals: { locations: @public_regions.with_lat_lng} %>
 </section>
 
 <section class="bg-green p-5">
