@@ -2,7 +2,7 @@
   <%= link_to company_url(company) do %>
     <div
       class="card-img-top"
-      style="padding-bottom: 67%; background-size:cover; background-image: url('<%= image_path(get_1200px(company&.top_image)) %>')">
+      style="padding-bottom: 67%; background-size:cover; background-image: url('<%= new_or_old_image(company) %>')">
     </div>
   <% end %>
 

@@ -75,6 +75,7 @@ en:
         machines_taxonomies: Select as many as you want
         minimum_order: Minimum order in your currency
         name: Name of the manufacturer
+        new_top_image: Profile image to be used for this listing. There can be only one.
         number_of_staff: Enter a number
         regions: If the manufacturer belongs to any region(s)
         slider_images: Upload images to be used in the slider (carousel)

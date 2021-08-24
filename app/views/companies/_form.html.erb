@@ -165,6 +165,19 @@
           <p>This system uses the 'new way slider' if it has any images. If not it uses the 'old way'.</p>
         </small>
         <p>The <strong>New way</strong> of adding images:</p>
+
+        <%= f.input :new_top_image, as: :file, input_html: { multiple: false, class: 'form-control' } %>
+
+        <% if @company.new_top_image.attached? %>
+          <div class="text-center">
+            <%= image_tag(@company.new_top_image, class: 'img-fluid', style: 'max-height: 200px') %>
+
+            <%= link_to "Remove", delete_image_attachment_company_url(@company.id, image_id: @company.new_top_image.id),
+              class: 'd-block my-1 text-danger', method: :delete, remote: true,
+              data: { confirm: 'Are you sure you want to remove this image?' } %>
+          </div>
+        <% end %>
+
         <div class="my-3">
           <%= f.input :slider_images, as: :file, input_html: { multiple: true, class: 'form-control' } %>
 

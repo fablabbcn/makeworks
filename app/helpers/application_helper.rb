@@ -56,6 +56,16 @@ module ApplicationHelper
     current_user && current_user.favorite_companies.where(company: company_id).first&.is_favorite
   end
 
+  # Check if 'new way' using ActiveStorage is being used for the profile top_image
+  # If not, use the old way, but get 1200px version link from S3
+  def new_or_old_image(company)
+    if company.new_top_image.attached?
+      url_for(company.new_top_image)
+    else
+      image_path(get_1200px(company&.top_image))
+    end
+  end
+
   # This method tries to get the 1200px version of an image.
   # The old website had images in multiple sizes and we think it was using JavaScript
   # on the front end to change the links, by injecting /1200px/ into the image URLs
