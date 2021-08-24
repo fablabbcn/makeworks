@@ -121,6 +121,7 @@
             <li>Film ready: <%= @company.film_ready %></li>
           </ul>
 
+          <hr>
           <p>Employees:</p>
           <ul class="list-unstyled border-top">
             <% @company.employees.each do |e| %>
@@ -134,6 +135,7 @@
               </li>
             <% end %>
           </ul>
+          <hr>
 
           <p>Contact name:
           <%= @company.contact_name %> </p>
@@ -148,13 +150,8 @@
             </small>
           </p>
 
-
           <small>Portrait image:</small>
           <%= image_tag(get_1200px(@company.portrait), alt: 'Portrait', class: 'img-fill', title: 'Portrait') if @company&.portrait.present? %>
-          <!--
-            TODO: contact_avatar (new) using Active Storage
-            <%# image_tag(@company.contact_avatar, alt: 'Portrait', class: 'img-fill') if @company&.contact_avatar.attached? %>
-          -->
 
         </div>
       <% end %>

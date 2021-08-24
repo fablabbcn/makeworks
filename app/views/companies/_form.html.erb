@@ -159,13 +159,18 @@
         current_user&.is_champion_in_region(@company.region_ids) %>
       <div class="card-admin my-4">
         <h5>Admin and champion only</h5>
-        <small>
-          <p>In the old system, there was a maximum of 9 images in the slider. Each image had it's own URL field in this form.</p>
-          <p>Now, in this new system, there can be unlimited images, and all images are uploaded in the file picker below.</p>
-          <p>This system uses the 'new way slider' if it has any images. If not it uses the 'old way'.</p>
-        </small>
-        <p>The <strong>New way</strong> of adding images:</p>
 
+        <br>
+
+        <%# f.input :image_bucket %>
+
+        <p><b>Portrait</b> was used on the old website.
+        Is it used on the new website?</p>
+        <%= f.input :portrait %>
+
+        <br>
+
+        <%= f.input :top_image %>
         <%= f.input :new_top_image, as: :file, input_html: { multiple: false, class: 'form-control' } %>
 
         <% if @company.new_top_image.attached? %>
@@ -177,6 +182,11 @@
               data: { confirm: 'Are you sure you want to remove this image?' } %>
           </div>
         <% end %>
+
+        <h4 class="mt-4">Slider images</h4>
+        <p>In the <b>old system</b>, there was a maximum of 9 images in the slider. Each image had it's own URL field in this form.</p>
+        <p>Now, in this <b>new system</b>, there can be unlimited images, and all images are uploaded in the file picker below.</p>
+        <p>The 'front end' uses the 'new way slider' if it has any images. If not, it uses the 'old way' images slider.</p>
 
         <div class="my-3">
           <%= f.input :slider_images, as: :file, input_html: { multiple: true, class: 'form-control' } %>
@@ -196,11 +206,6 @@
         </div>
 
         <hr>
-        <p>TODO:</p>
-        <ul>
-          <li>SKIP - profile_image? Only 1 image? (old name: 'Top_Image') used where?</li>
-          <li>contact_person_image? Only 1 image? (old name: 'Portrait') picture of the contact person</li>
-        </ul>
 
         Limits:
         <ul>
@@ -218,11 +223,6 @@
           <li>The old way took 1 image 'original' and created multiple sizes, 1200px, 940px etc</li>
           <li>Then a front end script was used to replace the URL, changing /1200px/ to /940px/ when needed.</li>
         </ul>
-
-        <h4>Profile image (old way)</h4>
-        <%# f.input :image_bucket %>
-        <%= f.input :top_image %>
-        <%= f.input :portrait %>
 
         <h4>Slider images (old way)</h4>
         <p>These images will only be used in a slider if the 'new way' above has no images.</p>
