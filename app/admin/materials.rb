@@ -5,7 +5,7 @@ ActiveAdmin.register Material do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :m_id, :name, :parent_id
+  permit_params :m_id, :name, :parent_id, :slug
   #
   # or
   #
