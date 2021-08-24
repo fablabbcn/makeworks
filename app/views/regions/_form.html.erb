@@ -35,7 +35,7 @@
         <% @region.partner_logos.each_with_index do |img, index| %>
           <div class="col-auto">
             <%= image_tag img, class: '', style: 'max-height:200px;' %>
-            <%= link_to "Remove", delete_partner_image_region_url(img.id),
+            <%= link_to "Remove", delete_partner_image_region_url(@region.id, image_id: img.id),
               class: 'd-block my-1 text-danger', method: :delete, remote: true,
               data: { confirm: 'Are you sure you want to remove this image?' } %>
           </div>

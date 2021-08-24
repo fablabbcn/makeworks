@@ -1,11 +1,15 @@
 class RegionsController < ApplicationController
-  before_action :set_region, only: [:show, :edit, :update, :destroy, :leave, :join]
+  before_action :set_region, only: [:show, :edit, :update, :destroy, :leave, :join, :delete_partner_image]
   skip_before_action :authenticate_user!, only: [:show, :index]
-  before_action :who_can_edit!, only: [:edit, :destroy, :update]
+  before_action :who_can_edit!, only: [:edit, :destroy, :update, :delete_partner_image]
   before_action :only_admins, only: [:new, :create]
 
   def who_can_edit!
-    if current_user && (current_user.is_champion_in_region(@region.id) || current_user.is_admin?)
+    if current_user && (
+        current_user.is_admin? ||
+        current_user.is_champion_in_region(@region.id)
+    )
+      # Nothing
     else
       flash[:error] = 'Only champions and admins can edit'
       redirect_to @region
@@ -20,7 +24,7 @@ class RegionsController < ApplicationController
   end
 
   def delete_partner_image
-    @image = ActiveStorage::Attachment.find(params[:id])
+    @image = ActiveStorage::Attachment.find(params[:image_id])
     @image.purge
     redirect_back(fallback_location: regions_url)
   end

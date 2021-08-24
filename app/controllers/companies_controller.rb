@@ -1,7 +1,8 @@
 class CompaniesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
-  before_action :set_company, only: [:show, :edit, :update, :destroy]
-  before_action :set_company_without_includes, only: [:edit_employee, :move_employee]
+  before_action :set_company_with_includes, only: [:show]
+  before_action :set_company, only: [:edit, :update, :destroy, :edit_employee, :move_employee, :delete_image_attachment]
+  before_action :set_user, only: [:edit_employee, :move_employee]
   before_action :who_can_edit!, only: [:edit, :destroy, :update, :delete_image_attachment]
   before_action :index, only: [:advanced] #reuse the index on /companies_advanced
 
@@ -12,10 +13,11 @@ class CompaniesController < ApplicationController
 
   def who_can_edit!
     if current_user && (
+        current_user.is_admin? ||
         current_user.is_champion_in_regions(@company&.region_ids) ||
-        current_user.is_employee_in_company(@company.id) ||
-        current_user.is_admin?
+        current_user.is_employee_in_company(@company.id)
     )
+      # Nothing
     else
       flash[:error] = 'Only admins and champions can edit'
       redirect_to @company
@@ -23,7 +25,7 @@ class CompaniesController < ApplicationController
   end
 
   def delete_image_attachment
-    @image = ActiveStorage::Attachment.find(params[:id])
+    @image = ActiveStorage::Attachment.find(params[:image_id])
     @image.purge
     redirect_back(fallback_location: companies_url)
   end
@@ -177,7 +179,7 @@ class CompaniesController < ApplicationController
   private
 
   # Use callbacks to share common setup or constraints between actions.
-  def set_company
+  def set_company_with_includes
     # NOTE: now we also show is_verified:false companies. Should we hide them?
     # Champions (not admins) need to see them, in order to VERIFY them.
     # .where(is_verified: true)
@@ -193,8 +195,11 @@ class CompaniesController < ApplicationController
       .friendly.find(params[:id])
   end
 
-  def set_company_without_includes
-    @company = Company.find(params[:id])
+  def set_company
+    @company = Company.friendly.find(params[:id])
+  end
+
+  def set_user
     @usr = User.find(params[:user])
   end
 

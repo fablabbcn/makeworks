@@ -173,7 +173,7 @@
               <% @company.slider_images.includes(:blob).each_with_index do |img, index| %>
                 <div class="col-auto">
                   <%= image_tag(img, class: 'd-block border', style: 'max-width: 100px') %>
-                  <%= link_to "Remove", delete_image_attachment_company_url(img.id),
+                  <%= link_to "Remove", delete_image_attachment_company_url(@company.id, image_id: img.id),
                      class: 'd-block my-1 text-danger', method: :delete, remote: true,
                      data: { confirm: 'Are you sure you want to remove this image?' } %>
                 </div>
