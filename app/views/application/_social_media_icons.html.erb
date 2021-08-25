@@ -36,12 +36,12 @@
 
 <% if @company.flickr.present? %>
   <%= link_to( @company.flickr, target: "_blank", class: 'text-decoration-none m-1', title: 'Flickr') do %>
-    <%= image_tag('flickr', class:'text-muted', height: 35) %>
+    <%= image_tag('flickr.svg', class:'text-muted', height: 35) %>
   <% end %>
 <% end %>
 
 <% if @company.pinterest.present? %>
   <%= link_to(@company.pinterest, target: "_blank", class: 'text-decoration-none m-1', title: 'Pinterest') do %>
-    <%= image_tag('pinterest', class:'text-muted', height: 30) %>
+    <%= image_tag('pinterest.svg', class:'text-muted', height: 30) %>
   <% end %>
 <% end %>
