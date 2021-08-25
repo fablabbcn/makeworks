@@ -94,5 +94,3 @@ Below is the 'OLD way' of adding images.
 * The old way took 1 image 'original' and created multiple sizes, 1200px, 940px etc
 * Then a front end script was used to replace the URL, changing /1200px/ to /940px/ when needed.
 * If more information is needed, it might be possible to contact Jamie who worked on the original web
-
-
