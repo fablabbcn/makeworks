@@ -211,6 +211,7 @@ class CompaniesController < ApplicationController
       :background,
       :description, :intro, :contact_name, :contact_email,
       :country_code,
+      :contact_avatar,
       :contact_phone, :contact_jobtitle, :flickr, :facebook, :instagram,
       :large_run, :lat, :lng, :linkedin, :location,
       :medium_run, :minimum_order, :number_of_staff, :file_types,

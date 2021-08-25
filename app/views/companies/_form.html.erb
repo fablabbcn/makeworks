@@ -164,10 +164,16 @@
 
         <%# f.input :image_bucket %>
 
-        <p><b>Portrait</b> was used on the old website.
-        Is it used on the new website?</p>
         <%= f.input :portrait %>
-
+        <%= f.input :contact_avatar, as: :file, input_html: { multiple: false, class: 'form-control' } %>
+        <% if @company.contact_avatar.attached? %>
+          <div class="text-center">
+            <%= image_tag(@company.contact_avatar, class: 'img-fluid', style: 'max-height: 200px') %>
+            <%= link_to "Remove", delete_image_attachment_company_url(@company.id, image_id: @company.contact_avatar.id),
+              class: 'd-block my-1 text-danger', method: :delete, remote: true,
+              data: { confirm: 'Are you sure you want to remove this image?' } %>
+          </div>
+        <% end %>
         <br>
 
         <%= f.input :top_image %>
@@ -206,23 +212,6 @@
         </div>
 
         <hr>
-
-        Limits:
-        <ul>
-          <li>Should all users be able to upload as many images as possible?</li>
-          <li>What if a bot / random user signs up and uploads 500 pictures?</li>
-          <li>Only Verified can upload images?</li>
-        </ul>
-
-        <p>Below is the 'OLD way' of adding images.</p>
-        <ul>
-          <li>It Uploaded images to Amazon S3 via plugin? (how / where)?</li>
-          <li>Each image has a column in the database.</li>
-          <li>There was a limit of 9 images. (To add more we have to create a new database column)</li>
-          <li>Ideally we should MERGE the 'old' way into the 'new' way</li>
-          <li>The old way took 1 image 'original' and created multiple sizes, 1200px, 940px etc</li>
-          <li>Then a front end script was used to replace the URL, changing /1200px/ to /940px/ when needed.</li>
-        </ul>
 
         <h4>Slider images (old way)</h4>
         <p>These images will only be used in a slider if the 'new way' above has no images.</p>

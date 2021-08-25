@@ -107,6 +107,23 @@
         <%= render 'social_media_icons' %>
       </div>
 
+      <div class="card card-body mt-4">
+        <% if @company.contact_avatar.attached? %>
+          <%= image_tag(@company.contact_avatar, class: 'img-fluid') %>
+        <% else %>
+          <%= image_tag(get_1200px(@company.portrait), alt: 'Portrait', class: 'img-fill', title: 'Portrait') if @company&.portrait.present? %>
+        <% end %>
+
+        <p class="mt-3">
+        <%= @company.contact_name %>
+        |
+        <%= @company.contact_jobtitle %>
+        </p>
+        <p>
+        <%= @company.contact_email %>
+        </p>
+      </div>
+
       <% if current_user&.is_admin? || current_user&.is_champion_in_regions(@company.regions) %>
         <div class="card-admin mt-4 p-5">
           <p class="text-center">Admin info:</p>
@@ -136,22 +153,6 @@
             <% end %>
           </ul>
           <hr>
-
-          <p>Contact name:
-          <%= @company.contact_name %> </p>
-
-          <p>Contact jobtitle:
-          <%= @company.contact_jobtitle %> </p>
-
-          <p>
-            Email:
-            <small>
-              <%= @company.contact_email %>
-            </small>
-          </p>
-
-          <small>Portrait image:</small>
-          <%= image_tag(get_1200px(@company.portrait), alt: 'Portrait', class: 'img-fill', title: 'Portrait') if @company&.portrait.present? %>
 
         </div>
       <% end %>

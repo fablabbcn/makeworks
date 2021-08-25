@@ -78,3 +78,21 @@ There are 3 roles:
 To become a 'champion' an admin needs to make you one, via the https://new.make.works/admin/user_regions interface.
 
 Edit manufacturering tags in a not verified listing as an admin by deleting /admin/ out of listing URL to enter front end editor.  
+
+## TODO consideration
+
+Images:
+* Should all users be able to upload as many images as possible?
+* What if a bot / random user signs up and uploads 500 pictures?
+* Only Verified can upload images?
+
+Below is the 'OLD way' of adding images.
+* It Uploaded images to Amazon S3 via plugin? (how / where)?
+* Each image has a column in the database.
+* There was a limit of 9 images. (To add more we have to create a new database column)
+* Ideally we should MERGE the 'old' way into the 'new' way
+* The old way took 1 image 'original' and created multiple sizes, 1200px, 940px etc
+* Then a front end script was used to replace the URL, changing /1200px/ to /940px/ when needed.
+* If more information is needed, it might be possible to contact Jamie who worked on the original web
+
+

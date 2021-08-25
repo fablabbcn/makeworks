@@ -67,6 +67,7 @@ en:
       company:
         address: Street address, house number, ZIP code
         background: History & background
+        contact_avatar: Profile picture of a contact person. (New way)
         description: Describe the manufacturer
         file_types: Indicate what types of files the manufacturer accepts
         film_ready: Film
@@ -75,10 +76,10 @@ en:
         machines_taxonomies: Select as many as you want
         minimum_order: Minimum order in your currency
         name: Name of the manufacturer
-        new_top_image: Main image to be used for this listing. There can be only one.
+        new_top_image: Main image to be used for this listing. (New way)
         number_of_staff: Enter a number
         regions: If the manufacturer belongs to any region(s)
-        portrait: URL to a picture of an employee.
+        portrait: The old way of uploading a contact person picture. Only used if Contact avatar is not used.
         slider_images: Upload images to be used in the slider (carousel)
         slug: The 'slug' that will be used in the URL to the manufacturer. Try not using dots, commas, slashes or symbols in the slug.
         soft_delete: Was used to hide manufacturers in the old system
