@@ -1,47 +1,47 @@
 <% if @company.linkedin.present? %>
-  <%= link_to(@company.linkedin, target: "_blank", class: 'text-decoration-none m-1') do %>
+  <%= link_to(@company.linkedin, target: "_blank", class: 'text-decoration-none m-1', title: 'LinkedIn') do %>
     <i class="bi bi-linkedin text-muted"></i>
   <% end %>
 <% end %>
 
 <% if @company.facebook.present? %>
-  <%= link_to(@company.facebook, target: "_blank", class: 'text-decoration-none m-1') do %>
+  <%= link_to(@company.facebook, target: "_blank", class: 'text-decoration-none m-1', title: 'Facebook') do %>
     <i class="bi bi-facebook text-muted"></i>
   <% end %>
 <% end %>
 
 <% if @company.instagram.present? %>
-  <%= link_to(@company.instagram, target: "_blank", class: 'text-decoration-none m-1') do %>
+  <%= link_to(@company.instagram, target: "_blank", class: 'text-decoration-none m-1', title: 'Instagram') do %>
     <i class="bi bi-instagram text-muted"></i>
   <% end %>
 <% end %>
 
 <% if @company.twitter.present? %>
-  <%= link_to(@company.twitter, target: "_blank", class: 'text-decoration-none m-1') do %>
+  <%= link_to(@company.twitter, target: "_blank", class: 'text-decoration-none m-1', title: 'Twitter') do %>
     <i class="bi bi-twitter text-muted"></i>
   <% end %>
 <% end %>
 
 <% if @company.youtube.present? %>
-  <%= link_to(@company.youtube, target: "_blank", class: 'text-decoration-none m-1') do %>
+  <%= link_to(@company.youtube, target: "_blank", class: 'text-decoration-none m-1', title: 'Youtube') do %>
     <i class="bi bi-youtube text-muted"></i>
   <% end %>
 <% end %>
 
 <% if @company.video_link.present? %>
-  <%= link_to(@company.video_link, target: "_blank", class: 'text-decoration-none m-1') do %>
+  <%= link_to(@company.video_link, target: "_blank", class: 'text-decoration-none m-1', title: 'Video') do %>
     <i class="bi bi-play-fill text-muted"></i>
   <% end %>
 <% end %>
 
 <% if @company.flickr.present? %>
-  <%= link_to( @company.flickr, target: "_blank", class: 'text-decoration-none m-1 fs-6') do %>
-    Flickr
+  <%= link_to( @company.flickr, target: "_blank", class: 'text-decoration-none m-1', title: 'Flickr') do %>
+    <%= image_tag('flickr', class:'text-muted', height: 35) %>
   <% end %>
 <% end %>
 
 <% if @company.pinterest.present? %>
-  <%= link_to(@company.pinterest, target: "_blank", class: 'text-decoration-none m-1 fs-6') do %>
-    Pinterest
+  <%= link_to(@company.pinterest, target: "_blank", class: 'text-decoration-none m-1', title: 'Pinterest') do %>
+    <%= image_tag('pinterest', class:'text-muted', height: 30) %>
   <% end %>
 <% end %>
