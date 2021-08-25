@@ -108,7 +108,7 @@ class CompaniesController < ApplicationController
   # POST /companies
   # POST /companies.json
   def create
-    @company = Company.new(company_params)
+    @company = Company.new(company_params.merge(user_id: current_user.id))
 
     respond_to do |format|
       if @company.save
@@ -242,6 +242,5 @@ class CompaniesController < ApplicationController
       manufacturer_taxonomy_ids: [],
       machines_taxonomy_ids: []
     )
-      .merge(user_id: current_user.id)
   end
 end

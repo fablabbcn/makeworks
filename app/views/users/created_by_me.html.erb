@@ -1,0 +1,21 @@
+<%= title t('shared.created_by_me') %>
+
+<%= render 'user_tabs' %>
+
+<% if @companies.empty? %>
+  <div class="card card-body my-5 p-5 text-center">
+    <p>Looks like you have not created any listings yet!</p>
+    <div class="d-flex justify-content-center my-4">
+      <%= link_to new_company_url, class: 'btn btn-blue' do %>
+        <%= t('shared.create_a_listing') %>
+        <i class="bi bi-arrow-right"></i>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<div class="row">
+  <% @companies.each do |company| %>
+    <%= render partial: 'companies/company', locals: { company: company } %>
+  <% end %>
+</div>

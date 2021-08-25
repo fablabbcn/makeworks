@@ -13,4 +13,8 @@
     <i class="bi bi-building"></i>
     <%= t("shared.my_companies") %>
   <% end %>
+  <%= link_to created_by_me_url, class: "btn #{'btn-outline-dark' if current_page?(created_by_me_url)}" do %>
+    <i class="bi bi-building"></i>
+    <%= t("shared.created_by_me") %>
+  <% end %>
 </div>

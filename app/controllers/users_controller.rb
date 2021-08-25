@@ -22,6 +22,10 @@ class UsersController < ApplicationController
     @users = @q.result(distinct: true).page(params[:page])
   end
 
+  def created_by_me
+    @companies = Company.where(user: current_user)
+  end
+
   # GET /users/1
   # GET /users/1.json
   def show

@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get '/styleguide', to: 'welcome#styleguide'
   get '/version', to: 'welcome#version'
 
+  get "/created_by_me", to: 'users#created_by_me'
   get "/my_companies", to: 'users#my_companies'
   get "/favorites", to: 'users#favorites'
   get "/users", to: 'users#index'
