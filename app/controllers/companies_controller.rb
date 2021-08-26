@@ -193,6 +193,8 @@ class CompaniesController < ApplicationController
         machines: [:machines_taxonomy]
       )
       .friendly.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to companies_url, flash: { error: "#{params[:id]} not found." }
   end
 
   def set_company
