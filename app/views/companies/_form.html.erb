@@ -11,7 +11,7 @@
         <%= f.input :film_ready %>
         <%= f.input :soft_delete %>
         <p>
-        <strong>Created by:</strong> <%= @company.user %>
+        <%= f.association :user, input_html: { 'data-controller': 'select2-user' } %>
         </p>
         <p>
         <strong>Created on:</strong> <%= @company.created_at %>

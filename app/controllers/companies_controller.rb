@@ -230,6 +230,7 @@ class CompaniesController < ApplicationController
       :batch_production,
       :production_access,
       :production_specifics,
+      :user_id,
       region_ids: [],
       slider_images: [],
       user_ids: [],
