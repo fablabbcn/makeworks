@@ -54,7 +54,9 @@
       </div>
     </div>
 
+    <%= f.button :submit if @company.persisted? %>
     <hr>
+
     <%= f.association :manufacturer_taxonomies, input_html: { 'data-controller': 'select2' } %>
     <%= f.input :intro %>
     <%= f.input :description %>
@@ -148,6 +150,9 @@
     </div>
 
 
+    <%= f.button :submit if @company.persisted? %>
+    <hr>
+
     <h3>
       <i class="bi bi-images"></i>
       Media
@@ -228,6 +233,8 @@
       </div>
     <% end %>
 
+    <%= f.button :submit if @company.persisted? %>
+    <hr>
 
     <h4>
       <i class="bi bi-tags"></i>
@@ -244,6 +251,7 @@
       <%= f.association :character_tags, input_html: { 'data-controller': 'select2' } %>
     <% end %>
 
+    <%= f.button :submit if @company.persisted? %>
     <hr>
     <h4>Production Info</h4>
     <%= f.input :turnaround_time %>
@@ -271,6 +279,7 @@
     <%= f.input :works_with_small_companies %>
     <%= f.input :works_with_students %>
 
+    <%= f.button :submit if @company.persisted? %>
     <hr>
     <h3>
       <i class="bi bi-person-lines-fill"></i>
