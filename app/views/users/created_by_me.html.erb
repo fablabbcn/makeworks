@@ -12,6 +12,13 @@
       <% end %>
     </div>
   </div>
+<% else %>
+  <div class="">
+    <%= link_to new_company_url, class: 'btn btn-blue' do %>
+      <%= t('shared.create_a_listing') %>
+      <i class="bi bi-arrow-right"></i>
+    <% end %>
+  </div>
 <% end %>
 
 <div class="row">
