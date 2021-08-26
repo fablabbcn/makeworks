@@ -7,6 +7,14 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'omniauth_callbacks'
   }
 
+  # Redirect rules to help the old web to new web migration
+  get '/birmingham', to: redirect('/regions/birmingham')
+  get '/brighton', to: redirect('/regions/brighton')
+  get '/derby', to: redirect('/regions/derby')
+  get '/scotland', to: redirect('/regions/scotland')
+  get '/sweden', to: redirect('/regions/sweden')
+  get '/uae', to: redirect('/regions/uae')
+
   get '/about', to: 'welcome#about'
   get '/contact', to: 'welcome#contact'
   get '/faq', to: 'welcome#faq'
