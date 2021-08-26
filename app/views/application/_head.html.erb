@@ -1,5 +1,5 @@
 <head>
-  <%= render partial: 'google_analytics' %>
+  <%= render partial: 'google_analytics' if Rails.env.production? %>
   <title><%= content_for?(:title) ? "#{yield(:title)} | Make Works" : 'Make Works' %></title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
