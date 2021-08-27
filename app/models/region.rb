@@ -6,6 +6,7 @@ class Region < ApplicationRecord
   has_many :companies, through: :company_organization
 
   default_scope { order(name: :asc) }
+  scope :is_public, -> { where(is_public: true) }
 
   extend FriendlyId
   friendly_id :name, use: [:slugged, :finders]

@@ -40,6 +40,6 @@ class WelcomeController < ApplicationController
   end
 
   def get_public_regions
-    @public_regions = Region.where(is_public: true)
+    @public_regions = Region.is_public
   end
 end
