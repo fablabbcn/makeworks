@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/scotland', to: redirect('/regions/scotland')
   get '/sweden', to: redirect('/regions/sweden')
   get '/uae', to: redirect('/regions/uae')
+  get '/uae/companies/', to: redirect('/companies?q%5Bregions_id_in%5D%5B%5D=6&q%5B')
 
   get '/about', to: 'welcome#about'
   get '/contact', to: 'welcome#contact'
