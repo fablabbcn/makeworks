@@ -1,19 +1,19 @@
 <div class="my-4">
-  <%= link_to user_url(current_user), class: "btn #{'btn-outline-dark' if current_page?(user_url(current_user)) || current_page?(edit_profile_url(current_user))}" do %>
+  <%= link_to user_url(current_user), class: "btn #{'btn-outline-dark' if current_page?(user_url(current_user)) || current_page?(edit_profile_url(current_user))}", title: 'My settings' do %>
     <i class="bi bi-person-circle"></i>
     <%= t("shared.user_settings") %>
   <% end %>
 
-  <%= link_to favorites_url, class: "btn #{'btn-outline-dark' if current_page?(favorites_url)}" do %>
+  <%= link_to favorites_url, class: "btn #{'btn-outline-dark' if current_page?(favorites_url)}", title: 'Favorited' do %>
     <i class="bi bi-star-fill"></i>
     <%= t("shared.saved_companies") %>
   <% end %>
 
-  <%= link_to my_companies_url, class: "btn #{'btn-outline-dark' if current_page?(my_companies_url)}" do %>
+  <%= link_to my_companies_url, class: "btn #{'btn-outline-dark' if current_page?(my_companies_url)}", title: 'In my region' do %>
     <i class="bi bi-building"></i>
     <%= t("shared.my_companies") %>
   <% end %>
-  <%= link_to created_by_me_url, class: "btn #{'btn-outline-dark' if current_page?(created_by_me_url)}" do %>
+  <%= link_to created_by_me_url, class: "btn #{'btn-outline-dark' if current_page?(created_by_me_url)}", title: 'Listings I created' do %>
     <i class="bi bi-building"></i>
     <%= t("shared.created_by_me") %>
   <% end %>
