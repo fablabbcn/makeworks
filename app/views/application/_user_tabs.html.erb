@@ -4,12 +4,12 @@
     <%= t("shared.user_settings") %>
   <% end %>
 
-  <%= link_to favorites_url, class: "btn #{'btn-outline-dark' if current_page?(favorites_url)}", title: 'Favorited' do %>
+  <%= link_to favorites_url, class: "btn #{'btn-outline-dark' if current_page?(favorites_url)}", title: 'Favorited listings' do %>
     <i class="bi bi-star-fill"></i>
     <%= t("shared.saved_companies") %>
   <% end %>
 
-  <%= link_to my_companies_url, class: "btn #{'btn-outline-dark' if current_page?(my_companies_url)}", title: 'In my region' do %>
+  <%= link_to my_companies_url, class: "btn #{'btn-outline-dark' if current_page?(my_companies_url)}", title: 'User is an Employee in these listings' do %>
     <i class="bi bi-building"></i>
     <%= t("shared.my_companies") %>
   <% end %>
