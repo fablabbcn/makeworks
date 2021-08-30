@@ -72,9 +72,6 @@
                 <%= link_to t("shared.machines"), machines_taxonomies_url, class: "dropdown-item #{'active' if current_page?(machines_taxonomies_url)}" %>
                 <%= link_to t("shared.manufacturers"), manufacturer_taxonomies_url, class: "dropdown-item #{'active' if current_page?(manufacturer_taxonomies_url)}" %>
                 <%= link_to t("shared.finished_products"), finished_products_taxonomies_url, class: "dropdown-item #{'active' if current_page?(finished_products_taxonomies_url)}" %>
-                <div class="dropdown-header">
-                  Remove the next 2?
-                </div>
                 <%= link_to "Taxonomies", taxonomies_url, class: "dropdown-item" %>
                 <%= link_to "Media", media_url, class: "dropdown-item" %>
               <% end %>
