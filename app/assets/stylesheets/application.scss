@@ -145,6 +145,12 @@ h6 {
   border-radius: 50%;
 }
 
+.avatar-large {
+  height: 195px;
+  width: 195px;
+  object-fit: cover;
+  border-radius: 50%;
+}
 .btn {
   border-radius: 20px;
   padding: 6px 30px;

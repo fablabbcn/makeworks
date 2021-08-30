@@ -26,6 +26,16 @@ class UsersController < ApplicationController
     @companies = Company.where(user: current_user)
   end
 
+  def delete_avatar
+    @image = ActiveStorage::Attachment.find(params[:image_id])
+
+    # Only the user that created the image can delete it
+    if (current_user.id == @image.record_id) && @image.record_type == "User"
+      @image.purge
+      redirect_back(fallback_location: edit_profile_url)
+    end
+  end
+
   # GET /users/1
   # GET /users/1.json
   def show

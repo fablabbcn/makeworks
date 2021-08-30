@@ -3,7 +3,6 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="card p-5">
-    <%= f.input :email %>
     <div class="row">
       <div class="col-6">
         <%= f.input :first_name %>
@@ -12,29 +11,36 @@
         <%= f.input :last_name %>
       </div>
     </div>
-    <div class="my-3">
+
+    <%= f.input :email %>
+
+    <div class="my-1">
       <%= f.input :locale, collection: locale_name_pairs, include_blank: false, input_html: { 'data-controller': 'select2' } %>
     </div>
 
     <%= f.label :bio %>
     <%= f.rich_text_area :bio %>
+    <br>
     <%= f.input :time_zone, input_html: { 'data-controller': 'select2' } %>
 
-    <p>
+    <small class="mb-3 text-muted">
     Time now in this zone: <%= Time.now.in_time_zone(current_user.time_zone) %>
-    </p>
+    </small>
 
 
     <% if current_user.is_admin? %>
       <%= f.input :is_admin %>
     <% end %>
 
+    <%= f.input :avatar, input_html: { class: 'form-control' } %>
     <% if @user.avatar.attached? %>
-      <div class="d-flex">
+      <div class="text-center">
         <%= image_tag @user.avatar, class: 'img-fluid', style: 'max-height:200px;' %>
+        <%= link_to "Remove", delete_user_avatar_url(@user.id, image_id: @user.avatar.id),
+          class: 'd-block my-1 text-danger', method: :delete, remote: true,
+          data: { confirm: 'Are you sure you want to remove this image?' } %>
       </div>
     <% end %>
-    <%= f.input :avatar, input_html: { class: 'form-control' } %>
 
     <div class="mt-5">
       <%= f.button :submit %>

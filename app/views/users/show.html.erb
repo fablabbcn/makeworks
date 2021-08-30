@@ -9,6 +9,12 @@
         <%= link_to "Edit", edit_profile_url(current_user), class: 'btn btn-primary mb-3' %>
       <% end %>
 
+      <div class="">
+        <% if @user.avatar.attached? %>
+          <%= image_tag @user.avatar, style: 'max-height:200px;', class: 'my-4 avatar-large shadow' %>
+        <% end %>
+      </div>
+
       <p>
       <strong>First name:</strong>
       <%= @user.first_name %>
@@ -42,11 +48,6 @@
       </p>
     </div>
 
-    <div class="">
-      <% if @user.avatar.attached? %>
-        <%= image_tag @user.avatar, style: 'max-height:200px;' %>
-      <% end %>
-    </div>
   </div>
 
   <hr>
