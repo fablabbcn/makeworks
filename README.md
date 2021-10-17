@@ -16,6 +16,7 @@ Staging web server:
 * Run tests with `rails test`
 * Run system tests with `rails test:system`
 * Automatic tests with `bundle exec guard`
+* If you need ENV vars you can do: `cp env.example .env`
 
 #### Import data
 
