@@ -41,7 +41,7 @@ jobs:
       run: |
         which yarn
         which npm
-        apt-get install build-essential
+        sudo apt-get install build-essential
         yarn install --check-files
 
     - name: Run tests
