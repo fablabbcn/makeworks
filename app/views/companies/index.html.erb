@@ -6,7 +6,7 @@
 
   <div class="col-md-9">
     <section class="row">
-      <% @companies.shuffle.each do |company| %>
+      <% @companies.each do |company| %>
         <article class="col-lg-6 col-xxl-4 mb-3">
 
           <%= render partial: 'companies/company_card', locals: { company: company } %>
