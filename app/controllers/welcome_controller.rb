@@ -13,7 +13,7 @@ class WelcomeController < ApplicationController
     @companies = Company
       .not_soft_deleted
       .verified
-      .sample(4)
+      .sample(3)
 
     render layout: 'blank'
   end
