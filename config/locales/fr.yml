@@ -7,107 +7,104 @@ fr:
       blog:
         dont_publish: Masquer le message
       company:
-        address: Address
-        number_of_staff: Staff nr.
+        address: Adresse
+        number_of_staff: Staff num.
       user:
-        locale: Language
+        locale: Langue
     models:
       company:
-        one: Manufacturer
-        other: Manufacturers
+        one: Fabricant
+        other: Fabricants
   name: Française
   shared:
-    a_global_library: a global library for local manufacturing
-    companies: Manufacturers
-    contact_us: Contact us
-    create_a_listing: Create a listing
-    create_a_listing_in_region: Create a listing in this region
-    create_an_account: Create an account
-    create_new: Create new
-    edit_region: Edit Region
-    employees: Employees
-    explore_all: Explore all manufacturers
-    finished_products: Finished products
+    a_global_library: une bibliothèque mondiale pour la fabrication locale
+    companies: Fabricants
+    contact_us: Contactez-nous
+    create_a_listing: Créer une annonce
+    create_a_listing_in_region: Créer une annonce dans cette région
+    create_an_account: Créer un compte
+    create_new: Créer nouveau
+    edit_region: Modifier la Région
+    employees: Employé(e)s
+    explore_all: Découvrez tous les fabricants
+    finished_products: Produits finis
     industries: Industries
-    info_roles: Each employee can have a different role. You can drag them around
-      to reorder the list.
-    join_free: Join free
-    log_in: Log in
-    log_out: Log out
+    info_roles: Chaque employé peut avoir un rôle différent. Vous pouvez les faire glisser pour réorganiser la liste.
+    join_free: S'inscrire gratuitement
+    log_in: Connexion
+    log_out: Déconnexion
     machines: Machines
-    manufacturers: Manufacturers
+    manufacturers: Fabricants
     manufacturers_in_region: Fabricants de la région
-    materials: Materials
-    my_companies: My listings
-    nearby_manufacturers: Nearby manufacturers
-    processes: Processes
-    regions: Regions
-    saved_companies: Saved listings
-    see_all_companies: See all manufacturers
-    sign_up: Sign up
-    start_your_region: Start your region
-    statistics: Statistics
-    submit_a_maker: Submit a maker
-    tagline: Find local manufacturers in your region
-    user_settings: User settings
-    you_can_filter: You can narrow down your search by filtering any of the following
-      drop-down.
+    materials: Matériaux
+    my_companies: Mes annonces
+    nearby_manufacturers: Fabricants à proximité
+    processes: Processus
+    regions: Régions
+    saved_companies: Annonces enregistrées
+    see_all_companies: Voir tous les fabricants
+    sign_up: S'inscrire
+    start_your_region: Démarrez votre région
+    statistics: Statistiques
+    submit_a_maker: Soumettre un maker
+    tagline: Trouvez des fabricants dans votre région
+    user_settings: Paramètres utilisateur
+    you_can_filter: Vous pouvez affiner votre recherche en utilisant les listes déroulantes suivantes.
   simple_form:
     hints:
       blog:
-        blog_categories: Choose as many categories as needed
-        slug: The URL the blog will use
-        sub_title: The sub title
-        title: The main title
+        blog_categories: Choisissez autant de catégories que nécessaire
+        slug: L'URL que le blog utilisera
+        sub_title: Le sous-titre
+        title: Le titre principal
       company:
-        address: Street address, house number, ZIP code
-        background: History & background
-        description: Describe the manufacturer
-        file_types: Indicate what types of files the manufacturer accepts
+        address: Adresse, numéro de maison, code postal
+        background: Histoire & contexte
+        description: Décrivez le fabricant
+        file_types: Indiquez quels types de fichiers le fabricant accepte
         film_ready: Film
-        intro: Describe your listing in one sentence
-        location: Name of the City
-        machines_taxonomies: Select as many as you want
-        minimum_order: Minimum order in your currency
-        name: Name of the manufacturer
-        number_of_staff: Enter a number
-        regions: If the manufacturer belongs to any region(s)
-        slider_images: Upload images to be used in the slider (carousel)
-        slug: The 'slug' that will be used in the URL to the manufacturer
-        soft_delete: Was used to hide manufacturers in the old system
-        website: Does the manufacturer have a website?
+        intro: Décrivez votre annonce en une phrase
+        location: Nom de la ville
+        machines_taxonomies: Sélectionnez autant que vous voulez
+        minimum_order: Commande minimum dans votre devise
+        name: Nom du fabricant
+        number_of_staff: Entrez un nombre
+        regions: Si le fabricant appartient à une ou plusieurs régions
+        slider_images: Télécharger des images à utiliser dans le carrousel
+        slug: Le "slug" qui sera utilisé dans l'URL du fabricant
+        soft_delete: Était utilisé pour cacher les fabricants dans l'ancien système
+        website: Le fabricant a-t-il un site web ?
       region:
         lat: Latitude
         lng: Longitude
-        logo: The old way of storing logos
-        slug: The 'slug' that will be used in the URL to the region
+        logo: L'ancienne façon de stocker les logos
+        slug: Le "slug" qui sera utilisé dans l'URL de la région
       user:
-        locale: Choose a language for the system. All tags and user data will still
-          be in English.
+        locale: Choisissez une langue pour le système. Toutes les balises et les données utilisateur seront toujours en anglais.
     include_blanks:
       company:
         region: prom
     labels:
       company:
-        address: Address
-        batch_production: Batch production / prototype
-        bespoke_one_offs: Bespoke one offs
-        country_code: Country
-        finished_products_taxonomies: Finished products tags
-        industry_taxonomies: Industry tags
-        large_run: Large Run (1000+)
+        address: Adresse
+        batch_production: Production en série / prototype
+        bespoke_one_offs: Pièces uniques sur mesure
+        country_code: Pays
+        finished_products_taxonomies: Étiquettes de produits finis
+        industry_taxonomies: Étiquettes d'industrie
+        large_run: Grande production (1000+)
         lat: Latitude
         lng: Longitude
-        machines_taxonomies: Machine tags
-        manufacturer_taxonomies: Type of fabrication space
-        material_tags: Material tags
-        medium_run: Medium run (500-1000)
-        process_taxonomies: Process tags
-        production_accesses: Production Access
-        sample_production: Sample production (up to 10)
-        short_run: Short run (100-500)
-        slug: Trimmed name
+        machines_taxonomies: Étiquettes de machine
+        manufacturer_taxonomies: Type d'espace de fabrication
+        material_tags: Étiquette de matériaux
+        medium_run: Production moyenne (500-1000)
+        process_taxonomies: Étiquette de processus
+        production_accesses: Accès à la production
+        sample_production: Production d'échantillons (up to 10)
+        short_run: Production petite (100-500)
+        slug: Nom raccourci
       region:
-        slug: Trimmed name
+        slug: Nom raccourci
     placeholders:
       company: 
