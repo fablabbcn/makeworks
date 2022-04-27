@@ -14,8 +14,8 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <%# link_to t("shared.regions"), regions_url,     class: "nav-link mb-3 mb-md-0 me-2 ms-auto btn #{current_page?(regions_url) ? 'btn-primary' : 'btn-outline-primary'}" %>
       <%= link_to t("shared.companies"), companies_url, class: "nav-link mx-2 my-2 my-lg-0 ms-lg-auto btn #{current_page?(companies_url) ? 'active' : 'btn-blank'}" %>
-      <%= link_to "Stories", blogs_url,                 class: "nav-link mx-2 my-2 my-lg-0 btn #{current_page?(blogs_url) ? 'active' : 'btn-blank'}" %>
-      <%= link_to "About", about_url,                   class: "nav-link mx-2 my-2 my-lg-0 btn #{current_page?(about_url) ? 'active' : 'btn-blank'}" %>
+      <%= link_to t("shared.stories"), blogs_url,                 class: "nav-link mx-2 my-2 my-lg-0 btn #{current_page?(blogs_url) ? 'active' : 'btn-blank'}" %>
+      <%= link_to t("shared.about"), about_url,                   class: "nav-link mx-2 my-2 my-lg-0 btn #{current_page?(about_url) ? 'active' : 'btn-blank'}" %>
 
       <% if current_user %>
         <ul class="navbar-nav mx-2">
@@ -56,10 +56,10 @@
               <% if current_user.is_admin? %>
                 <div class="dropdown-divider"></div>
                 <div class="dropdown-header">
-                  Admin only
+                  <%= t("shared.admin_only") %>
                 </div>
                 <%= link_to "/admin", target: '_blank', class: "dropdown-item" do %>
-                  Admin dashboard
+                  <%= t("shared.admin_dashboard") %>
                   <i class="bi bi-box-arrow-up-right text-muted"></i>
                 <% end %>
                 <%= link_to stats_url, class: 'dropdown-item' do %>
@@ -68,7 +68,7 @@
                 <% end %>
                 <%= link_to t("shared.processes"), process_taxonomies_url, class: "dropdown-item #{'active' if current_page?(process_taxonomies_url)}" %>
                 <%= link_to t("shared.materials"), materials_url, class: "dropdown-item #{'active' if current_page?(materials_url)}" %>
-                <%= link_to t("shared.industry"), industry_taxonomies_url, class: "dropdown-item #{'active' if current_page?(industry_taxonomies_url)}" %>
+                <%= link_to t("shared.industries"), industry_taxonomies_url, class: "dropdown-item #{'active' if current_page?(industry_taxonomies_url)}" %>
                 <%= link_to t("shared.machines"), machines_taxonomies_url, class: "dropdown-item #{'active' if current_page?(machines_taxonomies_url)}" %>
                 <%= link_to t("shared.manufacturers"), manufacturer_taxonomies_url, class: "dropdown-item #{'active' if current_page?(manufacturer_taxonomies_url)}" %>
                 <%= link_to t("shared.finished_products"), finished_products_taxonomies_url, class: "dropdown-item #{'active' if current_page?(finished_products_taxonomies_url)}" %>

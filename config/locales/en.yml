@@ -18,6 +18,9 @@ en:
   name: English
   shared:
     a_global_library: a global library for local manufacturing
+    about: About
+    admin_only: Admin only
+    admin_dashboard: Admin dashboard
     character_tags: Features
     companies: Manufacturers
     company_marked_soft_delete: Listing has been marked for soft deletion.
@@ -30,6 +33,7 @@ en:
     create_new: Create new
     created_by_me: Created by me
     edit_region: Edit Region
+    email: Email
     employees: Employees
     explore_all: Explore all manufacturers
     finished_products: Finished products
@@ -54,8 +58,10 @@ en:
     sign_up: Sign up
     start_your_region: Start your region
     statistics: Statistics
+    stories: Stories
     submit_a_maker: Submit a maker
     tagline: Find local manufacturers in your region
+    timezone: Time zone
     user_settings: User settings
     you_can_filter: You can narrow down your search by filtering any of the following
       drop-down.
@@ -129,3 +135,7 @@ en:
         slug: Trimmed name
     placeholders:
       company: 
+  user:
+    first_name: First name
+    last_name: Last name
+    biography: Biography

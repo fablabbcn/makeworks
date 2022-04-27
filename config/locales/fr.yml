@@ -18,13 +18,18 @@ fr:
   name: Française
   shared:
     a_global_library: une bibliothèque mondiale pour la fabrication locale
+    about: À propos
+    admin_only: Administrateur uniquement
+    admin_dashboard: Tableau de bord administrateur
     companies: Fabricants
     contact_us: Contactez-nous
     create_a_listing: Créer une annonce
     create_a_listing_in_region: Créer une annonce dans cette région
     create_an_account: Créer un compte
     create_new: Créer nouveau
+    created_by_me: Créé par moi
     edit_region: Modifier la Région
+    email: Email
     employees: Employé(e)s
     explore_all: Découvrez tous les fabricants
     finished_products: Produits finis
@@ -46,8 +51,10 @@ fr:
     sign_up: S'inscrire
     start_your_region: Démarrez votre région
     statistics: Statistiques
+    stories: Histoires
     submit_a_maker: Soumettre un maker
     tagline: Trouvez des fabricants dans votre région
+    timezone: Fuseau horaire
     user_settings: Paramètres utilisateur
     you_can_filter: Vous pouvez affiner votre recherche en utilisant les listes déroulantes suivantes.
   simple_form:
@@ -108,3 +115,7 @@ fr:
         slug: Nom raccourci
     placeholders:
       company: 
+  user:
+    first_name: Prénom
+    last_name: Nom de famille
+    biography: Biographie

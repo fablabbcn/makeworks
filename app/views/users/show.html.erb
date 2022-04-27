@@ -16,34 +16,34 @@
       </div>
 
       <p>
-      <strong>First name:</strong>
+      <strong><%= t("user.first_name") %>:</strong>
       <%= @user.first_name %>
       </p>
 
       <p>
-      <strong>Last name:</strong>
+      <strong><%= t("user.last_name") %>:</strong>
       <%= @user.last_name %>
       </p>
 
       <% if current_user == @user %>
         <p>
-        <strong>Email:</strong>
+        <strong><%= t("shared.email") %>:</strong>
         <%= @user.email %>
         </p>
 
         <p>
-        <strong>Language:</strong>
+        <strong><%= t("activerecord.attributes.user.locale") %>:</strong>
         <%= @user.locale %>
         </p>
 
         <p>
-        <strong>Time zone:</strong>
+        <strong><%= t("shared.timezone") %>:</strong>
         <%= @user.time_zone %>
         </p>
       <% end %>
 
       <p>
-      <strong>Biography:</strong>
+      <strong><%= t("user.biography") %>:</strong>
       <%= @user.bio %>
       </p>
     </div>
