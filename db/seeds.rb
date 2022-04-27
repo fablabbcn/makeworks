@@ -8,7 +8,9 @@
 
 20.times do |x|
   User.create!(
-    email: Faker::Internet.email,
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.unique.email,
     password: Faker::Internet.password,
     is_admin: false
   )
@@ -17,53 +19,52 @@ end
 15.times do |x|
   Region.create!(
     name: Faker::Address.city,
-    lat: Faker::Address.latitude;
-    lng: Faker::Address.longitude
+    lat: Faker::Address.latitude,
+    lng: Faker::Address.longitude,
+    is_public: true
   )
 end
 
 15.times do |x|
   Company.create!(
-    name: Faker::Company.name,
-    address: Faker::Address.street_address
-    lat: Faker::Address.latitude;
-    lng: Faker::Address.longitude
+    name: Faker::Company.unique.name,
+    address: Faker::Address.street_address,
+    lat: Faker::Address.latitude,
+    lng: Faker::Address.longitude,
+    is_verified: true
   )
 end
 
 10.times do |x|
   IndustryTaxonomy.create!(
-    name: Faker::Company.industry
+    name: Faker::Company.unique.industry
   )
 end
 
 10.times do |x|
   Material.create!(
-    name: Faker::Construction.material
+    name: Faker::Construction.unique.material
   )
 end
 
 10.times do |x|
   MachinesTaxonomy.create!(
-    name: Faker::Appliance.equipment
+    name: Faker::Appliance.unique.equipment
   )
 end
 
 10.times do |x|
   ProcessTaxonomy.create!(
-    name: Faker::Verb.ing_form
+    name: Faker::Verb.unique.ing_form
   )
 end
 
-10.times do |x|
-  FinishedProductsTaxonomy.create!([
-    { name: "Ancient techniques" },
-    { name: "Family business" },
-    { name: "Innovative production" },
-    { name: "Family business" },
-    { name: "One of a kind (bespoke)" },
-    { name: "Vegan" },
-    { name: "Woman owned-business" },
-    { name: "Zero waste" }
-  ])
-end
+FinishedProductsTaxonomy.create!([
+  { name: "Ancient techniques" },
+  { name: "Family business" },
+  { name: "Innovative production" },
+  { name: "One of a kind (bespoke)" },
+  { name: "Vegan" },
+  { name: "Woman owned-business" },
+  { name: "Zero waste" }
+])
