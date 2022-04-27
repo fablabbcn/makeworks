@@ -1,11 +1,11 @@
 ---
 fr:
   active_admin:
-    dashboard: Dashboard
+    dashboard: Tableau de bord
   activerecord:
     attributes:
       blog:
-        dont_publish: Hide post
+        dont_publish: Masquer le message
       company:
         address: Address
         number_of_staff: Staff nr.
@@ -36,7 +36,7 @@ fr:
     log_out: Log out
     machines: Machines
     manufacturers: Manufacturers
-    manufacturers_in_region: Manufacturers in region
+    manufacturers_in_region: Fabricants de la région
     materials: Materials
     my_companies: My listings
     nearby_manufacturers: Nearby manufacturers
