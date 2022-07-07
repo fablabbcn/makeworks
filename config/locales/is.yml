@@ -15,7 +15,9 @@ is:
   shared:
     companies: Fyrirtæki
     create_new: Búa til nýtt
+    created_by_me: Búið til af mér
     edit_region: Breyta svæði
+    email: Netfang
     explore_all: Skoða allt
     finished_products: Tilbúnar vörur
     industries: Iðnaður
@@ -28,10 +30,12 @@ is:
     nearby_manufacturers: Nálægir framleiðendur
     processes: Ferlar
     regions: Svæði
+    saved_companies: Vistuð fyrirtæki
     see_all_companies: Sjá alla framleiðendur
     sign_up: Búa til aðgang
     statistics: Tölfræði
     tagline: Finndu framleiðendur á þínu svæði
+    user_settings: Stillingar notanda
   simple_form:
     hints:
       company:
@@ -48,3 +52,8 @@ is:
         lng: Lengdargráða
       user:
         locale: Language
+  user:
+    biography: Upplýsingar
+    first_name: Fornafn
+    last_name: Eftirnafn
+    time_zone: Tímabelti
