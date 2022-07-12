@@ -3,9 +3,7 @@
 <section class="p-5 landingheader">
   <div class="p-md-5 mt-5">
     <h1 class="text-center mx-auto" style="max-width:800px;">
-      Find local and sustainable
-      fabricators, material suppliers
-      and workshop facilities
+      Trouvez des fabricants locaux et durables, des fournisseurs de matériaux et des installations d'atelier
     </h1>
   </div>
 
@@ -32,24 +30,24 @@
 
 <section class="bg-grey3 p-5 text-center">
   <div class="container">
-    <h2 class="mb-0">How does it work?</h2>
+    <h2 class="mb-0">Comment ça marche ?</h2>
 
     <div class="row">
       <div class="col-md-4">
         <img src="<%= image_url('browse.png') %>" class="img-fluid w-75" alt="Make Works illustrations"/>
 
-        <h3>Explore</h3>
-        <p>Explore the processes, materials and machinery you need to fabricate work</p>
+        <h3>Découvre</h3>
+        <p>Découvrez les processus, les matériaux et les machines dont vous avez besoin pour fabriquer le travail</p>
       </div>
       <div class="col-md-4">
         <img src="<%= image_url('match.png') %>" class="img-fluid w-75" alt="Make Works illustrations"/>
-        <h3>Connect</h3>
-        <p>In-depth information so you can find the right manufacturer to work with</p>
+        <h3>Contact</h3>
+        <p>Des informations détaillées vous permettent de trouver le bon fabricant avec lequel travailler</p>
       </div>
       <div class="col-md-4">
         <img src="<%= image_url('contact.png') %>" class="img-fluid w-75" alt="Make Works illustrations"/>
-        <h3>Produce</h3>
-        <p>Get in touch with manufacturers directly and start making work</p>
+        <h3>Fabrique</h3>
+        <p>Entrez directement en contact avec les fabricants et commencez à travailler</p>
       </div>
     </div>
   </div>
@@ -57,20 +55,20 @@
 
 <section class="py-5">
   <div class="container">
-    <h2>Find the right manufacturer</h2>
+    <h2>Trouver le bon fabricant</h2>
     <div class="row my-4">
 
       <article class="col-md-4">
         <div class="card bg-dark text-white">
           <%= image_tag('https://static.make.works/company/FluxLaser_2/1200px/110814MakeWorks_FluxLaser_EoinCarey_8.jpg', alt: 'Plastic for good', class: 'card-img img-fill', style: 'border-radius: inherit; height: 350px; opacity: 0.7;')%>
           <div class="card-img-overlay p-4">
-            <h3 class="fw-bold">Innovative production</h3>
-            <p>Making products at scale with high capacity fabricators and material suppliers</p>
+            <h3 class="fw-bold">Fabrication innovante</h3>
+            <p>Fabriquer des produits à grande échelle avec des fabricants et des fournisseurs de matériaux de grande capacité</p>
 
             <%= link_to "/companies?q%5Bcharacter_tags_id_in%5D%5B%5D=5&commit=Search",
               class: 'btn bg-white position-absolute',
               style: 'bottom: 20px;' do %>
-              Explore
+              <%= t("shared.explore") %>
               <i class="bi bi-arrow-right"></i>
             <% end %>
           </div>
@@ -81,13 +79,13 @@
         <div class="card bg-dark text-white">
           <%= image_tag('https://static.make.works/company/KnockcandoMill/1200px/120215_KnockcandoMill_3.jpg', alt: 'Plastic for good', class: 'card-img img-fill', style: 'border-radius: inherit; height: 350px; opacity: 0.7;')%>
           <div class="card-img-overlay p-4">
-            <h3 class="fw-bold">Made circular</h3>
-            <p>Working with manufacturers which use sustainable materials, up-cycle or produce zero waste</p>
+            <h3 class="fw-bold">Économie circulaire</h3>
+            <p>Travailler avec des fabricants qui utilisent des matériaux durables, recyclent ou produisent zéro déchet</p>
 
             <%= link_to "/companies?q%5Bcharacter_tags_id_in%5D%5B%5D=2&commit=Search",
               class: 'btn bg-white position-absolute',
               style: 'bottom: 20px;' do %>
-              Explore
+              <%= t("shared.explore") %>
               <i class="bi bi-arrow-right"></i>
             <% end %>
           </div>
@@ -98,13 +96,13 @@
         <div class="card bg-dark text-white">
           <%= image_tag('https://static.make.works/company/SkyeKnives/1200px/2013-08-12_MakeWorks_SkyeKnifes_StudioRoRo_1798.jpg', alt: 'Plastic for good', class: 'card-img img-fill', style: 'border-radius: inherit; height: 350px;')%>
           <div class="card-img-overlay p-4">
-            <h3 class="fw-bold">One of a kind</h3>
-            <p>Creating bespoke items and small batches for customised production</p>
+            <h3 class="fw-bold">Sur mesure</h3>
+            <p>Création d'articles sur mesure et de petits lots pour une production personnalisée</p>
 
             <%= link_to "/companies?q%5Bcharacter_tags_id_in%5D%5B%5D=4&commit=Search",
               class: 'btn bg-white position-absolute',
               style: 'bottom: 20px;' do %>
-              Explore
+              <%= t("shared.explore") %>
               <i class="bi bi-arrow-right"></i>
             <% end %>
           </div>
@@ -115,13 +113,13 @@
         <div class="card bg-dark text-white">
           <%= image_tag('https://static.make.works/company/al_fakher_pottery/1200px/2017_10_01_MakeWorks_al_fakher_pottery_Sami_Sasso_091013004848.jpg', alt: 'Plastic for good', class: 'card-img img-fill', style: 'border-radius: inherit; height: 350px; opacity: 0.7;')%>
           <div class="card-img-overlay p-4">
-            <h3 class="fw-bold">Ancient techniques</h3>
-            <p>Support artisans and keeping ancient crafts alive</p>
+            <h3 class="fw-bold">Techniques anciennes</h3>
+            <p>Soutenir les artisans et faire vivre les métiers anciens</p>
 
             <%= link_to "/companies?q%5Bcharacter_tags_id_in%5D%5B%5D=3&commit=Search",
               class: 'btn bg-white position-absolute',
               style: 'bottom: 20px;' do %>
-              Explore
+              <%= t("shared.explore") %>
               <i class="bi bi-arrow-right"></i>
             <% end %>
           </div>
@@ -173,8 +171,8 @@
 
 <section class="bg-grey3 p-5">
   <div class="container">
-    <h2 class="mt-5">Need inspiration?</h2>
-    <p>Explore popular search terms from the community</p>
+    <h2 class="mt-5">Besoin d'inspiration ?</h2>
+    <p>Découvrez les mot cléfs populaires de la communauté</p>
 
     <div>
       <% CharacterTag.promoted.each do |tag|  %>
@@ -185,23 +183,23 @@
 </section>
 
 <section class="container my-5">
-  <h2>Make Works regions</h2>
-  <p>Make Works operates in <%= Region.all.count %> regions, with more to come.</p>
+  <h2>Régions Make Works</h2>
+  <p>Make Works opère dans <%= Region.all.count %> régions, et plus à venir.</p>
   <%= render partial: 'region_map', locals: { locations: @public_regions.with_lat_lng} %>
 </section>
 
 <section class="bg-green p-5">
   <div class="container">
-    <h2 class="mt-5">About Make Works</h2>
+    <h2 class="mt-5">À propos de Make Works</h2>
     <p>
-    Make Works are making manufacturing accessible. Think of it like a public library.
-    An open resource made by dedicated factory finders where you can discover skilled
-    manufacturers, tools and materials to make work with in your area.
+    Make Works rend la fabrication accessible. Pensez-y comme une bibliothèque publique.
+     Une ressource ouverte créée par des chercheurs d'usine dédiés où vous pouvez découvrir des
+     fabricants, outils et matériaux avec lesquels travailler dans votre région.
     </p>
 
     <%= link_to  about_url, class: 'btn btn-dark mb-5' do %>
-      Read more
-      <i class="bi bi-arrow-right ms-4"></i>
+      <%= t("shared.read_more") %>
+      <i class="bi bi-arrow-right ms-4"></i> <!-- the arrow doesn't show up -->
     <% end %>
   </div>
 </section>
