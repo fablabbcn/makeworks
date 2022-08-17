@@ -6,7 +6,7 @@
   <div class="justify-content-between d-flex">
     <div class="">
       <% if @user == current_user %>
-        <%= link_to "Edit", edit_profile_url(current_user), class: 'btn btn-primary mb-3' %>
+        <%= link_to t('shared.edit'), edit_profile_url(current_user), class: 'btn btn-primary mb-3' %>
       <% end %>
 
       <div class="">

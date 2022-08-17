@@ -16,6 +16,11 @@ en:
         one: Manufacturer
         other: Manufacturers
   name: English
+  blog:
+    inspiring_stories: Inspiring stories from and about our making community
+    search_blog_title: Search for a blog title / content
+    select_category: Select category
+    new_story: New story
   shared:
     a_global_library: a global library for local manufacturing
     about: About
@@ -32,15 +37,20 @@ en:
     create_an_account: Create an account
     create_new: Create new
     created_by_me: Created by me
+    edit: Edit
     edit_region: Edit Region
+    editing_user: Editing user
     email: Email
     employees: Employees
     explore_all: Explore all manufacturers
+    explore: Explore
+    exploring_companies: Start exploring companies
     finished_products: Finished products
     industries: Industries
     info_roles: Each employee can have a different role. You can drag them around
       to reorder the list.
     join_free: Join free
+    join_today_listing: Join today and find new clients to grow your business!
     log_in: Log in
     log_out: Log out
     machines: Machines
@@ -50,8 +60,12 @@ en:
     my_companies: My listings
     nearby_manufacturers: Nearby manufacturers
     processes: Processes
+    project_by: A project by
     reach_new_clients: Register and reach new clients to grow your business!
+    read_more: Read more
     regions: Regions
+    roulette: Roulette
+    save_to_favorite: Save your favorites to check and later contact the ones that suits best for your project.
     saved_companies: Saved listings
     search_nothing_found: Nothing found. Try widening the search.
     see_all_companies: See all manufacturers
@@ -60,11 +74,30 @@ en:
     statistics: Statistics
     stories: Stories
     submit_a_maker: Submit a maker
+    submit_manufacturer: Submit a manufacturer
     tagline: Find local manufacturers in your region
     timezone: Time zone
     user_settings: User settings
+    user_part_regions: User is a part of these regions
+    user_part_companie_html: User is an <b>employee</b> in these companies
     you_can_filter: You can narrow down your search by filtering any of the following
       drop-down.
+    your_email_address: Your email address
+    stay_tuned: Stay tuned to the latest
+    follow: Follow Make Works
+    contact: Contact
+    legal: Legal
+    getting_listed: Getting listed
+    searching_finding: Searching and finding
+    glossary: Glossary
+    faq: FAQs
+    how_it_works: How it works
+    discover: Discover
+    all_regions: All regions
+    all_manufacturers: All manufacturers
+    all_categories: All categories
+    slug: Trimmed name
+
   simple_form:
     hints:
       blog:
@@ -73,7 +106,7 @@ en:
         sub_title: The sub title
         title: The main title
       company:
-        address: Street address, house number, ZIP code
+        address: Street address, house number, postal code
         background: History & background
         contact_avatar: Profile picture of a contact person. (New way)
         description: Describe the manufacturer
@@ -135,7 +168,3 @@ en:
         slug: Trimmed name
     placeholders:
       company: 
-  user:
-    first_name: First name
-    last_name: Last name
-    biography: Biography

@@ -1,0 +1,147 @@
+<div class="aboutheader text-center">
+  <div class='text-white text-center' style="padding-top: 240px;">
+    <%= title 'About Make Works' %>
+
+    <p class="mx-auto" style="max-width: 700px">
+    Make Works rend la fabrication accessible.
+    Pensez-y comme une bibliothèque publique.
+    Une ressource ouverte créée par des chercheurs d'usine dédiés où vous pouvez découvrir des fabricants qualifiés, des outils et du matériel pour faire du travail dans votre région.    </p>
+  </div>
+</div>
+
+
+<div class="container-xxl mt-5">
+  <h3 class="my-5">
+  Make Works est une bibliothèque mondiale pour la fabrication locale, mettant en relation les personnes qui veulent fabriquer avec celles qui le font. Nous visons une fabrication gratuite et accessible pour les artistes, designers et makers.
+  <br><br>Make Works se compose de plusieurs <i>régions</i> chacune dirigée par des champions communautaires en collaboration avec des partenaires locaux. Nous croyons aux équipes distribuées et à la gouvernance collaborative.  </h3>
+
+  <%= render partial: 'region_map', locals: { locations: Region.is_public.with_lat_lng } if Region.is_public.with_lat_lng.present? %>
+
+  <div class="row my-5">
+    <div class="col-md-6">
+      <p>
+      Make Works s'associe à des particuliers et des organisations à travers le Royaume-Uni et au-delà qui souhaitent gérer leur propre répertoire de fabrication en libre accès pour leur région.
+      Nos partenaires ne sont pas seulement des personnes qui utilisent notre plateforme - ce sont d'autres geeks de la fabrication qui sont passionnés par la fabrication locale sous des angles tels que la créativité, la durabilité et l'économie.
+
+      Plus récemment, en 2019, Make Works a été transféré à l'<a href="https://iaac.net/">Institut d'Architecture Avancée de Catalogne</a> (IAAC), <a href="https://fablabbcn.org/">Fab City Research Lab Barcelona</a>, et fait partie de la <a href="https://distributeddesign.eu/">Distributed Design Platform</a> de Fab City, financée par Creative Europe.
+      </p>
+    </div>
+    <div class="col-md-6">
+      <h4>Vous voulez en savoir plus?</h4>
+      <p class="my-4">Consultez nos régions pour connaître les nouvelles inscriptions, les dernières nouvelles, les partenaires locaux et les événements. Vous souhaitez créer votre propre Région ? Visitez notre <a href="https://flbcn.gitbook.io/make-works/">guide</a> et contactez-nous via <a href="mailto:make.works@fablabbcn.org">make.works@fablabbcn.org</a</p>
+      <div class="dropdown">
+        <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownRegions2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Liste de régions
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="dropdownRegions2">
+          <% @public_regions.each do |region| %>
+            <%= link_to region.name, region, class: 'dropdown-item' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-md-6">
+      <h2>Quoi?</h2>
+      <p>Make Works est une bibliothèque mondiale pour la fabrication locale, où vous pouvez effectuer une recherche par matériau, processus ou nom d'usine pour trouver quelqu'un qui vous aidera à donner vie à vos idées. Nous hébergeons et vérifions des fabricants, des fabricants et des usines de toutes formes et tailles grâce aux recommandations de personnes comme vous et à nos équipes sur le terrain.</p>
+    </div>
+
+    <div class="col-md-6">
+      <h2>Comment?</h2>
+      <p>Vous pouvez rechercher ou parcourir les processus de fabrication, les matériaux, les machines ou les équipements dont vous avez besoin. Il peut s'agir d'un dossier de conception, d'une nouvelle œuvre d'art, d'un produit matériel, de l'équipement d'un magasin, d'accessoires ou d'un décor pour un spectacle, ou simplement de quelque chose pour votre maison - tout ce que vous devez faire ou réparer. Une fois que vous avez trouvé une usine qui vous convient, contactez directement pour commencer à fabriquer.</p>
+    </div>
+
+    <div class="col-md-6">
+      <h2>Pourquoi?</h2>
+      <p>La fabrication locale est meilleure pour l'environnement, soutient les économies locales et soutient les communautés. Make Works est ouvert et accessible, connectant directement les gens à la fabrication et à la réparation d'objets, démocratisant l'accès à la production et investissant dans les économies, les compétences et la communauté locales. Nous siégeons au sein de la <a href="https://fab.city/">Fab City Global Initiative</a> qui permet de s'éloigner du paradigme industriel du Product-in Trash-out, en permettant le retour de fabrication vers les villes soutenues par un modèle urbain Data-In Data-out.</p>
+      <p>Nous voulons rendre la fabrication plus facile, accessible et locale.</p>
+    </div>
+
+    <div class="col-md-6">
+      <h2>Pour qui?</h2>
+      <p>Make Works s'adresse à tout le monde, que vous souhaitiez faire fabriquer un article unique sur mesure, un concepteur de produits explorant de nouveaux matériaux ou une petite entreprise cherchant à externaliser votre fabrication. Nous pourrons vous aider à découvrir et à naviguer parmi vos fabricants locaux.</p>
+    </div>
+  </div>
+
+  <div class="row my-5">
+    <div class="col-md-6">
+      <h2>L'histoire de Make Works</h2>
+      <h3>Comment tout a commencé</h3>
+
+      <div class="mt-4" style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/68720549?h=c0b448f96e" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+    </div>
+
+    <div class="col-md-6">
+      <h3>2011</h3>
+      <p>
+      Fi Scott commence la cartographie de la fabrication à Glasgow, en Écosse.
+      </p>
+
+      <h3>2012</h3>
+      <p>
+      Fi Scott a recherché et testé Make Works en tant que proposition de conception au cours de la dernière année de son BA Product Design à la Glasgow School of Art, en développant un plan pour Make Works.
+      </p>
+      <img class="img-fluid" src="http://static.make.works/othermedia/make_works_general/images_for_website_update/940px/010515MakeWorks_images_for_website_updateNA12.jpeg" alt="Make Works"/>
+      <h3 class="mt-3">2013</h3>
+      <p>
+      Make Works Tour cartographie les fabricants et les fabricants à travers l'Écosse, avec huit artistes et designers qui se joignent en tant que résidents.
+      </p>
+
+      <img class="img-fluid" src="http://static.make.works/othermedia/make_works_general/images_for_website_update/940px/010515MakeWorks_images_for_website_updateNA13.jpeg" alt="Make Works"/>
+      <h3 class="mt-3">2014</h3>
+      <p>Plate-forme Make Works développée et construite, avec un prototype lancé en juin 2014.</p>
+      <p>Make Works a rejoint le programme d'accélération Seedcamp en août 2014.</p>
+      <p>Le concept Make Works est partagé dans le monde entier via des conférences et des événements.</p>
+
+      <h3>2015</h3>
+      <p>Le développement de Make Works se poursuit.</p>
+      <p>Programme de résidence de designers et de fabricants en partenariat avec Hospitalfield, Arbroath, Écosse.</p>
+      <p>Maker Speed Daters et Make Works Christmas Quiz commencent.</p>
+
+      <img class="img-fluid" src="http://static.make.works/othermedia/blog/2015Roundup/940px/010116MakeWorks_2015_Roundup6.jpeg" alt="Make Works"/>
+
+      <p class="mt-2">
+      Make Works a quitté le programme d'accélération Seedcamp en juin 2015 et a commencé à travailler pour rendre Make Works autonome en tant qu'organisation à but non lucratif.
+      Avec Open Work, nous avons expérimenté l'utilisation et la navigation dans l'ensemble de données Make Works en octobre 2015.
+      </p>
+
+      <h3>2016</h3>
+      <p>
+      La plate-forme Make Works s'est ouverte afin que de nouvelles régions puissent créer leurs propres répertoires de fabrication locaux en libre accès. Make Works Birmingham a été lancé en mars 2016.
+      </p>
+
+      <h3>2017</h3>
+      <p>
+      De nouvelles régions Make Works ont été lancées en Suède en octobre 2017 et aux Émirats arabes unis en novembre 2017.
+      Programme de résidence en usine en partenariat avec Dundee Design Festival.
+      <br>
+      Avec Rectangle, le studio de design a lancé l'extension Make Works, un plug-in de fabrication alternatif pour le site Web IKEA.
+      </p>
+
+      <h3>2018</h3>
+      <p>
+      Lancement de Make Works Derby et Derbyshire.
+      </p>
+
+      <h3>2019</h3>
+      <p>
+      Make Works a été transféré à l'<a href="https://iaac.net/">Institut d'Architecture Avancée de Catalogne</a> (IAAC), <a href="https://fablabbcn.org/ ">Fab City Research Lab Barcelone</a>
+      </p>
+
+
+      <h3>2021</h3>
+      <p>
+      Make Works lance un nouveau site Web dans le cadre de la <a href="https://distributeddesign.eu/">Distributed Design Platform</a>, cofinancée par Creative Europe et faisant partie de la mission globale de Fab City pour des villes productives et connectées.
+      </p>
+
+      <p>
+      Vous voulez en savoir plus? Lisez toute l'histoire de Make Works dans nos <a href="https://make.works/blog">Stories</a>
+      </p>
+
+    </div>
+
+  </div>
+</div>

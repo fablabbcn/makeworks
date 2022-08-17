@@ -10,12 +10,17 @@ fr:
         address: Adresse
         number_of_staff: Staff num.
       user:
-        locale: Langue
+        locale: Langage
     models:
       company:
         one: Fabricant
         other: Fabricants
-  name: Française
+  name: Français
+  blog:
+    inspiring_stories: Histoires inspirantes de notre communauté de créateurs
+    search_blog_title: Rechercher un titre / contenu de blog
+    select_category: Choisir catégorie
+    new_story: Nouvelle histoire
   shared:
     a_global_library: une bibliothèque mondiale pour la fabrication locale
     about: À propos
@@ -28,14 +33,19 @@ fr:
     create_an_account: Créer un compte
     create_new: Créer nouveau
     created_by_me: Créé par moi
+    edit: Modifier
     edit_region: Modifier la Région
+    editing_user: Modification de l'utilisateur
     email: Email
     employees: Employé(e)s
+    explore: Découvrir
     explore_all: Découvrez tous les fabricants
+    exploring_companies: Commencez à explorer les fabricants
     finished_products: Produits finis
     industries: Industries
     info_roles: Chaque employé peut avoir un rôle différent. Vous pouvez les faire glisser pour réorganiser la liste.
     join_free: S'inscrire gratuitement
+    join_today_listing: Inscrivez-vous aujourd'hui et trouvez de nouveaux clients pour développer votre entreprise !
     log_in: Connexion
     log_out: Déconnexion
     machines: Machines
@@ -45,7 +55,11 @@ fr:
     my_companies: Mes annonces
     nearby_manufacturers: Fabricants à proximité
     processes: Processus
+    project_by: Un projet de
+    read_more: Lire plus
     regions: Régions
+    roulette: Roulette
+    save_to_favorite: Enregistrez des fabricants à vos favoris pour contacter ultérieurement ceux qui conviennent le mieux à votre projet.
     saved_companies: Annonces enregistrées
     see_all_companies: Voir tous les fabricants
     sign_up: S'inscrire
@@ -53,10 +67,27 @@ fr:
     statistics: Statistiques
     stories: Histoires
     submit_a_maker: Soumettre un maker
+    submit_manufacturer: Soumettre un fabricant
     tagline: Trouvez des fabricants dans votre région
     timezone: Fuseau horaire
     user_settings: Paramètres utilisateur
+    user_part_regions: L'utilisateur fait partie de ces régions
+    user_part_companies_html: L'utilisateur est un <b>employé</b> de ces entreprises
     you_can_filter: Vous pouvez affiner votre recherche en utilisant les listes déroulantes suivantes.
+    your_email_address: Votre adresse email
+    stay_tuned: Tenez-vous à jour
+    follow: Suivre Make Works
+    contact: Contacter
+    legal: Légal
+    getting_listed: Être listé
+    searching_finding: Chercher et trouver
+    glossary: Glossaire
+    faq: FAQ
+    how_it_works: Comment ça marche
+    discover: Découvrir
+    all_regions: Toutes les régions
+    all_manufacturers: Tous les fabricants
+    slug: Nom raccourci
   simple_form:
     hints:
       blog:
@@ -90,7 +121,7 @@ fr:
         locale: Choisissez une langue pour le système. Toutes les balises et les données utilisateur seront toujours en anglais.
     include_blanks:
       company:
-        region: prom
+        region: région
     labels:
       company:
         address: Adresse
@@ -111,6 +142,14 @@ fr:
         sample_production: Production d'échantillons (up to 10)
         short_run: Production petite (100-500)
         slug: Nom raccourci
+      user:
+        first_name: Prénom
+        last_name: Nom de famille
+        email: Adresse mail
+        locale: Langage
+        bio: Biographie
+        time_zone: Fuseau horaire
+        avatar: Avatar
       region:
         slug: Nom raccourci
     placeholders:
@@ -119,3 +158,36 @@ fr:
     first_name: Prénom
     last_name: Nom de famille
     biography: Biographie
+  navbar:
+    manufacturers: Manufacturers
+    stories: Stories
+    about: About
+    menu:
+      user_settings: User settings
+      saved_companies: Saved listings
+      my_companies: My listings
+      created_by_me: Created by me
+      admin_dashboard: Admin dashboard
+      statistics: Statistics
+      processes: Processes
+      materials: Materials
+      industries: Industries
+      machines: Machines
+      manufacturers: Manufacturers
+      finished_products: Finished products
+      taxonomies: Taxonomies
+      media: Media
+      log_out: Log out
+  footer:
+    about: About
+    contact_us: Contact us
+    legal: Legal
+    submit_a_manufacturer: Submit a manufacturer
+    getting_listed: Getting listed
+    searching_and_finding: Searching and finding
+    glossary: Glossary
+    faq: FAQ's
+    stories: Stories
+    all_regions: All regions
+    all_manufacturers: All manufacturers
+    roulette: Roulette  

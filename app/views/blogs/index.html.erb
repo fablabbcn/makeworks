@@ -1,7 +1,7 @@
 <div class="blogheader mb-5 text-center bg-dark">
   <div class='text-white text-center' style="padding-top: 240px;">
-    <%= title('Stories') %>
-    <p class="fs-5">Inspiring stories from and about our making community</p>
+    <%= title(t('shared.stories')) %>
+    <p class="fs-5"><%= t('blog.inspiring_stories') %></p>
   </div>
 </div>
 
@@ -10,14 +10,14 @@
     <article class="col-lg-3 mb-3">
       <%= search_form_for @q do |f| %>
         <div class="input-group mb-3">
-          <%= f.search_field :title_or_blurb_or_content_cont, class: 'form-control mw-radius', placeholder: 'Search for a blog title / content' %>
+          <%= f.search_field :title_or_blurb_or_content_cont, class: 'form-control mw-radius', placeholder: t('blog.search_blog_title') %>
         </div>
 
         <div class="my-2">
-          <%= f.label :blog_categories_id_in, 'Select category' %>
+          <%= f.label :blog_categories_id_in, t('blog.select_category') %>
           <%= f.select :blog_categories_id_in,
             BlogCategory.pluck(:name, :id),
-            { include_blank: 'All Categories' },
+            { include_blank: t('shared.all_categories') },
             { 'data-controller': 'select2', multiple: true }
           %>
         </div>
@@ -28,7 +28,7 @@
 
     <article class="col-lg-9">
       <% if current_user&.is_admin? %>
-        <%= link_to 'New Story', new_blog_path, class: 'btn btn-primary mb-3' %>
+        <%= link_to t('blog.new_story'), new_blog_path, class: 'btn btn-primary mb-3' %>
       <% end %>
 
       <div class="row mb-3">

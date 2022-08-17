@@ -1,5 +1,5 @@
 <div class="mt-4 border p-4">
-  <p>User is an <b>employee</b> in these companies:</p>
+  <p><%= t('shared.user_part_companies_html') %>:</p>
 
   <ul class="list-unstyled border-top">
     <% @user.employees.each do |e| %>
