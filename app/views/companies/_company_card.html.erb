@@ -47,7 +47,7 @@
     </div>
     <div class="row">
       <div class="col-12 col-md-6 mb-2">
-        <h6 style="font-size:12px;">TYPE</h6>
+        <h6 style="font-size:12px;"><%= t('companies.type').upcase %></h6>
         <% company.manufacturer_taxonomies.limit(1).each do |t| %>
           <span
             class="badge rounded-pill bg-grey5 text-dark fw-normal"
@@ -56,7 +56,7 @@
         <% end %>
       </div>
       <div class="col-12 col-md-6">
-        <h6 style="font-size:12px;">CATEGORY</h6>
+        <h6 style="font-size:12px;"><%= t('companies.category').upcase %></h6>
         <% company.industry_taxonomies.limit(1).each do |t| %>
           <span
             title="<%= t.name %>"

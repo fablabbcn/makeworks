@@ -2,7 +2,7 @@
   <% flash.each do |type, message| %>
     <div class="toast bg-light" data-toggle="toast" data-delay="7500" style="opacity:0.8">
       <div class="toast-header">
-        <strong class="me-auto">Notification</strong>
+        <strong class="me-auto"><%= t 'application.notification' %></strong>
         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
       </div>
       <div class="toast-body">

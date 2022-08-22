@@ -10,7 +10,7 @@
     <%= f.input :title %>
     <%= f.input :sub_title %>
     <%= f.association :user,
-      label: 'Author',
+      label: t('blog.author'),
       input_html: { 'data-controller': 'select2' },
       selected: @blog.user_id || current_user.id
     %>

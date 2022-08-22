@@ -2,13 +2,13 @@
 <% else %>
   <div class="alert alert-warning" role="alert">
     <i class="bi bi-patch-check"></i>
-    <%= t 'shared.company_not_visible_until_verified' %>
+    <%= t 'application.company_not_visible_until_verified' %>
   </div>
 <% end %>
 
 <% if company&.soft_delete %>
   <div class="alert alert-danger mt-3" role="alert">
     <i class="bi bi-trash"></i>
-    <%= t 'shared.company_marked_soft_delete' %>
+    <%= t 'application.company_marked_soft_delete' %>
   </div>
 <% end %>

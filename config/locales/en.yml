@@ -16,19 +16,35 @@ en:
         one: Manufacturer
         other: Manufacturers
   name: English
+
+  # Each of the names below (i.e. application, blog, manufacturers, etc.) are the name of the folders in app/views/
+  application:
+    company_marked_soft_delete: Listing has been marked for soft deletion.
+    company_not_visible_until_verified: Listing will not be visible until it has been verified by either an admin or a region champion.
+    notification: Notification
   blog:
+    author: Author
+    categories: Categories
     inspiring_stories: Inspiring stories from and about our making community
     search_blog_title: Search for a blog title / content
     select_category: Select category
     new_story: New story
-  
-  paginate:
-    previous: Précédents
-    next: Suivants
-    last: Dernier
+    editing_blog: Editing blog
+    new_blog: New blog
+    related_stories: Related stories
+    latest_stories: Latest stories
 
   # Manufacturers / Companies page
-  manufacturers:
+  companies:
+    type: Type
+    category: Category
+    words: Words
+    map_appear: A map should appear here after saving location / address
+    select_region: Select a region
+    lat_long_calc_save: Latitude and longitude are automatically calculated on save
+    production_info: Production Info
+    capacity: Capacity
+    scale_production: What scale of production do you take on?
     filters:
       search: Search for manufacturers, materials, processes...
       clear_all: Clear all
@@ -55,9 +71,6 @@ en:
     admin_dashboard: Admin dashboard
     character_tags: Features
     companies: Manufacturers
-    company_marked_soft_delete: Listing has been marked for soft deletion.
-    company_not_visible_until_verified: Listing will not be visible until it has been
-      verified by either an admin or a region champion.
     contact_us: Contact us
     country: Country
     create_a_listing: Create a new listing
@@ -85,13 +98,17 @@ en:
     manufacturers: Manufacturers
     manufacturers_in_region: Manufacturers in region
     materials: Materials
+    media: Media
     my_companies: My listings
+    name: Name
     nearby_manufacturers: Nearby manufacturers
+    parent: Parent
     processes: Processes
     project_by: A project by
     reach_new_clients: Register and reach new clients to grow your business!
     read_more: Read more
     regions: Regions
+    remove: Remove
     roulette: Roulette
     save_to_favorite: Save your favorites to check and later contact the ones that suits best for your project.
     saved_companies: Saved listings
@@ -103,6 +120,7 @@ en:
     stories: Stories
     submit_a_maker: Submit a maker
     submit_manufacturer: Submit a manufacturer
+    tags: Tags
     tagline: Find local manufacturers in your region
     timezone: Time zone
     user_settings: User settings
@@ -139,6 +157,7 @@ en:
         film_ready: Film
         intro: Describe your listing in one sentence
         location: Name of the City
+        map_appear: A map should appear here after saving location / address
         machines_taxonomies: Select as many as you want
         minimum_order: Minimum order in your currency
         name: Name of the manufacturer
@@ -172,21 +191,29 @@ en:
         batch_production: Batch production / prototype
         bespoke_one_offs: Bespoke one offs
         country_code: Country
+        created_on: Created on
+        contact_jobtitle: Job title
+        description: Description
         finished_products_taxonomies: Finished products tags
         industry_taxonomies: Industry tags
+        intro: Introduction
         large_run: Large Run (1000+)
         lat: Latitude
         lng: Longitude
+        location: Location
         machines_taxonomies: Machine tags
         manufacturer_taxonomies: Type of fabrication space
         material_tags: Material tags
         medium_run: Medium run (500-1000)
         process_taxonomies: Process tags
         production_accesses: Production Access
+        production_specifics: Spécificités de fabrication
         sample_production: Sample production (up to 10)
         short_run: Short run (100-500)
         slug: Trimmed name
         user: Created by
+        submit:
+          Créer entreprise
       region:
         lat: Latitude
         lng: Longitude

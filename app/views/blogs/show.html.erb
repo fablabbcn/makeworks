@@ -10,12 +10,12 @@
         <br></br>
       <% end %>
 
-      <%= link_to 'Edit', edit_blog_url, class: 'btn btn-primary mt-3' %>
+      <%= link_to t('shared.edit'), edit_blog_url, class: 'btn btn-primary mt-3' %>
     </div>
   <% end %>
 
   <p class="mt-5">
-    <%= link_to "Stories", '/blog' %> /
+    <%= link_to t('shared.stories'), '/blog' %> /
     <% @blog.blog_tags.each do |bt| %>
       <%= link_to bt.blog_category, blogs_url("q[blog_categories_id_in]": bt.blog_category) %>
       /
@@ -35,7 +35,7 @@
     </div>
     <div class="col-lg-4">
       <% if @blog.user.present? %>
-        <p class="fw-bold">WORDS</p>
+        <p class="fw-bold"><%= t('companies.words').upcase %></p>
         <%= @blog.user %>
         <hr>
       <% end %>
@@ -43,11 +43,11 @@
       <small> <%= @blog.created_at&.strftime("%B %d, %Y") %> </small>
       <hr>
 
-      <h4 class="mt-5 fw-bold">Categories</h4>
+      <h4 class="mt-5 fw-bold"><%= t('blog.categories') %></h4>
       <hr>
       <p> <%= @blog.blog_categories.to_sentence %> </p>
 
-      <h4 class="mt-5 fw-bold">Related stories</h4>
+      <h4 class="mt-5 fw-bold"><%= t('blog.related_stories') %></h4>
       <hr>
       <% Blog
         .includes(:blog_categories, :blog_tags)
@@ -66,7 +66,7 @@
 
 <div class="mt-5" style="background-color: #ddd">
   <div class="container-xxl pt-5">
-    <h3 class="mb-4">Latest stories</h3>
+    <h3 class="mb-4"><%= t('blog.latest_stories') %></h3>
     <div class="row pb-4">
       <% @recent.each do |blog| %>
         <div class="col-md-6 col-lg-3">

@@ -16,19 +16,36 @@ fr:
         one: Fabricant
         other: Fabricants
   name: Français
+
+  # Chaques catégoris ci-dessous (p. ex. application, blog, companies, etc.) are the name of the folders in app/views/
+  application:
+    company_marked_soft_delete: Listing has been marked for soft deletion.
+    company_not_visible_until_verified: Listing will not be visible until it has been verified by either an admin or a region champion.
+    notification: Notification
   blog:
+    author: Auteur
+    categories: Categories
     inspiring_stories: Histoires inspirantes de notre communauté de créateurs
     search_blog_title: Rechercher un titre / contenu de blog
     select_category: Choisir catégorie
     new_story: Nouvelle histoire
-  
-  paginate:
-    previous: Précédents
-    next: Suivants
-    last: Derniers
-  
-  # Manufacturers / Companies page
-  manufacturers:
+    editing_blog: Modifier blog
+    new_blog: Nouveau blog
+    related_stories: Histoires liées
+    latest_stories: Dernières histoires
+
+  companies:
+    type: Type
+    category: Categorie
+    words: Mots
+    map_appear: Une carte devrait apparaître ici après avoir enregistré l'emplacement / l'adresse
+    select_region: Choisir une région
+    lat_long_calc_save: La latitude et la longitude sont automatiquement calculées lors de l'enregistrement
+    production_info: Informations de production
+    capacity: Capacité
+    scale_production: Quelle est votre échelle de production ?
+    works_with: Travaille avec
+    contact_info: Information de contact
     filters:
       search: Rechercher fabricants, matières, procédés...
       clear_all: Tout effacer
@@ -80,12 +97,16 @@ fr:
     manufacturers: Fabricants
     manufacturers_in_region: Fabricants de la région
     materials: Matériaux
+    media: Media
     my_companies: Mes annonces
+    name: Nom
     nearby_manufacturers: Fabricants à proximité
+    parent: Parent
     processes: Processus
     project_by: Un projet de
     read_more: Lire plus
     regions: Régions
+    remove: Effacer
     roulette: Roulette
     save_to_favorite: Enregistrez des fabricants à vos favoris pour contacter ultérieurement ceux qui conviennent le mieux à votre projet.
     saved_companies: Annonces enregistrées
@@ -96,6 +117,7 @@ fr:
     stories: Histoires
     submit_a_maker: Soumettre un maker
     submit_manufacturer: Soumettre un fabricant
+    tags: Étiquettes
     tagline: Trouvez des fabricants dans votre région
     timezone: Fuseau horaire
     user_settings: Paramètres utilisateur
@@ -150,24 +172,52 @@ fr:
         region: région
     labels:
       company:
+        is_verified: Vérifié ?
+        been_visited: Visité ?
+        film_ready: Prét à être filmé ?
+        soft_delete: Soft delete
+        name: Nom
         address: Adresse
         batch_production: Production en série / prototype
+        background: Contexte
         bespoke_one_offs: Pièces uniques sur mesure
         country_code: Pays
+        contact_name: Nom
+        contact_email: Adresse email
+        contact_phone: Téléphone
+        contact_jobtitle: Titre d'emploi
+        created_on: Créer le
+        description: Description
+        file_types: Type de fichiers
         finished_products_taxonomies: Étiquettes de produits finis
         industry_taxonomies: Étiquettes d'industrie
+        intro: Introduction
         large_run: Grande production (1000+)
         lat: Latitude
         lng: Longitude
+        location: Emplacement
         machines_taxonomies: Étiquettes de machine
         manufacturer_taxonomies: Type d'espace de fabrication
+        materials: Matériaux
         material_tags: Étiquette de matériaux
         medium_run: Production moyenne (500-1000)
+        number_of_staff: Nombre d'employés
         process_taxonomies: Étiquette de processus
         production_accesses: Accès à la production
+        regions: Région(s)
         sample_production: Production d'échantillons (up to 10)
         short_run: Production petite (100-500)
         slug: Nom raccourci
+        turnaround_time: Délai d'exécution
+        minimum_order: Commande minimum
+        video_link: Lien vidéo
+        website: Site internet
+        works_with_general_public: Travaille avec tout public
+        works_with_large_business: Travaille avec de grandes entreprises
+        works_with_professionals: Travaille avec des professionnels
+        works_with_small_companies: Travaille avec de petites entreprises
+        works_with_students: Travaille avec des étudiants
+        year_founded: Année de fondation
       user:
         first_name: Prénom
         last_name: Nom de famille
@@ -220,3 +270,8 @@ fr:
     all_regions: All regions
     all_manufacturers: All manufacturers
     roulette: Roulette  
+  helpers:
+    submit:
+      companies:
+        create: "Créer fabricant"
+        update: "Save Changes"
