@@ -21,6 +21,33 @@ fr:
     search_blog_title: Rechercher un titre / contenu de blog
     select_category: Choisir catégorie
     new_story: Nouvelle histoire
+  
+  paginate:
+    previous: Précédents
+    next: Suivants
+    last: Derniers
+  
+  # Manufacturers / Companies page
+  manufacturers:
+    filters:
+      search: Rechercher fabricants, matières, procédés...
+      clear_all: Tout effacer
+      materials: Matériaux
+      all_regions: Toutes les régions
+      all_manufacturers: Tous les fabricants
+      all_countries: Tous les pays
+      all_categories: Toutes les catégories
+      all_industries: Toutes les industries
+      all_materials: Tous les matériaux
+      all_machines: Toutes les machines
+      all_products: Tous les produits
+      all_processes: Tous les processus
+      all_char_tags: Toutes
+      character_tags: Étiquette de caractère
+      machines: Machines
+      products: Produits
+      processes: Processus
+      showing: Résultats
   shared:
     a_global_library: une bibliothèque mondiale pour la fabrication locale
     about: À propos
@@ -28,6 +55,7 @@ fr:
     admin_dashboard: Tableau de bord administrateur
     companies: Fabricants
     contact_us: Contactez-nous
+    country: Pays
     create_a_listing: Créer une annonce
     create_a_listing_in_region: Créer une annonce dans cette région
     create_an_account: Créer un compte
@@ -85,8 +113,6 @@ fr:
     faq: FAQ
     how_it_works: Comment ça marche
     discover: Découvrir
-    all_regions: Toutes les régions
-    all_manufacturers: Tous les fabricants
     slug: Nom raccourci
   simple_form:
     hints:
@@ -158,10 +184,12 @@ fr:
     first_name: Prénom
     last_name: Nom de famille
     biography: Biographie
+  
+  # For Navbar (it actually pulls it from shared: further above)
   navbar:
-    manufacturers: Manufacturers
-    stories: Stories
-    about: About
+    manufacturers: Fabricanats
+    stories: Histoires
+    about: À propos
     menu:
       user_settings: User settings
       saved_companies: Saved listings
@@ -178,6 +206,7 @@ fr:
       taxonomies: Taxonomies
       media: Media
       log_out: Log out
+  
   footer:
     about: About
     contact_us: Contact us

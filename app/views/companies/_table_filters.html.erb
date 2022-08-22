@@ -1,4 +1,4 @@
-<% content_for(:title, 'Companies') %>
+<% content_for(:title, t('shared.companies')) %>
 
 <%= search_form_for @q, class: 'pt-3 mx-auto' do |f| %>
   <h2>
@@ -10,9 +10,9 @@
       <%# f.submit class: 'btn btn-primary my-3', type: 'submit' %>
       <%= f.search_field :name_or_description_or_intro_or_background_cont,
         class: 'form-control',
-        title: 'Search for manufacturers, materials, processes...',
+        title: t('manufacturers.filters.search'),
         style: "border-top-left-radius: 20px; border-bottom-left-radius: 20px",
-        placeholder: 'Search for manufacturers, materials, processes...'
+        placeholder: t('manufacturers.filters.search')
       %>
       <button class="btn btn-dark" type="submit" >
         <i class="bi bi-search"></i>
@@ -20,74 +20,74 @@
     </div>
 
     <div class="d-flex justify-content-between">
-      <p class="text-muted"> Showing: <%= @companies.count %> / <%= @q.result.count  %></p>
-      <%= link_to "Clear all", companies_url %>
+      <p class="text-muted"><%= t('manufacturers.filters.showing') %>: <%= @companies.count %> / <%= @q.result.count  %></p>
+      <%= link_to t('manufacturers.filters.clear_all'), companies_url %>
     </div>
   </div>
 
   <div>
     <div class="my-2">
-      <label>Regions</label>
+      <label><%= t('shared.regions') %></label>
       <%= f.select :regions_id_in,
         Region.where(is_public: true).pluck(:name, :id),
-        { include_blank: 'All Regions' },
+        { include_blank: t('manufacturers.filters.all_regions') },
         { class: '', multiple: true, 'data-controller': 'select2' }
       %>
     </div>
 
     <div class="my-2">
-      <label>Country</label>
+      <label><%= t('shared.country') %></label>
       <%=
         f.country_select :country_code_eq,
-        { include_blank: 'All Countries' },
+        { include_blank: t('manufacturers.filters.all_countries') },
         {'data-controller': 'select2'}
       %>
     </div>
     <div class="my-2">
-      <label>Industry</label>
+      <label><%= t('manufacturers.filters.industries') %></label>
       <%= f.select :industry_taxonomies_id_in,
         IndustryTaxonomy.pluck(:name, :id),
-        { include_blank: 'All Industries' },
+        { include_blank: t('manufacturers.filters.all_industries') },
         { class: '', multiple: true, 'data-controller': 'select2' }
       %>
     </div>
     <div class="my-2">
-      <label>Material</label>
+      <label><%= t('manufacturers.filters.materials') %></label>
       <%= f.select :materials_id_in,
         Material.pluck(:name, :id),
-        { include_blank: 'All Materials' },
+        { include_blank: t('manufacturers.filters.all_materials') },
         { class: '', multiple: true, 'data-controller': 'select2' }
       %>
     </div>
     <div class="my-2">
-      <label>Machines</label>
+      <label><%= t('manufacturers.filters.machines') %></label>
       <%= f.select :machines_taxonomies_id_in,
         MachinesTaxonomy.pluck(:name, :id),
-        { include_blank: 'All Machines' },
+        { include_blank: t('manufacturers.filters.all_machines') },
         { class: '', multiple: true, 'data-controller': 'select2-machines' }
       %>
     </div>
     <div class="my-2">
-      <label>Processes</label>
+      <label><%= t('manufacturers.filters.processes') %></label>
       <%= f.select :process_taxonomies_id_in,
         ProcessTaxonomy.pluck(:name, :id),
-        { include_blank: 'All' },
+        { include_blank: t('manufacturers.filters.all_processes') },
         { class: '', 'data-controller': 'select2', multiple: true }
       %>
     </div>
     <div class="my-2">
-      <label>Products</label>
+      <label><%= t('manufacturers.filters.products') %></label>
       <%= f.select :finished_products_taxonomies_id_in,
         FinishedProductsTaxonomy.pluck(:name, :id),
-        { include_blank: 'All' },
+        { include_blank: t('manufacturers.filters.all_products') },
         { class: '', 'data-controller': 'select2', multiple: true }
       %>
     </div>
     <div class="my-2">
-      <label><%= t('shared.character_tags') %></label>
+      <label><%= t('manufacturers.filters.character_tags') %></label>
       <%= f.select :character_tags_id_in,
         CharacterTag.pluck(:name, :id),
-        { include_blank: 'All' },
+        { include_blank: t('manufacturers.filters.all_char_tags') },
         { class: '', 'data-controller': 'select2', multiple: true }
       %>
     </div>

@@ -21,6 +21,33 @@ en:
     search_blog_title: Search for a blog title / content
     select_category: Select category
     new_story: New story
+  
+  paginate:
+    previous: Précédents
+    next: Suivants
+    last: Dernier
+
+  # Manufacturers / Companies page
+  manufacturers:
+    filters:
+      search: Search for manufacturers, materials, processes...
+      clear_all: Clear all
+      materials: Materials
+      all_countries: All countries
+      all_regions: All regions
+      all_manufacturers: All manufacturers
+      all_categories: All categories
+      all_industries: All industries
+      all_materials: All materials
+      all_machines: All machines
+      all_products: All products
+      all_processes: Tous les processus
+      all_char_tags: All
+      character_tags: Character tags
+      machines: Machines
+      products: Products
+      processes: Processes
+      showing: Showing
   shared:
     a_global_library: a global library for local manufacturing
     about: About
@@ -32,6 +59,7 @@ en:
     company_not_visible_until_verified: Listing will not be visible until it has been
       verified by either an admin or a region champion.
     contact_us: Contact us
+    country: Country
     create_a_listing: Create a new listing
     create_a_listing_in_region: Create a listing in this region
     create_an_account: Create an account
@@ -93,9 +121,6 @@ en:
     faq: FAQs
     how_it_works: How it works
     discover: Discover
-    all_regions: All regions
-    all_manufacturers: All manufacturers
-    all_categories: All categories
     slug: Trimmed name
 
   simple_form:
