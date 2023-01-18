@@ -33,10 +33,24 @@ fr:
     new_blog: Nouveau blog
     related_stories: Histoires liées
     latest_stories: Dernières histoires
-
+  region:
+    join_region: Rejoindre la région
+    leave_region: Quitter la région
+    region_updates: Derniers fabricants ajoutés
+    listings: Fabricants
+    team: L'équipe
+    partners_funders: Partenaires et financeurs
+    see_all_listings: Voir tous les fabricants en %{region_name}
   companies:
+    address: Adresse
     type: Type
-    category: Categorie
+    category: Categorie]
+    history: Histoire
+    industry: Industrie
+    website: Site internet
+    phone: Téléphone
+    production_details: Détails de fabrication
+    social_media: Réseaux sociaux
     words: Mots
     map_appear: Une carte devrait apparaître ici après avoir enregistré l'emplacement / l'adresse
     select_region: Choisir une région
@@ -70,6 +84,7 @@ fr:
     about: À propos
     admin_only: Administrateur uniquement
     admin_dashboard: Tableau de bord administrateur
+    back: Retour
     companies: Fabricants
     contact_us: Contactez-nous
     country: Pays
@@ -80,6 +95,7 @@ fr:
     created_by_me: Créé par moi
     edit: Modifier
     edit_region: Modifier la Région
+    editing: Modification
     editing_user: Modification de l'utilisateur
     email: Email
     employees: Employé(e)s
@@ -106,10 +122,12 @@ fr:
     project_by: Un projet de
     read_more: Lire plus
     regions: Régions
+    region: Région
     remove: Effacer
     remove_this_image: Êtes vous sûr de vouloir effacer cette image?
     roulette: Roulette
     save_to_favorite: Enregistrez des fabricants à vos favoris pour contacter ultérieurement ceux qui conviennent le mieux à votre projet.
+    save_favorite: Ajouter aux favoris
     saved_companies: Annonces enregistrées
     see_all_companies: Voir tous les fabricants
     sign_up: S'inscrire
@@ -204,6 +222,7 @@ fr:
         materials: Matériaux
         material_tags: Étiquette de matériaux
         medium_run: Production moyenne (500-1000)
+        minimum_order: Commande minimum
         number_of_staff: Nombre d'employés
         process_taxonomies: Étiquette de processus
         production_accesses: Accès à la production
@@ -212,9 +231,9 @@ fr:
         short_run: Production petite (100-500)
         slug: Nom raccourci
         turnaround_time: Délai d'exécution
-        minimum_order: Commande minimum
         video_link: Lien vidéo
         website: Site internet
+        works_with: Travaille avec
         works_with_general_public: Travaille avec tout public
         works_with_large_business: Travaille avec de grandes entreprises
         works_with_professionals: Travaille avec des professionnels

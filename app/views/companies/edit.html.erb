@@ -1,8 +1,8 @@
 <div class="card my-5 p-5">
-  <%= title 'Editing' %>
+  <%= title t('shared.editing') %>
 
-  <%= link_to "Back", @company %>
+  <%= link_to t('shared.back'), @company %>
   <%= render 'form', company: @company %>
   <br>
-  <%= link_to "Back", @company %>
+  <%= link_to t('shared.back'), @company %>
 </div>

@@ -33,11 +33,25 @@ en:
     new_blog: New blog
     related_stories: Related stories
     latest_stories: Latest stories
-
+  region:
+    join_region: Join region
+    leave_region: Leave region
+    region_updates: Last listings created
+    listings: Listings
+    team: The team
+    partners_funders: Partners & Funders
+    see_all_listings: See all listings in %{region_name}
   # Manufacturers / Companies page
   companies:
+    address: Address
     type: Type
     category: Category
+    history: History
+    industry: Industry
+    website: Website
+    phone: Phone
+    production_details: Production details
+    social_media: Social media
     words: Words
     map_appear: A map should appear here after saving location / address
     select_region: Select a region
@@ -69,6 +83,7 @@ en:
     about: About
     admin_only: Admin only
     admin_dashboard: Admin dashboard
+    back: Back
     character_tags: Features
     companies: Manufacturers
     contact_us: Contact us
@@ -81,6 +96,7 @@ en:
     edit: Edit
     edit_region: Edit Region
     editing_user: Editing user
+    editing: Editing
     email: Email
     employees: Employees
     explore_all: Explore all manufacturers
@@ -108,10 +124,12 @@ en:
     reach_new_clients: Register and reach new clients to grow your business!
     read_more: Read more
     regions: Regions
+    region: Region
     remove: Remove
     remove_this_image: Are you sure you want to remove this image?
     roulette: Roulette
     save_to_favorite: Save your favorites to check and later contact the ones that suits best for your project.
+    save_favorite: Save to favorites
     saved_companies: Saved listings
     search_nothing_found: Nothing found. Try widening the search.
     see_all_companies: See all manufacturers

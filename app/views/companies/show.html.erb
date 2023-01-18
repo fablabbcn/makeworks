@@ -4,7 +4,7 @@
       current_user&.is_employee_in_company(@company.id) ||
       current_user&.is_champion_in_regions(@company.regions)
     %>
-    <%= link_to 'Edit', edit_company_path(@company), class: 'btn btn-primary mb-3' %>
+    <%= link_to t('shared.edit'), edit_company_path(@company), class: 'btn btn-primary mb-3' %>
   <% end %>
 
   <%= render 'company_alerts', company: @company %>
@@ -29,12 +29,12 @@
           <div class="row">
 
             <div class="col-md-6">
-              <h6 class="text-uppercase" style="font-weight:600">Type</h6>
+              <h6 class="text-uppercase" style="font-weight:600"><%= t('companies.type') %></h6>
               <p> <%= @company.manufacturer_taxonomies.to_sentence %> </p>
             </div>
 
             <div class="col-md-6">
-              <h6 class="text-uppercase" style="font-weight:600">Industry</h6>
+              <h6 class="text-uppercase" style="font-weight:600"><%= t('companies.industry') %></h6>
               <p><%= @company.industry_taxonomies.to_sentence %></p>
             </div>
 
@@ -44,7 +44,7 @@
             </div>
 
             <div class="col-md-6">
-              <h6 class="text-uppercase" style="font-weight:600" title="Region">Organization</h6>
+              <h6 class="text-uppercase" style="font-weight:600" title="Region"><%= t('shared.region') %></h6>
 
               <% @company.regions.each do |region| %>
                 <%= link_to region, region_url(region), class: 'd-block mb-3' %>
@@ -56,7 +56,7 @@
             <% if @company.contact_email.present? %>
               <%= mail_to @company.contact_email, class: 'btn btn-blue d-block mt-4' do %>
                 <i class="bi bi-envelope"></i>
-                Contact
+                <%= t('shared.contact') %>
               <% end %>
             <% end %>
 
@@ -69,7 +69,7 @@
                 Saved
               <% else %>
                 <i class="bi bi-star"></i>
-                Save to favorites
+                <%= t('shared.save_favorite') %>
               <% end %>
             <% end %>
 
@@ -91,18 +91,18 @@
         </div>
       </div>
 
-      <h6 style="font-weight:600">ADDRESS</h6>
+      <h6 style="font-weight:600"><%= t('companies.address').upcase %></h6>
       <p> <%= @company.address %> </p>
 
-      <h6 style="font-weight:600">WEBSITE</h6>
+      <h6 style="font-weight:600"><%= t('companies.website').upcase %></h6>
       <p>
       <%= link_to(@company.website, @company.website, target: "_blank", class: 'text-decoration-none') %>
       </p>
 
-      <h6 style="font-weight:600">PHONE</h6>
+      <h6 style="font-weight:600"><%= t('companies.phone').upcase %></h6>
       <p> <%= @company.contact_phone %> </p>
 
-      <h6 style="font-weight:600">SOCIAL MEDIA</h6>
+      <h6 style="font-weight:600"><%= t('companies.social_media').upcase %></h6>
       <div class="text-muted fs-3">
         <%= render 'social_media_icons' %>
       </div>
@@ -139,7 +139,7 @@
           </ul>
 
           <hr>
-          <p>Employees:</p>
+          <p><%= t('shared.employees') %>:</p>
           <ul class="list-unstyled border-top">
             <% @company.employees.each do |e| %>
               <li class="border-bottom py-2">
@@ -174,14 +174,14 @@
 
       <div class="card">
         <div class="card-body p-5">
-          <h2 class="mt-2">Production details</h2>
+          <h2 class="mt-2"><%= t('companies.production_details') %></h2>
           <p><%= @company.production_specifics %></p>
 
           <section class="row my-4">
             <article class="col-sm-6 mb-3 d-flex">
               <i class="bi bi-clock-history fs-2 me-3"></i>
               <div>
-                <h5 class="mt-2">Turnaround time</h5>
+                <h5 class="mt-2"><%= t('simple_form.labels.company.turnaround_time') %></h5>
                 <span><%= @company.turnaround_time %></span>
               </div>
             </article>
@@ -189,7 +189,7 @@
             <article class="col-sm-6 mb-3 d-flex">
               <i class="bi bi-file-earmark-check fs-2 me-3"></i>
               <div>
-                <h5 class="mt-2">File types</h5>
+                <h5 class="mt-2"><%= t('simple_form.labels.company.file_types') %></h5>
                 <span><%= @company.file_types %></span>
               </div>
             </article>
@@ -197,7 +197,7 @@
             <article class="col-sm-6 mb-3 d-flex">
               <i class="bi bi-card-list fs-2 me-3"></i>
               <div>
-                <h5 class="mt-2">Minimum order</h5>
+                <h5 class="mt-2"><%= t('simple_form.labels.company.minimum_order') %></h5>
                 <span><%= @company.minimum_order %></span>
               </div>
             </article>
@@ -205,7 +205,7 @@
             <article class="col-sm-6 mb-3 d-flex">
               <i class="bi bi-door-open fs-2 me-3"></i>
               <div>
-                <h5 class="mt-2">Production access</h5>
+                <h5 class="mt-2"><%= t('simple_form.labels.company.production_accesses') %></h5>
                 <span><%= @company.production_accesses.to_sentence %></span>
               </div>
             </article>
@@ -213,7 +213,7 @@
             <article class="col-sm-6 mb-3 d-flex">
               <i class="bi bi-bank fs-2 me-3"></i>
               <div>
-                <h5 class="mt-2">Works With</h5>
+                <h5 class="mt-2"><%= t('simple_form.labels.company.works_with') %></h5>
                 <ul class="list-unstyled">
                   <%= render 'list_item_checkbox', the_bool: @company.works_with_large_business, the_text: 'Large business' %>
                   <%= render 'list_item_checkbox', the_bool: @company.works_with_small_companies, the_text: 'Small companies' %>
@@ -227,7 +227,7 @@
             <article class="col-sm-6 mb-2 d-flex">
               <i class="bi bi-inboxes fs-2 me-3"></i>
               <div>
-                <h5 class="mt-2">Capacity</h5>
+                <h5 class="mt-2"><%= t('companies.capacity') %></h5>
                 <ul class="list-unstyled">
                   <%= render 'list_item_checkbox', the_bool: @company.bespoke_one_offs, the_text: 'Bespoke 1-offs' %>
                   <%= render 'list_item_checkbox', the_bool: @company.sample_production, the_text: 'Sample production' %>
@@ -244,7 +244,7 @@
 
           <section class="row mt-5">
             <article class="col-md-6 mb-3">
-              <h4>Materials</h4>
+              <h4><%= t('shared.materials') %></h4>
               <ul class="list-unstyled">
                 <% @company.materials.each do |x| %>
                   <li>
@@ -256,7 +256,7 @@
             </article>
 
             <article class="col-md-6 mb-3">
-              <h4>Processes</h4>
+              <h4><%= t('shared.processes') %></h4>
               <ul class="list-unstyled">
                 <% @company.process_taxonomies.each do |x| %>
                   <li>
@@ -268,7 +268,7 @@
             </article>
 
             <article class="col-md-6 mb-3">
-              <h4>Machines</h4>
+              <h4><%= t('shared.machines') %></h4>
               <ul class="list-unstyled">
                 <% @company.machines_taxonomies.each do |x| %>
                   <li>
@@ -280,7 +280,7 @@
             </article>
 
             <article class="col-md-6">
-              <h4>Products</h4>
+              <h4><%= t('companies.filters.products') %></h4>
               <ul class="list-unstyled">
                 <% @company.finished_products_taxonomies.each do |x| %>
                   <li>
@@ -306,7 +306,7 @@
 
       <div class="card">
         <div class="p-5">
-          <h3 id="history">History</h3>
+          <h3 id="history"><%= t('companies.history') %></h3>
           <p class="mt-4">
           <%= @company.background %>
           </p>
