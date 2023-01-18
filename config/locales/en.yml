@@ -109,6 +109,7 @@ en:
     read_more: Read more
     regions: Regions
     remove: Remove
+    remove_this_image: Are you sure you want to remove this image?
     roulette: Roulette
     save_to_favorite: Save your favorites to check and later contact the ones that suits best for your project.
     saved_companies: Saved listings
@@ -123,6 +124,7 @@ en:
     tags: Tags
     tagline: Find local manufacturers in your region
     timezone: Time zone
+    update_user: Update
     user_settings: User settings
     user_part_regions: User is a part of these regions
     user_part_companie_html: User is an <b>employee</b> in these companies
@@ -130,6 +132,7 @@ en:
       drop-down.
     your_email_address: Your email address
     stay_tuned: Stay tuned to the latest
+    time_now_zone: Time now in this zone
     follow: Follow Make Works
     contact: Contact
     legal: Legal
@@ -218,5 +221,10 @@ en:
         lat: Latitude
         lng: Longitude
         slug: Trimmed name
+      user:
+        is_admin: Administrator
     placeholders:
       company: 
+    helpers:
+      submit:
+        user: Fuck

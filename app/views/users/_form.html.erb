@@ -24,7 +24,7 @@
     <%= f.input :time_zone, input_html: { 'data-controller': 'select2' } %>
 
     <small class="mb-3 text-muted">
-    Time now in this zone: <%= Time.now.in_time_zone(current_user.time_zone) %>
+    <%= t('shared.time_now_zone') %>: <%= Time.now.in_time_zone(current_user.time_zone) %>
     </small>
 
 
@@ -38,7 +38,7 @@
         <%= image_tag @user.avatar, class: 'img-fluid', style: 'max-height:200px;' %>
         <%= link_to "Remove", delete_user_avatar_url(@user.id, image_id: @user.avatar.id),
           class: 'd-block my-1 text-danger', method: :delete, remote: true,
-          data: { confirm: 'Are you sure you want to remove this image?' } %>
+          data: { confirm: t('shared.remove_this_image') } %>
       </div>
     <% end %>
 

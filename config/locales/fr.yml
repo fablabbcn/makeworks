@@ -8,7 +8,7 @@ fr:
         dont_publish: Masquer le message
       company:
         address: Adresse
-        number_of_staff: Staff num.
+        number_of_staff: Nombre de personnel
       user:
         locale: Langage
     models:
@@ -107,6 +107,7 @@ fr:
     read_more: Lire plus
     regions: Régions
     remove: Effacer
+    remove_this_image: Êtes vous sûr de vouloir effacer cette image?
     roulette: Roulette
     save_to_favorite: Enregistrez des fabricants à vos favoris pour contacter ultérieurement ceux qui conviennent le mieux à votre projet.
     saved_companies: Annonces enregistrées
@@ -120,12 +121,14 @@ fr:
     tags: Étiquettes
     tagline: Trouvez des fabricants dans votre région
     timezone: Fuseau horaire
+    update_user: Mettre à jour
     user_settings: Paramètres utilisateur
     user_part_regions: L'utilisateur fait partie de ces régions
     user_part_companies_html: L'utilisateur est un <b>employé</b> de ces entreprises
     you_can_filter: Vous pouvez affiner votre recherche en utilisant les listes déroulantes suivantes.
     your_email_address: Votre adresse email
     stay_tuned: Tenez-vous à jour
+    time_now_zone: L'heure actuelle dans cette zone
     follow: Suivre Make Works
     contact: Contacter
     legal: Légal
@@ -226,6 +229,7 @@ fr:
         bio: Biographie
         time_zone: Fuseau horaire
         avatar: Avatar
+        is_admin: Administrateur
       region:
         slug: Nom raccourci
     placeholders:
@@ -275,3 +279,4 @@ fr:
       companies:
         create: "Créer fabricant"
         update: "Save Changes"
+      update: Mettre à jour
