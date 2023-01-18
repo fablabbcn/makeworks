@@ -20,15 +20,17 @@
     ]
   });
 
+  var markers = L.markerClusterGroup();
+
   locations.forEach(function(item) {
-    L.marker([item.lat, item.lng]).addTo(map)
-      .bindPopup(
+       markers.addLayer(L.marker([item.lat, item.lng]).bindPopup(
         "<a href='/companies/" + item.slug + "'>" + item.name + "</a><br/>" +
         "<b>Location: </b>" + item.location + "<br/>" +
         "<b>Address: </b>" + item.address + "<br/>"
-      )
-      .openPopup();
+      ));
   });
+
+  map.addLayer(markers);
 
   map.once('focus', function() { map.scrollWheelZoom.enable(); });
 
