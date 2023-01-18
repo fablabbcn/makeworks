@@ -18,7 +18,7 @@ class CompaniesTest < ApplicationSystemTestCase
     fill_in "Address", with: @company.address
     fill_in "Background", with: @company.background
     fill_in "Contact email", with: @company.contact_email
-    fill_in "Contact jobtitle", with: @company.contact_jobtitle
+    fill_in "Job title", with: @company.contact_jobtitle
     fill_in "Contact name", with: @company.contact_name
     fill_in "Contact phone", with: @company.contact_phone
     fill_in "Description", with: @company.description
@@ -77,7 +77,7 @@ class CompaniesTest < ApplicationSystemTestCase
     fill_in "Address", with: @company.address
     fill_in "Background", with: @company.background
     fill_in "Contact email", with: @company.contact_email
-    fill_in "Contact jobtitle", with: @company.contact_jobtitle
+    fill_in "Job title", with: @company.contact_jobtitle
     fill_in "Contact name", with: @company.contact_name
     fill_in "Contact phone", with: @company.contact_phone
     fill_in "Description", with: @company.description

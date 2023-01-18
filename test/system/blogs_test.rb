@@ -13,7 +13,7 @@ class BlogsTest < ApplicationSystemTestCase
 
   test "creating a Blog" do
     visit blogs_url
-    click_on "New Story"
+    click_on "New story"
 
     #fill_in "Blog category", with: @blog.blog_category_id
     fill_in "Blurb", with: @blog.blurb
