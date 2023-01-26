@@ -1,9 +1,10 @@
+
+
 <%= simple_form_for(@company, html: {novalidate: false}) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
-  <div class="form-inputs">
-    <% if current_user.is_admin? %>
+    <div class="form-inputs">
+    <% if user_signed_in? && current_user.is_admin? %>
       <div class="card-admin my-3">
         <h5>Admin only</h5>
         <%= f.input :is_verified %>
@@ -19,7 +20,6 @@
 
       </div>
     <% end %>
-
     <%= f.input :name, required: true %>
     <% if @company.persisted? %>
       <%= f.input :slug, pattern: "^[^./]*$" %>
@@ -85,8 +85,8 @@
           </svg>
         </span>
       </h3>
-
-      <% if current_user.is_admin? %>
+      
+      <% if user_signed_in? && current_user.is_admin? %>
         <!-- Only admins should be allowed to see all users emails -->
         <%# f.association :users, label: false, label_method: :name_and_email, input_html: { 'data-controller': 'select2' } %>
       <% end %>
@@ -159,8 +159,8 @@
     </h3>
 
     <%= f.input :video_link %>
-
-    <% if current_user&.is_admin? ||
+    
+    <% if user_signed_in? && current_user&.is_admin? ||
         current_user&.is_champion_in_region(@company.region_ids) %>
       <div class="card-admin my-4">
         <h5>Admin and champion only</h5>
@@ -208,8 +208,8 @@
                 <div class="col-auto">
                   <%= image_tag(img, class: 'd-block border', style: 'max-width: 100px') %>
                   <%= link_to "Remove", delete_image_attachment_company_url(@company.id, image_id: img.id),
-                     class: 'd-block my-1 text-danger', method: :delete, remote: true,
-                     data: { confirm: 'Are you sure you want to remove this image?' } %>
+                    class: 'd-block my-1 text-danger', method: :delete, remote: true,
+                    data: { confirm: 'Are you sure you want to remove this image?' } %>
                 </div>
               <% end %>
             </div>
@@ -232,7 +232,7 @@
         <%= f.input :photo9 %>
       </div>
     <% end %>
-
+    
     <%= f.button :submit if @company.persisted? %>
     <hr>
 
@@ -246,7 +246,7 @@
     <%= f.association :process_taxonomies, input_html: { 'data-controller': 'select2' } %>
     <%= f.association :finished_products_taxonomies, input_html: { 'data-controller': 'select2' } %>
 
-    <% if current_user&.is_admin? ||
+    <% if user_signed_in? && current_user&.is_admin? ||
         current_user&.is_champion_in_region(@company.region_ids) %>
       <%= f.association :character_tags, input_html: { 'data-controller': 'select2' } %>
     <% end %>
