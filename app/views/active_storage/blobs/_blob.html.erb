@@ -7,10 +7,8 @@
     <% if caption = blob.try(:caption) %>
       <%= caption %>
     <% else %>
-      <!-- hide caption
       <span class="attachment__name"><%= blob.filename %></span>
       <span class="attachment__size"><%= number_to_human_size blob.byte_size %></span>
-      -->
     <% end %>
   </figcaption>
 </figure>

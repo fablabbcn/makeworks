@@ -199,6 +199,8 @@ GEM
       domain_name (~> 0.5)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
+    i18n-debug (1.2.0)
+      i18n (< 2)
     i18n-tasks (0.9.34)
       activesupport (>= 4.0.2)
       ast (>= 2.1.0)
@@ -468,6 +470,7 @@ DEPENDENCIES
   groupdate
   guard
   guard-minitest
+  i18n-debug
   i18n-tasks
   image_processing
   jbuilder (~> 2.7)
