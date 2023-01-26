@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:show, :index, :new, :create]
+  skip_before_action :authenticate_user!, only: [:show, :index]
   before_action :set_company_with_includes, only: [:show]
   before_action :set_company, only: [:edit, :update, :destroy, :edit_employee, :move_employee, :delete_image_attachment]
   before_action :set_user, only: [:edit_employee, :move_employee]
@@ -108,17 +108,11 @@ class CompaniesController < ApplicationController
   # POST /companies
   # POST /companies.json
   def create
-    usr_id = nil
-    
-    if user_signed_in?
-      usr_id = current_user.id  
-    end
-
-    @company = Company.new(company_params.merge(user_id: usr_id))
+    @company = Company.new(company_params.merge(user_id: current_user.id))
 
     respond_to do |format|
       if @company.save
-        format.html { redirect_to @company, notice: t('.created') }
+        format.html { redirect_to @company, notice: 'Company was successfully created. It needs to be verified by an administrator, before it will be visible on the website.' }
         format.json { render :show, status: :created, location: @company }
 
         # We need this so the creator can edit his company

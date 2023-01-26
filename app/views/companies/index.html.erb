@@ -2,13 +2,11 @@
 
   <div class="col-md-3">
     <%= render 'table_filters' %>
-    <hr>
-    <%= link_to 'Suggest manufacturer', new_company_path, class:"btn btn-yellow my-2" %>
   </div>
 
   <div class="col-md-9">
     <section class="row">
-      <% @companies.each do |company| %>
+      <% @companies.shuffle.each do |company| %>
         <article class="col-lg-6 col-xxl-4 mb-3">
 
           <%= render partial: 'companies/company_card', locals: { company: company } %>
