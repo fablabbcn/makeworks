@@ -16,6 +16,7 @@ en:
         one: Manufacturer
         other: Manufacturers
   name: English
+
   # Each of the names below (i.e. application, blog, manufacturers, etc.) are the name of the folders in app/views/
   application:
     company_marked_soft_delete: Listing has been marked for soft deletion.
@@ -42,8 +43,6 @@ en:
     see_all_listings: See all listings in %{region_name}
   # Manufacturers / Companies page
   companies:
-    create:
-      created: Company was successfully created. It needs to be verified by an administrator, before it will be visible on the website.
     address: Address
     type: Type
     category: Category

@@ -118,7 +118,7 @@ class CompaniesController < ApplicationController
 
     respond_to do |format|
       if @company.save
-        format.html { redirect_to @company, notice: t('companies.create.created') }
+        format.html { redirect_to @company, notice: t('.created') }
         format.json { render :show, status: :created, location: @company }
 
         # We need this so the creator can edit his company
