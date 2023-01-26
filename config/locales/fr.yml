@@ -16,8 +16,6 @@ fr:
         one: Fabricant
         other: Fabricants
   name: Français
-
-  # Chaques catégoris ci-dessous (p. ex. application, blog, companies, etc.) are the name of the folders in app/views/
   application:
     company_marked_soft_delete: Listing has been marked for soft deletion.
     company_not_visible_until_verified: Listing will not be visible until it has been verified by either an admin or a region champion.
@@ -42,6 +40,8 @@ fr:
     partners_funders: Partenaires et financeurs
     see_all_listings: Voir tous les fabricants en %{region_name}
   companies:
+    create:
+      created: La société a été créée avec succès. Il doit être vérifié par un administrateur avant d'être visible sur le site Web.
     address: Adresse
     type: Type
     category: Categorie]
