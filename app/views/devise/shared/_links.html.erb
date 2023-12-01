@@ -19,9 +19,13 @@
 <% end %>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-  <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name), class: 'text-danger my-3' %><br />
+  <p class="my-4 text-center">
+  <%= link_to "Didn't receive confirmation instructions?", new_user_confirmation_path(resource_name), class: 'text-danger my-3' %><br />
+  </p>
 <% end %>
 
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+  <p class="my-4 text-center">
   <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name), class: 'btn btn-outline-dark my-3' %><br />
+  </p>
 <% end %>
