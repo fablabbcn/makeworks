@@ -11,6 +11,26 @@ Staging web server:
 - http://staging.make.works/
 - https://staging-makeworks.herokuapp.com/
 
+### Getting started locally
+- Install Ruby 2.7.6 with your version manager of choice:
+  `asdf install ruby 2.7.6; asdf local ruby 2.7.6` for asdf
+- Install bundled gems:
+  `bundle install`
+- Setup the database:
+  `bundle exec rake db:create && bundle exec rake db:schema:load`
+- Install Node 14.21.2:
+  `nvm install 14.21.2; nvm use 14.21.2` for nvm
+- Install Yarn dependencies:
+  `yarn install --check-files`
+- Ensure ActionText is installed:
+  `bundle exec rails action_text install`
+- Install chromedriver for system tests:
+  `brew install chromedriver` for homebrew on Mac OS X
+- Run tests and check they pass:
+  `bundle exec rails test && bundle exec rails test:system`
+- Run the development server:
+  `bundle exec rails server`
+
 ### Development
 
 * Run tests with `rails test`
