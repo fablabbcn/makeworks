@@ -6,6 +6,7 @@ class SignUpTest < ApplicationSystemTestCase
     @user.password = "password123"
     @user.password_confirmation = "password123"
     @user.save!
+    logout
   end
 
   test "Confirmed user logs in" do
