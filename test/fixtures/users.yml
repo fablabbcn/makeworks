@@ -3,9 +3,10 @@
 one:
   m_id: MyString
   email: admin@admin.com
-  first_name: Admin
+  first_name: Administrator
   last_name: Adminson
   is_admin: true
+  confirmed_at: 2023-12-01T14:00:00Z
 
 two:
   m_id: MyString
@@ -13,3 +14,4 @@ two:
   first_name: normal
   last_name: normalson
   is_admin: false
+  confirmed_at: 2023-12-01T14:00:00Z

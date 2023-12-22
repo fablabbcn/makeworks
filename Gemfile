@@ -19,6 +19,7 @@ gem 'friendly_id', '~> 5.3.0' # 5.4.0 has a breaking change! https://github.com/
 gem 'geocoder'
 gem 'groupdate'
 gem 'image_processing'
+gem 'invisible_captcha', '~> 2.1'
 gem 'mailgun-ruby'
 gem 'mini_magick'
 gem 'omniauth-fablabs', github: 'academany/omniauth-fablabs'
