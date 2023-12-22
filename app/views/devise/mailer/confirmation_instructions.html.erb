@@ -1,5 +1,7 @@
-<p>Welcome <%= @email %>!</p>
+<p>Welcome to Make Works, <%= @email %>!</p>
 
-<p>You can confirm your account email through the link below:</p>
+<p>You recently signed up for Make Works, the global library for local manufacturing, where you can search by material, process or by factory name to find someone to help you bring your ideas to life.</p>
+
+<p>To get started, please  click the link below to confirm your account!</p>
 
 <p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
