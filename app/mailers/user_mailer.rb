@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-	default from: 'MakeWorks <noreply@mg.make.works>'
+	default from: 'MakeWorks <noreply@mg2.make.works>'
 
   def welcome_email(user)
 	  @user = user
