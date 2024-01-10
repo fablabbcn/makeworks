@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   def index
     @q = User
       .includes(avatar_attachment: :blob)
-      .ransack(params[:q])
+      .ransack(params[:q], {auth_object: :api})
     @users = @q.result(distinct: true).page(params[:page])
   end
 

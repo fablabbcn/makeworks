@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  include Discard::Model
+  default_scope { kept }
+
   devise :database_authenticatable, :registerable,
          :invitable, :confirmable,
          :recoverable, :rememberable, :validatable,
@@ -31,7 +34,11 @@ class User < ApplicationRecord
   # The /users.json endpoint is using Ransack.
   # Only allow to search for name, not email.
   def self.ransackable_attributes(auth_object = nil)
-    super & %w(first_name last_name slug)
+    if auth_object == :api
+      super & %w(first_name last_name slug)
+    else
+      super
+    end
   end
 
   def to_s
