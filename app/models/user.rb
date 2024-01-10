@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  include Discard::Model
+  default_scope { kept }
+
   devise :database_authenticatable, :registerable,
          :invitable, :confirmable,
          :recoverable, :rememberable, :validatable,
