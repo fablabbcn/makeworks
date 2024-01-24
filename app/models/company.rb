@@ -1,4 +1,7 @@
 class Company < ApplicationRecord
+  include Discard::Model
+  default_scope { kept }
+
   belongs_to :user, optional: true # The user who created /submitted the company
 
   has_many :employees, dependent: :destroy
