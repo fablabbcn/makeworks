@@ -16,6 +16,10 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
+    unless params[:format] == 'json' || request.headers["Accept"] =~ /json/
+      redirect_to "/"
+      return
+    end
     @q = User
       .includes(avatar_attachment: :blob)
       .ransack(params[:q], {auth_object: :api})
