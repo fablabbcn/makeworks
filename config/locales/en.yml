@@ -77,7 +77,9 @@ en:
       machines: Machines
       products: Products
       processes: Processes
-      showing: Showing
+      results: results
+      more_filters: More filter options
+      hide_filters: Hide filter options
   shared:
     a_global_library: a global library for local manufacturing
     about: About
@@ -242,7 +244,7 @@ en:
       user:
         is_admin: Administrator
     placeholders:
-      company: 
+      company:
     helpers:
       submit:
         user: Fuck
