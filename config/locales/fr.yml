@@ -78,7 +78,9 @@ fr:
       machines: Machines
       products: Produits
       processes: Processus
-      showing: Résultats
+      results: résultats
+      more_filters: Plus d'options de filtrage
+      hide_filters: Masquer les options de filtrage
   shared:
     a_global_library: une bibliothèque mondiale pour la fabrication locale
     about: À propos
@@ -252,12 +254,12 @@ fr:
       region:
         slug: Nom raccourci
     placeholders:
-      company: 
+      company:
   user:
     first_name: Prénom
     last_name: Nom de famille
     biography: Biographie
-  
+
   # For Navbar (it actually pulls it from shared: further above)
   navbar:
     manufacturers: Fabricanats
@@ -279,7 +281,7 @@ fr:
       taxonomies: Taxonomies
       media: Media
       log_out: Log out
-  
+
   footer:
     about: About
     contact_us: Contact us
@@ -292,7 +294,7 @@ fr:
     stories: Stories
     all_regions: All regions
     all_manufacturers: All manufacturers
-    roulette: Roulette  
+    roulette: Roulette
   helpers:
     submit:
       companies:
