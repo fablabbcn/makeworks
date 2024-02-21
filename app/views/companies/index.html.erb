@@ -2,22 +2,6 @@
 
   <div class="col-md-12">
     <%= render 'table_filters' %>
-    <section class="row">
-      <% @companies.shuffle.each do |company| %>
-        <article class="col-lg-6 col-xxl-4 mb-3">
-
-          <%= render partial: 'companies/company_card', locals: { company: company } %>
-
-        </article>
-      <% end %>
-
-      <% if @companies.blank? %>
-        <p class="text-center mt-5"><%= t('shared.search_nothing_found') %></p>
-      <% end %>
-    </section>
-
-    <div class="d-flex justify-content-center">
-      <%= paginate @companies %>
-    </div>
+    <%= render 'search_results' %>
   </div>
 </div>

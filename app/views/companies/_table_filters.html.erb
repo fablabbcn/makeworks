@@ -1,6 +1,6 @@
 <% content_for(:title, t('shared.companies')) %>
 
-<%= search_form_for @q, class: 'pt-3 mx-auto', html: { :'data-controller' => 'companies-search-form' } do |f| %>
+<%= search_form_for @q, class: 'pt-3 mx-auto', html: { :'data-controller' => 'companies-search-form', data: { turbo_frame: "search_results" } } do |f| %>
   <h2 class="mb-3 mb-md-4">
     <%= t('shared.explore_all') %>
   </h2>

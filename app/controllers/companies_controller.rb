@@ -69,6 +69,11 @@ class CompaniesController < ApplicationController
       .ransack(params[:q])
 
     @companies = @q.result(distinct: true).page(params[:page])
+    if turbo_frame_request?
+      render partial: "search_results"
+    else
+      render "index"
+    end
   end
 
   # GET /companies/1
