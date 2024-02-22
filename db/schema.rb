@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_01_24_180242) do
-
+ActiveRecord::Schema[7.0].define(version: 2024_02_22_070540) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,8 +19,8 @@ ActiveRecord::Schema.define(version: 2024_01_24_180242) do
     t.text "body"
     t.string "record_type", null: false
     t.bigint "record_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
   end
 
@@ -32,8 +31,8 @@ ActiveRecord::Schema.define(version: 2024_01_24_180242) do
     t.bigint "resource_id"
     t.string "author_type"
     t.bigint "author_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
@@ -44,7 +43,7 @@ ActiveRecord::Schema.define(version: 2024_01_24_180242) do
     t.string "record_type", null: false
     t.bigint "record_id", null: false
     t.bigint "blob_id", null: false
-    t.datetime "created_at", null: false
+    t.datetime "created_at", precision: nil, null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
@@ -55,8 +54,8 @@ ActiveRecord::Schema.define(version: 2024_01_24_180242) do
     t.string "content_type"
     t.text "metadata"
     t.bigint "byte_size", null: false
-    t.string "checksum", null: false
-    t.datetime "created_at", null: false
+    t.string "checksum"
+    t.datetime "created_at", precision: nil, null: false
     t.string "service_name", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
@@ -70,15 +69,15 @@ ActiveRecord::Schema.define(version: 2024_01_24_180242) do
   create_table "blog_categories", force: :cascade do |t|
     t.string "m_id"
     t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "blog_tags", force: :cascade do |t|
     t.bigint "blog_id", null: false
     t.bigint "blog_category_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["blog_category_id"], name: "index_blog_tags_on_blog_category_id"
     t.index ["blog_id"], name: "index_blog_tags_on_blog_id"
   end
@@ -94,8 +93,8 @@ ActiveRecord::Schema.define(version: 2024_01_24_180242) do
     t.string "slug"
     t.string "sub_title"
     t.string "title"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.string "words_by_author"
     t.index ["medium_id"], name: "index_blogs_on_medium_id"
@@ -106,8 +105,8 @@ ActiveRecord::Schema.define(version: 2024_01_24_180242) do
   create_table "character_taggings", force: :cascade do |t|
     t.bigint "character_tag_id", null: false
     t.bigint "company_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["character_tag_id"], name: "index_character_taggings_on_character_tag_id"
     t.index ["company_id"], name: "index_character_taggings_on_company_id"
   end
@@ -115,8 +114,8 @@ ActiveRecord::Schema.define(version: 2024_01_24_180242) do
   create_table "character_tags", force: :cascade do |t|
     t.string "name"
     t.boolean "is_promoted"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "companies", force: :cascade do |t|
@@ -166,8 +165,8 @@ ActiveRecord::Schema.define(version: 2024_01_24_180242) do
     t.string "youtube"
     t.integer "year_founded"
     t.boolean "film_ready"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.boolean "been_visited"
     t.boolean "bespoke_one_offs"
     t.boolean "works_with_general_public"
@@ -182,7 +181,7 @@ ActiveRecord::Schema.define(version: 2024_01_24_180242) do
     t.bigint "user_id"
     t.string "slug"
     t.string "country_code"
-    t.datetime "discarded_at"
+    t.datetime "discarded_at", precision: nil
     t.index ["discarded_at"], name: "index_companies_on_discarded_at"
     t.index ["slug"], name: "index_companies_on_slug", unique: true
     t.index ["user_id"], name: "index_companies_on_user_id"
@@ -191,8 +190,8 @@ ActiveRecord::Schema.define(version: 2024_01_24_180242) do
   create_table "company_organizations", force: :cascade do |t|
     t.bigint "region_id", null: false
     t.bigint "company_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_company_organizations_on_company_id"
     t.index ["region_id"], name: "index_company_organizations_on_region_id"
   end
@@ -200,8 +199,8 @@ ActiveRecord::Schema.define(version: 2024_01_24_180242) do
   create_table "company_processes", force: :cascade do |t|
     t.bigint "company_id", null: false
     t.bigint "process_taxonomy_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_company_processes_on_company_id"
     t.index ["process_taxonomy_id"], name: "index_company_processes_on_process_taxonomy_id"
   end
@@ -209,8 +208,8 @@ ActiveRecord::Schema.define(version: 2024_01_24_180242) do
   create_table "company_production_accesses", force: :cascade do |t|
     t.bigint "company_id", null: false
     t.bigint "production_access_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_company_production_accesses_on_company_id"
     t.index ["production_access_id"], name: "index_company_production_accesses_on_production_access_id"
   end
@@ -220,8 +219,8 @@ ActiveRecord::Schema.define(version: 2024_01_24_180242) do
     t.bigint "company_id", null: false
     t.integer "role"
     t.string "title"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "position"
     t.index ["company_id"], name: "index_employees_on_company_id"
     t.index ["user_id"], name: "index_employees_on_user_id"
@@ -232,8 +231,8 @@ ActiveRecord::Schema.define(version: 2024_01_24_180242) do
     t.boolean "is_favorite"
     t.bigint "company_id", null: false
     t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_favorite_companies_on_company_id"
     t.index ["user_id"], name: "index_favorite_companies_on_user_id"
   end
@@ -241,8 +240,8 @@ ActiveRecord::Schema.define(version: 2024_01_24_180242) do
   create_table "finished_products", force: :cascade do |t|
     t.bigint "company_id", null: false
     t.bigint "finished_products_taxonomy_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_finished_products_on_company_id"
     t.index ["finished_products_taxonomy_id"], name: "index_finished_products_on_finished_products_taxonomy_id"
   end
@@ -251,8 +250,8 @@ ActiveRecord::Schema.define(version: 2024_01_24_180242) do
     t.string "m_id"
     t.string "name"
     t.bigint "parent_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "slug"
     t.index ["parent_id"], name: "index_finished_products_taxonomies_on_parent_id"
     t.index ["slug"], name: "index_finished_products_taxonomies_on_slug", unique: true
@@ -261,8 +260,8 @@ ActiveRecord::Schema.define(version: 2024_01_24_180242) do
   create_table "industries", force: :cascade do |t|
     t.bigint "company_id", null: false
     t.bigint "industry_taxonomy_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_industries_on_company_id"
     t.index ["industry_taxonomy_id"], name: "index_industries_on_industry_taxonomy_id"
   end
@@ -271,8 +270,8 @@ ActiveRecord::Schema.define(version: 2024_01_24_180242) do
     t.string "m_id"
     t.string "name"
     t.bigint "parent_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "slug"
     t.index ["parent_id"], name: "index_industry_taxonomies_on_parent_id"
     t.index ["slug"], name: "index_industry_taxonomies_on_slug", unique: true
@@ -281,8 +280,8 @@ ActiveRecord::Schema.define(version: 2024_01_24_180242) do
   create_table "machines", force: :cascade do |t|
     t.bigint "company_id", null: false
     t.bigint "machines_taxonomy_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_machines_on_company_id"
     t.index ["machines_taxonomy_id"], name: "index_machines_on_machines_taxonomy_id"
   end
@@ -291,8 +290,8 @@ ActiveRecord::Schema.define(version: 2024_01_24_180242) do
     t.string "m_id"
     t.string "name"
     t.bigint "parent_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "slug"
     t.index ["parent_id"], name: "index_machines_taxonomies_on_parent_id"
     t.index ["slug"], name: "index_machines_taxonomies_on_slug", unique: true
@@ -302,8 +301,8 @@ ActiveRecord::Schema.define(version: 2024_01_24_180242) do
     t.string "m_id"
     t.string "name"
     t.bigint "parent_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "slug"
     t.index ["parent_id"], name: "index_manufacturer_taxonomies_on_parent_id"
     t.index ["slug"], name: "index_manufacturer_taxonomies_on_slug", unique: true
@@ -312,8 +311,8 @@ ActiveRecord::Schema.define(version: 2024_01_24_180242) do
   create_table "manufacturers", force: :cascade do |t|
     t.bigint "company_id", null: false
     t.bigint "manufacturer_taxonomy_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_manufacturers_on_company_id"
     t.index ["manufacturer_taxonomy_id"], name: "index_manufacturers_on_manufacturer_taxonomy_id"
   end
@@ -321,8 +320,8 @@ ActiveRecord::Schema.define(version: 2024_01_24_180242) do
   create_table "material_tags", force: :cascade do |t|
     t.bigint "company_id", null: false
     t.bigint "material_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_material_tags_on_company_id"
     t.index ["material_id"], name: "index_material_tags_on_material_id"
   end
@@ -331,8 +330,8 @@ ActiveRecord::Schema.define(version: 2024_01_24_180242) do
     t.string "m_id"
     t.string "name"
     t.bigint "parent_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "slug"
     t.index ["parent_id"], name: "index_materials_on_parent_id"
     t.index ["slug"], name: "index_materials_on_slug", unique: true
@@ -344,8 +343,8 @@ ActiveRecord::Schema.define(version: 2024_01_24_180242) do
     t.string "thumbnail_url"
     t.string "web_url"
     t.string "hi_res"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_media_on_company_id"
   end
 
@@ -353,8 +352,8 @@ ActiveRecord::Schema.define(version: 2024_01_24_180242) do
     t.string "m_id"
     t.string "name"
     t.bigint "parent_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "slug"
     t.index ["parent_id"], name: "index_process_taxonomies_on_parent_id"
     t.index ["slug"], name: "index_process_taxonomies_on_slug", unique: true
@@ -363,8 +362,8 @@ ActiveRecord::Schema.define(version: 2024_01_24_180242) do
   create_table "production_accesses", force: :cascade do |t|
     t.string "name"
     t.integer "position"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "regions", force: :cascade do |t|
@@ -373,8 +372,8 @@ ActiveRecord::Schema.define(version: 2024_01_24_180242) do
     t.boolean "can_signup"
     t.boolean "is_public"
     t.string "logo"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.float "lat"
     t.float "lng"
     t.string "slug"
@@ -386,8 +385,8 @@ ActiveRecord::Schema.define(version: 2024_01_24_180242) do
     t.string "taxonomy"
     t.string "name"
     t.bigint "parent_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["parent_id"], name: "index_taxonomies_on_parent_id"
   end
 
@@ -395,8 +394,8 @@ ActiveRecord::Schema.define(version: 2024_01_24_180242) do
     t.bigint "user_id", null: false
     t.bigint "region_id", null: false
     t.boolean "is_champion"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["region_id"], name: "index_user_regions_on_region_id"
     t.index ["user_id"], name: "index_user_regions_on_user_id"
   end
@@ -407,35 +406,35 @@ ActiveRecord::Schema.define(version: 2024_01_24_180242) do
     t.string "first_name"
     t.string "last_name"
     t.boolean "is_admin"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
+    t.datetime "reset_password_sent_at", precision: nil
+    t.datetime "remember_created_at", precision: nil
     t.string "provider"
     t.string "uid"
     t.string "slug"
     t.string "locale"
     t.string "time_zone", default: "UTC"
     t.integer "sign_in_count", default: 0, null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
+    t.datetime "current_sign_in_at", precision: nil
+    t.datetime "last_sign_in_at", precision: nil
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
     t.string "invitation_token"
-    t.datetime "invitation_created_at"
-    t.datetime "invitation_sent_at"
-    t.datetime "invitation_accepted_at"
+    t.datetime "invitation_created_at", precision: nil
+    t.datetime "invitation_sent_at", precision: nil
+    t.datetime "invitation_accepted_at", precision: nil
     t.integer "invitation_limit"
     t.string "invited_by_type"
     t.bigint "invited_by_id"
     t.integer "invitations_count", default: 0
     t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
+    t.datetime "confirmed_at", precision: nil
+    t.datetime "confirmation_sent_at", precision: nil
     t.string "unconfirmed_email"
-    t.datetime "discarded_at"
+    t.datetime "discarded_at", precision: nil
     t.index ["discarded_at"], name: "index_users_on_discarded_at"
     t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true
     t.index ["invitations_count"], name: "index_users_on_invitations_count"
