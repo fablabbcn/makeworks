@@ -1,6 +1,6 @@
 <% content_for(:title, t('shared.companies')) %>
 
-<%= search_form_for @q, class: 'pt-3 mx-auto', html: { :'data-controller' => 'companies-search-form', data: { turbo_frame: "search_results" } } do |f| %>
+<%= search_form_for @q, class: 'pt-3 mx-auto', html: { :'data-controller' => 'companies-search-form', data: { turbo_frame: "search_results", turbo_action: "advance" } } do |f| %>
   <h2 class="mb-3 mb-md-4">
     <%= t('shared.explore_all') %>
   </h2>
@@ -12,7 +12,8 @@
         class: 'form-control',
         title: t('companies.filters.search'),
         style: "border-top-left-radius: 20px; border-bottom-left-radius: 20px",
-        placeholder: t('companies.filters.search')
+        placeholder: t('companies.filters.search'),
+        data: { action: "input->companies-search-form#searchWithTimeout" }
       %>
       <button class="btn btn-dark" type="submit" >
         <i class="bi bi-search"></i>
@@ -27,7 +28,8 @@
         <%= f.select :regions_id_in,
           Region.where(is_public: true).pluck(:name, :id),
           { include_blank: t('companies.filters.all_regions') },
-          { class: '', multiple: true, 'data-controller': 'select2' }
+          { class: '', multiple: true, 'data-controller': 'select2',
+           data: { action: "change->companies-search-form#search" } }
         %>
       </div>
     </div>
@@ -37,7 +39,8 @@
         <%= f.select :industry_taxonomies_id_in,
           IndustryTaxonomy.pluck(:name, :id),
           { include_blank: t('companies.filters.all_industries') },
-          { class: '', multiple: true, 'data-controller': 'select2' }
+          { class: '', multiple: true, 'data-controller': 'select2',
+          data: { action: "change->companies-search-form#search" } }
         %>
       </div>
     </div>
@@ -47,7 +50,8 @@
         <%= f.select :materials_id_in,
           Material.pluck(:name, :id),
           { include_blank: t('companies.filters.all_materials') },
-          { class: '', multiple: true, 'data-controller': 'select2' }
+          { class: '', multiple: true, 'data-controller': 'select2',
+          data: { action: "change->companies-search-form#search" } }
         %>
       </div>
     </div>
@@ -57,7 +61,8 @@
         <%= f.select :machines_taxonomies_id_in,
           MachinesTaxonomy.pluck(:name, :id),
           { include_blank: t('companies.filters.all_machines') },
-          { class: '', multiple: true, 'data-controller': 'select2-machines' }
+          { class: '', multiple: true, 'data-controller': 'select2',
+          data: { action: "change->companies-search-form#search" } }
         %>
       </div>
     </div>
@@ -69,7 +74,8 @@
         <%= f.select :process_taxonomies_id_in,
           ProcessTaxonomy.pluck(:name, :id),
           { include_blank: t('companies.filters.all_processes') },
-          { class: '', 'data-controller': 'select2', multiple: true }
+          { class: '', 'data-controller': 'select2', multiple: true,
+          data: { action: "change->companies-search-form#search" } }
         %>
       </div>
     </div>
@@ -79,7 +85,8 @@
         <%= f.select :finished_products_taxonomies_id_in,
           FinishedProductsTaxonomy.pluck(:name, :id),
           { include_blank: t('companies.filters.all_products') },
-          { class: '', 'data-controller': 'select2', multiple: true }
+          { class: '', 'data-controller': 'select2', multiple: true,
+          data: { action: "change->companies-search-form#search" } }
         %>
       </div>
     </div>
@@ -89,7 +96,8 @@
         <%= f.select :character_tags_id_in,
           CharacterTag.pluck(:name, :id),
           { include_blank: t('companies.filters.all_char_tags') },
-          { class: '', 'data-controller': 'select2', multiple: true }
+          { class: '', 'data-controller': 'select2', multiple: true,
+          data: { action: "change->companies-search-form#search" } }
         %>
       </div>
     </div>
@@ -102,8 +110,9 @@
     <div class="d-flex justify-content-between">
       <p class="d-md-none" data-companies-search-form-target="showOptionsLink"><a href="#" data-action="click->companies-search-form#show"><%= t('companies.filters.more_filters') %></a></p>
       <p class="d-none d-md-none" data-companies-search-form-target="hideOptionsLink"><a href="#" data-action="click->companies-search-form#hide"><%= t('companies.filters.hide_filters') %></a></p>
-      <p class="text-muted"><%= @q.result.count  %> <%= t('companies.filters.results') %></p>
-      <%= link_to t('companies.filters.clear_all'), companies_url %>
+      <p class="ms-auto">
+       <%= link_to t('companies.filters.clear_all'), companies_url %>
+      </p>
     </div>
   </div>
 <% end %>

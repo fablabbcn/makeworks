@@ -2,6 +2,17 @@ import { Controller } from "stimulus";
 export default class extends Controller {
   static targets = ["showOptionsLink", "hideOptionsLink", "filterOptions"];
 
+  search() {
+    this.element.requestSubmit();
+  }
+
+  searchWithTimeout() {
+    clearTimeout(this.timeout);
+    this.timeout = setTimeout(() => {
+      this.search();
+    }, 200);
+  }
+
   show(event) {
     event.preventDefault();
     event.stopImmediatePropagation();
