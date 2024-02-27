@@ -1,0 +1,22 @@
+<%= turbo_frame_tag "search_results" do %>
+  <div class="row mt-3">
+    <h3 class="mt-2"><%= @q.result.count  %> <%= t('companies.filters.results') %></h3>
+  </div>
+  <section class="row">
+    <% @companies.shuffle.each do |company| %>
+      <article class="col-lg-6 col-xxl-4 mb-3">
+
+        <%= render partial: 'companies/company_card', locals: { company: company } %>
+
+      </article>
+    <% end %>
+
+    <% if @companies.blank? %>
+      <p class="text-center mt-5"><%= t('shared.search_nothing_found') %></p>
+    <% end %>
+  </section>
+
+  <div class="d-flex justify-content-center">
+    <%= paginate @companies %>
+  </div>
+<% end %>

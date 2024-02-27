@@ -8,8 +8,10 @@ class SignUpTest < ApplicationSystemTestCase
     fill_in "Email", with: "user@example.com"
     fill_in "Password", with: "password123", match: :prefer_exact
     fill_in "Password confirmation", with: "password123"
-    sleep 4 # The invisible_captcha bot protection will kick in if this is too quick
+
     click_on "Get Started"
+
+    assert_text "A message with a confirmation link has been sent to your email address."
 
     user = User.last
     assert_equal user.email, "user@example.com"
