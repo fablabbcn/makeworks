@@ -17,7 +17,7 @@ jobs:
           compose-file: "./compose.yml"
           down-flags: "--volumes"
           test-container: app
-          test-command: "rake db:test:create && rake test && rake test:system"
+          test-command: "/app/ci.sh"
       - name: Deploy to staging Heroku
         env:
           HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_TOKEN }}
