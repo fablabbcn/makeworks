@@ -12,8 +12,8 @@ gem "acts_as_list", "~> 1.0"
 gem 'chartkick'
 gem 'countries'
 gem 'country_select'
-gem "devise", "~> 4.7"
-gem "devise_invitable", "~> 2"
+gem "devise", "~> 4.9"
+gem "devise_invitable", "~> 2.0.9"
 gem "devise-i18n"
 gem 'discard', '~> 1.2'
 gem 'friendly_id', '~> 5.3.0' # 5.4.0 has a breaking change! https://github.com/norman/friendly_id/pull/787
@@ -54,7 +54,7 @@ gem 'redis', '~> 4.0'
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.4.2', require: false
+gem 'bootsnap', '>= 1.18.4', require: false
 
 
 gem "uri", "0.13.0"
