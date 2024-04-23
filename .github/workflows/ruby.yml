@@ -10,62 +10,17 @@ jobs:
   build:
     name: Build and test
     runs-on: ubuntu-latest
-
-    services:
-      postgres:
-        image: postgres:10
-        env:
-          POSTGRES_DB: postgres
-          POSTGRES_PASSWORD: postgres
-          POSTGRES_USER: postgres
-        ports:
-          - 5432:5432
-
     steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
-
-    - name: Show available Ruby versions, debug info
-      run: |
-        ls $RUNNER_TOOL_CACHE/Ruby
-        uname -a
-        cat /etc/os-release
-
-    - uses: actions/setup-node@v2
-      with:
-        node-version: '14'
-
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        bundler-cache: true
-
-    - name: Install dependencies
-      run: |
-        which yarn
-        which npm
-        yarn install --check-files
-
-    - name: Run tests
-      run: |
-        bundle exec rails db:create
-        bundle exec rails db:schema:load
-        bundle exec rake
-        bundle exec rails test:system
-      env:
-        SYSTEM_TEST: headless_firefox
-        #SYSTEM_TEST: headless_chrome
-        RAILS_ENV: test
-        TEST_DB_HOST: localhost
-        TEST_DB_NAME: postgres
-        TEST_DB_PASSWORD: postgres
-        TEST_DB_USERNAME: postgres
-        PG_PORT: ${{ job.services.postgres.ports['5432'] }}
-
-    - name: Deploy to staging Heroku
-      env:
-        HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_TOKEN }}
-        HEROKU_APP_NAME: 'staging-makeworks'
-      if: github.ref == 'refs/heads/master' && job.status == 'success'
-      run: git push https://heroku:$HEROKU_API_TOKEN@git.heroku.com/$HEROKU_APP_NAME.git origin/master:master --force
+      - uses: actions/checkout@v3
+      - uses: adambirds/docker-compose-action@v1.3.0
+        with:
+          compose-file: "./compose.yml"
+          down-flags: "--volumes"
+          test-container: app
+          test-command: "rake db:test:create && rake test && rake test:system"
+      - name: Deploy to staging Heroku
+        env:
+          HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_TOKEN }}
+          HEROKU_APP_NAME: 'staging-makeworks'
+        if: github.ref == 'refs/heads/master' && job.status == 'success'
+        run: git push https://heroku:$HEROKU_API_TOKEN@git.heroku.com/$HEROKU_APP_NAME.git origin/master:master --force
