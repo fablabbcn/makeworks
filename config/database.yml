@@ -11,6 +11,9 @@ default: &default
 
 development:
   <<: *default
+  host: db
+  username: postgres
+  password: postgres
   database: makeworks_dev
 
 # Warning: The database defined as "test" will be erased and
@@ -19,9 +22,9 @@ development:
 test:
   <<: *default
   database: <%= ENV['TEST_DB_NAME'] || 'makeworks_test' %>
-  host: <%= ENV['TEST_DB_HOST'] %>
-  username: <%= ENV['TEST_DB_USERNAME'] %>
-  password: <%= ENV['TEST_DB_PASSWORD'] %>
+  host: <%= ENV['TEST_DB_HOST'] || 'db' %>
+  username: <%= ENV['TEST_DB_USERNAME'] || 'postgres' %>
+  password: <%= ENV['TEST_DB_PASSWORD'] || 'postgres' %>
 
 production:
   <<: *default

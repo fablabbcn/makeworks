@@ -1,0 +1,26 @@
+services:
+  db:
+    image: postgres
+    volumes:
+      - mw-postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: postgres
+  app:
+    build: .
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    environment:
+      CHROME_SERVER_HOST: chrome-server
+    depends_on:
+      - db
+      - chrome-server
+  chrome-server:
+    image: selenium/standalone-chrome:96.0
+    ports:
+      - "7900:7900"
+      - "4444:4444"
+volumes:
+    mw-postgres:
+
