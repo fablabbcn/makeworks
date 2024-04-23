@@ -5,6 +5,8 @@ class Region < ApplicationRecord
   has_many :company_organization, dependent: :destroy
   has_many :companies, through: :company_organization
 
+  has_many :aliases, class_name: "RegionAlias", inverse_of: :region
+
   default_scope { order(name: :asc) }
   scope :is_public, -> { where(is_public: true) }
 
@@ -17,6 +19,8 @@ class Region < ApplicationRecord
   has_rich_text :about_text
   has_rich_text :partner_text
   has_many_attached :partner_logos
+
+  accepts_nested_attributes_for :aliases, allow_destroy: true
 
   def champions
     UserRegion.where(region: self, is_champion: true)

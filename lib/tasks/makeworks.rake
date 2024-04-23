@@ -27,4 +27,41 @@ namespace :makeworks do
         end
     end
   end
+
+  DEFAULT_ALIASES = {
+    "Make Works UAE": [
+      "Make Works United Arab Emirates",
+    ],
+    "Make Works Vienna": [
+      "Make Works Wien"
+    ],
+    "Make Works Catalonia": [
+      "Make Works Cataluña",
+      "Make Works Catalunya"
+    ],
+    "Make Works Iceland": [
+      "Make Works Ísland"
+    ],
+    "Make Works Kingston NY": [
+      "Make Works Kingston New York"
+    ],
+    "Make Works Sweden": [
+      "Make Works Sverige"
+    ]
+  }
+
+  desc "Add some common region aliases"
+  task create_region_aliases: :environment do
+    DEFAULT_ALIASES.each do |region_name, aliases|
+      region = Region.find_by(name: region_name)
+      unless region
+        puts "Region with name '#{region_name}' not found, skipping..."
+        next
+      end
+
+      aliases.each do |alias_name|
+        region.aliases.find_or_create_by(alias: alias_name)
+      end
+    end
+  end
 end

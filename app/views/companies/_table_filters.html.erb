@@ -26,7 +26,7 @@
       <div class="mt-2">
         <label><%= t('shared.regions') %></label>
         <%= f.select :regions_id_in,
-          Region.where(is_public: true).pluck(:name, :id),
+          Region.includes(:aliases).where(is_public: true).map { |r| [r.name, r.id, {"data-aliases": r.aliases.map(&:alias).join(",")}]},
           { include_blank: t('companies.filters.all_regions') },
           { class: '', multiple: true, 'data-controller': 'select2',
            data: { action: "change->companies-search-form#search" } }
