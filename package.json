@@ -7,7 +7,7 @@
     "@babel/plugin-proposal-optional-chaining": "^7.21.0",
     "@hotwired/turbo-rails": "^8.0.3",
     "@rails/actioncable": "~7.0",
-    "@rails/actiontext": "~7.0",
+    "@rails/actiontext": "^7.2.100",
     "@rails/activestorage": "~7.0",
     "@rails/ujs": "~7.0",
     "@rails/webpacker": "~5.4",
@@ -16,7 +16,7 @@
     "chartkick": "^4.0.4",
     "sortablejs": "^1.13.0",
     "stimulus": "^2.0.0",
-    "trix": "^1.2.0",
+    "trix": "^2.1.5",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
@@ -24,6 +24,6 @@
     "webpack-dev-server": "^3.11.2"
   },
   "engines": {
-    "node": "14.21.3"
+    "node": "18.19.0"
   }
 }
