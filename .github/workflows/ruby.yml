@@ -16,4 +16,4 @@ jobs:
         with:
           file: "./compose.yml"
           service: app
-          command: "./ci.sh"
+          command: "bash --login -c -e \"/app/ci.sh\""

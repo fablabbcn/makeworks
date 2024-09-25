@@ -1,17 +1,23 @@
 FROM ruby:3.1.6
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev postgresql-client software-properties-common
 
-RUN curl -sL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add -
+SHELL ["/bin/bash", "--login", "-i", "-c"]
 
-RUN add-apt-repository "deb https://deb.nodesource.com/node_14.x $(lsb_release -sc) main"
-
-RUN apt-get update -qq && apt-get install -y nodejs npm
-
-RUN npm install -g yarn
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 
 RUN mkdir /app
 
+COPY .nvmrc /app/.nvmrc
+
 WORKDIR /app
+
+SHELL ["/bin/bash", "--login", "-c"]
+
+RUN nvm install
+
+SHELL ["/bin/bash", "--login", "-c"]
+
+RUN npm install -g yarn
 
 COPY .ruby-version /app/.ruby-version
 COPY Gemfile /app/Gemfile
