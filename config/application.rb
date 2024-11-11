@@ -30,5 +30,6 @@ module Makeworks
     config.i18n.available_locales = [:en, :es, :fr, :is, :it]
     config.i18n.default_locale = :en
     config.i18n.fallbacks = [:en]
+    config.active_storage.service_urls_expire_in = 30.minutes
   end
 end
